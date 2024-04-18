@@ -151,6 +151,7 @@
             // clearBTN
             // 
             this.clearBTN.BackColor = System.Drawing.Color.White;
+            this.clearBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clearBTN.FlatAppearance.BorderSize = 0;
             this.clearBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
             this.clearBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
@@ -166,6 +167,7 @@
             // submitBTN
             // 
             this.submitBTN.BackColor = System.Drawing.Color.White;
+            this.submitBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.submitBTN.FlatAppearance.BorderSize = 0;
             this.submitBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
             this.submitBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));

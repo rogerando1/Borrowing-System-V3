@@ -126,6 +126,7 @@ namespace Borrowing_System
 
         private void inventoryBTN_Click(object sender, EventArgs e)
         {
+            loadform(new Inventory_Staff());
             staffFormPanel.Visible = true;
             homeBTN.BackColor = Color.FromArgb(233, 215, 174);
             homeBTN.ForeColor = Color.FromArgb(84, 84, 84);
@@ -143,6 +144,7 @@ namespace Borrowing_System
 
         private void logsBTN_Click(object sender, EventArgs e)
         {
+            loadform(new TransactionPage());
             staffFormPanel.Visible = true;
             homeBTN.BackColor = Color.FromArgb(233, 215, 174);
             homeBTN.ForeColor = Color.FromArgb(84, 84, 84);        
@@ -160,6 +162,7 @@ namespace Borrowing_System
 
         private void settingsBTN_Click(object sender, EventArgs e)
         {
+            loadform(new Settings());
             staffFormPanel.Visible = true;          
             homeBTN.BackColor = Color.FromArgb(233, 215, 174);
             homeBTN.ForeColor = Color.FromArgb(84, 84, 84);

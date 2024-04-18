@@ -52,6 +52,18 @@
     <Compile Include="DashboardPage.Designer.cs">
       <DependentUpon>DashboardPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventory-Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory-Admin.Designer.cs">
+      <DependentUpon>Inventory-Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory-Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory-Staff.Designer.cs">
+      <DependentUpon>Inventory-Staff.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,11 +72,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <Compile Include="StaffPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StaffPage.Designer.cs">
       <DependentUpon>StaffPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionLogsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransactionLogsPage.Designer.cs">
+      <DependentUpon>TransactionLogsPage.cs</DependentUpon>
     </Compile>
     <Compile Include="TransactionPage.cs">
       <SubType>Form</SubType>
@@ -74,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="DashboardPage.resx">
       <DependentUpon>DashboardPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory-Staff.resx">
+      <DependentUpon>Inventory-Staff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
@@ -88,8 +115,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StaffPage.resx">
       <DependentUpon>StaffPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransactionLogsPage.resx">
+      <DependentUpon>TransactionLogsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransactionPage.resx">
       <DependentUpon>TransactionPage.cs</DependentUpon>
@@ -136,6 +169,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Transaction Page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Staff invenotry Page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Staff invenotry Page1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transaction Logs Page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings Page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Account Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Profile Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About Page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About Page1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About Page %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Account Info Page.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
