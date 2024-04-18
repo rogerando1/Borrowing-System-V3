@@ -28,8 +28,10 @@ namespace Borrowing_System
         private void loginBTN_Click(object sender, EventArgs e)
         {
             this.Hide();
-            StaffPage staffpage = new StaffPage();
-            staffpage.Show();
+            //StaffPage staffpage = new StaffPage();
+            //staffpage.Show();
+            AdminPage adminpage = new AdminPage();
+            adminpage.Show();
         }
 
         private void CloseButton_Click(object sender, EventArgs e)

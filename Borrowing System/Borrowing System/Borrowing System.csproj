@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountManagementPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AccountManagementPage.Designer.cs">
+      <DependentUpon>AccountManagementPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPage.Designer.cs">
+      <DependentUpon>AdminPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="DashboardPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,8 +108,17 @@
     <Compile Include="TransactionPage.Designer.cs">
       <DependentUpon>TransactionPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccountManagementPage.resx">
+      <DependentUpon>AccountManagementPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPage.resx">
+      <DependentUpon>AdminPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DashboardPage.resx">
       <DependentUpon>DashboardPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory-Admin.resx">
+      <DependentUpon>Inventory-Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory-Staff.resx">
       <DependentUpon>Inventory-Staff.cs</DependentUpon>
@@ -205,6 +226,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Account Info Page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account management icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin invenotry %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin invenotry %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin invenotry %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,3 +14,5 @@ D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\B
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Inventory_Staff.resources
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Settings.resources
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.TransactionLogsPage.resources
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.AccountManagementPage.resources
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.AdminPage.resources

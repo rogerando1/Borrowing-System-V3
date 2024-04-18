@@ -47,7 +47,9 @@ namespace Borrowing_System
         private void profileBTN_Click(object sender, EventArgs e)
         {
             aboutBTN.BackColor = Color.White;
+            aboutBTN.ForeColor = Color.Black;
             profileBTN.BackColor = Color.FromArgb(162, 199, 230);
+            profileBTN.ForeColor = Color.Black;
             this.aboutPanel.Hide();
             this.accountInfoPanel.Show();
             
@@ -56,7 +58,9 @@ namespace Borrowing_System
         private void aboutBTN_Click(object sender, EventArgs e)
         {
             profileBTN.BackColor = Color.White;
+            profileBTN.ForeColor = Color.Black;
             aboutBTN.BackColor = Color.FromArgb(162, 199, 230);
+            aboutBTN.ForeColor = Color.Black;
             this.accountInfoPanel.Hide();
             this.aboutPanel.Show();
         }
@@ -66,8 +70,16 @@ namespace Borrowing_System
             this.Close();
             LoginPage loginPage = new LoginPage();
             loginPage.Show();
-            StaffPage staffpage= (StaffPage)Application.OpenForms["StaffPage"];
-            staffpage.Close();
+            //StaffPage staffpage= (StaffPage)Application.OpenForms["StaffPage"];
+            //staffpage.Close();
+
+            AdminPage adminpage = (AdminPage)Application.OpenForms["AdminPage"];
+            adminpage.Close();
+        }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
