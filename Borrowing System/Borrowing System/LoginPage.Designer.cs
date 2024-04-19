@@ -88,6 +88,8 @@
             this.usernameTxtbx.Name = "usernameTxtbx";
             this.usernameTxtbx.Size = new System.Drawing.Size(309, 28);
             this.usernameTxtbx.TabIndex = 13;
+            this.usernameTxtbx.TextChanged += new System.EventHandler(this.usernameTxtbx_TextChanged);
+            this.usernameTxtbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usernameTxtbx_KeyDown);
             // 
             // passwordTxtbx
             // 
@@ -98,6 +100,7 @@
             this.passwordTxtbx.Name = "passwordTxtbx";
             this.passwordTxtbx.Size = new System.Drawing.Size(309, 28);
             this.passwordTxtbx.TabIndex = 14;
+            this.passwordTxtbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTxtbx_KeyDown);
             // 
             // LoginPage
             // 
