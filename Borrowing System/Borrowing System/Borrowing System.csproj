@@ -293,5 +293,11 @@
   <ItemGroup>
     <None Include="Resources\Admin invenotry %282%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin invenotry %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Admin invenotry %284%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

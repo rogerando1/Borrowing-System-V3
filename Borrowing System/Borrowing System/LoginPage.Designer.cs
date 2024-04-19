@@ -67,13 +67,17 @@
             // 
             // loginBTN
             // 
-            this.loginBTN.BackColor = System.Drawing.Color.Transparent;
+            this.loginBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(208)))), ((int)(((byte)(155)))));
+            this.loginBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loginBTN.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(208)))), ((int)(((byte)(155)))));
             this.loginBTN.FlatAppearance.BorderSize = 0;
+            this.loginBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(208)))), ((int)(((byte)(155)))));
+            this.loginBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(208)))), ((int)(((byte)(155)))));
             this.loginBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBTN.Location = new System.Drawing.Point(1119, 519);
+            this.loginBTN.Location = new System.Drawing.Point(1141, 519);
             this.loginBTN.Name = "loginBTN";
-            this.loginBTN.Size = new System.Drawing.Size(191, 49);
+            this.loginBTN.Size = new System.Drawing.Size(148, 49);
             this.loginBTN.TabIndex = 12;
             this.loginBTN.Text = "LOGIN";
             this.loginBTN.UseVisualStyleBackColor = false;

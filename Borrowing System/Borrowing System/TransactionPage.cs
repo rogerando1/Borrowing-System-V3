@@ -16,5 +16,10 @@ namespace Borrowing_System
         {
             InitializeComponent();
         }
+
+        private void TransactionPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

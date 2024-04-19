@@ -67,3 +67,36 @@ C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Trainin
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.csproj.CopyComplete
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.exe
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.pdb
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\BouncyCastle.Cryptography.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Google.Protobuf.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\K4os.Compression.LZ4.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\K4os.Hash.xxHash.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\MySql.Data.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Buffers.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.IO.Pipelines.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Memory.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Numerics.Vectors.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\ZstdSharp.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\BouncyCastle.Cryptography.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Google.Protobuf.pdb
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Google.Protobuf.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\K4os.Compression.LZ4.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\K4os.Compression.LZ4.Streams.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\K4os.Hash.xxHash.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\MySql.Data.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Buffers.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.IO.Pipelines.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Memory.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Numerics.Vectors.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Inventory_Admin.resources
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowin.3FCC196B.Up2Date

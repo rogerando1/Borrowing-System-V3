@@ -201,6 +201,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TransactionPage";
             this.Text = "TransactionPage";
+            this.Load += new System.EventHandler(this.TransactionPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
