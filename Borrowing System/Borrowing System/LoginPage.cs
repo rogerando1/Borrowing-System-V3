@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Borrowing_System.Data;
 
 namespace Borrowing_System
 {
@@ -27,11 +29,42 @@ namespace Borrowing_System
 
         private void loginBTN_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            //StaffPage staffpage = new StaffPage();
-            //staffpage.Show();
-            AdminPage adminpage = new AdminPage();
-            adminpage.Show();
+            try
+            {
+                if(usernameTxtbx.Text == "" || passwordTxtbx.Text == "")
+                {
+                    MessageBox.Show("Please fill in the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand($"SELECT * FROM Accounts WHERE username = '{usernameTxtbx.Text}' AND password_ = '{passwordTxtbx.Text}'", mySqlConnection);
+                MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                if (mySqlDataReader.Read())
+                {
+                    if (mySqlDataReader["position"].ToString() == "Admin")
+                    {
+                        this.Hide();
+                        AdminPage adminPage = new AdminPage();
+                        adminPage.Show();
+                    }
+                    else
+                    {
+                        this.Hide();
+                        StaffPage staffPage = new StaffPage();
+                        staffPage.Show();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                mySqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -62,6 +95,27 @@ namespace Borrowing_System
         private void LoginPage_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
+        }
+
+        private void usernameTxtbx_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void usernameTxtbx_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginBTN.PerformClick();
+            }
+        }
+
+        private void passwordTxtbx_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginBTN.PerformClick();
+            }
         }
     }
 }
