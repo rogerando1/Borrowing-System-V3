@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Borrowing_System.Data;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Relational;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Borrowing_System
@@ -66,12 +67,12 @@ namespace Borrowing_System
 
                 productnameTxtbx.Text = row.Cells["productname"].Value.ToString();
                 partIdTxtbx.Text = row.Cells["partID"].Value.ToString();
-                partnameTxtbx.Text = row.Cells["partname"].Value.ToString();
+                partnameTxtbx.Text = row.Cells["partname"].Value?.ToString();
                 partdescriptionTxtbx.Text = row.Cells["partdescription"].Value.ToString();
                 quantityTxtbx.Text = row.Cells["quantity"].Value.ToString();
                 conditionTxtbx.Text = row.Cells["condition"].Value.ToString();
-
             }
+
         }
 
         private void searchBTN_Click(object sender, EventArgs e)
@@ -153,16 +154,122 @@ namespace Borrowing_System
             }
         }
 
-        private void editBTN_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void createBTN_Click(object sender, EventArgs e)
         {
 
         }
+        private void deleteBTN_Click(object sender, EventArgs e)
+        {
+            string partID = partIdTxtbx.Text;
+            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+            connection.Open();
+            string queryCheck = "SELECT * FROM Part where partID = @partID";
+            MySqlCommand cmd = new MySqlCommand(queryCheck, connection);
+            cmd.Parameters.AddWithValue("@partID", partID);
 
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (!reader.HasRows)
+            {
+                MessageBox.Show("Equipment not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (MessageBox.Show("Are you sure you want to delete this record?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    MySqlConnection con = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                    con.Open();
+                    MySqlCommand command = con.CreateCommand();
+                    command.CommandText = "DELETE FROM Part WHERE partID = @partID";
+                    command.Parameters.AddWithValue("@partID", partID);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Equipment deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        productnameTxtbx.Text = "";
+                        partIdTxtbx.Text = "";
+                        partnameTxtbx.Text = "";
+                        partdescriptionTxtbx.Text = "";
+                        quantityTxtbx.Text = "";
+                        conditionTxtbx.Text = "";
+
+                        ReloadDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete equipment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            
+        }
+        private void updateBTN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(string.IsNullOrWhiteSpace(partdescriptionTxtbx.Text) || string.IsNullOrWhiteSpace(quantityTxtbx.Text))
+                {
+                    MessageBox.Show("Please provide all necessary information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string partID = partIdTxtbx.Text;
+                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                string queryCheck = "SELECT * FROM Part where partID = @partID";
+                MySqlCommand command = new MySqlCommand(queryCheck, connection);
+                command.Parameters.AddWithValue("@partID", partID);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+
+                if (table.Rows.Count == 0)
+                {
+                    MessageBox.Show("Equipment not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (MessageBox.Show("Are you sure you want to update this equipment?", "Update Equipment", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                   
+                    command = connection.CreateCommand();
+                    command.CommandText = "UPDATE Part SET productID = @productname, partname = @partname, partdescription = @partdescription, quantity = @quantity, `condition` = @condition WHERE partID = @partID";
+                    command.Parameters.AddWithValue("@productname", productnameTxtbx.Text);
+                    command.Parameters.AddWithValue("@partID", partIdTxtbx.Text);
+                    command.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
+                    command.Parameters.AddWithValue("@partdescription",partdescriptionTxtbx.Text);
+                    command.Parameters.AddWithValue("@quantity", quantityTxtbx.Text);
+                    command.Parameters.AddWithValue("@condition", conditionTxtbx.Text);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if(rowsAffected > 0)
+                    {
+                        MessageBox.Show("Equipment updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        productnameTxtbx.Text = "";
+                        partIdTxtbx.Text = "";
+                        partnameTxtbx.Text = "";
+                        partdescriptionTxtbx.Text = "";
+                        quantityTxtbx.Text = "";
+                        conditionTxtbx.Text = "";
+                        ReloadDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update equipment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void editBTN_Click_1(object sender, EventArgs e)
         {
             createBTN.Visible = true;
@@ -176,11 +283,6 @@ namespace Borrowing_System
             conditionTxtbx.ReadOnly = false;
         }
 
-        private void updateBTN_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void clearBtn_Click(object sender, EventArgs e)
         {
             productnameTxtbx.Text = "";
@@ -189,11 +291,6 @@ namespace Borrowing_System
             partdescriptionTxtbx.Text = "";
             quantityTxtbx.Text = "";
             conditionTxtbx.Text = "";
-        }
-
-        private void deleteBTN_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void doneBTN_Click(object sender, EventArgs e)
