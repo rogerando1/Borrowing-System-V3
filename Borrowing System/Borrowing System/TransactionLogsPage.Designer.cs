@@ -235,6 +235,7 @@
             this.searchBTN.Size = new System.Drawing.Size(33, 36);
             this.searchBTN.TabIndex = 33;
             this.searchBTN.UseVisualStyleBackColor = false;
+            this.searchBTN.Click += new System.EventHandler(this.searchBTN_Click);
             // 
             // searchData
             // 

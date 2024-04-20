@@ -100,3 +100,4 @@ D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\S
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Inventory_Admin.resources
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowin.3FCC196B.Up2Date
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Fillbox.resources
