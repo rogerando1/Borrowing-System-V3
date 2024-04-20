@@ -103,6 +103,26 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap acc_management__1_ {
+            get {
+                object obj = ResourceManager.GetObject("acc management (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap acc_management__2_ {
+            get {
+                object obj = ResourceManager.GetObject("acc management (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Account_Info {
             get {
                 object obj = ResourceManager.GetObject("Account Info", resourceCulture);

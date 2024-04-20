@@ -308,5 +308,11 @@
   <ItemGroup>
     <None Include="Resources\Admin invenotry %284%29.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acc management %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acc management %282%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -28,10 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.productnamelist = new System.Windows.Forms.ComboBox();
             this.adminInventoryData = new System.Windows.Forms.DataGridView();
+            this.productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partdescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.mySqlCommand2 = new MySql.Data.MySqlClient.MySqlCommand();
             this.searchBTN = new System.Windows.Forms.Button();
@@ -42,12 +48,6 @@
             this.partdescriptionTxtbx = new System.Windows.Forms.TextBox();
             this.quantityTxtbx = new System.Windows.Forms.TextBox();
             this.conditionTxtbx = new System.Windows.Forms.TextBox();
-            this.productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partdescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clearBtn = new System.Windows.Forms.Button();
             this.editBTN = new System.Windows.Forms.Button();
             this.doneBTN = new System.Windows.Forms.Button();
@@ -81,14 +81,14 @@
             this.adminInventoryData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.adminInventoryData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.adminInventoryData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.adminInventoryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.adminInventoryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.adminInventoryData.ColumnHeadersHeight = 50;
             this.adminInventoryData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.adminInventoryData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -105,14 +105,14 @@
             this.adminInventoryData.Name = "adminInventoryData";
             this.adminInventoryData.ReadOnly = true;
             this.adminInventoryData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.adminInventoryData.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.adminInventoryData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.adminInventoryData.RowHeadersVisible = false;
             this.adminInventoryData.RowHeadersWidth = 50;
             this.adminInventoryData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -128,6 +128,64 @@
             this.adminInventoryData.Size = new System.Drawing.Size(1106, 491);
             this.adminInventoryData.TabIndex = 26;
             this.adminInventoryData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.adminInventoryData_CellContentClick);
+            // 
+            // productname
+            // 
+            this.productname.DataPropertyName = "productname";
+            this.productname.FillWeight = 117.2078F;
+            this.productname.HeaderText = "Product Name";
+            this.productname.MinimumWidth = 6;
+            this.productname.Name = "productname";
+            this.productname.ReadOnly = true;
+            this.productname.Width = 218;
+            // 
+            // partID
+            // 
+            this.partID.DataPropertyName = "partID";
+            this.partID.FillWeight = 54.24955F;
+            this.partID.HeaderText = "Part ID";
+            this.partID.MinimumWidth = 6;
+            this.partID.Name = "partID";
+            this.partID.ReadOnly = true;
+            // 
+            // partname
+            // 
+            this.partname.DataPropertyName = "partname";
+            this.partname.FillWeight = 105.6566F;
+            this.partname.HeaderText = "Part Name";
+            this.partname.MinimumWidth = 6;
+            this.partname.Name = "partname";
+            this.partname.ReadOnly = true;
+            this.partname.Width = 170;
+            // 
+            // partdescription
+            // 
+            this.partdescription.DataPropertyName = "partdescription";
+            this.partdescription.FillWeight = 236.8824F;
+            this.partdescription.HeaderText = "Part Description";
+            this.partdescription.MinimumWidth = 6;
+            this.partdescription.Name = "partdescription";
+            this.partdescription.ReadOnly = true;
+            this.partdescription.Width = 439;
+            // 
+            // quantity
+            // 
+            this.quantity.DataPropertyName = "quantity";
+            this.quantity.FillWeight = 43.05165F;
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            this.quantity.Width = 80;
+            // 
+            // condition
+            // 
+            this.condition.DataPropertyName = "condition";
+            this.condition.FillWeight = 42.95186F;
+            this.condition.HeaderText = "Condition";
+            this.condition.MinimumWidth = 6;
+            this.condition.Name = "condition";
+            this.condition.ReadOnly = true;
+            this.condition.Width = 79;
             // 
             // mySqlCommand1
             // 
@@ -238,64 +296,6 @@
             this.conditionTxtbx.ReadOnly = true;
             this.conditionTxtbx.Size = new System.Drawing.Size(201, 17);
             this.conditionTxtbx.TabIndex = 41;
-            // 
-            // productname
-            // 
-            this.productname.DataPropertyName = "productname";
-            this.productname.FillWeight = 117.2078F;
-            this.productname.HeaderText = "Product Name";
-            this.productname.MinimumWidth = 6;
-            this.productname.Name = "productname";
-            this.productname.ReadOnly = true;
-            this.productname.Width = 218;
-            // 
-            // partID
-            // 
-            this.partID.DataPropertyName = "partID";
-            this.partID.FillWeight = 54.24955F;
-            this.partID.HeaderText = "Part ID";
-            this.partID.MinimumWidth = 6;
-            this.partID.Name = "partID";
-            this.partID.ReadOnly = true;
-            // 
-            // partname
-            // 
-            this.partname.DataPropertyName = "partname";
-            this.partname.FillWeight = 105.6566F;
-            this.partname.HeaderText = "Part Name";
-            this.partname.MinimumWidth = 6;
-            this.partname.Name = "partname";
-            this.partname.ReadOnly = true;
-            this.partname.Width = 170;
-            // 
-            // partdescription
-            // 
-            this.partdescription.DataPropertyName = "partdescription";
-            this.partdescription.FillWeight = 236.8824F;
-            this.partdescription.HeaderText = "Part Description";
-            this.partdescription.MinimumWidth = 6;
-            this.partdescription.Name = "partdescription";
-            this.partdescription.ReadOnly = true;
-            this.partdescription.Width = 439;
-            // 
-            // quantity
-            // 
-            this.quantity.DataPropertyName = "quantity";
-            this.quantity.FillWeight = 43.05165F;
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.Width = 80;
-            // 
-            // condition
-            // 
-            this.condition.DataPropertyName = "condition";
-            this.condition.FillWeight = 42.95186F;
-            this.condition.HeaderText = "Condition";
-            this.condition.MinimumWidth = 6;
-            this.condition.Name = "condition";
-            this.condition.ReadOnly = true;
-            this.condition.Width = 79;
             // 
             // clearBtn
             // 
