@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Borrowing_System.Data;
 
 namespace Borrowing_System
 {
@@ -17,9 +19,74 @@ namespace Borrowing_System
             InitializeComponent();
         }
 
+        private void Settings_Load(object sender, EventArgs e)
+        {
+            AccountInfo();
+        }
+
+        public void AccountInfo()
+        {
+            try
+            {
+                using (MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
+                {
+                    mySqlConnection.Open();
+                    string query = $"SELECT Accounts.*, Person.firstname, Person.lastname FROM Accounts INNER JOIN Person ON Accounts.personID = Person.personID WHERE Accounts.personID = '{LoginPage.EmployeeID}'";
+                    MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
+                    MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                    if (mySqlDataReader.Read())
+                    {
+                        employeeIDTxtbx.Text = mySqlDataReader["accountID"].ToString();
+                        firstnameTxtbx.Text = mySqlDataReader["firstname"].ToString();
+                        lastnameTxtbx.Text = mySqlDataReader["lastname"].ToString();
+                        positionTxtbx.Text = mySqlDataReader["position"].ToString();
+                        usernameTxtbx.Text = mySqlDataReader["username"].ToString();
+                        passwordTxtbx.Text = mySqlDataReader["password_"].ToString();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void UpdateInfo()
+        {
+            try
+            {
+                if (firstnameTxtbx.Text == "" || lastnameTxtbx.Text == "" || usernameTxtbx.Text == "" || passwordTxtbx.Text == "")
+                {
+                    MessageBox.Show("Please fill in the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (MessageBox.Show("Are you sure you want to update this information?", "Update Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    using (MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
+                    {
+                        mySqlConnection.Open();
+                        string queryAccounts = $"UPDATE Accounts SET username = '{usernameTxtbx.Text}', password_ = '{passwordTxtbx.Text}' WHERE accountID = '{employeeIDTxtbx.Text}'";
+                        MySqlCommand mySqlCommandAccounts = new MySqlCommand(queryAccounts, mySqlConnection);
+                        mySqlCommandAccounts.ExecuteNonQuery();
+
+                        string queryPerson = $"UPDATE Person SET firstname = '{firstnameTxtbx.Text}', lastname = '{lastnameTxtbx.Text}' WHERE personID = (SELECT personID FROM Accounts WHERE accountID = '{employeeIDTxtbx.Text}')";
+                        MySqlCommand mySqlCommandPerson = new MySqlCommand(queryPerson, mySqlConnection);
+                        mySqlCommandPerson.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Information updated successfully!", "Information Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void updateBTN_Click(object sender, EventArgs e)
         {
-
+            UpdateInfo();
         }
 
         private void doneBTN_Click(object sender, EventArgs e)
@@ -70,16 +137,23 @@ namespace Borrowing_System
             this.Close();
             LoginPage loginPage = new LoginPage();
             loginPage.Show();
-            //StaffPage staffpage= (StaffPage)Application.OpenForms["StaffPage"];
-            //staffpage.Close();
+            if (LoginPage.Position == "Admin")
+            {
+                AdminPage adminpage = (AdminPage)Application.OpenForms["AdminPage"];
+                adminpage.Close();
+            }
+            else if(LoginPage.Position == "Staff")
+            {
+                StaffPage staffpage = (StaffPage)Application.OpenForms["StaffPage"];
+                staffpage.Close();
+            }
+            else
+            {
+                //IN CASE STUDENT FORM WILL BE ADDED
+            }
 
-            AdminPage adminpage = (AdminPage)Application.OpenForms["AdminPage"];
-            adminpage.Close();
+
         }
 
-        private void Settings_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
