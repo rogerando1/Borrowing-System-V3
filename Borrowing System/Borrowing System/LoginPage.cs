@@ -17,6 +17,10 @@ namespace Borrowing_System
         private bool dragging = false;
         private Point start_point = new Point(1, 0);
 
+        public static string Username { get; set; }
+        public static string EmployeeID { get; set; }
+        public static string Position { get; set; }
+
         public LoginPage()
         {
             InitializeComponent();
@@ -42,6 +46,10 @@ namespace Borrowing_System
                 MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                 if (mySqlDataReader.Read())
                 {
+                    Username = mySqlDataReader["username"].ToString();
+                    EmployeeID = mySqlDataReader["personID"].ToString();
+                    Position = mySqlDataReader["position"].ToString();
+
                     if (mySqlDataReader["position"].ToString() == "Admin")
                     {
                         this.Hide();

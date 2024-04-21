@@ -15,9 +15,20 @@ namespace Borrowing_System
 {
     public partial class AccountManagementPage : Form
     {
+        public static AccountManagementPage instance;
+        public static string employeePersonID { get; set; }
+        public static string employeeFname { get; set; }
+        public static string employeeMinitial { get; set; }
+        public static string employeeLname { get; set; }
+        public static string employeeUsername { get; set; }
+        public static string employeePassword { get; set; }
+        public static string employeePosition { get; set; }
+
+
         public AccountManagementPage()
         {
             InitializeComponent();
+            instance = this;
         }
 
         private void AccountManagementPage_Load(object sender, EventArgs e)
@@ -28,38 +39,60 @@ namespace Borrowing_System
             MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
             DataTable dataTable = new DataTable();
             mySqlDataAdapter.Fill(dataTable);
-            accountData.DataSource = dataTable;
+            employeeData.DataSource = dataTable;
             mySqlConnection.Close();
 
         }
 
-        private void accountData_CellClick(object sender, DataGridViewCellEventArgs e)
+        public void refreshData()
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = this.accountData.Rows[e.RowIndex];
-                personIDTxtbx.Text = row.Cells["personID"].Value.ToString();
-                fnameTxtbx.Text = row.Cells["firstname"].Value.ToString();
-                minitialTxtbx.Text = row.Cells["middleinitial"].Value.ToString();
-                lnameTxtbx.Text = row.Cells["lastname"].Value.ToString();
-                usernameTxtbx.Text = row.Cells["username"].Value.ToString();
-                passwordTxtbx.Text = row.Cells["password_"].Value.ToString();
-                positionCmbx.Text = row.Cells["position"].Value.ToString();
-            }
+            //Refresh Employee List Data
+            MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+            mySqlConnection.Open();
+            MySqlCommand mySqlCommand = new MySqlCommand("SELECT Person.personID, Person.firstname, Person.middleinitial, Person.lastname, Accounts.username, Accounts.password_, Accounts.position FROM Person INNER JOIN Accounts ON Person.personID = Accounts.personID", mySqlConnection);
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+            DataTable dataTable = new DataTable();
+            mySqlDataAdapter.Fill(dataTable);
+            employeeData.DataSource = dataTable;
+            mySqlConnection.Close();
+
+            //Refresh Instructor List Data
+
+            //Refresh Student List Data
+
+            //Refresh Course List Data
         }
 
         private void searchBTN_Click(object sender, EventArgs e)
         {
             try
             {
-                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                mySqlConnection.Open();
-                MySqlCommand mySqlCommand = new MySqlCommand($"SELECT Person.personID, Person.firstname, Person.middleinitial, Person.lastname, Accounts.username, Accounts.password_, Accounts.position FROM Person INNER JOIN Accounts ON Person.personID = Accounts.personID WHERE Person.firstname LIKE '%{searchData.Text}%' OR Person.lastname LIKE '%{searchData.Text}%' OR Accounts.username LIKE '%{searchData.Text} %' OR Accounts.position LIKE '% {searchData.Text}%'", mySqlConnection);
-                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
-                DataTable dataTable = new DataTable();
-                mySqlDataAdapter.Fill(dataTable);
-                accountData.DataSource = dataTable;
-                mySqlConnection.Close();
+
+                if(employeeBTN.BackColor == Color.FromArgb(252, 168, 115))
+                {
+                    //SEARCH EMPLOYEE
+                    MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                    mySqlConnection.Open();
+                    MySqlCommand mySqlCommand = new MySqlCommand($"SELECT Person.personID, Person.firstname, Person.middleinitial, Person.lastname, Accounts.username, Accounts.password_, Accounts.position FROM Person INNER JOIN Accounts ON Person.personID = Accounts.personID WHERE Person.firstname LIKE '%{searchData.Text}%' OR Person.lastname LIKE '%{searchData.Text}%' OR Accounts.username LIKE '%{searchData.Text} %' OR Accounts.position LIKE '% {searchData.Text}%'", mySqlConnection);
+                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+                    DataTable dataTable = new DataTable();
+                    mySqlDataAdapter.Fill(dataTable);
+                    employeeData.DataSource = dataTable;
+                    mySqlConnection.Close();
+                }
+                else if (studentBTN.BackColor == Color.FromArgb(252, 168, 115))
+                {
+                    //SEARCH STUDENT
+                }
+                else if (instructorBTN.BackColor == Color.FromArgb(252, 168, 115))
+                {
+                    //SEARCH INSTRUCTOR
+                }
+                else
+                {
+                    //SEARCH COURSE
+                }
+
             }
             catch (Exception ex)
             {
@@ -76,164 +109,60 @@ namespace Borrowing_System
 
         }
 
-        private void createBTN_Click(object sender, EventArgs e)
+        private void employeeBTN_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (fnameTxtbx.Text == "" || lnameTxtbx.Text == "" || usernameTxtbx.Text == "" || passwordTxtbx.Text == "" || positionCmbx.Text == "")
-                {
-                    MessageBox.Show("Please fill in the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                //If ID already exists, show error message
-                MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                conn.Open();
-                MySqlCommand command = new MySqlCommand($"SELECT * FROM Person WHERE personID = '{personIDTxtbx.Text}'", conn);
-                MySqlDataReader mySqlDataReader = command.ExecuteReader();
-                if (mySqlDataReader.Read())
-                {
-                    MessageBox.Show("Person ID already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                conn.Close();
-
-                //If username already exists, show error message
-                conn.Open();
-                command = new MySqlCommand($"SELECT * FROM Accounts WHERE username = '{usernameTxtbx.Text}'", conn);
-                mySqlDataReader = command.ExecuteReader();
-                if (mySqlDataReader.Read())
-                {
-                    MessageBox.Show("Username already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                conn.Close();
-
-
-                if (MessageBox.Show("Are you sure you want to create this account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-                    MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                    mySqlConnection.Open();
-                    MySqlCommand mySqlCommand = new MySqlCommand($"INSERT INTO Person (firstname, middleinitial, lastname) VALUES ('{fnameTxtbx.Text}', '{minitialTxtbx.Text}', '{lnameTxtbx.Text}'); SELECT LAST_INSERT_ID();", mySqlConnection);
-                    var personID = mySqlCommand.ExecuteScalar();
-                    mySqlConnection.Close();
-
-                    mySqlConnection.Open();
-                    mySqlCommand = new MySqlCommand($"INSERT INTO Accounts (personID, username, password_, position) VALUES ('{personID}', '{usernameTxtbx.Text}', '{passwordTxtbx.Text}', '{positionCmbx.Text}')", mySqlConnection);
-                    mySqlCommand.ExecuteNonQuery();
-                    mySqlConnection.Close();
-
-                    MessageBox.Show("Account created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    AccountManagementPage_Load(sender, e);
-                    personIDTxtbx.Text = "";
-                    fnameTxtbx.Text = "";
-                    minitialTxtbx.Text = "";
-                    lnameTxtbx.Text = "";
-                    usernameTxtbx.Text = "";
-                    passwordTxtbx.Text = "";
-                    positionCmbx.SelectedIndex = -1;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
+            employeeList1.BringToFront();
+            studentBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            instructorBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            courseBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            employeeBTN.BackColor = Color.FromArgb(252, 168, 115); //SELECTED
+            employeeData.BringToFront();
         }
 
-        private void updateBTN_Click(object sender, EventArgs e)
+        private void studentBTN_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (fnameTxtbx.Text == "" || lnameTxtbx.Text == "" || usernameTxtbx.Text == "" || passwordTxtbx.Text == "" || positionCmbx.Text == "")
-                {
-                    MessageBox.Show("Please fill in the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                //IF username already exist, show error message
-                MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                conn.Open();
-                MySqlCommand command = new MySqlCommand($"SELECT * FROM Accounts WHERE username = '{usernameTxtbx.Text}'", conn);
-                MySqlDataReader mySqlDataReader = command.ExecuteReader();
-                if (mySqlDataReader.Read())
-                {
-                    MessageBox.Show("Username already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                conn.Close();
-
-                if (MessageBox.Show("Are you sure you want to update this account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                    mySqlConnection.Open();
-                    MySqlCommand mySqlCommand = new MySqlCommand($"UPDATE Person SET firstname = '{fnameTxtbx.Text}', middleinitial = '{minitialTxtbx.Text}', lastname = '{lnameTxtbx.Text}' WHERE personID = '{personIDTxtbx.Text}'", mySqlConnection);
-                    mySqlCommand.ExecuteNonQuery();
-                    mySqlCommand = new MySqlCommand($"UPDATE Accounts SET username = '{usernameTxtbx.Text}', password_ = '{passwordTxtbx.Text}', position = '{positionCmbx.Text}' WHERE personID = '{personIDTxtbx.Text}'", mySqlConnection);
-                    mySqlCommand.ExecuteNonQuery();
-                    mySqlConnection.Close();
-                    MessageBox.Show("Account updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    AccountManagementPage_Load(sender, e);
-                    personIDTxtbx.Text = "";
-                    fnameTxtbx.Text = "";
-                    minitialTxtbx.Text = "";
-                    lnameTxtbx.Text = "";
-                    usernameTxtbx.Text = "";
-                    passwordTxtbx.Text = "";
-                    positionCmbx.SelectedIndex = -1;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-
-
+            studentList1.BringToFront();
+            studentBTN.BackColor = Color.FromArgb(252, 168, 115); //SELECTED
+            instructorBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            courseBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            employeeBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            studentData.BringToFront();
         }
 
-        private void clearBtn_Click(object sender, EventArgs e)
+        private void instructorBTN_Click(object sender, EventArgs e)
         {
-            personIDTxtbx.Text = "";
-            fnameTxtbx.Text = "";
-            minitialTxtbx.Text = "";
-            lnameTxtbx.Text = "";
-            usernameTxtbx.Text = "";
-            passwordTxtbx.Text = "";
-            positionCmbx.SelectedIndex = -1;
+            instructorList1.BringToFront();
+            studentBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            instructorBTN.BackColor = Color.FromArgb(252, 168, 115); //SELECTED
+            courseBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            employeeBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            instructorData.BringToFront();
         }
 
-        private void deleteBTN_Click(object sender, EventArgs e)
+        private void courseBTN_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (MessageBox.Show("Are you sure you want to delete this account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                    mySqlConnection.Open();
-                    MySqlCommand mySqlCommand = new MySqlCommand($"DELETE FROM Person WHERE personID = '{personIDTxtbx.Text}'", mySqlConnection);
-                    mySqlCommand.ExecuteNonQuery();
-                    mySqlCommand = new MySqlCommand($"DELETE FROM Accounts WHERE personID = '{personIDTxtbx.Text}'", mySqlConnection);
-                    mySqlCommand.ExecuteNonQuery();
-                    mySqlConnection.Close();
-                    MessageBox.Show("Account deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    AccountManagementPage_Load(sender, e);
-                    personIDTxtbx.Text = "";
-                    fnameTxtbx.Text = "";
-                    minitialTxtbx.Text = "";
-                    lnameTxtbx.Text = "";
-                    usernameTxtbx.Text = "";
-                    passwordTxtbx.Text = "";
-                    positionCmbx.SelectedIndex = -1;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            courseList1.BringToFront();
+            studentBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            instructorBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            courseBTN.BackColor = Color.FromArgb(252, 168, 115); //SELECTED
+            employeeBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            courseData.BringToFront();
         }
 
-      
+        private void employeeData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.employeeData.Rows[e.RowIndex];
+                employeePersonID = row.Cells["personID"].Value.ToString();
+                employeeFname = row.Cells["firstname"].Value.ToString();
+                employeeMinitial = row.Cells["middleinitial"].Value.ToString();
+                employeeLname = row.Cells["lastname"].Value.ToString();
+                employeeUsername = row.Cells["username"].Value.ToString();
+                employeePassword = row.Cells["password_"].Value.ToString();
+                employeePosition = row.Cells["position"].Value.ToString();
+                employeeList1.updateEmployeeList();
+            }
+        }
     }
 }

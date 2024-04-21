@@ -98,6 +98,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account Management\CourseList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account Management\CourseList.Designer.cs">
+      <DependentUpon>CourseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account Management\EmployeeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account Management\EmployeeList.Designer.cs">
+      <DependentUpon>EmployeeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account Management\InstructorList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account Management\InstructorList.Designer.cs">
+      <DependentUpon>InstructorList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account Management\StudentList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account Management\StudentList.Designer.cs">
+      <DependentUpon>StudentList.cs</DependentUpon>
+    </Compile>
     <Compile Include="AccountManagementPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +191,18 @@
     <Compile Include="TransactionPage.Designer.cs">
       <DependentUpon>TransactionPage.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Account Management\CourseList.resx">
+      <DependentUpon>CourseList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account Management\EmployeeList.resx">
+      <DependentUpon>EmployeeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account Management\InstructorList.resx">
+      <DependentUpon>InstructorList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account Management\StudentList.resx">
+      <DependentUpon>StudentList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AccountManagementPage.resx">
       <DependentUpon>AccountManagementPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -313,6 +349,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\acc management %282%29.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\acc_management_background1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acc_management_employee1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
