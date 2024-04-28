@@ -141,12 +141,6 @@
       <DependentUpon>DashboardPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\DatabaseConfig.cs" />
-    <Compile Include="Fillbox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Fillbox.Designer.cs">
-      <DependentUpon>Fillbox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inventory-Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,9 +205,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DashboardPage.resx">
       <DependentUpon>DashboardPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Fillbox.resx">
-      <DependentUpon>Fillbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory-Admin.resx">
       <DependentUpon>Inventory-Admin.cs</DependentUpon>
@@ -350,12 +341,29 @@
   <ItemGroup>
     <None Include="Resources\acc management %282%29.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\3.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\acc_management_background1.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\acc_management_employee1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1%282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2%282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

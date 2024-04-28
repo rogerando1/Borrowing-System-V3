@@ -36,7 +36,7 @@
             this.availableLabel = new System.Windows.Forms.Label();
             this.instructorNameTxtbx = new System.Windows.Forms.ComboBox();
             this.subjectCodeTxtbx = new System.Windows.Forms.ComboBox();
-            this.equipmentNameTxtbx = new System.Windows.Forms.ComboBox();
+            this.courseTimeTxtbx = new System.Windows.Forms.ComboBox();
             this.typeTxtbx = new System.Windows.Forms.ComboBox();
             this.clearBTN = new System.Windows.Forms.Button();
             this.submitBTN = new System.Windows.Forms.Button();
@@ -47,19 +47,22 @@
             this.studentIDTxtbx.BackColor = System.Drawing.Color.White;
             this.studentIDTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.studentIDTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentIDTxtbx.Location = new System.Drawing.Point(759, 88);
+            this.studentIDTxtbx.Location = new System.Drawing.Point(759, 80);
+            this.studentIDTxtbx.Multiline = true;
             this.studentIDTxtbx.Name = "studentIDTxtbx";
-            this.studentIDTxtbx.Size = new System.Drawing.Size(290, 22);
+            this.studentIDTxtbx.Size = new System.Drawing.Size(290, 40);
             this.studentIDTxtbx.TabIndex = 11;
+            this.studentIDTxtbx.TextChanged += new System.EventHandler(this.studentIDTxtbx_TextChanged);
             // 
             // borrowerNameTxtbx
             // 
             this.borrowerNameTxtbx.BackColor = System.Drawing.Color.White;
             this.borrowerNameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.borrowerNameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.borrowerNameTxtbx.Location = new System.Drawing.Point(759, 185);
+            this.borrowerNameTxtbx.Location = new System.Drawing.Point(759, 178);
+            this.borrowerNameTxtbx.Multiline = true;
             this.borrowerNameTxtbx.Name = "borrowerNameTxtbx";
-            this.borrowerNameTxtbx.Size = new System.Drawing.Size(290, 22);
+            this.borrowerNameTxtbx.Size = new System.Drawing.Size(290, 38);
             this.borrowerNameTxtbx.TabIndex = 12;
             // 
             // courseTxtbx
@@ -114,6 +117,7 @@
             this.instructorNameTxtbx.Name = "instructorNameTxtbx";
             this.instructorNameTxtbx.Size = new System.Drawing.Size(290, 32);
             this.instructorNameTxtbx.TabIndex = 21;
+            this.instructorNameTxtbx.SelectedIndexChanged += new System.EventHandler(this.instructorNameTxtbx_SelectedIndexChanged);
             // 
             // subjectCodeTxtbx
             // 
@@ -125,17 +129,19 @@
             this.subjectCodeTxtbx.Name = "subjectCodeTxtbx";
             this.subjectCodeTxtbx.Size = new System.Drawing.Size(290, 32);
             this.subjectCodeTxtbx.TabIndex = 22;
+            this.subjectCodeTxtbx.SelectedIndexChanged += new System.EventHandler(this.subjectCodeTxtbx_SelectedIndexChanged);
             // 
-            // equipmentNameTxtbx
+            // courseTimeTxtbx
             // 
-            this.equipmentNameTxtbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.equipmentNameTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.equipmentNameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.equipmentNameTxtbx.FormattingEnabled = true;
-            this.equipmentNameTxtbx.Location = new System.Drawing.Point(1157, 276);
-            this.equipmentNameTxtbx.Name = "equipmentNameTxtbx";
-            this.equipmentNameTxtbx.Size = new System.Drawing.Size(290, 32);
-            this.equipmentNameTxtbx.TabIndex = 23;
+            this.courseTimeTxtbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.courseTimeTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.courseTimeTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.courseTimeTxtbx.FormattingEnabled = true;
+            this.courseTimeTxtbx.Location = new System.Drawing.Point(1157, 276);
+            this.courseTimeTxtbx.Name = "courseTimeTxtbx";
+            this.courseTimeTxtbx.Size = new System.Drawing.Size(290, 32);
+            this.courseTimeTxtbx.TabIndex = 23;
+            this.courseTimeTxtbx.SelectedIndexChanged += new System.EventHandler(this.courseTimeTxtbx_SelectedIndexChanged);
             // 
             // typeTxtbx
             // 
@@ -189,7 +195,7 @@
             this.Controls.Add(this.submitBTN);
             this.Controls.Add(this.clearBTN);
             this.Controls.Add(this.typeTxtbx);
-            this.Controls.Add(this.equipmentNameTxtbx);
+            this.Controls.Add(this.courseTimeTxtbx);
             this.Controls.Add(this.subjectCodeTxtbx);
             this.Controls.Add(this.instructorNameTxtbx);
             this.Controls.Add(this.availableLabel);
@@ -217,7 +223,7 @@
         private System.Windows.Forms.Label availableLabel;
         private System.Windows.Forms.ComboBox instructorNameTxtbx;
         private System.Windows.Forms.ComboBox subjectCodeTxtbx;
-        private System.Windows.Forms.ComboBox equipmentNameTxtbx;
+        private System.Windows.Forms.ComboBox courseTimeTxtbx;
         private System.Windows.Forms.ComboBox typeTxtbx;
         private System.Windows.Forms.Button clearBTN;
         private System.Windows.Forms.Button submitBTN;

@@ -49,7 +49,6 @@ D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\S
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Inventory_Admin.resources
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowin.3FCC196B.Up2Date
-D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Fillbox.resources
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Borrowing System.exe.config
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Borrowing System.exe
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Borrowing System.pdb
@@ -106,3 +105,7 @@ C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Trainin
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.csproj.CopyComplete
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.exe
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.pdb
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.CourseList.resources
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.EmployeeList.resources
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.InstructorList.resources
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.StudentList.resources
