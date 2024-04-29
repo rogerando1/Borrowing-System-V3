@@ -47,7 +47,7 @@ namespace Borrowing_System
                 if (mySqlDataReader.Read())
                 {
                     Username = mySqlDataReader["username"].ToString();
-                    EmployeeID = mySqlDataReader["personID"].ToString();
+                    EmployeeID = mySqlDataReader["accountID"].ToString();
                     Position = mySqlDataReader["position"].ToString();
 
                     if (mySqlDataReader["position"].ToString() == "Admin")

@@ -130,6 +130,9 @@ namespace Borrowing_System
             }
         }
 
+        // Declare a Dictionary to store the mapping between instructors and subject codes
+        private Dictionary<string, List<string>> instructorSubjectCodes = new Dictionary<string, List<string>>();
+
         private void instructorNameTxtbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             subjectCodeTxtbx.SelectedIndex = -1;
@@ -141,30 +144,51 @@ namespace Borrowing_System
             }
 
             string selectedInstructor = instructorNameTxtbx.SelectedItem.ToString();
-            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-            connection.Open();
-            string query = "SELECT CourseTime.courseID, CourseTime.section " +
-               "FROM Instructor " +
-               "INNER JOIN Person ON Instructor.personID = Person.personID " +
-               "INNER JOIN CourseTime ON Instructor.instructorID = CourseTime.instructorID " +
-               "WHERE CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) = @instructorName";
 
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@instructorName", selectedInstructor);
-            MySqlDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
+            // If the selected instructor's subject codes are already stored in the Dictionary, use them
+            if (instructorSubjectCodes.ContainsKey(selectedInstructor))
             {
-                string courseName = reader.GetString("courseID");
-                string section = reader.GetString("section");
-                subjectCodeTxtbx.Items.Add($"{courseName} - {section}");
+                subjectCodeTxtbx.Items.Clear();
+                foreach (string subjectCode in instructorSubjectCodes[selectedInstructor])
+                {
+                    subjectCodeTxtbx.Items.Add(subjectCode);
+                }
             }
-
-            connection.Close();
-
-            if (subjectCodeTxtbx.Items.Count > 0)
+            else
             {
-                subjectCodeTxtbx.Items.RemoveAt(0);
+                // If the selected instructor's subject codes are not in the Dictionary, fetch them from the database
+                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                string query = "SELECT CourseTime.courseID, CourseTime.section " +
+                   "FROM Instructor " +
+                   "INNER JOIN Person ON Instructor.personID = Person.personID " +
+                   "INNER JOIN CourseTime ON Instructor.instructorID = CourseTime.instructorID " +
+                   "WHERE CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) = @instructorName";
+
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@instructorName", selectedInstructor);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                // Store the fetched subject codes in a List
+                List<string> subjectCodes = new List<string>();
+                while (reader.Read())
+                {
+                    string courseName = reader.GetString("courseID");
+                    string section = reader.GetString("section");
+                    subjectCodes.Add($"{courseName} - {section}");
+                }
+
+                // Add the List of subject codes to the Dictionary
+                instructorSubjectCodes.Add(selectedInstructor, subjectCodes);
+
+                // Add the subject codes to the ComboBox
+                subjectCodeTxtbx.Items.Clear();
+                foreach (string subjectCode in subjectCodes)
+                {
+                    subjectCodeTxtbx.Items.Add(subjectCode);
+                }
+
+                connection.Close();
             }
         }
 
@@ -217,11 +241,12 @@ namespace Borrowing_System
 
         }
 
+        // Declare a Dictionary to store the mapping between products and parts
+        private Dictionary<string, List<string>> productParts = new Dictionary<string, List<string>>();
+
         private void equipmentNameTxtbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             availableLabel.Text = "";
-
             string defaultIndex = "Please select an equipment first";
 
             if (equipmentNameTxtbx.SelectedItem == null || equipmentNameTxtbx.Text == defaultIndex)
@@ -232,22 +257,49 @@ namespace Borrowing_System
             else
             {
                 string selectedProductName = equipmentNameTxtbx.SelectedItem.ToString();
-                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                connection.Open();
-                string query = "SELECT Part.partName " +
-                    "FROM Product " +
-                    "INNER JOIN Part ON Product.productID = Part.productID " +
-                    "WHERE Product.productName = @productName";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@productName", selectedProductName);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                typeTxtbx.Items.Clear();
-                while (reader.Read())
+
+                // If the selected product's parts are already stored in the Dictionary, use them
+                if (productParts.ContainsKey(selectedProductName))
                 {
-                    string partName = reader.GetString("partName");
-                    typeTxtbx.Items.Add(partName);
+                    typeTxtbx.Items.Clear();
+                    foreach (string part in productParts[selectedProductName])
+                    {
+                        typeTxtbx.Items.Add(part);
+                    }
                 }
-                connection.Close();
+                else
+                {
+                    // If the selected product's parts are not in the Dictionary, fetch them from the database
+                    MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                    connection.Open();
+                    string query = "SELECT Part.partName " +
+                        "FROM Product " +
+                        "INNER JOIN Part ON Product.productID = Part.productID " +
+                        "WHERE Product.productName = @productName";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@productName", selectedProductName);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    // Store the fetched parts in a List
+                    List<string> parts = new List<string>();
+                    while (reader.Read())
+                    {
+                        string partName = reader.GetString("partName");
+                        parts.Add(partName);
+                    }
+
+                    // Add the List of parts to the Dictionary
+                    productParts.Add(selectedProductName, parts);
+
+                    // Add the parts to the ComboBox
+                    typeTxtbx.Items.Clear();
+                    foreach (string part in parts)
+                    {
+                        typeTxtbx.Items.Add(part);
+                    }
+
+                    connection.Close();
+                }
             }
         }
 
