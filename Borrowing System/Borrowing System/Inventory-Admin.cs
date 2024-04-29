@@ -170,45 +170,43 @@ namespace Borrowing_System
                     using (var command = new MySqlCommand($"SELECT * FROM Product WHERE productname = @productname", conn))
                     {
                         command.Parameters.AddWithValue("@productname", productnameTxtbx.Text);
-                        using (var reader = command.ExecuteReader())
+                        var reader = command.ExecuteReader();
+                       
+                        if (!reader.Read())
                         {
-                            if (!reader.Read())
-                            {
-                                MessageBox.Show("Product name does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
+                            MessageBox.Show("Product name does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
+                        
                     }
 
                     // Check if the part name already exists
                     using (var command = new MySqlCommand($"SELECT * FROM Part WHERE partname = @partname", conn))
                     {
                         command.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
-                        using (var reader = command.ExecuteReader())
+                        var reader = command.ExecuteReader();
+                       
+                        if (reader.Read())
                         {
-                            if (reader.Read())
-                            {
-                                MessageBox.Show("Part Name already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
+                            MessageBox.Show("Part Name already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
+                        
                     }
 
                     if (MessageBox.Show("Are you sure you want to create this account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        using (var mySqlCommand = new MySqlCommand("INSERT INTO Part (productID, partname, partdescription, quantity, `condition`) VALUES (@productID, @partname, @partdescription, @quantity, @condition)", conn))
-                        {
-                            mySqlCommand.Parameters.AddWithValue("@productID", productnameTxtbx.Text);
-                            mySqlCommand.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
-                            mySqlCommand.Parameters.AddWithValue("@partdescription", partdescriptionTxtbx.Text);
-                            mySqlCommand.Parameters.AddWithValue("@quantity", quantityTxtbx.Text);
-                            mySqlCommand.Parameters.AddWithValue("@condition", conditionTxtbx.Text);
-
-                            mySqlCommand.ExecuteNonQuery();
-                        }
+                        var mySqlCommand = new MySqlCommand("INSERT INTO Part (productID, partname, partdescription, quantity, `condition`) VALUES (@productID, @partname, @partdescription, @quantity, @condition)", conn);
+                        
+                        mySqlCommand.Parameters.AddWithValue("@productID", productnameTxtbx.Text);
+                        mySqlCommand.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
+                        mySqlCommand.Parameters.AddWithValue("@partdescription", partdescriptionTxtbx.Text);
+                        mySqlCommand.Parameters.AddWithValue("@quantity", quantityTxtbx.Text);
+                        mySqlCommand.Parameters.AddWithValue("@condition", conditionTxtbx.Text);
+                        mySqlCommand.ExecuteNonQuery();                       
 
                         MessageBox.Show("Account created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        AccountManagementPage.instance.refreshData();
+                        ReloadDataGridView();
                         partIdTxtbx.Text = "";
                         productnameTxtbx.Text = "";
                         partnameTxtbx.Text = "";
