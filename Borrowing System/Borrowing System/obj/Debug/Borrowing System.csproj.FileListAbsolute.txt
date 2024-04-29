@@ -109,3 +109,7 @@ D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\B
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.EmployeeList.resources
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.InstructorList.resources
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.StudentList.resources
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\CsvHelper.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.Bcl.HashCode.dll
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\CsvHelper.xml
+D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.Bcl.HashCode.xml

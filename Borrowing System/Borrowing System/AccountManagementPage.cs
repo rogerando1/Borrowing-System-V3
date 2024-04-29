@@ -35,11 +35,35 @@ namespace Borrowing_System
         {
             MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
             mySqlConnection.Open();
-            MySqlCommand mySqlCommand = new MySqlCommand("SELECT Person.personID, Person.firstname, Person.middleinitial, Person.lastname, Accounts.username, Accounts.password_, Accounts.position FROM Person INNER JOIN Accounts ON Person.personID = Accounts.personID", mySqlConnection);
+            MySqlCommand mySqlCommand = new MySqlCommand("SELECT Person.personID, Person.firstname, Person.middleinitial, Person.lastname, Accounts.username, Accounts.password_, Accounts.position FROM Person " +
+                "INNER JOIN Accounts ON Person.personID = Accounts.personID", mySqlConnection);
             MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
             DataTable dataTable = new DataTable();
             mySqlDataAdapter.Fill(dataTable);
             employeeData.DataSource = dataTable;
+
+            mySqlCommand = new MySqlCommand("SELECT Person.firstname, Person.middleinitial, Person.lastname, Student.studentID, Student.program, Student.yearlevel FROM Person " +
+                "INNER JOIN Student ON Person.personID = Student.personID", mySqlConnection);
+            mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+            dataTable = new DataTable();
+            mySqlDataAdapter.Fill(dataTable);
+            studentData.DataSource = dataTable;
+
+            mySqlCommand = new MySqlCommand("SELECT Person.firstname, Person.middleinitial, Person.lastname, Instructor.instructorID FROM Person " +
+                "INNER JOIN Instructor ON Person.personID = Instructor.personID ", mySqlConnection);
+            mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+            dataTable = new DataTable();
+            mySqlDataAdapter.Fill(dataTable);
+            instructorData.DataSource = dataTable;
+
+            mySqlCommand = new MySqlCommand("SELECT Course.courseID, Course.coursename, CourseTime.startTime, CourseTime.endTime, CourseTime.section From Course " +
+                "INNER JOIN CourseTime ON Course.courseID = CourseTime.courseID", mySqlConnection);
+            mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+            dataTable = new DataTable();
+            mySqlDataAdapter.Fill(dataTable);
+            courseData.DataSource = dataTable;
+
+
             mySqlConnection.Close();
 
         }
@@ -163,6 +187,11 @@ namespace Borrowing_System
                 employeePosition = row.Cells["position"].Value.ToString();
                 employeeList1.updateEmployeeList();
             }
+        }
+
+        private void studentData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }
