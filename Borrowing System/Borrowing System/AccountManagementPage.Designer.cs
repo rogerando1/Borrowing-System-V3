@@ -52,6 +52,7 @@
             this.position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchBTN = new System.Windows.Forms.Button();
             this.accountmanagementPanel = new System.Windows.Forms.Panel();
+            this.instructorlistTxtbx = new System.Windows.Forms.ComboBox();
             this.studentData = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,7 +71,6 @@
             this.studentBTN = new System.Windows.Forms.Button();
             this.instructorBTN = new System.Windows.Forms.Button();
             this.courseBTN = new System.Windows.Forms.Button();
-            this.instructorlistTxtbx = new System.Windows.Forms.ComboBox();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -138,7 +138,7 @@
             this.employeeData.DefaultCellStyle = dataGridViewCellStyle2;
             this.employeeData.EnableHeadersVisualStyles = false;
             this.employeeData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.employeeData.Location = new System.Drawing.Point(24, 361);
+            this.employeeData.Location = new System.Drawing.Point(24, 88);
             this.employeeData.Name = "employeeData";
             this.employeeData.ReadOnly = true;
             this.employeeData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -153,7 +153,7 @@
             this.employeeData.RowHeadersVisible = false;
             this.employeeData.RowHeadersWidth = 51;
             this.employeeData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.employeeData.Size = new System.Drawing.Size(957, 179);
+            this.employeeData.Size = new System.Drawing.Size(957, 452);
             this.employeeData.TabIndex = 15;
             this.employeeData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeData_CellClick);
             // 
@@ -238,18 +238,32 @@
             // 
             this.accountmanagementPanel.BackColor = System.Drawing.Color.Transparent;
             this.accountmanagementPanel.Controls.Add(this.instructorlistTxtbx);
-            this.accountmanagementPanel.Controls.Add(this.employeeList1);
-            this.accountmanagementPanel.Controls.Add(this.studentList1);
-            this.accountmanagementPanel.Controls.Add(this.instructorList1);
-            this.accountmanagementPanel.Controls.Add(this.courseList1);
             this.accountmanagementPanel.Controls.Add(this.employeeData);
             this.accountmanagementPanel.Controls.Add(this.studentData);
             this.accountmanagementPanel.Controls.Add(this.instructorData);
             this.accountmanagementPanel.Controls.Add(this.courseData);
+            this.accountmanagementPanel.Controls.Add(this.employeeList1);
+            this.accountmanagementPanel.Controls.Add(this.studentList1);
+            this.accountmanagementPanel.Controls.Add(this.instructorList1);
+            this.accountmanagementPanel.Controls.Add(this.courseList1);
             this.accountmanagementPanel.Location = new System.Drawing.Point(0, 70);
             this.accountmanagementPanel.Name = "accountmanagementPanel";
             this.accountmanagementPanel.Size = new System.Drawing.Size(1532, 580);
             this.accountmanagementPanel.TabIndex = 42;
+            // 
+            // instructorlistTxtbx
+            // 
+            this.instructorlistTxtbx.BackColor = System.Drawing.SystemColors.Window;
+            this.instructorlistTxtbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.instructorlistTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.instructorlistTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructorlistTxtbx.FormattingEnabled = true;
+            this.instructorlistTxtbx.Location = new System.Drawing.Point(24, 88);
+            this.instructorlistTxtbx.Name = "instructorlistTxtbx";
+            this.instructorlistTxtbx.Size = new System.Drawing.Size(334, 32);
+            this.instructorlistTxtbx.TabIndex = 23;
+            this.instructorlistTxtbx.Visible = false;
+            this.instructorlistTxtbx.SelectedIndexChanged += new System.EventHandler(this.instructorlistTxtbx_SelectedIndexChanged);
             // 
             // studentData
             // 
@@ -290,7 +304,7 @@
             this.studentData.DefaultCellStyle = dataGridViewCellStyle5;
             this.studentData.EnableHeadersVisualStyles = false;
             this.studentData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.studentData.Location = new System.Drawing.Point(24, 302);
+            this.studentData.Location = new System.Drawing.Point(24, 88);
             this.studentData.Name = "studentData";
             this.studentData.ReadOnly = true;
             this.studentData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -305,7 +319,7 @@
             this.studentData.RowHeadersVisible = false;
             this.studentData.RowHeadersWidth = 51;
             this.studentData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.studentData.Size = new System.Drawing.Size(957, 251);
+            this.studentData.Size = new System.Drawing.Size(981, 465);
             this.studentData.TabIndex = 16;
             this.studentData.Visible = false;
             this.studentData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentData_CellContentClick);
@@ -387,7 +401,7 @@
             this.dataGridViewTextBoxColumn11,
             this.Column1,
             this.Column2});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -412,7 +426,7 @@
             this.instructorData.RowHeadersVisible = false;
             this.instructorData.RowHeadersWidth = 51;
             this.instructorData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.instructorData.Size = new System.Drawing.Size(1505, 427);
+            this.instructorData.Size = new System.Drawing.Size(981, 427);
             this.instructorData.TabIndex = 17;
             this.instructorData.Visible = false;
             // 
@@ -469,7 +483,7 @@
             this.courseData.RowHeadersVisible = false;
             this.courseData.RowHeadersWidth = 51;
             this.courseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.courseData.Size = new System.Drawing.Size(957, 465);
+            this.courseData.Size = new System.Drawing.Size(981, 465);
             this.courseData.TabIndex = 18;
             this.courseData.Visible = false;
             // 
@@ -573,24 +587,10 @@
             this.courseBTN.UseVisualStyleBackColor = false;
             this.courseBTN.Click += new System.EventHandler(this.courseBTN_Click);
             // 
-            // instructorlistTxtbx
-            // 
-            this.instructorlistTxtbx.BackColor = System.Drawing.SystemColors.Window;
-            this.instructorlistTxtbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.instructorlistTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.instructorlistTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructorlistTxtbx.FormattingEnabled = true;
-            this.instructorlistTxtbx.Location = new System.Drawing.Point(24, 88);
-            this.instructorlistTxtbx.Name = "instructorlistTxtbx";
-            this.instructorlistTxtbx.Size = new System.Drawing.Size(334, 32);
-            this.instructorlistTxtbx.TabIndex = 23;
-            this.instructorlistTxtbx.Visible = false;
-            this.instructorlistTxtbx.SelectedIndexChanged += new System.EventHandler(this.instructorlistTxtbx_SelectedIndexChanged);
-            // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "instructorname";
-            this.dataGridViewTextBoxColumn8.FillWeight = 75.63123F;
+            this.dataGridViewTextBoxColumn8.FillWeight = 109.7531F;
             this.dataGridViewTextBoxColumn8.HeaderText = "Instructor Name";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -598,7 +598,7 @@
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.DataPropertyName = "courseID";
-            this.dataGridViewTextBoxColumn9.FillWeight = 118.0909F;
+            this.dataGridViewTextBoxColumn9.FillWeight = 73.07925F;
             this.dataGridViewTextBoxColumn9.HeaderText = "Course ID";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
@@ -606,7 +606,7 @@
             // dataGridViewTextBoxColumn10
             // 
             this.dataGridViewTextBoxColumn10.DataPropertyName = "coursename";
-            this.dataGridViewTextBoxColumn10.FillWeight = 88.04581F;
+            this.dataGridViewTextBoxColumn10.FillWeight = 271.7144F;
             this.dataGridViewTextBoxColumn10.HeaderText = "Course Name";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
@@ -614,7 +614,7 @@
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.DataPropertyName = "section";
-            this.dataGridViewTextBoxColumn11.FillWeight = 118.0909F;
+            this.dataGridViewTextBoxColumn11.FillWeight = 52.33739F;
             this.dataGridViewTextBoxColumn11.HeaderText = "Section";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
@@ -622,6 +622,7 @@
             // Column1
             // 
             this.Column1.DataPropertyName = "startTime";
+            this.Column1.FillWeight = 50.65809F;
             this.Column1.HeaderText = "Start Time";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -629,6 +630,7 @@
             // Column2
             // 
             this.Column2.DataPropertyName = "endTime";
+            this.Column2.FillWeight = 42.31669F;
             this.Column2.HeaderText = "End Time";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -636,33 +638,35 @@
             // employeeList1
             // 
             this.employeeList1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("employeeList1.BackgroundImage")));
-            this.employeeList1.Location = new System.Drawing.Point(1004, 0);
+            this.employeeList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.employeeList1.Location = new System.Drawing.Point(1011, 0);
             this.employeeList1.Name = "employeeList1";
-            this.employeeList1.Size = new System.Drawing.Size(528, 580);
+            this.employeeList1.Size = new System.Drawing.Size(521, 580);
             this.employeeList1.TabIndex = 0;
+            this.employeeList1.Load += new System.EventHandler(this.employeeList1_Load);
             // 
             // studentList1
             // 
             this.studentList1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("studentList1.BackgroundImage")));
-            this.studentList1.Location = new System.Drawing.Point(1004, 0);
+            this.studentList1.Location = new System.Drawing.Point(1011, 0);
             this.studentList1.Name = "studentList1";
-            this.studentList1.Size = new System.Drawing.Size(528, 580);
+            this.studentList1.Size = new System.Drawing.Size(521, 580);
             this.studentList1.TabIndex = 19;
             // 
             // instructorList1
             // 
             this.instructorList1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("instructorList1.BackgroundImage")));
-            this.instructorList1.Location = new System.Drawing.Point(1004, 0);
+            this.instructorList1.Location = new System.Drawing.Point(1011, 0);
             this.instructorList1.Name = "instructorList1";
-            this.instructorList1.Size = new System.Drawing.Size(528, 580);
+            this.instructorList1.Size = new System.Drawing.Size(521, 580);
             this.instructorList1.TabIndex = 20;
             // 
             // courseList1
             // 
             this.courseList1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("courseList1.BackgroundImage")));
-            this.courseList1.Location = new System.Drawing.Point(1004, 0);
+            this.courseList1.Location = new System.Drawing.Point(1011, 0);
             this.courseList1.Name = "courseList1";
-            this.courseList1.Size = new System.Drawing.Size(528, 580);
+            this.courseList1.Size = new System.Drawing.Size(521, 580);
             this.courseList1.TabIndex = 21;
             // 
             // AccountManagementPage

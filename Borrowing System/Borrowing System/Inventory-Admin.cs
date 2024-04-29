@@ -154,9 +154,78 @@ namespace Borrowing_System
 
         private void createBTN_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (productnameTxtbx.Text == "" || partnameTxtbx.Text == "" || partdescriptionTxtbx.Text == "" || quantityTxtbx.Text == "" || conditionTxtbx.Text == "")
+                {
+                    MessageBox.Show("Please fill in the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
+                using (var conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
+                {
+                    conn.Open();
+
+                    // Check if the product name exists
+                    using (var command = new MySqlCommand($"SELECT * FROM Product WHERE productname = @productname", conn))
+                    {
+                        command.Parameters.AddWithValue("@productname", productnameTxtbx.Text);
+                        using (var reader = command.ExecuteReader())
+                        {
+                            if (!reader.Read())
+                            {
+                                MessageBox.Show("Product name does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
+
+                    // Check if the part name already exists
+                    using (var command = new MySqlCommand($"SELECT * FROM Part WHERE partname = @partname", conn))
+                    {
+                        command.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
+                        using (var reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                MessageBox.Show("Part Name already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
+
+                    if (MessageBox.Show("Are you sure you want to create this account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        using (var mySqlCommand = new MySqlCommand("INSERT INTO Part (productID, partname, partdescription, quantity, `condition`) VALUES (@productID, @partname, @partdescription, @quantity, @condition)", conn))
+                        {
+                            mySqlCommand.Parameters.AddWithValue("@productID", productnameTxtbx.Text);
+                            mySqlCommand.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
+                            mySqlCommand.Parameters.AddWithValue("@partdescription", partdescriptionTxtbx.Text);
+                            mySqlCommand.Parameters.AddWithValue("@quantity", quantityTxtbx.Text);
+                            mySqlCommand.Parameters.AddWithValue("@condition", conditionTxtbx.Text);
+
+                            mySqlCommand.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show("Account created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AccountManagementPage.instance.refreshData();
+                        partIdTxtbx.Text = "";
+                        productnameTxtbx.Text = "";
+                        partnameTxtbx.Text = "";
+                        partdescriptionTxtbx.Text = "";
+                        quantityTxtbx.Text = "";
+                        conditionTxtbx.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-       
+
+
+
         private void deleteBTN_Click(object sender, EventArgs e)
         {
             string partID = partIdTxtbx.Text;
@@ -279,6 +348,8 @@ namespace Borrowing_System
             doneBTN.Visible = true;
             clearBtn.Visible = true;
             editBTN.Visible = false;
+            partnameTxtbx.ReadOnly = false;
+            productnameTxtbx.ReadOnly = false;
             partdescriptionTxtbx.ReadOnly = false;
             quantityTxtbx.ReadOnly = false;
             conditionTxtbx.ReadOnly = false;
@@ -302,6 +373,8 @@ namespace Borrowing_System
             doneBTN.Visible = false;
             clearBtn.Visible = false;
             editBTN.Visible = true;
+            partnameTxtbx.ReadOnly = true;
+            productnameTxtbx.ReadOnly = true;
             partdescriptionTxtbx.ReadOnly = true;
             quantityTxtbx.ReadOnly = true;
             conditionTxtbx.ReadOnly = true;

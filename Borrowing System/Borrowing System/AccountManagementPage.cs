@@ -54,7 +54,7 @@ namespace Borrowing_System
 
 
 
-            mySqlCommand = new MySqlCommand("SELECT  CourseTime.courseID, Course.coursename, CourseTime.startTime, CourseTime.endTime, CourseTime.section, " +
+            mySqlCommand = new MySqlCommand("SELECT  CourseTime.courseID, Course.coursename, CourseTime.section, CourseTime.startTime, CourseTime.endTime,  " +
                 "CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS instructorName FROM CourseTime " +
                 "INNER JOIN Instructor ON CourseTime.instructorID = Instructor.instructorID " +
                 "INNER JOIN Person ON Instructor.personID = Person.personID " +
@@ -153,11 +153,8 @@ namespace Borrowing_System
             employeeData.Visible = true;
             courseData.Visible = false;
             instructorlistTxtbx.Visible = false;
-            instructorlistTxtbx.Visible = true;
-            employeeList1.Visible = true;
-            instructorList1.Visible = false;
-            courseList1.Visible = false;
-            studentList1.Visible = false;
+          
+           
         }
 
         private void studentBTN_Click(object sender, EventArgs e)
@@ -172,20 +169,14 @@ namespace Borrowing_System
             employeeData.Visible = false;
             courseData.Visible = false;
             instructorlistTxtbx.Visible = false;
-            instructorlistTxtbx.Visible = true;
-            employeeList1.Visible = false;
-            instructorList1.Visible = false;
-            courseList1.Visible = false;
-            studentList1.Visible = true;
+       
+           
         }
 
         private void instructorBTN_Click(object sender, EventArgs e)
         {
             instructorlistTxtbx.Visible = true;
-            employeeList1.Visible = false;
-            instructorList1.Visible = false;
-            courseList1.Visible = false;
-            studentList1.Visible = false;
+            instructorList1.BringToFront();
             studentBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
             instructorBTN.BackColor = Color.FromArgb(252, 168, 115); //SELECTED
             courseBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
@@ -208,11 +199,8 @@ namespace Borrowing_System
             employeeData.Visible = false;
             courseData.Visible = true;
             instructorlistTxtbx.Visible = false;
-            instructorlistTxtbx.Visible = true;
-            employeeList1.Visible = false;
-            instructorList1.Visible = false;
-            courseList1.Visible = false;
-            studentList1.Visible = false;
+      
+            
         }
 
         private void employeeData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -246,7 +234,7 @@ namespace Borrowing_System
             string instructorName = instructorlistTxtbx.SelectedItem.ToString();
             MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
             connection.Open();
-            string query = "SELECT CourseTime.courseID, Course.coursename, CourseTime.startTime, CourseTime.endTime, CourseTime.section, " +
+            string query = "SELECT CourseTime.courseID, Course.coursename, CourseTime.section, CourseTime.startTime, CourseTime.endTime, " +
                 "CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS instructorName FROM CourseTime " +
                 "INNER JOIN Instructor ON CourseTime.instructorID = Instructor.instructorID " +
                 "INNER JOIN Person ON Instructor.personID = Person.personID " +
@@ -259,7 +247,6 @@ namespace Borrowing_System
             adp.Fill(dt);
             instructorData.DataSource = dt;
         }
-
 
         private void FillComboBox()
         {
@@ -281,6 +268,11 @@ namespace Borrowing_System
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void employeeList1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
