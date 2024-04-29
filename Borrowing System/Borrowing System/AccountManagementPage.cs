@@ -49,8 +49,16 @@ namespace Borrowing_System
             mySqlDataAdapter.Fill(dataTable);
             studentData.DataSource = dataTable;
 
-            mySqlCommand = new MySqlCommand("SELECT Person.firstname, Person.middleinitial, Person.lastname, Instructor.instructorID FROM Person " +
-                "INNER JOIN Instructor ON Person.personID = Instructor.personID ", mySqlConnection);
+            //mySqlCommand = new MySqlCommand("SELECT Person.firstname, Person.middleinitial, Person.lastname, Instructor.instructorID FROM Person " +
+            //    "INNER JOIN Instructor ON Person.personID = Instructor.personID ", mySqlConnection);
+
+
+
+            mySqlCommand = new MySqlCommand("SELECT  CourseTime.courseID, Course.coursename, CourseTime.startTime, CourseTime.endTime, CourseTime.section, " +
+                "CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS instructorName FROM CourseTime " +
+                "INNER JOIN Instructor ON CourseTime.instructorID = Instructor.instructorID " +
+                "INNER JOIN Person ON Instructor.personID = Person.personID " +
+                "INNER JOIN Course ON CourseTime.courseID = Course.courseID ", mySqlConnection);
             mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
             dataTable = new DataTable();
             mySqlDataAdapter.Fill(dataTable);
@@ -65,7 +73,7 @@ namespace Borrowing_System
 
 
             mySqlConnection.Close();
-
+            FillComboBox();
         }
 
         public void refreshData()
@@ -140,7 +148,16 @@ namespace Borrowing_System
             instructorBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
             courseBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
             employeeBTN.BackColor = Color.FromArgb(252, 168, 115); //SELECTED
-            employeeData.BringToFront();
+            instructorData.Visible = false;
+            studentData.Visible = false;
+            employeeData.Visible = true;
+            courseData.Visible = false;
+            instructorlistTxtbx.Visible = false;
+            instructorlistTxtbx.Visible = true;
+            employeeList1.Visible = true;
+            instructorList1.Visible = false;
+            courseList1.Visible = false;
+            studentList1.Visible = false;
         }
 
         private void studentBTN_Click(object sender, EventArgs e)
@@ -150,17 +167,33 @@ namespace Borrowing_System
             instructorBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
             courseBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
             employeeBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
-            studentData.BringToFront();
+            studentData.Visible = true;
+            instructorData.Visible = false;
+            employeeData.Visible = false;
+            courseData.Visible = false;
+            instructorlistTxtbx.Visible = false;
+            instructorlistTxtbx.Visible = true;
+            employeeList1.Visible = false;
+            instructorList1.Visible = false;
+            courseList1.Visible = false;
+            studentList1.Visible = true;
         }
 
         private void instructorBTN_Click(object sender, EventArgs e)
         {
-            instructorList1.BringToFront();
+            instructorlistTxtbx.Visible = true;
+            employeeList1.Visible = false;
+            instructorList1.Visible = false;
+            courseList1.Visible = false;
+            studentList1.Visible = false;
             studentBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
             instructorBTN.BackColor = Color.FromArgb(252, 168, 115); //SELECTED
             courseBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
             employeeBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
-            instructorData.BringToFront();
+            instructorData.Visible = true;
+            studentData.Visible = false;
+            employeeData.Visible= false;
+            courseData.Visible = false;
         }
 
         private void courseBTN_Click(object sender, EventArgs e)
@@ -170,7 +203,16 @@ namespace Borrowing_System
             instructorBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
             courseBTN.BackColor = Color.FromArgb(252, 168, 115); //SELECTED
             employeeBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
-            courseData.BringToFront();
+            instructorData.Visible = false;
+            studentData.Visible = false;
+            employeeData.Visible = false;
+            courseData.Visible = true;
+            instructorlistTxtbx.Visible = false;
+            instructorlistTxtbx.Visible = true;
+            employeeList1.Visible = false;
+            instructorList1.Visible = false;
+            courseList1.Visible = false;
+            studentList1.Visible = false;
         }
 
         private void employeeData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -192,6 +234,53 @@ namespace Borrowing_System
         private void studentData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void instructorlistTxtbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (instructorlistTxtbx.SelectedItem == null)
+            {
+                return;
+            }
+
+            string instructorName = instructorlistTxtbx.SelectedItem.ToString();
+            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+            connection.Open();
+            string query = "SELECT CourseTime.courseID, Course.coursename, CourseTime.startTime, CourseTime.endTime, CourseTime.section, " +
+                "CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS instructorName FROM CourseTime " +
+                "INNER JOIN Instructor ON CourseTime.instructorID = Instructor.instructorID " +
+                "INNER JOIN Person ON Instructor.personID = Person.personID " +
+                "INNER JOIN Course on CourseTime.courseID = Course.courseID " +
+                "WHERE CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) = @instructorName";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@instructorName", instructorName);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            instructorData.DataSource = dt;
+        }
+
+
+        private void FillComboBox()
+        {
+            try
+            {
+                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID FROM sql6690575.Instructor " +
+                                                             "INNER JOIN Person ON Instructor.personID = Person.personID ", connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string instructorName = reader.GetString("personID");
+                    instructorlistTxtbx.Items.Add(instructorName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

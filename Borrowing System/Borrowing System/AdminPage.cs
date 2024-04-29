@@ -177,9 +177,7 @@ namespace Borrowing_System
             settingsBTN.BackColor = Color.FromArgb(252, 168, 115);
             settingsBTN.ForeColor = Color.Black;
         }
-
        
-
         private void AdminPage_MouseDown(object sender, MouseEventArgs e)
         {
             dragging = true;

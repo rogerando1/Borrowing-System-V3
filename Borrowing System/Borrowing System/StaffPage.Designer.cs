@@ -38,6 +38,10 @@
             this.dashboardBTN = new System.Windows.Forms.Button();
             this.transactionBTN = new System.Windows.Forms.Button();
             this.staffFormPanel = new System.Windows.Forms.Panel();
+            this.employeeITxt = new System.Windows.Forms.Label();
+            this.poslbl = new System.Windows.Forms.Label();
+            this.positionTxt = new System.Windows.Forms.Label();
+            this.idlbl = new System.Windows.Forms.Label();
             this.navBar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -196,12 +200,64 @@
             this.staffFormPanel.Size = new System.Drawing.Size(1532, 650);
             this.staffFormPanel.TabIndex = 15;
             // 
+            // employeeITxt
+            // 
+            this.employeeITxt.AutoSize = true;
+            this.employeeITxt.BackColor = System.Drawing.Color.Transparent;
+            this.employeeITxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeITxt.ForeColor = System.Drawing.Color.Yellow;
+            this.employeeITxt.Location = new System.Drawing.Point(1383, 80);
+            this.employeeITxt.Name = "employeeITxt";
+            this.employeeITxt.Size = new System.Drawing.Size(96, 18);
+            this.employeeITxt.TabIndex = 23;
+            this.employeeITxt.Text = "Employee ID:";
+            // 
+            // poslbl
+            // 
+            this.poslbl.AutoSize = true;
+            this.poslbl.BackColor = System.Drawing.Color.Transparent;
+            this.poslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.poslbl.ForeColor = System.Drawing.Color.Cyan;
+            this.poslbl.Location = new System.Drawing.Point(1449, 49);
+            this.poslbl.Name = "poslbl";
+            this.poslbl.Size = new System.Drawing.Size(80, 18);
+            this.poslbl.TabIndex = 22;
+            this.poslbl.Text = "{position}";
+            // 
+            // positionTxt
+            // 
+            this.positionTxt.AutoSize = true;
+            this.positionTxt.BackColor = System.Drawing.Color.Transparent;
+            this.positionTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.positionTxt.ForeColor = System.Drawing.Color.Yellow;
+            this.positionTxt.Location = new System.Drawing.Point(1384, 49);
+            this.positionTxt.Name = "positionTxt";
+            this.positionTxt.Size = new System.Drawing.Size(66, 18);
+            this.positionTxt.TabIndex = 20;
+            this.positionTxt.Text = "Position:";
+            // 
+            // idlbl
+            // 
+            this.idlbl.AutoSize = true;
+            this.idlbl.BackColor = System.Drawing.Color.Transparent;
+            this.idlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idlbl.ForeColor = System.Drawing.Color.Cyan;
+            this.idlbl.Location = new System.Drawing.Point(1477, 80);
+            this.idlbl.Name = "idlbl";
+            this.idlbl.Size = new System.Drawing.Size(33, 18);
+            this.idlbl.TabIndex = 21;
+            this.idlbl.Text = "{id}";
+            // 
             // StaffPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Login_layer_1__4_;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Full_Page__1_;
             this.ClientSize = new System.Drawing.Size(1556, 850);
+            this.Controls.Add(this.employeeITxt);
+            this.Controls.Add(this.poslbl);
+            this.Controls.Add(this.positionTxt);
+            this.Controls.Add(this.idlbl);
             this.Controls.Add(this.staffFormPanel);
             this.Controls.Add(this.navBar);
             this.Controls.Add(this.MinimizeButton);
@@ -216,6 +272,7 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.StaffPage_MouseUp);
             this.navBar.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -231,5 +288,9 @@
         private System.Windows.Forms.Button dashboardBTN;
         private System.Windows.Forms.Button transactionBTN;
         private System.Windows.Forms.Panel staffFormPanel;
+        private System.Windows.Forms.Label employeeITxt;
+        private System.Windows.Forms.Label poslbl;
+        private System.Windows.Forms.Label positionTxt;
+        private System.Windows.Forms.Label idlbl;
     }
 }

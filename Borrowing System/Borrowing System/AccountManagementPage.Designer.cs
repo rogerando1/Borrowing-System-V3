@@ -53,27 +53,30 @@
             this.searchBTN = new System.Windows.Forms.Button();
             this.accountmanagementPanel = new System.Windows.Forms.Panel();
             this.studentData = new System.Windows.Forms.DataGridView();
-            this.instructorData = new System.Windows.Forms.DataGridView();
-            this.courseData = new System.Windows.Forms.DataGridView();
-            this.employeeBTN = new System.Windows.Forms.Button();
-            this.studentBTN = new System.Windows.Forms.Button();
-            this.instructorBTN = new System.Windows.Forms.Button();
-            this.courseBTN = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorData = new System.Windows.Forms.DataGridView();
+            this.courseData = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeBTN = new System.Windows.Forms.Button();
+            this.studentBTN = new System.Windows.Forms.Button();
+            this.instructorBTN = new System.Windows.Forms.Button();
+            this.courseBTN = new System.Windows.Forms.Button();
+            this.instructorlistTxtbx = new System.Windows.Forms.ComboBox();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.employeeList1 = new Borrowing_System.Account_Management.EmployeeList();
             this.studentList1 = new Borrowing_System.Account_Management.StudentList();
             this.instructorList1 = new Borrowing_System.Account_Management.InstructorList();
@@ -135,7 +138,7 @@
             this.employeeData.DefaultCellStyle = dataGridViewCellStyle2;
             this.employeeData.EnableHeadersVisualStyles = false;
             this.employeeData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.employeeData.Location = new System.Drawing.Point(24, 88);
+            this.employeeData.Location = new System.Drawing.Point(24, 361);
             this.employeeData.Name = "employeeData";
             this.employeeData.ReadOnly = true;
             this.employeeData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -150,7 +153,7 @@
             this.employeeData.RowHeadersVisible = false;
             this.employeeData.RowHeadersWidth = 51;
             this.employeeData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.employeeData.Size = new System.Drawing.Size(957, 465);
+            this.employeeData.Size = new System.Drawing.Size(957, 179);
             this.employeeData.TabIndex = 15;
             this.employeeData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeData_CellClick);
             // 
@@ -234,6 +237,7 @@
             // accountmanagementPanel
             // 
             this.accountmanagementPanel.BackColor = System.Drawing.Color.Transparent;
+            this.accountmanagementPanel.Controls.Add(this.instructorlistTxtbx);
             this.accountmanagementPanel.Controls.Add(this.employeeList1);
             this.accountmanagementPanel.Controls.Add(this.studentList1);
             this.accountmanagementPanel.Controls.Add(this.instructorList1);
@@ -286,7 +290,7 @@
             this.studentData.DefaultCellStyle = dataGridViewCellStyle5;
             this.studentData.EnableHeadersVisualStyles = false;
             this.studentData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.studentData.Location = new System.Drawing.Point(24, 88);
+            this.studentData.Location = new System.Drawing.Point(24, 302);
             this.studentData.Name = "studentData";
             this.studentData.ReadOnly = true;
             this.studentData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -301,9 +305,58 @@
             this.studentData.RowHeadersVisible = false;
             this.studentData.RowHeadersWidth = 51;
             this.studentData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.studentData.Size = new System.Drawing.Size(957, 465);
+            this.studentData.Size = new System.Drawing.Size(957, 251);
             this.studentData.TabIndex = 16;
+            this.studentData.Visible = false;
             this.studentData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentData_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "studentID";
+            this.dataGridViewTextBoxColumn5.FillWeight = 119.3331F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Student ID";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "firstname";
+            this.dataGridViewTextBoxColumn2.FillWeight = 119.3331F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "First Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "middleinitial";
+            this.dataGridViewTextBoxColumn3.FillWeight = 82.404F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Middle Initial";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "lastname";
+            this.dataGridViewTextBoxColumn4.FillWeight = 119.3331F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Last Name";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "program";
+            this.dataGridViewTextBoxColumn6.FillWeight = 119.3331F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Program";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "yearlevel";
+            this.dataGridViewTextBoxColumn7.FillWeight = 64.63219F;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Year Level";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
             // 
             // instructorData
             // 
@@ -331,7 +384,9 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
+            this.dataGridViewTextBoxColumn11,
+            this.Column1,
+            this.Column2});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
@@ -342,7 +397,7 @@
             this.instructorData.DefaultCellStyle = dataGridViewCellStyle8;
             this.instructorData.EnableHeadersVisualStyles = false;
             this.instructorData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.instructorData.Location = new System.Drawing.Point(24, 88);
+            this.instructorData.Location = new System.Drawing.Point(24, 126);
             this.instructorData.Name = "instructorData";
             this.instructorData.ReadOnly = true;
             this.instructorData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -357,8 +412,9 @@
             this.instructorData.RowHeadersVisible = false;
             this.instructorData.RowHeadersWidth = 51;
             this.instructorData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.instructorData.Size = new System.Drawing.Size(957, 465);
+            this.instructorData.Size = new System.Drawing.Size(1505, 427);
             this.instructorData.TabIndex = 17;
+            this.instructorData.Visible = false;
             // 
             // courseData
             // 
@@ -415,6 +471,47 @@
             this.courseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.courseData.Size = new System.Drawing.Size(957, 465);
             this.courseData.TabIndex = 18;
+            this.courseData.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "courseID";
+            this.dataGridViewTextBoxColumn15.FillWeight = 69.45326F;
+            this.dataGridViewTextBoxColumn15.HeaderText = "Course ID";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "coursename";
+            this.dataGridViewTextBoxColumn16.FillWeight = 244.5144F;
+            this.dataGridViewTextBoxColumn16.HeaderText = "Course Name";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "startTime";
+            this.dataGridViewTextBoxColumn17.FillWeight = 67.18204F;
+            this.dataGridViewTextBoxColumn17.HeaderText = "Start Time";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "endTime";
+            this.dataGridViewTextBoxColumn18.FillWeight = 77.42522F;
+            this.dataGridViewTextBoxColumn18.HeaderText = "End Time";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "section";
+            this.dataGridViewTextBoxColumn19.FillWeight = 59.37489F;
+            this.dataGridViewTextBoxColumn19.HeaderText = "Section";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
             // 
             // employeeBTN
             // 
@@ -476,125 +573,65 @@
             this.courseBTN.UseVisualStyleBackColor = false;
             this.courseBTN.Click += new System.EventHandler(this.courseBTN_Click);
             // 
-            // dataGridViewTextBoxColumn5
+            // instructorlistTxtbx
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "studentID";
-            this.dataGridViewTextBoxColumn5.FillWeight = 119.3331F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Student ID";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "firstname";
-            this.dataGridViewTextBoxColumn2.FillWeight = 119.3331F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "First Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "middleinitial";
-            this.dataGridViewTextBoxColumn3.FillWeight = 82.404F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Middle Initial";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "lastname";
-            this.dataGridViewTextBoxColumn4.FillWeight = 119.3331F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Last Name";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "program";
-            this.dataGridViewTextBoxColumn6.FillWeight = 119.3331F;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Program";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "yearlevel";
-            this.dataGridViewTextBoxColumn7.FillWeight = 64.63219F;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Year Level";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.instructorlistTxtbx.BackColor = System.Drawing.SystemColors.Window;
+            this.instructorlistTxtbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.instructorlistTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.instructorlistTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructorlistTxtbx.FormattingEnabled = true;
+            this.instructorlistTxtbx.Location = new System.Drawing.Point(24, 88);
+            this.instructorlistTxtbx.Name = "instructorlistTxtbx";
+            this.instructorlistTxtbx.Size = new System.Drawing.Size(334, 32);
+            this.instructorlistTxtbx.TabIndex = 23;
+            this.instructorlistTxtbx.Visible = false;
+            this.instructorlistTxtbx.SelectedIndexChanged += new System.EventHandler(this.instructorlistTxtbx_SelectedIndexChanged);
             // 
             // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "instructorID";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "instructorname";
             this.dataGridViewTextBoxColumn8.FillWeight = 75.63123F;
-            this.dataGridViewTextBoxColumn8.HeaderText = "Instructor ID";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Instructor Name";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn9
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "firstname";
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "courseID";
             this.dataGridViewTextBoxColumn9.FillWeight = 118.0909F;
-            this.dataGridViewTextBoxColumn9.HeaderText = "First Name";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Course ID";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn10
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "middleinitial";
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "coursename";
             this.dataGridViewTextBoxColumn10.FillWeight = 88.04581F;
-            this.dataGridViewTextBoxColumn10.HeaderText = "Middle Initial";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Course Name";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn11
             // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "lastname";
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "section";
             this.dataGridViewTextBoxColumn11.FillWeight = 118.0909F;
-            this.dataGridViewTextBoxColumn11.HeaderText = "Last Name";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Section";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn15
+            // Column1
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "courseID";
-            this.dataGridViewTextBoxColumn15.FillWeight = 69.45326F;
-            this.dataGridViewTextBoxColumn15.HeaderText = "Course ID";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.Column1.DataPropertyName = "startTime";
+            this.Column1.HeaderText = "Start Time";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn16
+            // Column2
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "coursename";
-            this.dataGridViewTextBoxColumn16.FillWeight = 244.5144F;
-            this.dataGridViewTextBoxColumn16.HeaderText = "Course Name";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "startTime";
-            this.dataGridViewTextBoxColumn17.FillWeight = 67.18204F;
-            this.dataGridViewTextBoxColumn17.HeaderText = "Start Time";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "endTime";
-            this.dataGridViewTextBoxColumn18.FillWeight = 77.42522F;
-            this.dataGridViewTextBoxColumn18.HeaderText = "End Time";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "section";
-            this.dataGridViewTextBoxColumn19.FillWeight = 59.37489F;
-            this.dataGridViewTextBoxColumn19.HeaderText = "Section";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.Column2.DataPropertyName = "endTime";
+            this.Column2.HeaderText = "End Time";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // employeeList1
             // 
@@ -686,14 +723,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.ComboBox instructorlistTxtbx;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

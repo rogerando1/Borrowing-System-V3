@@ -39,6 +39,10 @@
             this.adminFormPanel = new System.Windows.Forms.Panel();
             this.MinimizeButton = new System.Windows.Forms.Button();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.employeeITxt = new System.Windows.Forms.Label();
+            this.poslbl = new System.Windows.Forms.Label();
+            this.positionTxt = new System.Windows.Forms.Label();
+            this.idlbl = new System.Windows.Forms.Label();
             this.navPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -215,12 +219,64 @@
             this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
+            // employeeITxt
+            // 
+            this.employeeITxt.AutoSize = true;
+            this.employeeITxt.BackColor = System.Drawing.Color.Transparent;
+            this.employeeITxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeITxt.ForeColor = System.Drawing.Color.Yellow;
+            this.employeeITxt.Location = new System.Drawing.Point(1381, 80);
+            this.employeeITxt.Name = "employeeITxt";
+            this.employeeITxt.Size = new System.Drawing.Size(96, 18);
+            this.employeeITxt.TabIndex = 30;
+            this.employeeITxt.Text = "Employee ID:";
+            // 
+            // poslbl
+            // 
+            this.poslbl.AutoSize = true;
+            this.poslbl.BackColor = System.Drawing.Color.Transparent;
+            this.poslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.poslbl.ForeColor = System.Drawing.Color.Cyan;
+            this.poslbl.Location = new System.Drawing.Point(1447, 49);
+            this.poslbl.Name = "poslbl";
+            this.poslbl.Size = new System.Drawing.Size(80, 18);
+            this.poslbl.TabIndex = 29;
+            this.poslbl.Text = "{position}";
+            // 
+            // positionTxt
+            // 
+            this.positionTxt.AutoSize = true;
+            this.positionTxt.BackColor = System.Drawing.Color.Transparent;
+            this.positionTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.positionTxt.ForeColor = System.Drawing.Color.Yellow;
+            this.positionTxt.Location = new System.Drawing.Point(1382, 49);
+            this.positionTxt.Name = "positionTxt";
+            this.positionTxt.Size = new System.Drawing.Size(66, 18);
+            this.positionTxt.TabIndex = 27;
+            this.positionTxt.Text = "Position:";
+            // 
+            // idlbl
+            // 
+            this.idlbl.AutoSize = true;
+            this.idlbl.BackColor = System.Drawing.Color.Transparent;
+            this.idlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idlbl.ForeColor = System.Drawing.Color.Cyan;
+            this.idlbl.Location = new System.Drawing.Point(1475, 80);
+            this.idlbl.Name = "idlbl";
+            this.idlbl.Size = new System.Drawing.Size(33, 18);
+            this.idlbl.TabIndex = 28;
+            this.idlbl.Text = "{id}";
+            // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Login_layer_1__4_;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Full_Page__1_;
             this.ClientSize = new System.Drawing.Size(1556, 850);
+            this.Controls.Add(this.employeeITxt);
+            this.Controls.Add(this.poslbl);
+            this.Controls.Add(this.positionTxt);
+            this.Controls.Add(this.idlbl);
             this.Controls.Add(this.MinimizeButton);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.adminFormPanel);
@@ -236,6 +292,7 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AdminPage_MouseUp);
             this.navPanel.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -252,5 +309,9 @@
         private System.Windows.Forms.Panel adminFormPanel;
         private System.Windows.Forms.Button MinimizeButton;
         private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.Label employeeITxt;
+        private System.Windows.Forms.Label poslbl;
+        private System.Windows.Forms.Label positionTxt;
+        private System.Windows.Forms.Label idlbl;
     }
 }
