@@ -41,6 +41,7 @@ namespace Borrowing_System
                     CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
                     CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
                     CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,                    
+                    Part.partname,
                     Transactions.quantity, 
                     Transactions.orderdate,
                     Transactions.ordertime, 
@@ -53,6 +54,8 @@ namespace Borrowing_System
                     Person AS StudentPerson ON Student.personID = StudentPerson.personID
                 INNER JOIN 
                     Instructor ON Transactions.instructorID = Instructor.instructorID 
+                INNER JOIN
+                    Part ON Transactions.partID = Part.partID
                 INNER JOIN 
                     Accounts ON Transactions.accountID = Accounts.accountID
                 INNER JOIN 
@@ -70,6 +73,7 @@ namespace Borrowing_System
                         CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
                         CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
                         CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,                       
+                        Part.partname,
                         Transactions.quantity, 
                         Transactions.orderdate,
                         Transactions.ordertime, 
@@ -82,6 +86,8 @@ namespace Borrowing_System
                         Person AS StudentPerson ON Student.personID = StudentPerson.personID
                     INNER JOIN 
                         Instructor ON Transactions.instructorID = Instructor.instructorID 
+                    INNER JOIN
+                        Part ON Transactions.partID = Part.partID 
                     INNER JOIN 
                         Accounts ON Transactions.accountID = Accounts.accountID
                     INNER JOIN 

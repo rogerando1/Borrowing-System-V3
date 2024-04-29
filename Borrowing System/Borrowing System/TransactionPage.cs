@@ -433,12 +433,12 @@ namespace Borrowing_System
                     //Insert the following data into 'Transactions' table: studentID, instructorID, accountID, productID, quantity, orderDate, orderTime, status
                     mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                     mySqlConnection.Open();
-                    mySqlCommand = new MySqlCommand("INSERT INTO Transactions (studentID, instructorID, accountID, productID, quantity, orderDate, orderTime, status_) " +
-                                                    "VALUES (@studentID, @instructorID, @accountID, @productID, @quantity, @orderDate, @orderTime, @status_)", mySqlConnection);
+                    mySqlCommand = new MySqlCommand("INSERT INTO Transactions (studentID, instructorID, accountID, partID, quantity, orderDate, orderTime, status_) " +
+                                                    "VALUES (@studentID, @instructorID, @accountID, @partID, @quantity, @orderDate, @orderTime, @status_)", mySqlConnection);
                     mySqlCommand.Parameters.AddWithValue("@studentID", studentIDTxtbx.Text);
                     mySqlCommand.Parameters.AddWithValue("@instructorID", instructorID);
                     mySqlCommand.Parameters.AddWithValue("@accountID", LoginPage.EmployeeID);
-                    mySqlCommand.Parameters.AddWithValue("@productID", productID);
+                    mySqlCommand.Parameters.AddWithValue("@partID", partID);
                     mySqlCommand.Parameters.AddWithValue("@quantity", quantity);
                     mySqlCommand.Parameters.AddWithValue("@orderDate", orderDate);
                     mySqlCommand.Parameters.AddWithValue("@orderTime", orderTime);
