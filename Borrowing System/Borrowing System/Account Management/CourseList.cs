@@ -16,5 +16,14 @@ namespace Borrowing_System.Account_Management
         {
             InitializeComponent();
         }
+
+        public void updateCouseList()
+        {
+            courseIDTxtbx.Text = AccountManagementPage.courseID;
+            coursenameTxtbx.Text = AccountManagementPage.courseName;
+            sectionTxtbx.Text = AccountManagementPage.courseSection;
+            coursetimeTxtbx.Text = AccountManagementPage.courseTime;
+
+        }
     }
 }

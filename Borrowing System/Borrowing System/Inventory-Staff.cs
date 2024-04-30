@@ -53,6 +53,8 @@ namespace Borrowing_System
         {
             try
             {
+                //Default Empty Value for Name List
+                productnamelist.Items.Add("(Select none)");
                 MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 connection.Open();
                 MySqlCommand cmd = new MySqlCommand("SELECT productname FROM sql6690575.Product", connection);
@@ -136,18 +138,48 @@ namespace Borrowing_System
                 return;
             }
 
-            string productName = productnamelist.SelectedItem.ToString();
-            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-            connection.Open();
-            string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition, CONCAT(Product.productname) AS productname FROM Part " +
-                    "INNER JOIN Product on Part.productID = Product.productID " +
-                    "WHERE Product.productname = @productName";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@productName", productName);
-            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            staffInventoryData.DataSource = dt;
+            if(productnamelist.Text == "(Select none)")
+            {
+                ReloadDataGridView();
+            }
+            else
+            {
+                string productName = productnamelist.SelectedItem.ToString();
+                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition, CONCAT(Product.productname) AS productname FROM Part " +
+                        "INNER JOIN Product on Part.productID = Product.productID " +
+                        "WHERE Product.productname = @productName";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@productName", productName);
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                staffInventoryData.DataSource = dt;
+            }
+        }
+
+        private void staffInventoryData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = staffInventoryData.Rows[e.RowIndex];
+
+                productnameTxtbx.Text = row.Cells["productname"].Value.ToString();
+                partIdTxtbx.Text = row.Cells["partID"].Value.ToString();
+                partnameTxtbx.Text = row.Cells["partname"].Value?.ToString();
+                partdescriptionTxtbx.Text = row.Cells["partdescription"].Value.ToString();
+                quantityTxtbx.Text = row.Cells["quantity"].Value.ToString();
+                conditionTxtbx.Text = row.Cells["condition"].Value.ToString();
+            }
+        }
+
+        private void searchData_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                searchBTN.PerformClick();
+            }
         }
     }
 }

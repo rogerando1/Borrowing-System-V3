@@ -56,7 +56,7 @@ namespace Borrowing_System.Account_Management
                     MessageBox.Show("Please fill in the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
+                personIDTxtbx.Text = null;
                 //If ID already exists, show error message
                 MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 conn.Open();
@@ -76,6 +76,13 @@ namespace Borrowing_System.Account_Management
                 if (mySqlDataReader.Read())
                 {
                     MessageBox.Show("Username already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    personIDTxtbx.Text = "";
+                    fnameTxtbx.Text = "";
+                    minitialTxtbx.Text = "";
+                    lnameTxtbx.Text = "";
+                    usernameTxtbx.Text = "";
+                    passwordTxtbx.Text = "";
+                    positionCmbx.SelectedIndex = -1;
                     return;
                 }
                 conn.Close();
@@ -122,17 +129,22 @@ namespace Borrowing_System.Account_Management
                     MessageBox.Show("Please fill in the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                //IF username already exist, show error message
-                MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                conn.Open();
-                MySqlCommand command = new MySqlCommand($"SELECT * FROM Accounts WHERE username = '{usernameTxtbx.Text}'", conn);
-                MySqlDataReader mySqlDataReader = command.ExecuteReader();
-                if (mySqlDataReader.Read())
+
+                if(usernameTxtbx.Text != AccountManagementPage.employeeUsername)
                 {
-                    MessageBox.Show("Username already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                    conn.Open();
+                    MySqlCommand command = new MySqlCommand($"SELECT * FROM Accounts WHERE username = '{usernameTxtbx.Text}'", conn);
+                    MySqlDataReader mySqlDataReader = command.ExecuteReader();
+                    if (mySqlDataReader.Read())
+                    {
+                        MessageBox.Show("Username already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    conn.Close();
                 }
-                conn.Close();
+
+
 
                 if (MessageBox.Show("Are you sure you want to update this account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -164,6 +176,12 @@ namespace Borrowing_System.Account_Management
         {
             try
             {
+                if (personIDTxtbx.Text == "" || fnameTxtbx.Text == "" || lnameTxtbx.Text == "" || usernameTxtbx.Text == "" || passwordTxtbx.Text == "" || positionCmbx.Text == "")
+                {
+                    MessageBox.Show("Please select an account to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 if (MessageBox.Show("Are you sure you want to delete this account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");

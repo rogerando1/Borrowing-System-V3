@@ -16,5 +16,13 @@ namespace Borrowing_System.Account_Management
         {
             InitializeComponent();
         }
+
+        public void updateInstructorList()
+        {
+            instructorIDTxtbx.Text = AccountManagementPage.instructorId;
+            firstnameTxtbx.Text = AccountManagementPage.instructorFirstName;
+            middleinitialTxtbx.Text = AccountManagementPage.instructorMiddleInitial;
+            lastnameTxtbx.Text = AccountManagementPage.instructorLastName;
+        }
     }
 }

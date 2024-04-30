@@ -37,11 +37,11 @@
             this.subjectCodeTxtbx = new System.Windows.Forms.ComboBox();
             this.equipmentNameTxtbx = new System.Windows.Forms.ComboBox();
             this.typeTxtbx = new System.Windows.Forms.ComboBox();
-            this.clearBTN = new System.Windows.Forms.Button();
-            this.submitBTN = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.subjectnameLabel = new System.Windows.Forms.Label();
             this.quantityTxtbx = new System.Windows.Forms.NumericUpDown();
+            this.submitBTN = new System.Windows.Forms.Button();
+            this.clearBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.quantityTxtbx)).BeginInit();
             this.SuspendLayout();
             // 
@@ -152,40 +152,6 @@
             this.typeTxtbx.TabIndex = 24;
             this.typeTxtbx.SelectedIndexChanged += new System.EventHandler(this.typeTxtbx_SelectedIndexChanged);
             // 
-            // clearBTN
-            // 
-            this.clearBTN.BackColor = System.Drawing.Color.White;
-            this.clearBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clearBTN.FlatAppearance.BorderSize = 0;
-            this.clearBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
-            this.clearBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
-            this.clearBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearBTN.Location = new System.Drawing.Point(958, 559);
-            this.clearBTN.Name = "clearBTN";
-            this.clearBTN.Size = new System.Drawing.Size(139, 45);
-            this.clearBTN.TabIndex = 25;
-            this.clearBTN.Text = "Clear";
-            this.clearBTN.UseVisualStyleBackColor = false;
-            this.clearBTN.Click += new System.EventHandler(this.clearBTN_Click);
-            // 
-            // submitBTN
-            // 
-            this.submitBTN.BackColor = System.Drawing.Color.White;
-            this.submitBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.submitBTN.FlatAppearance.BorderSize = 0;
-            this.submitBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
-            this.submitBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
-            this.submitBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.submitBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitBTN.Location = new System.Drawing.Point(1117, 559);
-            this.submitBTN.Name = "submitBTN";
-            this.submitBTN.Size = new System.Drawing.Size(142, 45);
-            this.submitBTN.TabIndex = 26;
-            this.submitBTN.Text = "Submit";
-            this.submitBTN.UseVisualStyleBackColor = false;
-            this.submitBTN.Click += new System.EventHandler(this.submitBTN_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -223,17 +189,51 @@
             this.quantityTxtbx.Size = new System.Drawing.Size(289, 29);
             this.quantityTxtbx.TabIndex = 31;
             // 
+            // submitBTN
+            // 
+            this.submitBTN.BackColor = System.Drawing.Color.White;
+            this.submitBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.submitBTN.FlatAppearance.BorderSize = 0;
+            this.submitBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.submitBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.submitBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.submitBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitBTN.ForeColor = System.Drawing.Color.Black;
+            this.submitBTN.Location = new System.Drawing.Point(1110, 560);
+            this.submitBTN.Name = "submitBTN";
+            this.submitBTN.Size = new System.Drawing.Size(142, 45);
+            this.submitBTN.TabIndex = 33;
+            this.submitBTN.Text = "Submit";
+            this.submitBTN.UseVisualStyleBackColor = false;
+            // 
+            // clearBTN
+            // 
+            this.clearBTN.BackColor = System.Drawing.Color.White;
+            this.clearBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearBTN.FlatAppearance.BorderSize = 0;
+            this.clearBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearBTN.ForeColor = System.Drawing.Color.Black;
+            this.clearBTN.Location = new System.Drawing.Point(951, 560);
+            this.clearBTN.Name = "clearBTN";
+            this.clearBTN.Size = new System.Drawing.Size(139, 45);
+            this.clearBTN.TabIndex = 32;
+            this.clearBTN.Text = "Clear";
+            this.clearBTN.UseVisualStyleBackColor = false;
+            // 
             // TransactionPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.Transaction_Page;
             this.ClientSize = new System.Drawing.Size(1532, 650);
+            this.Controls.Add(this.submitBTN);
+            this.Controls.Add(this.clearBTN);
             this.Controls.Add(this.quantityTxtbx);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.subjectnameLabel);
-            this.Controls.Add(this.submitBTN);
-            this.Controls.Add(this.clearBTN);
             this.Controls.Add(this.typeTxtbx);
             this.Controls.Add(this.equipmentNameTxtbx);
             this.Controls.Add(this.subjectCodeTxtbx);
@@ -264,10 +264,10 @@
         private System.Windows.Forms.ComboBox subjectCodeTxtbx;
         private System.Windows.Forms.ComboBox equipmentNameTxtbx;
         private System.Windows.Forms.ComboBox typeTxtbx;
-        private System.Windows.Forms.Button clearBTN;
-        private System.Windows.Forms.Button submitBTN;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label subjectnameLabel;
         private System.Windows.Forms.NumericUpDown quantityTxtbx;
+        private System.Windows.Forms.Button submitBTN;
+        private System.Windows.Forms.Button clearBTN;
     }
 }
