@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dashboardTable = new System.Windows.Forms.DataGridView();
+            this.searchBTN = new System.Windows.Forms.Button();
+            this.searchTxtbx = new System.Windows.Forms.TextBox();
             this.transactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,8 +44,6 @@
             this.orderdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ordertime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.searchBTN = new System.Windows.Forms.Button();
-            this.searchTxtbx = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,15 +59,15 @@
             this.dashboardTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dashboardTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dashboardTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dashboardTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dashboardTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dashboardTable.ColumnHeadersHeight = 50;
             this.dashboardTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dashboardTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -87,14 +87,14 @@
             this.dashboardTable.Name = "dashboardTable";
             this.dashboardTable.ReadOnly = true;
             this.dashboardTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dashboardTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dashboardTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dashboardTable.RowHeadersVisible = false;
             this.dashboardTable.RowHeadersWidth = 50;
             this.dashboardTable.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -114,86 +114,6 @@
             this.dashboardTable.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dashboardTable_CellMouseEnter);
             this.dashboardTable.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dashboardTable_CellMouseLeave);
             this.dashboardTable.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dashboardTable_CellPainting);
-            // 
-            // transactionID
-            // 
-            this.transactionID.DataPropertyName = "transactionID";
-            this.transactionID.HeaderText = "Transaction ID";
-            this.transactionID.MinimumWidth = 6;
-            this.transactionID.Name = "transactionID";
-            this.transactionID.ReadOnly = true;
-            // 
-            // studentName
-            // 
-            this.studentName.DataPropertyName = "studentName";
-            this.studentName.HeaderText = "Student Name";
-            this.studentName.MinimumWidth = 6;
-            this.studentName.Name = "studentName";
-            this.studentName.ReadOnly = true;
-            // 
-            // instructorName
-            // 
-            this.instructorName.DataPropertyName = "instructorName";
-            this.instructorName.HeaderText = "Instructor Name";
-            this.instructorName.MinimumWidth = 6;
-            this.instructorName.Name = "instructorName";
-            this.instructorName.ReadOnly = true;
-            // 
-            // accountName
-            // 
-            this.accountName.DataPropertyName = "accountName";
-            this.accountName.HeaderText = "Account Name";
-            this.accountName.MinimumWidth = 6;
-            this.accountName.Name = "accountName";
-            this.accountName.ReadOnly = true;
-            // 
-            // partName
-            // 
-            this.partName.DataPropertyName = "partName";
-            this.partName.HeaderText = "Equipment Name";
-            this.partName.MinimumWidth = 6;
-            this.partName.Name = "partName";
-            this.partName.ReadOnly = true;
-            // 
-            // quantity
-            // 
-            this.quantity.DataPropertyName = "quantity";
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            // 
-            // orderdate
-            // 
-            this.orderdate.DataPropertyName = "orderdate";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.orderdate.DefaultCellStyle = dataGridViewCellStyle2;
-            this.orderdate.HeaderText = "Order Date";
-            this.orderdate.MinimumWidth = 6;
-            this.orderdate.Name = "orderdate";
-            this.orderdate.ReadOnly = true;
-            // 
-            // ordertime
-            // 
-            this.ordertime.DataPropertyName = "ordertime";
-            dataGridViewCellStyle3.Format = "T";
-            dataGridViewCellStyle3.NullValue = null;
-            this.ordertime.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ordertime.HeaderText = "Order Time";
-            this.ordertime.MinimumWidth = 6;
-            this.ordertime.Name = "ordertime";
-            this.ordertime.ReadOnly = true;
-            // 
-            // status_
-            // 
-            this.status_.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.status_.DataPropertyName = "status_";
-            this.status_.HeaderText = "Status";
-            this.status_.MinimumWidth = 6;
-            this.status_.Name = "status_";
-            this.status_.ReadOnly = true;
-            this.status_.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.status_.Width = 89;
             // 
             // searchBTN
             // 
@@ -224,6 +144,87 @@
             this.searchTxtbx.Size = new System.Drawing.Size(824, 28);
             this.searchTxtbx.TabIndex = 14;
             this.searchTxtbx.TextChanged += new System.EventHandler(this.searchTxtbx_TextChanged);
+            this.searchTxtbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTxtbx_KeyDown);
+            // 
+            // transactionID
+            // 
+            this.transactionID.DataPropertyName = "transactionID";
+            this.transactionID.HeaderText = "Transaction ID";
+            this.transactionID.MinimumWidth = 6;
+            this.transactionID.Name = "transactionID";
+            this.transactionID.ReadOnly = true;
+            // 
+            // studentName
+            // 
+            this.studentName.DataPropertyName = "studentName";
+            this.studentName.HeaderText = "Student Name";
+            this.studentName.MinimumWidth = 6;
+            this.studentName.Name = "studentName";
+            this.studentName.ReadOnly = true;
+            // 
+            // instructorName
+            // 
+            this.instructorName.DataPropertyName = "instructorName";
+            this.instructorName.HeaderText = "Instructor Name";
+            this.instructorName.MinimumWidth = 6;
+            this.instructorName.Name = "instructorName";
+            this.instructorName.ReadOnly = true;
+            // 
+            // accountName
+            // 
+            this.accountName.DataPropertyName = "accountName";
+            this.accountName.HeaderText = "Employee Name";
+            this.accountName.MinimumWidth = 6;
+            this.accountName.Name = "accountName";
+            this.accountName.ReadOnly = true;
+            // 
+            // partName
+            // 
+            this.partName.DataPropertyName = "partName";
+            this.partName.HeaderText = "Equipment Name";
+            this.partName.MinimumWidth = 6;
+            this.partName.Name = "partName";
+            this.partName.ReadOnly = true;
+            // 
+            // quantity
+            // 
+            this.quantity.DataPropertyName = "quantity";
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            // 
+            // orderdate
+            // 
+            this.orderdate.DataPropertyName = "orderdate";
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.NullValue = null;
+            this.orderdate.DefaultCellStyle = dataGridViewCellStyle6;
+            this.orderdate.HeaderText = "Order Date";
+            this.orderdate.MinimumWidth = 6;
+            this.orderdate.Name = "orderdate";
+            this.orderdate.ReadOnly = true;
+            // 
+            // ordertime
+            // 
+            this.ordertime.DataPropertyName = "ordertime";
+            dataGridViewCellStyle7.Format = "T";
+            dataGridViewCellStyle7.NullValue = null;
+            this.ordertime.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ordertime.HeaderText = "Order Time";
+            this.ordertime.MinimumWidth = 6;
+            this.ordertime.Name = "ordertime";
+            this.ordertime.ReadOnly = true;
+            // 
+            // status_
+            // 
+            this.status_.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.status_.DataPropertyName = "status_";
+            this.status_.HeaderText = "Status";
+            this.status_.MinimumWidth = 6;
+            this.status_.Name = "status_";
+            this.status_.ReadOnly = true;
+            this.status_.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.status_.Width = 89;
             // 
             // DashboardPage
             // 

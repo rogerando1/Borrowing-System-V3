@@ -250,9 +250,11 @@ namespace Borrowing_System
 
         public void searchData(string search)
         {
-          MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-            mySqlConnection.Open();
-            MySqlCommand mySqlCommand = new MySqlCommand(@"
+            if(LoginPage.Position == "Admin")
+            {
+                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand(@"
                 SELECT 
                     Transactions.transactionID, 
                     CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
@@ -285,13 +287,61 @@ namespace Borrowing_System
                     CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) LIKE @search OR
                     CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) LIKE @search OR
                     Part.partname LIKE @search)", mySqlConnection);
-            mySqlCommand.Connection = mySqlConnection;
-            mySqlCommand.Parameters.AddWithValue("@search", "%" + search + "%");
-            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
-            DataTable dataTable = new DataTable();
-            mySqlDataAdapter.Fill(dataTable);
-            dashboardTable.DataSource = dataTable;
-            mySqlConnection.Close();
+                mySqlCommand.Connection = mySqlConnection;
+                mySqlCommand.Parameters.AddWithValue("@search", "%" + search + "%");
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+                DataTable dataTable = new DataTable();
+                mySqlDataAdapter.Fill(dataTable);
+                dashboardTable.DataSource = dataTable;
+                mySqlConnection.Close();
+            }
+            else
+            {
+                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand(@"
+                SELECT 
+                    Transactions.transactionID, 
+                    CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
+                    CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
+                    CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,                    
+                    Part.partname,
+                    Transactions.quantity, 
+                    Transactions.orderdate,
+                    Transactions.ordertime, 
+                    Transactions.status_
+                FROM
+                    Transactions
+                INNER JOIN
+                    Student ON Transactions.studentID = Student.studentID
+                INNER JOIN
+                    Person AS StudentPerson ON Student.personID = StudentPerson.personID
+                INNER JOIN
+                    Instructor ON Transactions.instructorID = Instructor.instructorID
+                INNER JOIN
+                    Part ON Transactions.partID = Part.partID
+                INNER JOIN
+                    Accounts ON Transactions.accountID = Accounts.accountID
+                INNER JOIN
+                    Person AS AccountsPerson ON Accounts.personID = AccountsPerson.personID
+                INNER JOIN
+                    Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID
+                WHERE
+                    Transactions.accountID = @employeeID AND
+                    Transactions.status_ IS NULL AND
+                    (CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) LIKE @search OR
+                    CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) LIKE @search OR
+                    CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) LIKE @search OR
+                    Part.partname LIKE @search)", mySqlConnection);
+                mySqlCommand.Connection = mySqlConnection;
+                mySqlCommand.Parameters.AddWithValue("@search", "%" + search + "%");
+                mySqlCommand.Parameters.AddWithValue("@employeeID", LoginPage.EmployeeID);
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+                DataTable dataTable = new DataTable();
+                mySqlDataAdapter.Fill(dataTable);
+                dashboardTable.DataSource = dataTable;
+                mySqlConnection.Close();
+            }
 
         }
 
@@ -300,6 +350,14 @@ namespace Borrowing_System
             if(searchTxtbx.Text == "")
             {
                 refreshData();
+            }
+        }
+
+        private void searchTxtbx_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                searchBTN.PerformClick();
             }
         }
     }
