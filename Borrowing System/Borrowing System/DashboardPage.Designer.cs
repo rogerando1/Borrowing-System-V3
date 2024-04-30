@@ -43,7 +43,7 @@
             this.ordertime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchBTN = new System.Windows.Forms.Button();
-            this.usernameTxtbx = new System.Windows.Forms.TextBox();
+            this.searchTxtbx = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -212,16 +212,18 @@
             this.searchBTN.Size = new System.Drawing.Size(33, 36);
             this.searchBTN.TabIndex = 9;
             this.searchBTN.UseVisualStyleBackColor = false;
+            this.searchBTN.Click += new System.EventHandler(this.searchBTN_Click);
             // 
-            // usernameTxtbx
+            // searchTxtbx
             // 
-            this.usernameTxtbx.BackColor = System.Drawing.Color.White;
-            this.usernameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usernameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.usernameTxtbx.Location = new System.Drawing.Point(294, 43);
-            this.usernameTxtbx.Name = "usernameTxtbx";
-            this.usernameTxtbx.Size = new System.Drawing.Size(824, 28);
-            this.usernameTxtbx.TabIndex = 14;
+            this.searchTxtbx.BackColor = System.Drawing.Color.White;
+            this.searchTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.searchTxtbx.Location = new System.Drawing.Point(294, 43);
+            this.searchTxtbx.Name = "searchTxtbx";
+            this.searchTxtbx.Size = new System.Drawing.Size(824, 28);
+            this.searchTxtbx.TabIndex = 14;
+            this.searchTxtbx.TextChanged += new System.EventHandler(this.searchTxtbx_TextChanged);
             // 
             // DashboardPage
             // 
@@ -229,7 +231,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.Dashboard_Page;
             this.ClientSize = new System.Drawing.Size(1532, 650);
-            this.Controls.Add(this.usernameTxtbx);
+            this.Controls.Add(this.searchTxtbx);
             this.Controls.Add(this.searchBTN);
             this.Controls.Add(this.dashboardTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -246,7 +248,7 @@
 
         private System.Windows.Forms.DataGridView dashboardTable;
         private System.Windows.Forms.Button searchBTN;
-        private System.Windows.Forms.TextBox usernameTxtbx;
+        private System.Windows.Forms.TextBox searchTxtbx;
         private System.Windows.Forms.DataGridViewTextBoxColumn transactionID;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn instructorName;

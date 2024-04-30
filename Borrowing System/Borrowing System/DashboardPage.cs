@@ -37,33 +37,33 @@ namespace Borrowing_System
             if (LoginPage.Position == "Admin")
             {
                 cmd = new MySqlCommand(@"
-                SELECT 
-                    Transactions.transactionID, 
-                    CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
-                    CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
-                    CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,                    
-                    Part.partname,
-                    Transactions.quantity, 
-                    Transactions.orderdate,
-                    Transactions.ordertime, 
-                    Transactions.status_
-                FROM 
-                    Transactions 
-                INNER JOIN 
-                    Student ON Transactions.studentID = Student.studentID 
-                INNER JOIN 
-                    Person AS StudentPerson ON Student.personID = StudentPerson.personID
-                INNER JOIN 
-                    Instructor ON Transactions.instructorID = Instructor.instructorID 
-                INNER JOIN
-                    Part ON Transactions.partID = Part.partID
-                INNER JOIN 
-                    Accounts ON Transactions.accountID = Accounts.accountID
-                INNER JOIN 
-                    Person AS AccountsPerson ON Accounts.personID = AccountsPerson.personID
-                INNER JOIN 
-                    Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
-                WHERE Transactions.status_ IS NULL", conn);
+                    SELECT 
+                        Transactions.transactionID, 
+                        CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
+                        CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
+                        CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,                    
+                        Part.partname,
+                        Transactions.quantity, 
+                        Transactions.orderdate,
+                        Transactions.ordertime, 
+                        Transactions.status_
+                    FROM 
+                        Transactions 
+                    INNER JOIN 
+                        Student ON Transactions.studentID = Student.studentID 
+                    INNER JOIN 
+                        Person AS StudentPerson ON Student.personID = StudentPerson.personID
+                    INNER JOIN 
+                        Instructor ON Transactions.instructorID = Instructor.instructorID 
+                    INNER JOIN
+                        Part ON Transactions.partID = Part.partID
+                    INNER JOIN 
+                        Accounts ON Transactions.accountID = Accounts.accountID
+                    INNER JOIN 
+                        Person AS AccountsPerson ON Accounts.personID = AccountsPerson.personID
+                    INNER JOIN 
+                        Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
+                    WHERE Transactions.status_ IS NULL", conn);
 
                 cmd.Parameters.AddWithValue("@employeeID", LoginPage.EmployeeID);
             }
@@ -239,6 +239,67 @@ namespace Borrowing_System
                     selectedCell = null;
                     dashboardTable.Refresh();
                 }
+            }
+        }
+
+        private void searchBTN_Click(object sender, EventArgs e)
+        {
+            string searchText = searchTxtbx.Text.Trim();
+            searchData(searchText);
+        }
+
+        public void searchData(string search)
+        {
+          MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+            mySqlConnection.Open();
+            MySqlCommand mySqlCommand = new MySqlCommand(@"
+                SELECT 
+                    Transactions.transactionID, 
+                    CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
+                    CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
+                    CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,                    
+                    Part.partname,
+                    Transactions.quantity, 
+                    Transactions.orderdate,
+                    Transactions.ordertime, 
+                    Transactions.status_
+                FROM 
+                    Transactions 
+                INNER JOIN 
+                    Student ON Transactions.studentID = Student.studentID 
+                INNER JOIN 
+                    Person AS StudentPerson ON Student.personID = StudentPerson.personID
+                INNER JOIN 
+                    Instructor ON Transactions.instructorID = Instructor.instructorID 
+                INNER JOIN
+                    Part ON Transactions.partID = Part.partID
+                INNER JOIN 
+                    Accounts ON Transactions.accountID = Accounts.accountID
+                INNER JOIN 
+                    Person AS AccountsPerson ON Accounts.personID = AccountsPerson.personID
+                INNER JOIN 
+                    Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
+                WHERE 
+                    Transactions.status_ IS NULL AND
+                    (CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) LIKE @search OR
+                    CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) LIKE @search OR
+                    CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) LIKE @search OR
+                    Part.partname LIKE @search)", mySqlConnection);
+            mySqlCommand.Connection = mySqlConnection;
+            mySqlCommand.Parameters.AddWithValue("@search", "%" + search + "%");
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+            DataTable dataTable = new DataTable();
+            mySqlDataAdapter.Fill(dataTable);
+            dashboardTable.DataSource = dataTable;
+            mySqlConnection.Close();
+
+        }
+
+        private void searchTxtbx_TextChanged(object sender, EventArgs e)
+        {
+            if(searchTxtbx.Text == "")
+            {
+                refreshData();
             }
         }
     }
