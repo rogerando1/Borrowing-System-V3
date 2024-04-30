@@ -134,6 +134,12 @@
     <Compile Include="AccountManagementPage.Designer.cs">
       <DependentUpon>AccountManagementPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNotes.Designer.cs">
+      <DependentUpon>AddNotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AccountManagementPage.resx">
       <DependentUpon>AccountManagementPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNotes.resx">
+      <DependentUpon>AddNotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminPage.resx">
       <DependentUpon>AdminPage.cs</DependentUpon>

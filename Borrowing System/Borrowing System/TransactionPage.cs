@@ -354,7 +354,7 @@ namespace Borrowing_System
                     string quantity = quantityTxtbx.Text;
                     string orderDate = DateTime.Now.ToString("yyyy-MM-dd");
                     string orderTime = DateTime.Now.ToString("HH:mm:ss");
-                    string status = "";
+                    string status = null;
 
                     //Check Quantity Amount before proceeding
 
