@@ -392,5 +392,56 @@
   <ItemGroup>
     <None Include="Resources\return3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accntmanagment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accmangemtnt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1%283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2%283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3%282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3%283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2%284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\courselistUI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\courselistUI1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\instructorUI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\instructorUI1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\instructorsUI.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add notes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

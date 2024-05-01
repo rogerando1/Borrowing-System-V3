@@ -62,7 +62,7 @@ namespace Borrowing_System
             employeeData.DataSource = dataTable;
 
             //Student Data
-            mySqlCommand = new MySqlCommand("SELECT Person.firstname AS studentFirstname, Person.middleinitial AS studentMiddleInitial, Person.lastname AS studentLastname, Student.studentID, Student.program, Student.yearlevel FROM Person " +
+            mySqlCommand = new MySqlCommand("SELECT Student.studentID, Person.firstname AS studentFirstname, Person.middleinitial AS studentMiddleInitial, Person.lastname AS studentLastname,  Student.program, Student.yearlevel FROM Person " +
                 "INNER JOIN Student ON Person.personID = Student.personID", mySqlConnection);
             mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
             dataTable = new DataTable();
@@ -330,7 +330,7 @@ namespace Borrowing_System
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = studentData.Rows[e.RowIndex];
-                studentID = row.Cells["studentID"].Value.ToString();
+               
                 studentFirstName = row.Cells["studentFirstname"].Value.ToString();
                 studentMiddleInitial = row.Cells["studentMiddleInitial"].Value.ToString();
                 studentLastName = row.Cells["studentLastname"].Value.ToString();
@@ -436,7 +436,6 @@ namespace Borrowing_System
                 courseName = row.Cells["coursename"].Value.ToString();
                 courseSection = row.Cells["section"].Value.ToString();
                 courseTime = row.Cells["fullTime"].Value.ToString();
-                courseID = row.Cells["courseID"].Value.ToString();
                 courseList1.updateCouseList();
             }
         }
@@ -447,6 +446,11 @@ namespace Borrowing_System
             {
                 searchBTN.PerformClick();
             }
+        }
+
+        private void instructorData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

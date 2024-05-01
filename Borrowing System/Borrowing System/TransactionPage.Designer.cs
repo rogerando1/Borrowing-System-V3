@@ -222,6 +222,7 @@
             this.clearBTN.TabIndex = 32;
             this.clearBTN.Text = "Clear";
             this.clearBTN.UseVisualStyleBackColor = false;
+            this.clearBTN.Click += new System.EventHandler(this.clearBTN_Click_1);
             // 
             // TransactionPage
             // 

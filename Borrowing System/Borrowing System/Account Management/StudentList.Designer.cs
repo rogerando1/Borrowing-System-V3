@@ -40,61 +40,64 @@
             // 
             this.firstnameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.firstnameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstnameTxtbx.Location = new System.Drawing.Point(43, 165);
+            this.firstnameTxtbx.Location = new System.Drawing.Point(34, 92);
+            this.firstnameTxtbx.Multiline = true;
             this.firstnameTxtbx.Name = "firstnameTxtbx";
-            this.firstnameTxtbx.Size = new System.Drawing.Size(213, 22);
+            this.firstnameTxtbx.Size = new System.Drawing.Size(213, 25);
             this.firstnameTxtbx.TabIndex = 0;
             // 
             // middleinitialTxtbx
             // 
             this.middleinitialTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.middleinitialTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleinitialTxtbx.Location = new System.Drawing.Point(43, 251);
+            this.middleinitialTxtbx.Location = new System.Drawing.Point(34, 178);
+            this.middleinitialTxtbx.Multiline = true;
             this.middleinitialTxtbx.Name = "middleinitialTxtbx";
-            this.middleinitialTxtbx.Size = new System.Drawing.Size(213, 22);
+            this.middleinitialTxtbx.Size = new System.Drawing.Size(213, 28);
             this.middleinitialTxtbx.TabIndex = 1;
             // 
             // lastnameTxtbx
             // 
             this.lastnameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lastnameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastnameTxtbx.Location = new System.Drawing.Point(43, 335);
+            this.lastnameTxtbx.Location = new System.Drawing.Point(34, 262);
+            this.lastnameTxtbx.Multiline = true;
             this.lastnameTxtbx.Name = "lastnameTxtbx";
-            this.lastnameTxtbx.Size = new System.Drawing.Size(213, 22);
+            this.lastnameTxtbx.Size = new System.Drawing.Size(213, 26);
             this.lastnameTxtbx.TabIndex = 2;
             // 
             // studentIDTxtbx
             // 
             this.studentIDTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.studentIDTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentIDTxtbx.Location = new System.Drawing.Point(301, 168);
+            this.studentIDTxtbx.Location = new System.Drawing.Point(292, 95);
             this.studentIDTxtbx.Name = "studentIDTxtbx";
-            this.studentIDTxtbx.Size = new System.Drawing.Size(192, 22);
+            this.studentIDTxtbx.Size = new System.Drawing.Size(157, 22);
             this.studentIDTxtbx.TabIndex = 3;
             // 
             // courseTxtbx
             // 
             this.courseTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.courseTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseTxtbx.Location = new System.Drawing.Point(301, 250);
+            this.courseTxtbx.Location = new System.Drawing.Point(292, 177);
             this.courseTxtbx.Name = "courseTxtbx";
-            this.courseTxtbx.Size = new System.Drawing.Size(192, 22);
+            this.courseTxtbx.Size = new System.Drawing.Size(157, 22);
             this.courseTxtbx.TabIndex = 4;
             // 
             // yearlevelTxtbx
             // 
             this.yearlevelTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.yearlevelTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yearlevelTxtbx.Location = new System.Drawing.Point(301, 335);
+            this.yearlevelTxtbx.Location = new System.Drawing.Point(292, 266);
             this.yearlevelTxtbx.Name = "yearlevelTxtbx";
-            this.yearlevelTxtbx.Size = new System.Drawing.Size(192, 22);
+            this.yearlevelTxtbx.Size = new System.Drawing.Size(157, 22);
             this.yearlevelTxtbx.TabIndex = 5;
             // 
             // StudentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources._1_2_;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources._2_4_;
             this.Controls.Add(this.yearlevelTxtbx);
             this.Controls.Add(this.courseTxtbx);
             this.Controls.Add(this.studentIDTxtbx);
@@ -102,7 +105,7 @@
             this.Controls.Add(this.middleinitialTxtbx);
             this.Controls.Add(this.firstnameTxtbx);
             this.Name = "StudentList";
-            this.Size = new System.Drawing.Size(528, 580);
+            this.Size = new System.Drawing.Size(484, 580);
             this.ResumeLayout(false);
             this.PerformLayout();
 

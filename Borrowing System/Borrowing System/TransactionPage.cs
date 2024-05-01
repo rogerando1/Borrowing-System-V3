@@ -516,5 +516,19 @@ namespace Borrowing_System
             connection.Close();
 
         }
+
+        private void clearBTN_Click_1(object sender, EventArgs e)
+        {
+            studentIDTxtbx.Text = "";
+            borrowerNameTxtbx.Text = "";
+            courseTxtbx.Text = "";
+            yearlevelTxtbx.Text = "";
+            instructorNameTxtbx.SelectedIndex = -1;
+            subjectCodeTxtbx.SelectedIndex = -1;
+            equipmentNameTxtbx.SelectedIndex = -1;
+            typeTxtbx.SelectedIndex = -1;
+            quantityTxtbx.Text = "";
+            availableLabel.Text = "";
+        }
     }
 }

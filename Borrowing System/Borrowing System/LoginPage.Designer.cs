@@ -33,6 +33,8 @@
             this.loginBTN = new System.Windows.Forms.Button();
             this.usernameTxtbx = new System.Windows.Forms.TextBox();
             this.passwordTxtbx = new System.Windows.Forms.TextBox();
+            this.unhideButton = new System.Windows.Forms.Button();
+            this.hideButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // MinimizeButton
@@ -104,7 +106,36 @@
             this.passwordTxtbx.Name = "passwordTxtbx";
             this.passwordTxtbx.Size = new System.Drawing.Size(309, 28);
             this.passwordTxtbx.TabIndex = 14;
+            this.passwordTxtbx.UseSystemPasswordChar = true;
             this.passwordTxtbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTxtbx_KeyDown);
+            // 
+            // unhideButton
+            // 
+            this.unhideButton.BackgroundImage = global::Borrowing_System.Properties.Resources.eye1;
+            this.unhideButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.unhideButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.unhideButton.FlatAppearance.BorderSize = 0;
+            this.unhideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.unhideButton.Location = new System.Drawing.Point(1337, 438);
+            this.unhideButton.Name = "unhideButton";
+            this.unhideButton.Size = new System.Drawing.Size(46, 34);
+            this.unhideButton.TabIndex = 15;
+            this.unhideButton.UseVisualStyleBackColor = true;
+            this.unhideButton.Click += new System.EventHandler(this.unhideButton_Click);
+            // 
+            // hideButton
+            // 
+            this.hideButton.BackgroundImage = global::Borrowing_System.Properties.Resources.eye2;
+            this.hideButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.hideButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hideButton.FlatAppearance.BorderSize = 0;
+            this.hideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hideButton.Location = new System.Drawing.Point(1337, 436);
+            this.hideButton.Name = "hideButton";
+            this.hideButton.Size = new System.Drawing.Size(51, 39);
+            this.hideButton.TabIndex = 16;
+            this.hideButton.UseVisualStyleBackColor = true;
+            this.hideButton.Click += new System.EventHandler(this.hideButton_Click);
             // 
             // LoginPage
             // 
@@ -112,6 +143,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.Login_Page;
             this.ClientSize = new System.Drawing.Size(1556, 850);
+            this.Controls.Add(this.unhideButton);
+            this.Controls.Add(this.hideButton);
             this.Controls.Add(this.passwordTxtbx);
             this.Controls.Add(this.usernameTxtbx);
             this.Controls.Add(this.loginBTN);
@@ -137,5 +170,7 @@
         private System.Windows.Forms.Button loginBTN;
         private System.Windows.Forms.TextBox usernameTxtbx;
         private System.Windows.Forms.TextBox passwordTxtbx;
+        private System.Windows.Forms.Button unhideButton;
+        private System.Windows.Forms.Button hideButton;
     }
 }

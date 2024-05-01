@@ -125,5 +125,26 @@ namespace Borrowing_System
                 loginBTN.PerformClick();
             }
         }
+
+        private void hideButton_Click(object sender, EventArgs e)
+        {
+            if (passwordTxtbx.UseSystemPasswordChar == false)
+            {
+                unhideButton.Visible = true;
+                hideButton.Visible = false;
+                passwordTxtbx.UseSystemPasswordChar = true;
+            }
+            
+        }
+
+        private void unhideButton_Click(object sender, EventArgs e)
+        {
+            if(passwordTxtbx.UseSystemPasswordChar == true)
+            {
+                unhideButton.Visible = false;
+                hideButton.Visible = true;
+                passwordTxtbx.UseSystemPasswordChar = false;
+            }
+        }
     }
 }

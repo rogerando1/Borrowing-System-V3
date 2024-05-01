@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -471,5 +472,71 @@ namespace Borrowing_System
                 searchBTN.PerformClick();
             }
         }
+
+
+        //Printing Error ~~~~~~~~~~~~
+
+
+        //private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        //{
+        //    e.Graphics.DrawString("Welcome to Borrowing System", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(100, 10));
+
+        //    Font font = new Font("Arial", 10);
+
+        //    float yPos = 50;
+        //    int count = 0;
+
+        //    // Print the data from the database table
+        //    foreach (DataGridView rowView in adminInventoryData.Rows)
+        //    {
+        //        if (count >= 30) // Maximum 30 rows per page
+        //        {
+        //            e.HasMorePages = true; // Indicates there are more pages to print
+        //            return;
+        //        }
+
+        //        DataRow row = rowView.NewRowIndex();
+        //        string data = $"{row["column1"]} {row["column2"]}"; // Assuming column1 and column2 are the columns you want to print
+        //        e.Graphics.DrawString(data, font, Brushes.Black, new Point(100, (int)yPos));
+        //        yPos += 20; // Adjust the spacing as needed
+        //        count++;
+        //    }
+
+        //    e.HasMorePages = false;
+        //}
+
+        //Bitmap bitmap;
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    // Create a new DataTable to store the data
+        //    DataTable dataTable = new DataTable();
+        //    dataTable.Columns.Add("Column1"); // Replace "Column1" with your actual column name
+        //    dataTable.Columns.Add("Column2"); // Replace "Column2" with your actual column name
+        //    dataTable.Columns.Add("Column3");
+        //    dataTable.Columns.Add("Column4");
+        //    dataTable.Columns.Add("Column5");
+        //    dataTable.Columns.Add("Column6");
+
+        //    // Iterate through each row in the DataGridView and add the data to the DataTable
+        //    foreach (DataGridViewRow row in adminInventoryData.Rows)
+        //    {
+        //        if (!row.IsNewRow)
+        //        {
+        //            DataRow dataRow = dataTable.NewRow();
+        //            dataRow["Column1"] = row.Cells["productname"].Value.ToString(); // Replace "yourColumn1" with the actual column name
+        //            dataRow["Column2"] = row.Cells["partID"].Value.ToString(); // Replace "yourColumn2" with the actual column name
+        //            dataRow["Column3"] = row.Cells["partname"].Value.ToString();
+        //            dataRow["Column4"] = row.Cells["partdescription"].Value.ToString();
+        //            dataRow["Column5"] = row.Cells["quantity"].Value.ToString();
+        //            dataRow["Column6"] = row.Cells["condition"].Value.ToString();
+        //            dataTable.Rows.Add(dataRow);
+        //        }
+        //    }
+
+        //    // Display the print preview dialog
+        //    printPreviewDialog1.PrintPreviewControl.Zoom = 1;
+        //    printPreviewDialog1.Document = printDocument1;
+        //    printPreviewDialog1.ShowDialog();
+        //}
     }
 }
