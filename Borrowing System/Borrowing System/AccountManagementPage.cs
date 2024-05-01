@@ -27,20 +27,20 @@ namespace Borrowing_System
         public static string studentFirstName { get; set; }
         public static string studentMiddleInitial { get; set; }
         public static string studentLastName { get; set; }
-        public static string studentID { get; set; }
+        public static string studentId { get; set; }
         public static string studentProgram { get; set; }
         public static string studentYearLevel { get; set; }
 
         public static string instructorId { get; set; }
-        public static string instructorFirstName { get; set; }
-        public static string instructorMiddleInitial { get; set; }
-        public static string instructorLastName { get; set; }
+        public static string instructorName { get; set; }
+        public static string instructorCourseId { get; set; }
+        public static string instructorCourseName { get; set; }
+        public static string instructorCourseSection { get; set; }
+        public static string instructorCourseStartTime { get; set; }
+        public static string instructorCourseEndTime { get; set; }
 
-        public static string courseID { get; set; }
+        public static string courseId { get; set; }
         public static string courseName { get; set; }
-        public static string courseSection { get; set; }
-        public static string courseTime { get; set; }
-
 
         public AccountManagementPage()
         {
@@ -62,7 +62,7 @@ namespace Borrowing_System
             employeeData.DataSource = dataTable;
 
             //Student Data
-            mySqlCommand = new MySqlCommand("SELECT Student.studentID, Person.firstname AS studentFirstname, Person.middleinitial AS studentMiddleInitial, Person.lastname AS studentLastname,  Student.program, Student.yearlevel FROM Person " +
+            mySqlCommand = new MySqlCommand("SELECT Person.firstname AS studentFirstname, Person.middleinitial AS studentMiddleInitial, Person.lastname AS studentLastname, Student.studentID, Student.program, Student.yearlevel FROM Person " +
                 "INNER JOIN Student ON Person.personID = Student.personID", mySqlConnection);
             mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
             dataTable = new DataTable();
@@ -82,16 +82,12 @@ namespace Borrowing_System
             mySqlDataAdapter.Fill(dataTable);
             instructorData.DataSource = dataTable;
 
-            //Course Data
-            mySqlCommand = new MySqlCommand("SELECT Course.courseID, Course.coursename, " +
-                "CONCAT(IFNULL(CourseTime.startTime, ''), ' - ', IFNULL(CourseTime.endTime, '')) AS fullTime, " +
-                "CourseTime.startTime, CourseTime.endTime, CourseTime.section From Course " +
-                "INNER JOIN CourseTime ON Course.courseID = CourseTime.courseID", mySqlConnection);
+            //Show all Course Table only, no inner join. Just courseID and coursename
+            mySqlCommand = new MySqlCommand("SELECT Course.courseID, Course.coursename FROM Course", mySqlConnection);
             mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
             dataTable = new DataTable();
             mySqlDataAdapter.Fill(dataTable);
             courseData.DataSource = dataTable;
-
 
             mySqlConnection.Close();
             FillComboBox();
@@ -141,13 +137,12 @@ namespace Borrowing_System
                 //Refresh Course List Data
                 MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 mySqlConnection.Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("SELECT Course.courseID, Course.coursename, CONCAT(IFNULL(CourseTime.startTime, ''), ' - ', IFNULL(CourseTime.endTime, '')) AS fullTime, CourseTime.startTime, CourseTime.endTime, CourseTime.section From Course INNER JOIN CourseTime ON Course.courseID = CourseTime.courseID", mySqlConnection);
+                MySqlCommand mySqlCommand = new MySqlCommand("SELECT Course.courseID, Course.coursename FROM Course", mySqlConnection);
                 MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
                 DataTable dataTable = new DataTable();
                 mySqlDataAdapter.Fill(dataTable);
                 courseData.DataSource = dataTable;
                 mySqlConnection.Close();
-
             }
         }
 
@@ -156,7 +151,7 @@ namespace Borrowing_System
             try
             {
 
-                if(employeeBTN.BackColor == Color.FromArgb(252, 168, 115))
+                if (employeeBTN.BackColor == Color.FromArgb(252, 168, 115))
                 {
                     //SEARCH EMPLOYEE
                     MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
@@ -219,7 +214,7 @@ namespace Borrowing_System
         {
             if (instructorBTN.BackColor == Color.FromArgb(252, 168, 115))
             {
-                if(searchData.Text == "")
+                if (searchData.Text == "")
                 {
                     //Show all instructors
                     MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
@@ -259,8 +254,8 @@ namespace Borrowing_System
             employeeData.Visible = true;
             courseData.Visible = false;
             instructorlistTxtbx.Visible = false;
-          
-           
+
+
         }
 
         private void studentBTN_Click(object sender, EventArgs e)
@@ -275,8 +270,8 @@ namespace Borrowing_System
             employeeData.Visible = false;
             courseData.Visible = false;
             instructorlistTxtbx.Visible = false;
-       
-           
+
+
         }
 
         private void instructorBTN_Click(object sender, EventArgs e)
@@ -289,7 +284,7 @@ namespace Borrowing_System
             employeeBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
             instructorData.Visible = true;
             studentData.Visible = false;
-            employeeData.Visible= false;
+            employeeData.Visible = false;
             courseData.Visible = false;
         }
 
@@ -305,8 +300,6 @@ namespace Borrowing_System
             employeeData.Visible = false;
             courseData.Visible = true;
             instructorlistTxtbx.Visible = false;
-      
-            
         }
 
         private void employeeData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -330,7 +323,7 @@ namespace Borrowing_System
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = studentData.Rows[e.RowIndex];
-               
+                studentId = row.Cells["studentID"].Value.ToString();
                 studentFirstName = row.Cells["studentFirstname"].Value.ToString();
                 studentMiddleInitial = row.Cells["studentMiddleInitial"].Value.ToString();
                 studentLastName = row.Cells["studentLastname"].Value.ToString();
@@ -417,40 +410,37 @@ namespace Borrowing_System
 
         private void instructorData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = instructorData.Rows[e.RowIndex];
                 instructorId = row.Cells["instructorID"].Value.ToString();
-                instructorFirstName = row.Cells["instructorFirstname"].Value.ToString();
-                instructorMiddleInitial = row.Cells["instructorMiddleinitial"].Value.ToString();
-                instructorLastName = row.Cells["instructorLastname"].Value.ToString();
+                instructorName = row.Cells["instructorname"].Value.ToString();
+                instructorCourseId = row.Cells["instructorcourseId"].Value.ToString();
+                instructorCourseName = row.Cells["instructorcName"].Value.ToString();
+                instructorCourseSection = row.Cells["instructorSection"].Value.ToString();
+                instructorCourseStartTime = row.Cells["instructorStartTime"].Value.ToString();
+                instructorCourseEndTime = row.Cells["instructorEndTime"].Value.ToString();
                 instructorList1.updateInstructorList();
             }
         }
 
         private void courseData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = courseData.Rows[e.RowIndex];
                 courseName = row.Cells["coursename"].Value.ToString();
-                courseSection = row.Cells["section"].Value.ToString();
-                courseTime = row.Cells["fullTime"].Value.ToString();
-                courseList1.updateCouseList();
+                courseId = row.Cells["courseID"].Value.ToString();
+                courseList1.updateCourseList();
             }
         }
 
         private void searchData_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 searchBTN.PerformClick();
             }
-        }
-
-        private void instructorData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

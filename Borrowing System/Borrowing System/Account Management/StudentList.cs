@@ -22,7 +22,7 @@ namespace Borrowing_System.Account_Management
             firstnameTxtbx.Text = AccountManagementPage.studentFirstName;
             middleinitialTxtbx.Text = AccountManagementPage.studentMiddleInitial;
             lastnameTxtbx.Text = AccountManagementPage.studentLastName;
-            studentIDTxtbx.Text = AccountManagementPage.studentID;
+            studentIDTxtbx.Text = AccountManagementPage.studentId;
             courseTxtbx.Text = AccountManagementPage.studentProgram;
             yearlevelTxtbx.Text = AccountManagementPage.studentYearLevel;
         }

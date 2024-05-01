@@ -205,6 +205,7 @@
             this.submitBTN.TabIndex = 33;
             this.submitBTN.Text = "Submit";
             this.submitBTN.UseVisualStyleBackColor = false;
+            this.submitBTN.Click += new System.EventHandler(this.submitBTN_Click);
             // 
             // clearBTN
             // 

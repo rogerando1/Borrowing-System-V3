@@ -55,7 +55,6 @@
             this.productnameTxtbx = new System.Windows.Forms.ComboBox();
             this.conditionTxtbx = new System.Windows.Forms.ComboBox();
             this.quantityTxtbx = new System.Windows.Forms.NumericUpDown();
-            this.button1 = new System.Windows.Forms.Button();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
@@ -406,23 +405,9 @@
             this.quantityTxtbx.Size = new System.Drawing.Size(89, 20);
             this.quantityTxtbx.TabIndex = 51;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(135, 606);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 42);
-            this.button1.TabIndex = 52;
-            this.button1.Text = "Print";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // printDialog1
             // 
             this.printDialog1.UseEXDialog = true;
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // printPreviewDialog1
             // 
@@ -441,7 +426,6 @@
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.Admin_invenotry__4_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1532, 650);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.quantityTxtbx);
             this.Controls.Add(this.conditionTxtbx);
             this.Controls.Add(this.productnameTxtbx);
@@ -494,7 +478,6 @@
         private System.Windows.Forms.ComboBox productnameTxtbx;
         private System.Windows.Forms.ComboBox conditionTxtbx;
         private System.Windows.Forms.NumericUpDown quantityTxtbx;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
