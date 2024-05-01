@@ -30,7 +30,7 @@
         {
             this.coursetimeTxtbx = new System.Windows.Forms.TextBox();
             this.sectionTxtbx = new System.Windows.Forms.TextBox();
-            this.cousenameTxtbx = new System.Windows.Forms.TextBox();
+            this.coursenameTxtbx = new System.Windows.Forms.TextBox();
             this.courseIDTxtbx = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -52,14 +52,14 @@
             this.sectionTxtbx.Size = new System.Drawing.Size(382, 22);
             this.sectionTxtbx.TabIndex = 8;
             // 
-            // cousenameTxtbx
+            // coursenameTxtbx
             // 
-            this.cousenameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cousenameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cousenameTxtbx.Location = new System.Drawing.Point(72, 238);
-            this.cousenameTxtbx.Name = "cousenameTxtbx";
-            this.cousenameTxtbx.Size = new System.Drawing.Size(382, 22);
-            this.cousenameTxtbx.TabIndex = 7;
+            this.coursenameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.coursenameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coursenameTxtbx.Location = new System.Drawing.Point(72, 238);
+            this.coursenameTxtbx.Name = "coursenameTxtbx";
+            this.coursenameTxtbx.Size = new System.Drawing.Size(382, 22);
+            this.coursenameTxtbx.TabIndex = 7;
             // 
             // courseIDTxtbx
             // 
@@ -77,7 +77,7 @@
             this.BackgroundImage = global::Borrowing_System.Properties.Resources._3_1_;
             this.Controls.Add(this.coursetimeTxtbx);
             this.Controls.Add(this.sectionTxtbx);
-            this.Controls.Add(this.cousenameTxtbx);
+            this.Controls.Add(this.coursenameTxtbx);
             this.Controls.Add(this.courseIDTxtbx);
             this.Name = "CourseList";
             this.Size = new System.Drawing.Size(528, 580);
@@ -90,7 +90,7 @@
 
         private System.Windows.Forms.TextBox coursetimeTxtbx;
         private System.Windows.Forms.TextBox sectionTxtbx;
-        private System.Windows.Forms.TextBox cousenameTxtbx;
+        private System.Windows.Forms.TextBox coursenameTxtbx;
         private System.Windows.Forms.TextBox courseIDTxtbx;
     }
 }

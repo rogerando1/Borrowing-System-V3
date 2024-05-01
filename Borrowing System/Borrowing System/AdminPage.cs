@@ -21,7 +21,8 @@ namespace Borrowing_System
 
         private void AdminPage_Load(object sender, EventArgs e)
         {
-
+            poslbl.Text = LoginPage.Position;
+            idlbl.Text = LoginPage.EmployeeID;
         }
         
         public void loadform(object Form)

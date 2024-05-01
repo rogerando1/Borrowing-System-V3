@@ -32,14 +32,17 @@
             this.borrowerNameTxtbx = new System.Windows.Forms.TextBox();
             this.courseTxtbx = new System.Windows.Forms.TextBox();
             this.yearlevelTxtbx = new System.Windows.Forms.TextBox();
-            this.quantityTxtbx = new System.Windows.Forms.TextBox();
             this.availableLabel = new System.Windows.Forms.Label();
             this.instructorNameTxtbx = new System.Windows.Forms.ComboBox();
             this.subjectCodeTxtbx = new System.Windows.Forms.ComboBox();
-            this.courseTimeTxtbx = new System.Windows.Forms.ComboBox();
+            this.equipmentNameTxtbx = new System.Windows.Forms.ComboBox();
             this.typeTxtbx = new System.Windows.Forms.ComboBox();
-            this.clearBTN = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.subjectnameLabel = new System.Windows.Forms.Label();
+            this.quantityTxtbx = new System.Windows.Forms.NumericUpDown();
             this.submitBTN = new System.Windows.Forms.Button();
+            this.clearBTN = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityTxtbx)).BeginInit();
             this.SuspendLayout();
             // 
             // studentIDTxtbx
@@ -85,16 +88,6 @@
             this.yearlevelTxtbx.Size = new System.Drawing.Size(290, 22);
             this.yearlevelTxtbx.TabIndex = 16;
             // 
-            // quantityTxtbx
-            // 
-            this.quantityTxtbx.BackColor = System.Drawing.Color.White;
-            this.quantityTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.quantityTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityTxtbx.Location = new System.Drawing.Point(1157, 475);
-            this.quantityTxtbx.Name = "quantityTxtbx";
-            this.quantityTxtbx.Size = new System.Drawing.Size(290, 22);
-            this.quantityTxtbx.TabIndex = 19;
-            // 
             // availableLabel
             // 
             this.availableLabel.AutoSize = true;
@@ -125,23 +118,25 @@
             this.subjectCodeTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.subjectCodeTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.subjectCodeTxtbx.FormattingEnabled = true;
+            this.subjectCodeTxtbx.Items.AddRange(new object[] {
+            "Please select an instructor first"});
             this.subjectCodeTxtbx.Location = new System.Drawing.Point(1157, 181);
             this.subjectCodeTxtbx.Name = "subjectCodeTxtbx";
             this.subjectCodeTxtbx.Size = new System.Drawing.Size(290, 32);
             this.subjectCodeTxtbx.TabIndex = 22;
             this.subjectCodeTxtbx.SelectedIndexChanged += new System.EventHandler(this.subjectCodeTxtbx_SelectedIndexChanged);
             // 
-            // courseTimeTxtbx
+            // equipmentNameTxtbx
             // 
-            this.courseTimeTxtbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.courseTimeTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.courseTimeTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.courseTimeTxtbx.FormattingEnabled = true;
-            this.courseTimeTxtbx.Location = new System.Drawing.Point(1157, 276);
-            this.courseTimeTxtbx.Name = "courseTimeTxtbx";
-            this.courseTimeTxtbx.Size = new System.Drawing.Size(290, 32);
-            this.courseTimeTxtbx.TabIndex = 23;
-            this.courseTimeTxtbx.SelectedIndexChanged += new System.EventHandler(this.courseTimeTxtbx_SelectedIndexChanged);
+            this.equipmentNameTxtbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.equipmentNameTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.equipmentNameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.equipmentNameTxtbx.FormattingEnabled = true;
+            this.equipmentNameTxtbx.Location = new System.Drawing.Point(1157, 276);
+            this.equipmentNameTxtbx.Name = "equipmentNameTxtbx";
+            this.equipmentNameTxtbx.Size = new System.Drawing.Size(290, 32);
+            this.equipmentNameTxtbx.TabIndex = 23;
+            this.equipmentNameTxtbx.SelectedIndexChanged += new System.EventHandler(this.equipmentNameTxtbx_SelectedIndexChanged);
             // 
             // typeTxtbx
             // 
@@ -149,26 +144,50 @@
             this.typeTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.typeTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.typeTxtbx.FormattingEnabled = true;
+            this.typeTxtbx.Items.AddRange(new object[] {
+            "Please select an equipment first"});
             this.typeTxtbx.Location = new System.Drawing.Point(1157, 374);
             this.typeTxtbx.Name = "typeTxtbx";
             this.typeTxtbx.Size = new System.Drawing.Size(290, 32);
             this.typeTxtbx.TabIndex = 24;
+            this.typeTxtbx.SelectedIndexChanged += new System.EventHandler(this.typeTxtbx_SelectedIndexChanged);
             // 
-            // clearBTN
+            // label2
             // 
-            this.clearBTN.BackColor = System.Drawing.Color.White;
-            this.clearBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clearBTN.FlatAppearance.BorderSize = 0;
-            this.clearBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
-            this.clearBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
-            this.clearBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearBTN.Location = new System.Drawing.Point(958, 559);
-            this.clearBTN.Name = "clearBTN";
-            this.clearBTN.Size = new System.Drawing.Size(139, 45);
-            this.clearBTN.TabIndex = 25;
-            this.clearBTN.Text = "Clear";
-            this.clearBTN.UseVisualStyleBackColor = false;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(83)))), ((int)(((byte)(77)))));
+            this.label2.Location = new System.Drawing.Point(1150, 226);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 20);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Subject Name:";
+            // 
+            // subjectnameLabel
+            // 
+            this.subjectnameLabel.AutoSize = true;
+            this.subjectnameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.subjectnameLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subjectnameLabel.ForeColor = System.Drawing.Color.Blue;
+            this.subjectnameLabel.Location = new System.Drawing.Point(1261, 228);
+            this.subjectnameLabel.Name = "subjectnameLabel";
+            this.subjectnameLabel.Size = new System.Drawing.Size(112, 17);
+            this.subjectnameLabel.TabIndex = 29;
+            this.subjectnameLabel.Text = "{subjectnamelbl}";
+            // 
+            // quantityTxtbx
+            // 
+            this.quantityTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            this.quantityTxtbx.Location = new System.Drawing.Point(1157, 473);
+            this.quantityTxtbx.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.quantityTxtbx.Name = "quantityTxtbx";
+            this.quantityTxtbx.Size = new System.Drawing.Size(289, 29);
+            this.quantityTxtbx.TabIndex = 31;
             // 
             // submitBTN
             // 
@@ -179,12 +198,30 @@
             this.submitBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
             this.submitBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.submitBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitBTN.Location = new System.Drawing.Point(1117, 559);
+            this.submitBTN.ForeColor = System.Drawing.Color.Black;
+            this.submitBTN.Location = new System.Drawing.Point(1110, 560);
             this.submitBTN.Name = "submitBTN";
             this.submitBTN.Size = new System.Drawing.Size(142, 45);
-            this.submitBTN.TabIndex = 26;
+            this.submitBTN.TabIndex = 33;
             this.submitBTN.Text = "Submit";
             this.submitBTN.UseVisualStyleBackColor = false;
+            // 
+            // clearBTN
+            // 
+            this.clearBTN.BackColor = System.Drawing.Color.White;
+            this.clearBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearBTN.FlatAppearance.BorderSize = 0;
+            this.clearBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearBTN.ForeColor = System.Drawing.Color.Black;
+            this.clearBTN.Location = new System.Drawing.Point(951, 560);
+            this.clearBTN.Name = "clearBTN";
+            this.clearBTN.Size = new System.Drawing.Size(139, 45);
+            this.clearBTN.TabIndex = 32;
+            this.clearBTN.Text = "Clear";
+            this.clearBTN.UseVisualStyleBackColor = false;
             // 
             // TransactionPage
             // 
@@ -194,12 +231,14 @@
             this.ClientSize = new System.Drawing.Size(1532, 650);
             this.Controls.Add(this.submitBTN);
             this.Controls.Add(this.clearBTN);
+            this.Controls.Add(this.quantityTxtbx);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.subjectnameLabel);
             this.Controls.Add(this.typeTxtbx);
-            this.Controls.Add(this.courseTimeTxtbx);
+            this.Controls.Add(this.equipmentNameTxtbx);
             this.Controls.Add(this.subjectCodeTxtbx);
             this.Controls.Add(this.instructorNameTxtbx);
             this.Controls.Add(this.availableLabel);
-            this.Controls.Add(this.quantityTxtbx);
             this.Controls.Add(this.yearlevelTxtbx);
             this.Controls.Add(this.courseTxtbx);
             this.Controls.Add(this.borrowerNameTxtbx);
@@ -208,6 +247,7 @@
             this.Name = "TransactionPage";
             this.Text = "TransactionPage";
             this.Load += new System.EventHandler(this.TransactionPage_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.quantityTxtbx)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,13 +259,15 @@
         private System.Windows.Forms.TextBox borrowerNameTxtbx;
         private System.Windows.Forms.TextBox courseTxtbx;
         private System.Windows.Forms.TextBox yearlevelTxtbx;
-        private System.Windows.Forms.TextBox quantityTxtbx;
         private System.Windows.Forms.Label availableLabel;
         private System.Windows.Forms.ComboBox instructorNameTxtbx;
         private System.Windows.Forms.ComboBox subjectCodeTxtbx;
-        private System.Windows.Forms.ComboBox courseTimeTxtbx;
+        private System.Windows.Forms.ComboBox equipmentNameTxtbx;
         private System.Windows.Forms.ComboBox typeTxtbx;
-        private System.Windows.Forms.Button clearBTN;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label subjectnameLabel;
+        private System.Windows.Forms.NumericUpDown quantityTxtbx;
         private System.Windows.Forms.Button submitBTN;
+        private System.Windows.Forms.Button clearBTN;
     }
 }

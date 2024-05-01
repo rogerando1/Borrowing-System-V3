@@ -91,7 +91,6 @@ C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Trainin
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.AccountManagementPage.resources
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.AdminPage.resources
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.DashboardPage.resources
-C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Fillbox.resources
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Inventory_Admin.resources
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Inventory_Staff.resources
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.LoginPage.resources
@@ -113,3 +112,67 @@ D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\C
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.Bcl.HashCode.dll
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\CsvHelper.xml
 D:\Web Project\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Borrowing System.exe.config
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Borrowing System.exe
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Borrowing System.pdb
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\CsvHelper.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Google.Protobuf.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\MySql.Data.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Buffers.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.IO.Pipelines.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Memory.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\ZstdSharp.dll
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\CsvHelper.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Google.Protobuf.pdb
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Google.Protobuf.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\MySql.Data.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Buffers.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.IO.Pipelines.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Memory.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.csproj.AssemblyReference.cache
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.CourseList.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.EmployeeList.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.InstructorList.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.StudentList.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.AccountManagementPage.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.AdminPage.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.DashboardPage.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Inventory_Admin.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Inventory_Staff.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.LoginPage.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Properties.Resources.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Settings.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.StaffPage.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.TransactionLogsPage.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.TransactionPage.resources
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.csproj.GenerateResource.cache
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.csproj.CoreCompileInputs.cache
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.csproj.CopyComplete
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.exe
+C:\Users\Gerald\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.pdb
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\CsvHelper.dll
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\CsvHelper.xml
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.AddNotes.resources

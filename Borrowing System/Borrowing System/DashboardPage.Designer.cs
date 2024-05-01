@@ -33,18 +33,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dashboardTable = new System.Windows.Forms.DataGridView();
-            this.orderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subject_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructor_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.accountName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_TIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordertime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchBTN = new System.Windows.Forms.Button();
-            this.usernameTxtbx = new System.Windows.Forms.TextBox();
+            this.searchTxtbx = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,15 +71,14 @@
             this.dashboardTable.ColumnHeadersHeight = 50;
             this.dashboardTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dashboardTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderID,
+            this.transactionID,
             this.studentName,
-            this.subject_code,
-            this.instructor_name,
-            this.equipmentName,
+            this.instructorName,
+            this.accountName,
+            this.partName,
             this.quantity,
-            this.fullName,
-            this.order_DATE,
-            this.order_TIME,
+            this.orderdate,
+            this.ordertime,
             this.status_});
             this.dashboardTable.EnableHeadersVisualStyles = false;
             this.dashboardTable.GridColor = System.Drawing.SystemColors.ControlLightLight;
@@ -112,14 +110,18 @@
             this.dashboardTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dashboardTable.Size = new System.Drawing.Size(1467, 500);
             this.dashboardTable.TabIndex = 3;
+            this.dashboardTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dashboardTable_CellClick);
+            this.dashboardTable.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dashboardTable_CellMouseEnter);
+            this.dashboardTable.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dashboardTable_CellMouseLeave);
+            this.dashboardTable.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dashboardTable_CellPainting);
             // 
-            // orderID
+            // transactionID
             // 
-            this.orderID.DataPropertyName = "orderID";
-            this.orderID.HeaderText = "Order ID";
-            this.orderID.MinimumWidth = 6;
-            this.orderID.Name = "orderID";
-            this.orderID.ReadOnly = true;
+            this.transactionID.DataPropertyName = "transactionID";
+            this.transactionID.HeaderText = "Transaction ID";
+            this.transactionID.MinimumWidth = 6;
+            this.transactionID.Name = "transactionID";
+            this.transactionID.ReadOnly = true;
             // 
             // studentName
             // 
@@ -129,29 +131,29 @@
             this.studentName.Name = "studentName";
             this.studentName.ReadOnly = true;
             // 
-            // subject_code
+            // instructorName
             // 
-            this.subject_code.DataPropertyName = "subject_code";
-            this.subject_code.HeaderText = "Subject Code";
-            this.subject_code.MinimumWidth = 6;
-            this.subject_code.Name = "subject_code";
-            this.subject_code.ReadOnly = true;
+            this.instructorName.DataPropertyName = "instructorName";
+            this.instructorName.HeaderText = "Instructor Name";
+            this.instructorName.MinimumWidth = 6;
+            this.instructorName.Name = "instructorName";
+            this.instructorName.ReadOnly = true;
             // 
-            // instructor_name
+            // accountName
             // 
-            this.instructor_name.DataPropertyName = "instructor_name";
-            this.instructor_name.HeaderText = "Instructor Name";
-            this.instructor_name.MinimumWidth = 6;
-            this.instructor_name.Name = "instructor_name";
-            this.instructor_name.ReadOnly = true;
+            this.accountName.DataPropertyName = "accountName";
+            this.accountName.HeaderText = "Employee Name";
+            this.accountName.MinimumWidth = 6;
+            this.accountName.Name = "accountName";
+            this.accountName.ReadOnly = true;
             // 
-            // equipmentName
+            // partName
             // 
-            this.equipmentName.DataPropertyName = "equipmentName";
-            this.equipmentName.HeaderText = "Equipment Name";
-            this.equipmentName.MinimumWidth = 6;
-            this.equipmentName.Name = "equipmentName";
-            this.equipmentName.ReadOnly = true;
+            this.partName.DataPropertyName = "partName";
+            this.partName.HeaderText = "Equipment Name";
+            this.partName.MinimumWidth = 6;
+            this.partName.Name = "partName";
+            this.partName.ReadOnly = true;
             // 
             // quantity
             // 
@@ -160,35 +162,27 @@
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
             // 
-            // fullName
+            // orderdate
             // 
-            this.fullName.DataPropertyName = "fullName";
-            this.fullName.HeaderText = "Employee Name";
-            this.fullName.MinimumWidth = 6;
-            this.fullName.Name = "fullName";
-            this.fullName.ReadOnly = true;
-            // 
-            // order_DATE
-            // 
-            this.order_DATE.DataPropertyName = "order_DATE";
+            this.orderdate.DataPropertyName = "orderdate";
             dataGridViewCellStyle2.Format = "d";
             dataGridViewCellStyle2.NullValue = null;
-            this.order_DATE.DefaultCellStyle = dataGridViewCellStyle2;
-            this.order_DATE.HeaderText = "Order Date";
-            this.order_DATE.MinimumWidth = 6;
-            this.order_DATE.Name = "order_DATE";
-            this.order_DATE.ReadOnly = true;
+            this.orderdate.DefaultCellStyle = dataGridViewCellStyle2;
+            this.orderdate.HeaderText = "Order Date";
+            this.orderdate.MinimumWidth = 6;
+            this.orderdate.Name = "orderdate";
+            this.orderdate.ReadOnly = true;
             // 
-            // order_TIME
+            // ordertime
             // 
-            this.order_TIME.DataPropertyName = "order_TIME";
+            this.ordertime.DataPropertyName = "ordertime";
             dataGridViewCellStyle3.Format = "T";
             dataGridViewCellStyle3.NullValue = null;
-            this.order_TIME.DefaultCellStyle = dataGridViewCellStyle3;
-            this.order_TIME.HeaderText = "Order Time";
-            this.order_TIME.MinimumWidth = 6;
-            this.order_TIME.Name = "order_TIME";
-            this.order_TIME.ReadOnly = true;
+            this.ordertime.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ordertime.HeaderText = "Order Time";
+            this.ordertime.MinimumWidth = 6;
+            this.ordertime.Name = "ordertime";
+            this.ordertime.ReadOnly = true;
             // 
             // status_
             // 
@@ -218,16 +212,19 @@
             this.searchBTN.Size = new System.Drawing.Size(33, 36);
             this.searchBTN.TabIndex = 9;
             this.searchBTN.UseVisualStyleBackColor = false;
+            this.searchBTN.Click += new System.EventHandler(this.searchBTN_Click);
             // 
-            // usernameTxtbx
+            // searchTxtbx
             // 
-            this.usernameTxtbx.BackColor = System.Drawing.Color.White;
-            this.usernameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usernameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.usernameTxtbx.Location = new System.Drawing.Point(294, 43);
-            this.usernameTxtbx.Name = "usernameTxtbx";
-            this.usernameTxtbx.Size = new System.Drawing.Size(824, 28);
-            this.usernameTxtbx.TabIndex = 14;
+            this.searchTxtbx.BackColor = System.Drawing.Color.White;
+            this.searchTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.searchTxtbx.Location = new System.Drawing.Point(294, 43);
+            this.searchTxtbx.Name = "searchTxtbx";
+            this.searchTxtbx.Size = new System.Drawing.Size(824, 28);
+            this.searchTxtbx.TabIndex = 14;
+            this.searchTxtbx.TextChanged += new System.EventHandler(this.searchTxtbx_TextChanged);
+            this.searchTxtbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTxtbx_KeyDown);
             // 
             // DashboardPage
             // 
@@ -235,12 +232,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.Dashboard_Page;
             this.ClientSize = new System.Drawing.Size(1532, 650);
-            this.Controls.Add(this.usernameTxtbx);
+            this.Controls.Add(this.searchTxtbx);
             this.Controls.Add(this.searchBTN);
             this.Controls.Add(this.dashboardTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DashboardPage";
             this.Text = "DashboardPage";
+            this.Load += new System.EventHandler(this.DashboardPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dashboardTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -250,17 +248,16 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dashboardTable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studentName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subject_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn instructor_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn equipmentName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn order_DATE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn order_TIME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status_;
         private System.Windows.Forms.Button searchBTN;
-        private System.Windows.Forms.TextBox usernameTxtbx;
+        private System.Windows.Forms.TextBox searchTxtbx;
+        private System.Windows.Forms.DataGridViewTextBoxColumn transactionID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn instructorName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accountName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ordertime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status_;
     }
 }

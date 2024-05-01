@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Borrowing_System.Data;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace Borrowing_System
@@ -23,6 +24,10 @@ namespace Borrowing_System
 
         private void Inventory_Admin_Load(object sender, EventArgs e)
         {
+            productnameTxtbx.Enabled = false;
+            conditionTxtbx.Enabled = false;
+            quantityTxtbx.Enabled = false;
+
             MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
             connection.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT Product.productname, Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition " +
@@ -32,7 +37,6 @@ namespace Borrowing_System
             DataTable dt = new DataTable();
             adp.Fill(dt);
             adminInventoryData.DataSource = dt;
-
             FillComboBox();
         }
 
@@ -43,24 +47,34 @@ namespace Borrowing_System
                 return;
             }
 
-            string productName = productnamelist.SelectedItem.ToString();
-            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-            connection.Open();
-            string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition, CONCAT(Product.productname) AS productname FROM Part " +
-                    "INNER JOIN Product on Part.productID = Product.productID " +
-                    "WHERE Product.productname = @productName";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@productName", productName);
-            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            adminInventoryData.DataSource = dt;
-            
+            if (productnamelist.Text == "(Select none)")
+            {
+                ReloadDataGridView();
+            }
+            else
+            {
+                string productName = productnamelist.SelectedItem.ToString();
+                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition, CONCAT(Product.productname) AS productname FROM Part " +
+                        "INNER JOIN Product on Part.productID = Product.productID " +
+                        "WHERE Product.productname = @productName";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@productName", productName);
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                adminInventoryData.DataSource = dt;
+            }
+
         }
         private void FillComboBox()
         {
             try
             {
+                //Default Empty Value for Name List
+                productnamelist.Items.Add("(Select none)");
+
                 MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 connection.Open();
                 MySqlCommand cmd = new MySqlCommand("SELECT productname FROM sql6690575.Product", connection);
@@ -70,6 +84,7 @@ namespace Borrowing_System
                 {
                     string eqName = reader.GetString("productname");
                     productnamelist.Items.Add(eqName);
+                    productnameTxtbx.Items.Add(eqName);
                 }
             }
             catch (Exception ex)
@@ -80,17 +95,6 @@ namespace Borrowing_System
 
         private void adminInventoryData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = adminInventoryData.Rows[e.RowIndex];
-
-                productnameTxtbx.Text = row.Cells["productname"].Value.ToString();
-                partIdTxtbx.Text = row.Cells["partID"].Value.ToString();
-                partnameTxtbx.Text = row.Cells["partname"].Value?.ToString();
-                partdescriptionTxtbx.Text = row.Cells["partdescription"].Value.ToString();
-                quantityTxtbx.Text = row.Cells["quantity"].Value.ToString();
-                conditionTxtbx.Text = row.Cells["condition"].Value.ToString();
-            }
 
         }
 
@@ -99,14 +103,14 @@ namespace Borrowing_System
             string Search = searchData.Text.ToString();
             searchDatas(Search);
         }
-       
+
         private void searchData_TextChanged(object sender, EventArgs e)
         {
             if (searchData.Text == "")
             {
                 ReloadDataGridView();
             }
-        }      
+        }
 
         public void searchDatas(string Search)
         {
@@ -156,65 +160,85 @@ namespace Borrowing_System
         {
             try
             {
-                if (productnameTxtbx.Text == "" || partnameTxtbx.Text == "" || partdescriptionTxtbx.Text == "" || quantityTxtbx.Text == "" || conditionTxtbx.Text == "")
+                if (productnameTxtbx.Text == "" || partnameTxtbx.Text == "" || partdescriptionTxtbx.Text == "" || conditionTxtbx.Text == "")
                 {
                     MessageBox.Show("Please fill in the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                using (var conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
+                if (quantityTxtbx.Value == 0)
                 {
-                    conn.Open();
-
-                    // Check if the product name exists
-                    using (var command = new MySqlCommand($"SELECT * FROM Product WHERE productname = @productname", conn))
+                    MessageBox.Show("Quantity should not be 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    using (var conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
                     {
-                        command.Parameters.AddWithValue("@productname", productnameTxtbx.Text);
-                        var reader = command.ExecuteReader();
-                       
-                        if (!reader.Read())
+                        conn.Open();
+
+                        //Check if Product name exists
+                        using (var command = new MySqlCommand($"SELECT * FROM Product WHERE productname = @productname", conn))
                         {
-                            MessageBox.Show("Product name does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
+                            command.Parameters.AddWithValue("@productname", productnameTxtbx.Text);
+                            using (var reader = command.ExecuteReader())
+                            {
+                                if (!reader.HasRows)
+                                {
+                                    MessageBox.Show("Product name does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
                         }
-                        
-                    }
 
-                    // Check if the part name already exists
-                    using (var command = new MySqlCommand($"SELECT * FROM Part WHERE partname = @partname", conn))
-                    {
-                        command.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
-                        var reader = command.ExecuteReader();
-                       
-                        if (reader.Read())
+                        // Check if Part name already exists
+                        using (var command = new MySqlCommand($"SELECT * FROM Part WHERE partname = @partname", conn))
                         {
-                            MessageBox.Show("Part Name already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
+                            command.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
+                            using (var reader = command.ExecuteReader())
+                            {
+                                if (reader.HasRows)
+                                {
+                                    MessageBox.Show("Part name already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    return;
+                                }
+                            }
+
                         }
-                        
-                    }
 
-                    if (MessageBox.Show("Are you sure you want to create this account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        var mySqlCommand = new MySqlCommand("INSERT INTO Part (productID, partname, partdescription, quantity, `condition`) VALUES (@productID, @partname, @partdescription, @quantity, @condition)", conn);
-                        
-                        mySqlCommand.Parameters.AddWithValue("@productID", productnameTxtbx.Text);
-                        mySqlCommand.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
-                        mySqlCommand.Parameters.AddWithValue("@partdescription", partdescriptionTxtbx.Text);
-                        mySqlCommand.Parameters.AddWithValue("@quantity", quantityTxtbx.Text);
-                        mySqlCommand.Parameters.AddWithValue("@condition", conditionTxtbx.Text);
-                        mySqlCommand.ExecuteNonQuery();                       
-
-                        MessageBox.Show("Account created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ReloadDataGridView();
                         partIdTxtbx.Text = "";
-                        productnameTxtbx.Text = "";
-                        partnameTxtbx.Text = "";
-                        partdescriptionTxtbx.Text = "";
-                        quantityTxtbx.Text = "";
-                        conditionTxtbx.Text = "";
+
+                        if (MessageBox.Show("Are you sure you want to create this account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            using (var command = conn.CreateCommand())
+                            {
+                                command.CommandText = "INSERT INTO Part (productID, partname, partdescription, quantity, `condition`) VALUES (@productname, @partname, @partdescription, @quantity, @condition)";
+                                command.Parameters.AddWithValue("@productname", productnameTxtbx.Text);
+                                command.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
+                                command.Parameters.AddWithValue("@partdescription", partdescriptionTxtbx.Text);
+                                command.Parameters.AddWithValue("@quantity", quantityTxtbx.Text);
+                                command.Parameters.AddWithValue("@condition", conditionTxtbx.Text);
+
+                                int rowsAffected = command.ExecuteNonQuery();
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Equipment created successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    productnameTxtbx.SelectedIndex = -1;
+                                    partIdTxtbx.Text = "";
+                                    partnameTxtbx.Text = "";
+                                    partdescriptionTxtbx.Text = "";
+                                    quantityTxtbx.Value = 0;
+                                    conditionTxtbx.SelectedIndex = -1;
+                                    ReloadDataGridView();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Failed to create equipment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                        }
                     }
                 }
+
             }
             catch (Exception ex)
             {
@@ -253,12 +277,12 @@ namespace Borrowing_System
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Equipment deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        productnameTxtbx.Text = "";
+                        productnameTxtbx.SelectedIndex = -1;
                         partIdTxtbx.Text = "";
                         partnameTxtbx.Text = "";
                         partdescriptionTxtbx.Text = "";
-                        quantityTxtbx.Text = "";
-                        conditionTxtbx.Text = "";
+                        quantityTxtbx.Value = 0;
+                        conditionTxtbx.SelectedIndex = -1;
 
                         ReloadDataGridView();
                     }
@@ -272,14 +296,14 @@ namespace Borrowing_System
                     MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
+
         }
-       
+
         private void updateBTN_Click(object sender, EventArgs e)
         {
             try
             {
-                if(string.IsNullOrWhiteSpace(partdescriptionTxtbx.Text) || string.IsNullOrWhiteSpace(quantityTxtbx.Text))
+                if (string.IsNullOrWhiteSpace(partdescriptionTxtbx.Text) || string.IsNullOrWhiteSpace(quantityTxtbx.Text))
                 {
                     MessageBox.Show("Please provide all necessary information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -302,26 +326,26 @@ namespace Borrowing_System
 
                 if (MessageBox.Show("Are you sure you want to update this equipment?", "Update Equipment", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                   
+
                     command = connection.CreateCommand();
                     command.CommandText = "UPDATE Part SET productID = @productname, partname = @partname, partdescription = @partdescription, quantity = @quantity, `condition` = @condition WHERE partID = @partID";
                     command.Parameters.AddWithValue("@productname", productnameTxtbx.Text);
                     command.Parameters.AddWithValue("@partID", partIdTxtbx.Text);
                     command.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
-                    command.Parameters.AddWithValue("@partdescription",partdescriptionTxtbx.Text);
+                    command.Parameters.AddWithValue("@partdescription", partdescriptionTxtbx.Text);
                     command.Parameters.AddWithValue("@quantity", quantityTxtbx.Text);
                     command.Parameters.AddWithValue("@condition", conditionTxtbx.Text);
 
                     int rowsAffected = command.ExecuteNonQuery();
-                    if(rowsAffected > 0)
+                    if (rowsAffected > 0)
                     {
                         MessageBox.Show("Equipment updated successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        productnameTxtbx.Text = "";
+                        productnameTxtbx.SelectedIndex = -1;
                         partIdTxtbx.Text = "";
                         partnameTxtbx.Text = "";
                         partdescriptionTxtbx.Text = "";
-                        quantityTxtbx.Text = "";
-                        conditionTxtbx.Text = "";
+                        quantityTxtbx.Value = 0;
+                        conditionTxtbx.SelectedIndex = -1;
                         ReloadDataGridView();
                     }
                     else
@@ -337,7 +361,7 @@ namespace Borrowing_System
                 MessageBox.Show(ex.Message);
             }
         }
-       
+
         private void editBTN_Click_1(object sender, EventArgs e)
         {
             createBTN.Visible = true;
@@ -347,22 +371,22 @@ namespace Borrowing_System
             clearBtn.Visible = true;
             editBTN.Visible = false;
             partnameTxtbx.ReadOnly = false;
-            productnameTxtbx.ReadOnly = false;
+            productnameTxtbx.Enabled = true;
             partdescriptionTxtbx.ReadOnly = false;
-            quantityTxtbx.ReadOnly = false;
-            conditionTxtbx.ReadOnly = false;
+            quantityTxtbx.Enabled = true;
+            conditionTxtbx.Enabled = true;
         }
-        
+
         private void clearBtn_Click(object sender, EventArgs e)
         {
-            productnameTxtbx.Text = "";
+            productnameTxtbx.SelectedIndex = -1;
             partIdTxtbx.Text = "";
             partnameTxtbx.Text = "";
             partdescriptionTxtbx.Text = "";
-            quantityTxtbx.Text = "";
-            conditionTxtbx.Text = "";
+            quantityTxtbx.Value = 0;
+            conditionTxtbx.SelectedIndex = -1;
         }
-        
+
         private void doneBTN_Click(object sender, EventArgs e)
         {
             createBTN.Visible = false;
@@ -372,17 +396,80 @@ namespace Borrowing_System
             clearBtn.Visible = false;
             editBTN.Visible = true;
             partnameTxtbx.ReadOnly = true;
-            productnameTxtbx.ReadOnly = true;
+            productnameTxtbx.Enabled = false;
             partdescriptionTxtbx.ReadOnly = true;
-            quantityTxtbx.ReadOnly = true;
-            conditionTxtbx.ReadOnly = true;
-            productnameTxtbx.Text = "";
+            quantityTxtbx.Enabled = false;
+            conditionTxtbx.Enabled = false;
+            productnameTxtbx.SelectedIndex = -1;
             partIdTxtbx.Text = "";
             partnameTxtbx.Text = "";
             partdescriptionTxtbx.Text = "";
-            quantityTxtbx.Text = "";
-            conditionTxtbx.Text = "";
-          
+            quantityTxtbx.Value = 0;
+            conditionTxtbx.SelectedIndex = -1;
+
+        }
+
+        private void adminInventoryData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = adminInventoryData.Rows[e.RowIndex];
+
+                productnameTxtbx.Text = row.Cells["productname"].Value.ToString();
+                partIdTxtbx.Text = row.Cells["partID"].Value.ToString();
+                partnameTxtbx.Text = row.Cells["partname"].Value?.ToString();
+                partdescriptionTxtbx.Text = row.Cells["partdescription"].Value.ToString();
+                quantityTxtbx.Text = row.Cells["quantity"].Value.ToString();
+                conditionTxtbx.Text = row.Cells["condition"].Value.ToString();
+            }
+        }
+
+        private void productnameTxtbx_DropDown(object sender, EventArgs e)
+        {
+            //FIT THE DROPDOWN WIDTH TO THE WIDEST ITEM
+
+            int maxWidth = productnameTxtbx.Width;
+            Graphics g = productnameTxtbx.CreateGraphics();
+            Font font = productnameTxtbx.Font;
+
+            foreach (var item in productnameTxtbx.Items)
+            {
+                int itemWidth = (int)g.MeasureString(item.ToString(), font).Width;
+                if (itemWidth > maxWidth)
+                {
+                    maxWidth = itemWidth;
+                }
+            }
+
+            productnameTxtbx.DropDownWidth = maxWidth;
+        }
+
+        private void productnamelist_DropDown(object sender, EventArgs e)
+        {
+            //FIT THE DROPDOWN WIDTH TO THE WIDEST ITEM
+
+            int maxWidth = productnamelist.Width;
+            Graphics g = productnamelist.CreateGraphics();
+            Font font = productnamelist.Font;
+
+            foreach (var item in productnamelist.Items)
+            {
+                int itemWidth = (int)g.MeasureString(item.ToString(), font).Width;
+                if (itemWidth > maxWidth)
+                {
+                    maxWidth = itemWidth;
+                }
+            }
+
+            productnamelist.DropDownWidth = maxWidth;
+        }
+
+        private void searchData_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                searchBTN.PerformClick();
+            }
         }
     }
 }

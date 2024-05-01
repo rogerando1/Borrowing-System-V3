@@ -24,6 +24,23 @@ namespace Borrowing_System
         public static string employeePassword { get; set; }
         public static string employeePosition { get; set; }
 
+        public static string studentFirstName { get; set; }
+        public static string studentMiddleInitial { get; set; }
+        public static string studentLastName { get; set; }
+        public static string studentID { get; set; }
+        public static string studentProgram { get; set; }
+        public static string studentYearLevel { get; set; }
+
+        public static string instructorId { get; set; }
+        public static string instructorFirstName { get; set; }
+        public static string instructorMiddleInitial { get; set; }
+        public static string instructorLastName { get; set; }
+
+        public static string courseID { get; set; }
+        public static string courseName { get; set; }
+        public static string courseSection { get; set; }
+        public static string courseTime { get; set; }
+
 
         public AccountManagementPage()
         {
@@ -33,6 +50,8 @@ namespace Borrowing_System
 
         private void AccountManagementPage_Load(object sender, EventArgs e)
         {
+            instructorlistTxtbx.Items.Add("(Select Instructor)");
+            //Employee Data
             MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
             mySqlConnection.Open();
             MySqlCommand mySqlCommand = new MySqlCommand("SELECT Person.personID, Person.firstname, Person.middleinitial, Person.lastname, Accounts.username, Accounts.password_, Accounts.position FROM Person " +
@@ -42,19 +61,18 @@ namespace Borrowing_System
             mySqlDataAdapter.Fill(dataTable);
             employeeData.DataSource = dataTable;
 
-            mySqlCommand = new MySqlCommand("SELECT Person.firstname, Person.middleinitial, Person.lastname, Student.studentID, Student.program, Student.yearlevel FROM Person " +
+            //Student Data
+            mySqlCommand = new MySqlCommand("SELECT Person.firstname AS studentFirstname, Person.middleinitial AS studentMiddleInitial, Person.lastname AS studentLastname, Student.studentID, Student.program, Student.yearlevel FROM Person " +
                 "INNER JOIN Student ON Person.personID = Student.personID", mySqlConnection);
             mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
             dataTable = new DataTable();
             mySqlDataAdapter.Fill(dataTable);
             studentData.DataSource = dataTable;
 
-            //mySqlCommand = new MySqlCommand("SELECT Person.firstname, Person.middleinitial, Person.lastname, Instructor.instructorID FROM Person " +
-            //    "INNER JOIN Instructor ON Person.personID = Instructor.personID ", mySqlConnection);
 
-
-
-            mySqlCommand = new MySqlCommand("SELECT  CourseTime.courseID, Course.coursename, CourseTime.section, CourseTime.startTime, CourseTime.endTime,  " +
+            //Instructor Data
+            mySqlCommand = new MySqlCommand("SELECT  CourseTime.instructorID, Person.firstname AS instructorFirstname, Person.middleinitial AS instructorMiddleInitial, " +
+                "Person.lastname AS instructorLastname, CourseTime.courseID, Course.coursename, CourseTime.section, CourseTime.startTime, CourseTime.endTime,  " +
                 "CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS instructorName FROM CourseTime " +
                 "INNER JOIN Instructor ON CourseTime.instructorID = Instructor.instructorID " +
                 "INNER JOIN Person ON Instructor.personID = Person.personID " +
@@ -64,7 +82,10 @@ namespace Borrowing_System
             mySqlDataAdapter.Fill(dataTable);
             instructorData.DataSource = dataTable;
 
-            mySqlCommand = new MySqlCommand("SELECT Course.courseID, Course.coursename, CourseTime.startTime, CourseTime.endTime, CourseTime.section From Course " +
+            //Course Data
+            mySqlCommand = new MySqlCommand("SELECT Course.courseID, Course.coursename, " +
+                "CONCAT(IFNULL(CourseTime.startTime, ''), ' - ', IFNULL(CourseTime.endTime, '')) AS fullTime, " +
+                "CourseTime.startTime, CourseTime.endTime, CourseTime.section From Course " +
                 "INNER JOIN CourseTime ON Course.courseID = CourseTime.courseID", mySqlConnection);
             mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
             dataTable = new DataTable();
@@ -78,21 +99,56 @@ namespace Borrowing_System
 
         public void refreshData()
         {
-            //Refresh Employee List Data
-            MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-            mySqlConnection.Open();
-            MySqlCommand mySqlCommand = new MySqlCommand("SELECT Person.personID, Person.firstname, Person.middleinitial, Person.lastname, Accounts.username, Accounts.password_, Accounts.position FROM Person INNER JOIN Accounts ON Person.personID = Accounts.personID", mySqlConnection);
-            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
-            DataTable dataTable = new DataTable();
-            mySqlDataAdapter.Fill(dataTable);
-            employeeData.DataSource = dataTable;
-            mySqlConnection.Close();
+            if (employeeBTN.BackColor == Color.FromArgb(252, 168, 115))
+            {
+                //Refresh Employee List Data
+                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand("SELECT Person.personID, Person.firstname, Person.middleinitial, Person.lastname, Accounts.username, Accounts.password_, Accounts.position FROM Person INNER JOIN Accounts ON Person.personID = Accounts.personID", mySqlConnection);
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+                DataTable dataTable = new DataTable();
+                mySqlDataAdapter.Fill(dataTable);
+                employeeData.DataSource = dataTable;
+                mySqlConnection.Close();
+            }
+            else if (studentBTN.BackColor == Color.FromArgb(252, 168, 115))
+            {
+                //Refresh Student List Data
+                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand("SELECT Person.firstname AS studentFirstname, Person.middleinitial AS studentMiddleInitial, Person.lastname AS studentLastname, Student.studentID, Student.program, Student.yearlevel FROM Person INNER JOIN Student ON Person.personID = Student.personID", mySqlConnection);
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+                DataTable dataTable = new DataTable();
+                mySqlDataAdapter.Fill(dataTable);
+                studentData.DataSource = dataTable;
+                mySqlConnection.Close();
+            }
+            else if (instructorBTN.BackColor == Color.FromArgb(252, 168, 115))
+            {
+                //Refresh Instructor List Data
+                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand("SELECT  CourseTime.instructorID, Person.firstname AS instructorFirstname, Person.middleinitial AS instructorMiddleInitial, Person.lastname AS instructorLastname, CourseTime.courseID, Course.coursename, CourseTime.section, CourseTime.startTime, CourseTime.endTime,  CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS instructorName FROM CourseTime INNER JOIN Instructor ON CourseTime.instructorID = Instructor.instructorID INNER JOIN Person ON Instructor.personID = Person.personID INNER JOIN Course ON CourseTime.courseID = Course.courseID ", mySqlConnection);
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+                DataTable dataTable = new DataTable();
+                mySqlDataAdapter.Fill(dataTable);
+                instructorData.DataSource = dataTable;
+                mySqlConnection.Close();
 
-            //Refresh Instructor List Data
+            }
+            else
+            {
+                //Refresh Course List Data
+                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand("SELECT Course.courseID, Course.coursename, CONCAT(IFNULL(CourseTime.startTime, ''), ' - ', IFNULL(CourseTime.endTime, '')) AS fullTime, CourseTime.startTime, CourseTime.endTime, CourseTime.section From Course INNER JOIN CourseTime ON Course.courseID = CourseTime.courseID", mySqlConnection);
+                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+                DataTable dataTable = new DataTable();
+                mySqlDataAdapter.Fill(dataTable);
+                courseData.DataSource = dataTable;
+                mySqlConnection.Close();
 
-            //Refresh Student List Data
-
-            //Refresh Course List Data
+            }
         }
 
         private void searchBTN_Click(object sender, EventArgs e)
@@ -105,24 +161,51 @@ namespace Borrowing_System
                     //SEARCH EMPLOYEE
                     MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                     mySqlConnection.Open();
-                    MySqlCommand mySqlCommand = new MySqlCommand($"SELECT Person.personID, Person.firstname, Person.middleinitial, Person.lastname, Accounts.username, Accounts.password_, Accounts.position FROM Person INNER JOIN Accounts ON Person.personID = Accounts.personID WHERE Person.firstname LIKE '%{searchData.Text}%' OR Person.lastname LIKE '%{searchData.Text}%' OR Accounts.username LIKE '%{searchData.Text} %' OR Accounts.position LIKE '% {searchData.Text}%'", mySqlConnection);
+                    MySqlCommand mySqlCommand = new MySqlCommand($"SELECT Person.personID, Person.firstname, Person.middleinitial, Person.lastname, Accounts.username, Accounts.password_, Accounts.position FROM Person INNER JOIN Accounts ON Person.personID = Accounts.personID WHERE Person.firstname LIKE '%{searchData.Text}%' OR Person.lastname LIKE '%{searchData.Text}%' OR Accounts.username LIKE '%{searchData.Text}%' OR Accounts.position LIKE '%{searchData.Text}%'", mySqlConnection);
                     MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
                     DataTable dataTable = new DataTable();
                     mySqlDataAdapter.Fill(dataTable);
                     employeeData.DataSource = dataTable;
                     mySqlConnection.Close();
+
+
                 }
                 else if (studentBTN.BackColor == Color.FromArgb(252, 168, 115))
                 {
                     //SEARCH STUDENT
+                    MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                    mySqlConnection.Open();
+                    MySqlCommand mySqlCommand = new MySqlCommand($"SELECT Person.firstname AS studentFirstname, Person.middleinitial AS studentMiddleInitial, Person.lastname AS studentLastname, Student.studentID, Student.program, Student.yearlevel FROM Person INNER JOIN Student ON Person.personID = Student.personID WHERE Person.firstname LIKE '%{searchData.Text}%' OR Person.lastname LIKE '%{searchData.Text}%' OR Student.studentID LIKE '%{searchData.Text}%' OR Student.program LIKE '%{searchData.Text}%' OR Student.yearlevel LIKE '%{searchData.Text}%'", mySqlConnection);
+                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+                    DataTable dataTable = new DataTable();
+                    mySqlDataAdapter.Fill(dataTable);
+                    studentData.DataSource = dataTable;
+                    mySqlConnection.Close();
                 }
                 else if (instructorBTN.BackColor == Color.FromArgb(252, 168, 115))
                 {
-                    //SEARCH INSTRUCTOR
+                    //SEARCH THROUGH THE WHOLE DATABASE
+                    MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                    mySqlConnection.Open();
+                    MySqlCommand mySqlCommand = new MySqlCommand($"SELECT  CourseTime.instructorID, Person.firstname AS instructorFirstname, Person.middleinitial AS instructorMiddleInitial, Person.lastname AS instructorLastname, CourseTime.courseID, Course.coursename, CourseTime.section, CourseTime.startTime, CourseTime.endTime,  CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS instructorName FROM CourseTime INNER JOIN Instructor ON CourseTime.instructorID = Instructor.instructorID INNER JOIN Person ON Instructor.personID = Person.personID INNER JOIN Course ON CourseTime.courseID = Course.courseID WHERE Person.firstname LIKE '%{searchData.Text}%' OR Person.lastname LIKE '%{searchData.Text}%' OR Course.coursename LIKE '%{searchData.Text}%' OR CourseTime.section LIKE '%{searchData.Text}%' OR CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) LIKE '%{searchData.Text}%'", mySqlConnection);
+                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+                    DataTable dataTable = new DataTable();
+                    mySqlDataAdapter.Fill(dataTable);
+                    instructorData.DataSource = dataTable;
+                    mySqlConnection.Close();
                 }
                 else
                 {
                     //SEARCH COURSE
+                    MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                    mySqlConnection.Open();
+                    MySqlCommand mySqlCommand = new MySqlCommand($"SELECT Course.courseID, Course.coursename, CONCAT(IFNULL(CourseTime.startTime, ''), ' - ', IFNULL(CourseTime.endTime, '')) AS fullTime, CourseTime.startTime, CourseTime.endTime, CourseTime.section From Course INNER JOIN CourseTime ON Course.courseID = CourseTime.courseID WHERE Course.coursename LIKE '%{searchData.Text}%' OR CourseTime.section LIKE '%{searchData.Text}%' OR CONCAT(IFNULL(CourseTime.startTime, ''), ' - ', IFNULL(CourseTime.endTime, '')) LIKE '%{searchData.Text}%'", mySqlConnection);
+                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+                    DataTable dataTable = new DataTable();
+                    mySqlDataAdapter.Fill(dataTable);
+                    courseData.DataSource = dataTable;
+                    mySqlConnection.Close();
+
                 }
 
             }
@@ -134,9 +217,32 @@ namespace Borrowing_System
 
         private void searchData_TextChanged(object sender, EventArgs e)
         {
-            if (searchData.Text == "")
+            if (instructorBTN.BackColor == Color.FromArgb(252, 168, 115))
             {
-                AccountManagementPage_Load(sender, e);
+                if(searchData.Text == "")
+                {
+                    //Show all instructors
+                    MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                    connection.Open();
+                    string query = "SELECT CourseTime.instructorID, Person.firstname AS instructorFirstname, Person.middleinitial AS instructorMiddleinitial, Person.lastname AS instructorLastname, " +
+                        "CourseTime.courseID, Course.coursename,  CourseTime.section, CourseTime.startTime, CourseTime.endTime, " +
+                        "CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS instructorName FROM CourseTime " +
+                        "INNER JOIN Instructor ON CourseTime.instructorID = Instructor.instructorID " +
+                        "INNER JOIN Person ON Instructor.personID = Person.personID " +
+                        "INNER JOIN Course on CourseTime.courseID = Course.courseID";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adp.Fill(dt);
+                    instructorData.DataSource = dt;
+                }
+            }
+            else
+            {
+                if (searchData.Text == "")
+                {
+                    AccountManagementPage_Load(sender, e);
+                }
             }
 
         }
@@ -219,33 +325,67 @@ namespace Borrowing_System
             }
         }
 
+        private void studentData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = studentData.Rows[e.RowIndex];
+                studentID = row.Cells["studentID"].Value.ToString();
+                studentFirstName = row.Cells["studentFirstname"].Value.ToString();
+                studentMiddleInitial = row.Cells["studentMiddleInitial"].Value.ToString();
+                studentLastName = row.Cells["studentLastname"].Value.ToString();
+                studentProgram = row.Cells["program"].Value.ToString();
+                studentYearLevel = row.Cells["yearlevel"].Value.ToString();
+                studentList1.updateStudentList();
+
+            }
+        }
+
         private void studentData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void instructorlistTxtbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (instructorlistTxtbx.SelectedItem == null)
+            if (instructorlistTxtbx.SelectedItem == null || instructorlistTxtbx.Text == "(Select Instructor)")
             {
-                return;
+                //Show all instructors
+                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                string query = "SELECT CourseTime.instructorID, Person.firstname AS instructorFirstname, Person.middleinitial AS instructorMiddleinitial, Person.lastname AS instructorLastname, " +
+                    "CourseTime.courseID, Course.coursename,  CourseTime.section, CourseTime.startTime, CourseTime.endTime, " +
+                    "CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS instructorName FROM CourseTime " +
+                    "INNER JOIN Instructor ON CourseTime.instructorID = Instructor.instructorID " +
+                    "INNER JOIN Person ON Instructor.personID = Person.personID " +
+                    "INNER JOIN Course on CourseTime.courseID = Course.courseID";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                instructorData.DataSource = dt;
+
             }
 
-            string instructorName = instructorlistTxtbx.SelectedItem.ToString();
-            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-            connection.Open();
-            string query = "SELECT CourseTime.courseID, Course.coursename, CourseTime.section, CourseTime.startTime, CourseTime.endTime, " +
-                "CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS instructorName FROM CourseTime " +
-                "INNER JOIN Instructor ON CourseTime.instructorID = Instructor.instructorID " +
-                "INNER JOIN Person ON Instructor.personID = Person.personID " +
-                "INNER JOIN Course on CourseTime.courseID = Course.courseID " +
-                "WHERE CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) = @instructorName";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@instructorName", instructorName);
-            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            instructorData.DataSource = dt;
+            else
+            {
+                string instructorName = instructorlistTxtbx.SelectedItem.ToString();
+                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                string query = "SELECT CourseTime.instructorID, Person.firstname AS instructorFirstname, Person.middleinitial AS instructorMiddleinitial, Person.lastname AS instructorLastname, " +
+                    "CourseTime.courseID, Course.coursename,  CourseTime.section, CourseTime.startTime, CourseTime.endTime, " +
+                    "CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS instructorName FROM CourseTime " +
+                    "INNER JOIN Instructor ON CourseTime.instructorID = Instructor.instructorID " +
+                    "INNER JOIN Person ON Instructor.personID = Person.personID " +
+                    "INNER JOIN Course on CourseTime.courseID = Course.courseID " +
+                    "WHERE CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) = @instructorName";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@instructorName", instructorName);
+                MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                instructorData.DataSource = dt;
+            }
         }
 
         private void FillComboBox()
@@ -273,6 +413,40 @@ namespace Borrowing_System
         private void employeeList1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void instructorData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                DataGridViewRow row = instructorData.Rows[e.RowIndex];
+                instructorId = row.Cells["instructorID"].Value.ToString();
+                instructorFirstName = row.Cells["instructorFirstname"].Value.ToString();
+                instructorMiddleInitial = row.Cells["instructorMiddleinitial"].Value.ToString();
+                instructorLastName = row.Cells["instructorLastname"].Value.ToString();
+                instructorList1.updateInstructorList();
+            }
+        }
+
+        private void courseData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >= 0)
+            {
+                DataGridViewRow row = courseData.Rows[e.RowIndex];
+                courseName = row.Cells["coursename"].Value.ToString();
+                courseSection = row.Cells["section"].Value.ToString();
+                courseTime = row.Cells["fullTime"].Value.ToString();
+                courseID = row.Cells["courseID"].Value.ToString();
+                courseList1.updateCouseList();
+            }
+        }
+
+        private void searchData_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                searchBTN.PerformClick();
+            }
         }
     }
 }

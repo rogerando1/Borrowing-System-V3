@@ -31,7 +31,7 @@ namespace Borrowing_System
                 using (MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
                 {
                     mySqlConnection.Open();
-                    string query = $"SELECT Accounts.*, Person.firstname, Person.lastname FROM Accounts INNER JOIN Person ON Accounts.personID = Person.personID WHERE Accounts.personID = '{LoginPage.EmployeeID}'";
+                    string query = $"SELECT Accounts.*, Person.firstname, Person.lastname FROM Accounts INNER JOIN Person ON Accounts.personID = Person.personID WHERE Accounts.accountID = '{LoginPage.EmployeeID}'";
                     MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
                     MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
                     if (mySqlDataReader.Read())
