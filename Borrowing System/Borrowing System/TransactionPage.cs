@@ -529,6 +529,13 @@ namespace Borrowing_System
             typeTxtbx.SelectedIndex = -1;
             quantityTxtbx.Text = "";
             availableLabel.Text = "";
+
+            subjectCodeTxtbx.Items.Clear();
+            subjectCodeTxtbx.Items.Add("Please select an instructor first");
+            
+            typeTxtbx.Items.Clear();
+            typeTxtbx.Items.Add("Please select an equipment first");
+
         }
     }
 }
