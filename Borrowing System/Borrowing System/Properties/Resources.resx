@@ -124,6 +124,9 @@
   <data name="account management icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\account management icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="4(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Admin invenotry (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Admin invenotry (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -138,6 +141,9 @@
   </data>
   <data name="settings icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Dashboard Page" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dashboard Page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,6 +166,9 @@
   <data name="logs icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logs icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Admin invenotry (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Admin invenotry (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Staff invenotry Page1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Staff invenotry Page1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,9 +187,6 @@
   <data name="1(3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1(3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="courselistUI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\courselistUI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="3(2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3(2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -190,8 +196,8 @@
   <data name="Admin invenotry (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Admin invenotry (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="courselistUI1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\courselistUI1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="return3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\return3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="instructorsUI" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\instructorsUI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,17 +220,17 @@
   <data name="3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Staff invenotry Page" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Staff invenotry Page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Account Info Page" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Account Info Page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Admin invenotry (4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Admin invenotry (4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="3(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="111" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="acc_management_employee1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\acc_management_employee1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,8 +250,8 @@
   <data name="accntmanagment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\accntmanagment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="4(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="2(4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2(4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="About Page1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\About Page1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -265,6 +271,9 @@
   <data name="Transaction Page" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Transaction Page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="acc management (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\acc management (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="return2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\return2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -277,31 +286,28 @@
   <data name="dashboard icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dashboard icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Admin invenotry (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Admin invenotry (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="About Page (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\About Page (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="acc management (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\acc management (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="courselistUI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\courselistUI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="return3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\return3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Staff invenotry Page" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Staff invenotry Page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Exit Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Exit Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="2(4)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2(4).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="courselistUI1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\courselistUI1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="eye2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eye2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="3(1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3(1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Admin invenotry (1)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Admin invenotry (1)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="eye1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="First Name" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\First Name.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

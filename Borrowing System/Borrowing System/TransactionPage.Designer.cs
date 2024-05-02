@@ -178,6 +178,7 @@
             // 
             // quantityTxtbx
             // 
+            this.quantityTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.quantityTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.quantityTxtbx.Location = new System.Drawing.Point(1157, 473);
             this.quantityTxtbx.Maximum = new decimal(new int[] {
@@ -186,7 +187,7 @@
             0,
             0});
             this.quantityTxtbx.Name = "quantityTxtbx";
-            this.quantityTxtbx.Size = new System.Drawing.Size(289, 29);
+            this.quantityTxtbx.Size = new System.Drawing.Size(289, 25);
             this.quantityTxtbx.TabIndex = 31;
             // 
             // submitBTN

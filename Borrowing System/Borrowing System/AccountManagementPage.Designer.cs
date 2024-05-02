@@ -53,22 +53,7 @@
             this.accountmanagementPanel = new System.Windows.Forms.Panel();
             this.instructorlistTxtbx = new System.Windows.Forms.ComboBox();
             this.studentData = new System.Windows.Forms.DataGridView();
-            this.studentFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentMiddleinitial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentLastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.program = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearlevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeeList1 = new Borrowing_System.Account_Management.EmployeeList();
-            this.studentList1 = new Borrowing_System.Account_Management.StudentList();
             this.instructorData = new System.Windows.Forms.DataGridView();
-            this.courseData = new System.Windows.Forms.DataGridView();
-            this.instructorList1 = new Borrowing_System.Account_Management.InstructorList();
-            this.courseList1 = new Borrowing_System.Account_Management.CourseList();
-            this.employeeBTN = new System.Windows.Forms.Button();
-            this.studentBTN = new System.Windows.Forms.Button();
-            this.instructorBTN = new System.Windows.Forms.Button();
-            this.courseBTN = new System.Windows.Forms.Button();
             this.instructorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,8 +64,23 @@
             this.instructorSection = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorEndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseData = new System.Windows.Forms.DataGridView();
             this.courseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeBTN = new System.Windows.Forms.Button();
+            this.studentBTN = new System.Windows.Forms.Button();
+            this.instructorBTN = new System.Windows.Forms.Button();
+            this.courseBTN = new System.Windows.Forms.Button();
+            this.employeeList1 = new Borrowing_System.Account_Management.EmployeeList();
+            this.studentList1 = new Borrowing_System.Account_Management.StudentList();
+            this.instructorList1 = new Borrowing_System.Account_Management.InstructorList();
+            this.courseList1 = new Borrowing_System.Account_Management.CourseList();
+            this.studentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentMiddleinitial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentLastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.program = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearlevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).BeginInit();
             this.accountmanagementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentData)).BeginInit();
@@ -247,14 +247,14 @@
             this.accountmanagementPanel.Controls.Add(this.instructorlistTxtbx);
             this.accountmanagementPanel.Controls.Add(this.searchData);
             this.accountmanagementPanel.Controls.Add(this.searchBTN);
-            this.accountmanagementPanel.Controls.Add(this.employeeData);
-            this.accountmanagementPanel.Controls.Add(this.studentData);
             this.accountmanagementPanel.Controls.Add(this.employeeList1);
             this.accountmanagementPanel.Controls.Add(this.studentList1);
-            this.accountmanagementPanel.Controls.Add(this.instructorData);
-            this.accountmanagementPanel.Controls.Add(this.courseData);
             this.accountmanagementPanel.Controls.Add(this.instructorList1);
             this.accountmanagementPanel.Controls.Add(this.courseList1);
+            this.accountmanagementPanel.Controls.Add(this.employeeData);
+            this.accountmanagementPanel.Controls.Add(this.studentData);
+            this.accountmanagementPanel.Controls.Add(this.instructorData);
+            this.accountmanagementPanel.Controls.Add(this.courseData);
             this.accountmanagementPanel.Location = new System.Drawing.Point(0, 70);
             this.accountmanagementPanel.Name = "accountmanagementPanel";
             this.accountmanagementPanel.Size = new System.Drawing.Size(1533, 580);
@@ -297,8 +297,8 @@
             this.studentData.ColumnHeadersHeight = 45;
             this.studentData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.studentData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.studentFirstname,
             this.studentID,
+            this.studentFirstname,
             this.studentMiddleinitial,
             this.studentLastname,
             this.program,
@@ -339,72 +339,6 @@
             this.studentData.Visible = false;
             this.studentData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentData_CellClick);
             this.studentData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentData_CellContentClick);
-            // 
-            // studentFirstname
-            // 
-            this.studentFirstname.DataPropertyName = "studentFirstname";
-            this.studentFirstname.FillWeight = 119.3331F;
-            this.studentFirstname.HeaderText = "First Name";
-            this.studentFirstname.Name = "studentFirstname";
-            this.studentFirstname.ReadOnly = true;
-            // 
-            // studentID
-            // 
-            this.studentID.DataPropertyName = "studentID";
-            this.studentID.HeaderText = "Student ID";
-            this.studentID.Name = "studentID";
-            this.studentID.ReadOnly = true;
-            // 
-            // studentMiddleinitial
-            // 
-            this.studentMiddleinitial.DataPropertyName = "studentMiddleinitial";
-            this.studentMiddleinitial.FillWeight = 82.404F;
-            this.studentMiddleinitial.HeaderText = "Middle Initial";
-            this.studentMiddleinitial.Name = "studentMiddleinitial";
-            this.studentMiddleinitial.ReadOnly = true;
-            // 
-            // studentLastname
-            // 
-            this.studentLastname.DataPropertyName = "studentLastname";
-            this.studentLastname.FillWeight = 119.3331F;
-            this.studentLastname.HeaderText = "Last Name";
-            this.studentLastname.Name = "studentLastname";
-            this.studentLastname.ReadOnly = true;
-            // 
-            // program
-            // 
-            this.program.DataPropertyName = "program";
-            this.program.FillWeight = 119.3331F;
-            this.program.HeaderText = "Program";
-            this.program.Name = "program";
-            this.program.ReadOnly = true;
-            // 
-            // yearlevel
-            // 
-            this.yearlevel.DataPropertyName = "yearlevel";
-            this.yearlevel.FillWeight = 64.63219F;
-            this.yearlevel.HeaderText = "Year Level";
-            this.yearlevel.Name = "yearlevel";
-            this.yearlevel.ReadOnly = true;
-            // 
-            // employeeList1
-            // 
-            this.employeeList1.BackgroundImage = global::Borrowing_System.Properties.Resources._1_3_;
-            this.employeeList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.employeeList1.Location = new System.Drawing.Point(1053, -8);
-            this.employeeList1.Name = "employeeList1";
-            this.employeeList1.Size = new System.Drawing.Size(484, 588);
-            this.employeeList1.TabIndex = 0;
-            this.employeeList1.Load += new System.EventHandler(this.employeeList1_Load);
-            // 
-            // studentList1
-            // 
-            this.studentList1.BackgroundImage = global::Borrowing_System.Properties.Resources._2_4_;
-            this.studentList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.studentList1.Location = new System.Drawing.Point(1054, -8);
-            this.studentList1.Name = "studentList1";
-            this.studentList1.Size = new System.Drawing.Size(484, 588);
-            this.studentList1.TabIndex = 19;
             // 
             // instructorData
             // 
@@ -474,144 +408,6 @@
             this.instructorData.TabIndex = 17;
             this.instructorData.Visible = false;
             this.instructorData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.instructorData_CellClick);
-            // 
-            // courseData
-            // 
-            this.courseData.AllowUserToAddRows = false;
-            this.courseData.AllowUserToDeleteRows = false;
-            this.courseData.AllowUserToOrderColumns = true;
-            this.courseData.AllowUserToResizeColumns = false;
-            this.courseData.AllowUserToResizeRows = false;
-            this.courseData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.courseData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(104)))), ((int)(((byte)(147)))));
-            this.courseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.courseData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.courseData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.courseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.courseData.ColumnHeadersHeight = 45;
-            this.courseData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.courseData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.courseID,
-            this.coursename});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.courseData.DefaultCellStyle = dataGridViewCellStyle11;
-            this.courseData.EnableHeadersVisualStyles = false;
-            this.courseData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.courseData.Location = new System.Drawing.Point(8, 66);
-            this.courseData.Name = "courseData";
-            this.courseData.ReadOnly = true;
-            this.courseData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.courseData.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.courseData.RowHeadersVisible = false;
-            this.courseData.RowHeadersWidth = 51;
-            this.courseData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.courseData.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(140)))), ((int)(((byte)(217)))));
-            this.courseData.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseData.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.courseData.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            this.courseData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.courseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.courseData.Size = new System.Drawing.Size(1034, 502);
-            this.courseData.TabIndex = 18;
-            this.courseData.Visible = false;
-            this.courseData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseData_CellClick);
-            // 
-            // instructorList1
-            // 
-            this.instructorList1.BackgroundImage = global::Borrowing_System.Properties.Resources.instructorsUI;
-            this.instructorList1.Location = new System.Drawing.Point(1053, -8);
-            this.instructorList1.Name = "instructorList1";
-            this.instructorList1.Size = new System.Drawing.Size(484, 588);
-            this.instructorList1.TabIndex = 20;
-            // 
-            // courseList1
-            // 
-            this.courseList1.BackgroundImage = global::Borrowing_System.Properties.Resources.courselistUI1;
-            this.courseList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.courseList1.Location = new System.Drawing.Point(1054, -11);
-            this.courseList1.Name = "courseList1";
-            this.courseList1.Size = new System.Drawing.Size(484, 591);
-            this.courseList1.TabIndex = 21;
-            // 
-            // employeeBTN
-            // 
-            this.employeeBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
-            this.employeeBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.employeeBTN.FlatAppearance.BorderSize = 0;
-            this.employeeBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.employeeBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.employeeBTN.Location = new System.Drawing.Point(90, 12);
-            this.employeeBTN.Name = "employeeBTN";
-            this.employeeBTN.Size = new System.Drawing.Size(174, 44);
-            this.employeeBTN.TabIndex = 43;
-            this.employeeBTN.Text = "Employee List";
-            this.employeeBTN.UseVisualStyleBackColor = false;
-            this.employeeBTN.Click += new System.EventHandler(this.employeeBTN_Click);
-            // 
-            // studentBTN
-            // 
-            this.studentBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
-            this.studentBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.studentBTN.FlatAppearance.BorderSize = 0;
-            this.studentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.studentBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.studentBTN.Location = new System.Drawing.Point(298, 12);
-            this.studentBTN.Name = "studentBTN";
-            this.studentBTN.Size = new System.Drawing.Size(174, 44);
-            this.studentBTN.TabIndex = 44;
-            this.studentBTN.Text = "Student List";
-            this.studentBTN.UseVisualStyleBackColor = false;
-            this.studentBTN.Click += new System.EventHandler(this.studentBTN_Click);
-            // 
-            // instructorBTN
-            // 
-            this.instructorBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
-            this.instructorBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.instructorBTN.FlatAppearance.BorderSize = 0;
-            this.instructorBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.instructorBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.instructorBTN.Location = new System.Drawing.Point(505, 12);
-            this.instructorBTN.Name = "instructorBTN";
-            this.instructorBTN.Size = new System.Drawing.Size(174, 44);
-            this.instructorBTN.TabIndex = 45;
-            this.instructorBTN.Text = "Instructor List";
-            this.instructorBTN.UseVisualStyleBackColor = false;
-            this.instructorBTN.Click += new System.EventHandler(this.instructorBTN_Click);
-            // 
-            // courseBTN
-            // 
-            this.courseBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
-            this.courseBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.courseBTN.FlatAppearance.BorderSize = 0;
-            this.courseBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.courseBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.courseBTN.Location = new System.Drawing.Point(713, 12);
-            this.courseBTN.Name = "courseBTN";
-            this.courseBTN.Size = new System.Drawing.Size(174, 44);
-            this.courseBTN.TabIndex = 46;
-            this.courseBTN.Text = "Course List";
-            this.courseBTN.UseVisualStyleBackColor = false;
-            this.courseBTN.Click += new System.EventHandler(this.courseBTN_Click);
             // 
             // instructorID
             // 
@@ -692,6 +488,67 @@
             this.instructorEndTime.Name = "instructorEndTime";
             this.instructorEndTime.ReadOnly = true;
             // 
+            // courseData
+            // 
+            this.courseData.AllowUserToAddRows = false;
+            this.courseData.AllowUserToDeleteRows = false;
+            this.courseData.AllowUserToOrderColumns = true;
+            this.courseData.AllowUserToResizeColumns = false;
+            this.courseData.AllowUserToResizeRows = false;
+            this.courseData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.courseData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(104)))), ((int)(((byte)(147)))));
+            this.courseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.courseData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.courseData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.courseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.courseData.ColumnHeadersHeight = 45;
+            this.courseData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.courseData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.courseID,
+            this.coursename});
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.courseData.DefaultCellStyle = dataGridViewCellStyle11;
+            this.courseData.EnableHeadersVisualStyles = false;
+            this.courseData.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            this.courseData.Location = new System.Drawing.Point(8, 66);
+            this.courseData.Name = "courseData";
+            this.courseData.ReadOnly = true;
+            this.courseData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.courseData.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.courseData.RowHeadersVisible = false;
+            this.courseData.RowHeadersWidth = 51;
+            this.courseData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.courseData.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(140)))), ((int)(((byte)(217)))));
+            this.courseData.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.courseData.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.courseData.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            this.courseData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.courseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.courseData.Size = new System.Drawing.Size(1034, 502);
+            this.courseData.TabIndex = 18;
+            this.courseData.Visible = false;
+            this.courseData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseData_CellClick);
+            // 
             // courseID
             // 
             this.courseID.DataPropertyName = "courseID";
@@ -706,6 +563,149 @@
             this.coursename.HeaderText = "Course Name";
             this.coursename.Name = "coursename";
             this.coursename.ReadOnly = true;
+            // 
+            // employeeBTN
+            // 
+            this.employeeBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.employeeBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.employeeBTN.FlatAppearance.BorderSize = 0;
+            this.employeeBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.employeeBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.employeeBTN.Location = new System.Drawing.Point(90, 12);
+            this.employeeBTN.Name = "employeeBTN";
+            this.employeeBTN.Size = new System.Drawing.Size(174, 44);
+            this.employeeBTN.TabIndex = 43;
+            this.employeeBTN.Text = "Employee List";
+            this.employeeBTN.UseVisualStyleBackColor = false;
+            this.employeeBTN.Click += new System.EventHandler(this.employeeBTN_Click);
+            // 
+            // studentBTN
+            // 
+            this.studentBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.studentBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.studentBTN.FlatAppearance.BorderSize = 0;
+            this.studentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.studentBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.studentBTN.Location = new System.Drawing.Point(298, 12);
+            this.studentBTN.Name = "studentBTN";
+            this.studentBTN.Size = new System.Drawing.Size(174, 44);
+            this.studentBTN.TabIndex = 44;
+            this.studentBTN.Text = "Student List";
+            this.studentBTN.UseVisualStyleBackColor = false;
+            this.studentBTN.Click += new System.EventHandler(this.studentBTN_Click);
+            // 
+            // instructorBTN
+            // 
+            this.instructorBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.instructorBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.instructorBTN.FlatAppearance.BorderSize = 0;
+            this.instructorBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.instructorBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.instructorBTN.Location = new System.Drawing.Point(505, 12);
+            this.instructorBTN.Name = "instructorBTN";
+            this.instructorBTN.Size = new System.Drawing.Size(174, 44);
+            this.instructorBTN.TabIndex = 45;
+            this.instructorBTN.Text = "Instructor List";
+            this.instructorBTN.UseVisualStyleBackColor = false;
+            this.instructorBTN.Click += new System.EventHandler(this.instructorBTN_Click);
+            // 
+            // courseBTN
+            // 
+            this.courseBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.courseBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.courseBTN.FlatAppearance.BorderSize = 0;
+            this.courseBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.courseBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.courseBTN.Location = new System.Drawing.Point(713, 12);
+            this.courseBTN.Name = "courseBTN";
+            this.courseBTN.Size = new System.Drawing.Size(174, 44);
+            this.courseBTN.TabIndex = 46;
+            this.courseBTN.Text = "Course List";
+            this.courseBTN.UseVisualStyleBackColor = false;
+            this.courseBTN.Click += new System.EventHandler(this.courseBTN_Click);
+            // 
+            // employeeList1
+            // 
+            this.employeeList1.BackgroundImage = global::Borrowing_System.Properties.Resources._1_3_;
+            this.employeeList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.employeeList1.Location = new System.Drawing.Point(1053, -8);
+            this.employeeList1.Name = "employeeList1";
+            this.employeeList1.Size = new System.Drawing.Size(484, 588);
+            this.employeeList1.TabIndex = 0;
+            this.employeeList1.Load += new System.EventHandler(this.employeeList1_Load);
+            // 
+            // studentList1
+            // 
+            this.studentList1.BackgroundImage = global::Borrowing_System.Properties.Resources._2_4_;
+            this.studentList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.studentList1.Location = new System.Drawing.Point(1054, -8);
+            this.studentList1.Name = "studentList1";
+            this.studentList1.Size = new System.Drawing.Size(484, 588);
+            this.studentList1.TabIndex = 19;
+            // 
+            // instructorList1
+            // 
+            this.instructorList1.BackgroundImage = global::Borrowing_System.Properties.Resources._111;
+            this.instructorList1.Location = new System.Drawing.Point(1053, -8);
+            this.instructorList1.Name = "instructorList1";
+            this.instructorList1.Size = new System.Drawing.Size(484, 588);
+            this.instructorList1.TabIndex = 20;
+            // 
+            // courseList1
+            // 
+            this.courseList1.BackgroundImage = global::Borrowing_System.Properties.Resources.First_Name;
+            this.courseList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.courseList1.Location = new System.Drawing.Point(1054, -11);
+            this.courseList1.Name = "courseList1";
+            this.courseList1.Size = new System.Drawing.Size(484, 591);
+            this.courseList1.TabIndex = 21;
+            // 
+            // studentID
+            // 
+            this.studentID.DataPropertyName = "studentID";
+            this.studentID.HeaderText = "Student ID";
+            this.studentID.Name = "studentID";
+            this.studentID.ReadOnly = true;
+            // 
+            // studentFirstname
+            // 
+            this.studentFirstname.DataPropertyName = "studentFirstname";
+            this.studentFirstname.FillWeight = 119.3331F;
+            this.studentFirstname.HeaderText = "First Name";
+            this.studentFirstname.Name = "studentFirstname";
+            this.studentFirstname.ReadOnly = true;
+            // 
+            // studentMiddleinitial
+            // 
+            this.studentMiddleinitial.DataPropertyName = "studentMiddleinitial";
+            this.studentMiddleinitial.FillWeight = 82.404F;
+            this.studentMiddleinitial.HeaderText = "Middle Initial";
+            this.studentMiddleinitial.Name = "studentMiddleinitial";
+            this.studentMiddleinitial.ReadOnly = true;
+            // 
+            // studentLastname
+            // 
+            this.studentLastname.DataPropertyName = "studentLastname";
+            this.studentLastname.FillWeight = 119.3331F;
+            this.studentLastname.HeaderText = "Last Name";
+            this.studentLastname.Name = "studentLastname";
+            this.studentLastname.ReadOnly = true;
+            // 
+            // program
+            // 
+            this.program.DataPropertyName = "program";
+            this.program.FillWeight = 119.3331F;
+            this.program.HeaderText = "Program";
+            this.program.Name = "program";
+            this.program.ReadOnly = true;
+            // 
+            // yearlevel
+            // 
+            this.yearlevel.DataPropertyName = "yearlevel";
+            this.yearlevel.FillWeight = 64.63219F;
+            this.yearlevel.HeaderText = "Year Level";
+            this.yearlevel.Name = "yearlevel";
+            this.yearlevel.ReadOnly = true;
             // 
             // AccountManagementPage
             // 
@@ -758,12 +758,6 @@
         private System.Windows.Forms.ComboBox instructorlistTxtbx;
         private System.Windows.Forms.DataGridView courseData;
         private System.Windows.Forms.Button courseBTN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studentFirstname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studentID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studentMiddleinitial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studentLastname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn program;
-        private System.Windows.Forms.DataGridViewTextBoxColumn yearlevel;
         private System.Windows.Forms.DataGridViewTextBoxColumn instructorID;
         private System.Windows.Forms.DataGridViewTextBoxColumn instructorname;
         private System.Windows.Forms.DataGridViewTextBoxColumn instructorFirstname;
@@ -776,5 +770,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn instructorEndTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn coursename;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentFirstname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentMiddleinitial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentLastname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn program;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearlevel;
     }
 }

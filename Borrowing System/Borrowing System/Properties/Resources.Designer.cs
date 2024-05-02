@@ -93,6 +93,16 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _111 {
+            get {
+                object obj = ResourceManager.GetObject("111", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2_1_ {
             get {
                 object obj = ResourceManager.GetObject("2(1)", resourceCulture);
@@ -446,6 +456,16 @@ namespace Borrowing_System.Properties {
         internal static System.Drawing.Bitmap eye2 {
             get {
                 object obj = ResourceManager.GetObject("eye2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap First_Name {
+            get {
+                object obj = ResourceManager.GetObject("First Name", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

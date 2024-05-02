@@ -183,7 +183,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.instructorsUI;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources._111;
             this.Controls.Add(this.endtimeTxtbx);
             this.Controls.Add(this.starttimeTxtbx);
             this.Controls.Add(this.instructorIDTxtbx);

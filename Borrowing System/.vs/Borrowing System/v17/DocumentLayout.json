@@ -1,10 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Web Project\\Borrowing-System-V3\\Borrowing System\\",
+  "WorkspaceRootPath": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|d:\\web project\\borrowing-system-v3\\borrowing system\\borrowing system\\inventory-admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|c:\\users\\ryan\\desktop\\borrowing-system-v3\\borrowing system\\borrowing system\\accountmanagementpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|solutionrelative:borrowing system\\accountmanagementpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|c:\\users\\ryan\\desktop\\borrowing-system-v3\\borrowing system\\borrowing system\\account management\\employeelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|solutionrelative:borrowing system\\account management\\employeelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|c:\\users\\ryan\\desktop\\borrowing-system-v3\\borrowing system\\borrowing system\\inventory-admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|solutionrelative:borrowing system\\inventory-admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|c:\\users\\ryan\\desktop\\borrowing-system-v3\\borrowing system\\borrowing system\\inventory-admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|solutionrelative:borrowing system\\inventory-admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|c:\\users\\ryan\\desktop\\borrowing-system-v3\\borrowing system\\borrowing system\\account management\\courselist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|solutionrelative:borrowing system\\account management\\courselist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|c:\\users\\ryan\\desktop\\borrowing-system-v3\\borrowing system\\borrowing system\\account management\\instructorlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|solutionrelative:borrowing system\\account management\\instructorlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|c:\\users\\ryan\\desktop\\borrowing-system-v3\\borrowing system\\borrowing system\\account management\\studentlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{120C6004-17C1-41F6-A821-61081E9F2B6F}|Borrowing System\\Borrowing System.csproj|solutionrelative:borrowing system\\account management\\studentlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -22,16 +46,88 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Inventory-Admin.cs",
-              "DocumentMoniker": "D:\\Web Project\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Inventory-Admin.cs",
+              "DocumentMoniker": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Inventory-Admin.cs",
               "RelativeDocumentMoniker": "Borrowing System\\Inventory-Admin.cs",
-              "ToolTip": "D:\\Web Project\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Inventory-Admin.cs",
+              "ToolTip": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Inventory-Admin.cs",
               "RelativeToolTip": "Borrowing System\\Inventory-Admin.cs",
-              "ViewState": "AQIAAMMBAAAAAAAAAAASwNwBAAAlAAAA",
+              "ViewState": "AQIAAN8BAAAAAAAAAAAQwPEBAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T07:38:18.858Z",
+              "WhenOpened": "2024-05-02T05:40:45.255Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Inventory-Admin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Inventory-Admin.cs",
+              "RelativeDocumentMoniker": "Borrowing System\\Inventory-Admin.cs",
+              "ToolTip": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Inventory-Admin.cs [Design]",
+              "RelativeToolTip": "Borrowing System\\Inventory-Admin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T05:40:41.557Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountManagementPage.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\AccountManagementPage.cs",
+              "RelativeDocumentMoniker": "Borrowing System\\AccountManagementPage.cs",
+              "ToolTip": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\AccountManagementPage.cs [Design]",
+              "RelativeToolTip": "Borrowing System\\AccountManagementPage.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T05:07:35.93Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmployeeList.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Account Management\\EmployeeList.cs",
+              "RelativeDocumentMoniker": "Borrowing System\\Account Management\\EmployeeList.cs",
+              "ToolTip": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Account Management\\EmployeeList.cs [Design]",
+              "RelativeToolTip": "Borrowing System\\Account Management\\EmployeeList.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T05:07:32.382Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "StudentList.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Account Management\\StudentList.cs",
+              "RelativeDocumentMoniker": "Borrowing System\\Account Management\\StudentList.cs",
+              "ToolTip": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Account Management\\StudentList.cs [Design]",
+              "RelativeToolTip": "Borrowing System\\Account Management\\StudentList.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T05:07:29.038Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "InstructorList.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Account Management\\InstructorList.cs",
+              "RelativeDocumentMoniker": "Borrowing System\\Account Management\\InstructorList.cs",
+              "ToolTip": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Account Management\\InstructorList.cs [Design]",
+              "RelativeToolTip": "Borrowing System\\Account Management\\InstructorList.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T05:03:01.262Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CourseList.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Account Management\\CourseList.cs",
+              "RelativeDocumentMoniker": "Borrowing System\\Account Management\\CourseList.cs",
+              "ToolTip": "C:\\Users\\Ryan\\Desktop\\Borrowing-System-V3\\Borrowing System\\Borrowing System\\Account Management\\CourseList.cs [Design]",
+              "RelativeToolTip": "Borrowing System\\Account Management\\CourseList.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-02T05:02:56.512Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
