@@ -48,7 +48,9 @@
             this.cartTable = new System.Windows.Forms.DataGridView();
             this.staffCmbx = new System.Windows.Forms.ComboBox();
             this.clearCart = new System.Windows.Forms.Button();
+            this.cart_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.borrower_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.part_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -210,7 +212,7 @@
             this.submitBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.submitBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submitBTN.ForeColor = System.Drawing.Color.Black;
-            this.submitBTN.Location = new System.Drawing.Point(254, 586);
+            this.submitBTN.Location = new System.Drawing.Point(254, 581);
             this.submitBTN.Name = "submitBTN";
             this.submitBTN.Size = new System.Drawing.Size(142, 45);
             this.submitBTN.TabIndex = 33;
@@ -275,10 +277,12 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.cartTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.cartTable.ColumnHeadersHeight = 50;
+            this.cartTable.ColumnHeadersHeight = 60;
             this.cartTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.cartTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cart_ID,
             this.borrower_name,
+            this.product_name,
             this.part_name,
             this.quantity,
             this.status});
@@ -347,17 +351,34 @@
             this.clearCart.UseVisualStyleBackColor = false;
             this.clearCart.Click += new System.EventHandler(this.clearCart_Click);
             // 
+            // cart_ID
+            // 
+            this.cart_ID.DataPropertyName = "cartID";
+            this.cart_ID.HeaderText = "Cart ID";
+            this.cart_ID.Name = "cart_ID";
+            this.cart_ID.ReadOnly = true;
+            this.cart_ID.Visible = false;
+            // 
             // borrower_name
             // 
             this.borrower_name.DataPropertyName = "borrowerName";
+            this.borrower_name.FillWeight = 98.52476F;
             this.borrower_name.HeaderText = "Borrower Name";
             this.borrower_name.Name = "borrower_name";
             this.borrower_name.ReadOnly = true;
             // 
+            // product_name
+            // 
+            this.product_name.DataPropertyName = "productname";
+            this.product_name.FillWeight = 98.52476F;
+            this.product_name.HeaderText = "Product Name";
+            this.product_name.Name = "product_name";
+            this.product_name.ReadOnly = true;
+            // 
             // part_name
             // 
             this.part_name.DataPropertyName = "partname";
-            this.part_name.FillWeight = 140.8629F;
+            this.part_name.FillWeight = 138.7848F;
             this.part_name.HeaderText = "Equipment Name";
             this.part_name.MinimumWidth = 6;
             this.part_name.Name = "part_name";
@@ -366,7 +387,7 @@
             // quantity
             // 
             this.quantity.DataPropertyName = "quantity";
-            this.quantity.FillWeight = 140.8629F;
+            this.quantity.FillWeight = 138.7848F;
             this.quantity.HeaderText = "Quantity";
             this.quantity.Name = "quantity";
             this.quantity.ReadOnly = true;
@@ -374,7 +395,7 @@
             // status
             // 
             this.status.DataPropertyName = "status_";
-            this.status.FillWeight = 18.27411F;
+            this.status.FillWeight = 25.3807F;
             this.status.HeaderText = "";
             this.status.MinimumWidth = 2;
             this.status.Name = "status";
@@ -435,7 +456,9 @@
         private System.Windows.Forms.DataGridView cartTable;
         private System.Windows.Forms.ComboBox staffCmbx;
         private System.Windows.Forms.Button clearCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cart_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn borrower_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn part_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn status;

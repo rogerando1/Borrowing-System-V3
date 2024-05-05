@@ -322,20 +322,18 @@ namespace Borrowing_System
                     connection.Open();
                     cmd.ExecuteNonQuery();
                     connection.Close();
+                    //Subtract the quantity based on the 'AddCart' quantity from the 'Part' quantity database table
                     connection.Open();
-                    //Delete the record of the staff/admin from the AddCart table
+                    cmd = new MySqlCommand("UPDATE Part INNER JOIN AddCart ON Part.partID = AddCart.partID SET Part.quantity = Part.quantity - AddCart.quantity WHERE AddCart.accountID = @accountID", connection);
+                    cmd.Parameters.AddWithValue("@accountID", accountID);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    //Delete the record of the staff/admin from the AddCart table based on the employee ID
+                    connection.Open();
                     cmd = new MySqlCommand("DELETE FROM AddCart WHERE accountID = @accountID", connection);
                     cmd.Parameters.AddWithValue("@accountID", accountID);
                     cmd.ExecuteNonQuery();
                     connection.Close();
-                    //Subtract the quantity of the product based on the equipment name and the staff in charge
-                    //cmd = new MySqlCommand("UPDATE Part INNER JOIN Product ON Part.productID = Product.productID INNER JOIN AddCart ON Part.partID = AddCart.partID SET Part.quantity = Part.quantity - AddCart.quantity WHERE Product.productName = @productName AND AddCart.accountID = @accountID", connection);
-                    //cmd.Parameters.AddWithValue("@productName", equipmentNameTxtbx.SelectedItem.ToString());
-                    //cmd.Parameters.AddWithValue("@accountID", accountID);
-                    //connection.Open();
-                    //cmd.ExecuteNonQuery();
-                    //connection.Close();
-
 
                     MessageBox.Show("Transaction successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     refreshData();
@@ -375,16 +373,19 @@ namespace Borrowing_System
                 cmd.ExecuteNonQuery();
                 connection.Close();
                 connection.Open();
+                //Subtract the quantity based on the 'AddCart' quantity from the 'Part' quantity database table based on the employee ID
+                cmd = new MySqlCommand("UPDATE Part INNER JOIN AddCart ON Part.partID = AddCart.partID SET Part.quantity = Part.quantity - AddCart.quantity WHERE AddCart.accountID = @accountID", connection);
+                cmd.Parameters.AddWithValue("@accountID", LoginPage.EmployeeID);
+                cmd.ExecuteNonQuery();
+                connection.Close();
                 //Delete the record of the staff/admin from the AddCart table based on the employee ID
+                connection.Open();
                 cmd = new MySqlCommand("DELETE FROM AddCart WHERE accountID = @accountID", connection);
                 cmd.Parameters.AddWithValue("@accountID", LoginPage.EmployeeID);
                 cmd.ExecuteNonQuery();
                 connection.Close();
-                //Subtract the quantity of the product using all records from the 'Part' database table based on the type of product and based on the account ID
-
 
                 MessageBox.Show("Transaction successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                refreshData();
                 //clear all fields
                 studentIDTxtbx.Text = "";
                 borrowerNameTxtbx.Text = "";
@@ -396,6 +397,7 @@ namespace Borrowing_System
                 typeTxtbx.SelectedIndex = -1;
                 quantityTxtbx.Text = "";
                 availableLabel.Text = "";
+                refreshData();
             }
         }
 
@@ -581,16 +583,11 @@ namespace Borrowing_System
                     mySqlConnection.Dispose();
 
                     refreshData();
-                    studentIDTxtbx.Text = "";
-                    borrowerNameTxtbx.Text = "";
-                    courseTxtbx.Text = "";
-                    yearlevelTxtbx.Text = "";
-                    instructorNameTxtbx.SelectedIndex = -1;
-                    subjectCodeTxtbx.SelectedIndex = -1;
                     equipmentNameTxtbx.SelectedIndex = -1;
                     typeTxtbx.SelectedIndex = -1;
                     quantityTxtbx.Text = "";
                     availableLabel.Text = "";
+                    staffCmbx.SelectedIndex = -1;
 
                 }
                 else
@@ -617,6 +614,8 @@ namespace Borrowing_System
                     SELECT 
                         CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS borrowerName,                  
                         Part.partname,
+                        Product.productname,
+                        AddCart.cartID,
                         AddCart.quantity, 
                         AddCart.status_
                     FROM 
@@ -627,6 +626,8 @@ namespace Borrowing_System
                         Person AS StudentPerson ON Student.personID = StudentPerson.personID
                     INNER JOIN
                         Part ON AddCart.partID = Part.partID
+                    INNER JOIN
+                        Product ON Part.productID = Product.productID
                     INNER JOIN 
                         Accounts ON AddCart.accountID = Accounts.accountID
                     WHERE AddCart.status_ IS NOT NULL", conn);
@@ -635,7 +636,12 @@ namespace Borrowing_System
             }
             else
             {
-                cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS borrowerName, Part.partname, AddCart.quantity, AddCart.status_ FROM AddCart INNER JOIN Part ON AddCart.partID = Part.partID INNER JOIN Student ON AddCart.studentID = Student.studentID INNER JOIN Person ON Student.personID = Person.personID WHERE AddCart.accountID = @employeeID", conn);
+                cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS borrowerName, " +
+                    "Part.partname, Product.productname, AddCart.quantity, AddCart.cartID, AddCart.status_ FROM AddCart " +
+                    "INNER JOIN Part ON AddCart.partID = Part.partID " +
+                    "INNER JOIN Product ON Part.productID = Product.productID " +
+                    "INNER JOIN Student ON AddCart.studentID = Student.studentID " +
+                    "INNER JOIN Person ON Student.personID = Person.personID WHERE AddCart.accountID = @employeeID", conn);
                 cmd.Parameters.AddWithValue("@employeeID", LoginPage.EmployeeID);
             }
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -646,7 +652,7 @@ namespace Borrowing_System
 
         private void cartTable_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 5)
             {
                 cartTable.Cursor = Cursors.Hand;
             }
@@ -654,7 +660,7 @@ namespace Borrowing_System
 
         private void cartTable_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 5)
             {
                 cartTable.Cursor = Cursors.Default;
             }
@@ -665,7 +671,7 @@ namespace Borrowing_System
             if (e.RowIndex < 0)
                 return;
 
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 5)
             {
 
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
@@ -690,29 +696,24 @@ namespace Borrowing_System
         {
             if (e.RowIndex < 0)
                 return;
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 5)
             {
                 //Change Image when selected
                 selectedCell = cartTable[e.ColumnIndex, e.RowIndex];
                 cartTable.InvalidateCell(e.ColumnIndex, e.RowIndex);
                 cartTable.Refresh();
-                if (MessageBox.Show("Are you sure you want to return the item?", "Return Item", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to remove from cart?", "Remove Item", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                        //DateTime return_DATE = DateTime.Now;
-                        //DateTime return_TIME = DateTime.Now;
-
-                        //using (MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
-                        //{
-                        //    //Check if quantity for AddNotes.Notes is less than to the quantity of item borrowed
-
-                        //    conn.Open();
-                        //    MySqlCommand cmd = new MySqlCommand("SELECT quantity FROM Transactions WHERE transactionID = @transactionID", conn);
-                        //    cmd.Parameters.AddWithValue("@transactionID", dashboardTable.Rows[e.RowIndex].Cells["transactionID"].Value.ToString());
-                        //    MySqlDataReader reader = cmd.ExecuteReader();
-                        //    reader.Read();
-                        //    int quantity = reader.GetInt32(0);
-                        //    reader.Close();
-                        //}
+                    int cartID = Convert.ToInt32(cartTable.Rows[e.RowIndex].Cells["cart_ID"].Value);
+                    MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                    connection.Open();
+                    MySqlCommand cmd = new MySqlCommand("DELETE FROM AddCart WHERE cartID = @cartID", connection);
+                    cmd.Parameters.AddWithValue("@cartID", cartID);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    MessageBox.Show("Item removed from cart.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    staffCmbx.SelectedIndex = -1;
+                    refreshData();
 
                 }
                 else
@@ -788,7 +789,7 @@ namespace Borrowing_System
                 if (result != null)
                 {
                     int employeeID = Convert.ToInt32(result);
-                    MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), ' ', IFNULL(Person.lastname, '')) AS borrowerName, Part.partname, AddCart.quantity, AddCart.status_ FROM AddCart INNER JOIN Part ON AddCart.partID = Part.partID INNER JOIN Student ON AddCart.studentID = Student.studentID INNER JOIN Person ON Student.personID = Person.personID WHERE AddCart.accountID = @employeeID", connection);
+                    MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), ' ', IFNULL(Person.lastname, '')) AS borrowerName, Part.partname, Product.productname, AddCart.quantity, AddCart.cartID, AddCart.status_ FROM AddCart INNER JOIN Part ON AddCart.partID = Part.partID INNER JOIN Student ON AddCart.studentID = Student.studentID INNER JOIN Product ON Part.productID = Product.productID INNER JOIN Person ON Student.personID = Person.personID WHERE AddCart.accountID = @employeeID", connection);
                     cmd.Parameters.AddWithValue("@employeeID", employeeID);
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
