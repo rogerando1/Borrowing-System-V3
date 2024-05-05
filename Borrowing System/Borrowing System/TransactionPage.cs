@@ -248,7 +248,7 @@ namespace Borrowing_System
             equipmentNameTxtbx.SelectedIndex = -1;
             typeTxtbx.SelectedIndex = -1;
             subjectnameLabel.Text = "";
-            quantityTxtbx.Text = "";
+            quantityTxtbx.Value = 0;
             availableLabel.Text = "";
         }
 
@@ -347,7 +347,7 @@ namespace Borrowing_System
                     equipmentNameTxtbx.SelectedIndex = -1;
                     typeTxtbx.SelectedIndex = -1;
                     staffCmbx.SelectedIndex = -1;
-                    quantityTxtbx.Text = "";
+                    quantityTxtbx.Value = 0;
                     availableLabel.Text = "";
 
                 }
@@ -395,7 +395,7 @@ namespace Borrowing_System
                 subjectCodeTxtbx.SelectedIndex = -1;
                 equipmentNameTxtbx.SelectedIndex = -1;
                 typeTxtbx.SelectedIndex = -1;
-                quantityTxtbx.Text = "";
+                quantityTxtbx.Value = 0;
                 availableLabel.Text = "";
                 refreshData();
             }
@@ -430,23 +430,9 @@ namespace Borrowing_System
 
         }
 
-        private void clearBTN_Click_1(object sender, EventArgs e)
-        {
-            studentIDTxtbx.Text = "";
-            borrowerNameTxtbx.Text = "";
-            courseTxtbx.Text = "";
-            yearlevelTxtbx.Text = "";
-            instructorNameTxtbx.SelectedIndex = -1;
-            subjectCodeTxtbx.SelectedIndex = -1;
-            equipmentNameTxtbx.SelectedIndex = -1;
-            typeTxtbx.SelectedIndex = -1;
-            quantityTxtbx.Text = "";
-            availableLabel.Text = "";
-        }
-
         private void addCartBTN_Click(object sender, EventArgs e)
         {
-            if (studentIDTxtbx.Text == "" || borrowerNameTxtbx.Text == "" || courseTxtbx.Text == "" || yearlevelTxtbx.Text == "" || instructorNameTxtbx.SelectedItem == null || subjectCodeTxtbx.SelectedItem == null || equipmentNameTxtbx.SelectedItem == null || typeTxtbx.SelectedItem == null || quantityTxtbx.Text == "")
+            if (studentIDTxtbx.Text == "" || borrowerNameTxtbx.Text == "" || courseTxtbx.Text == "" || yearlevelTxtbx.Text == "" || instructorNameTxtbx.SelectedItem == null || subjectCodeTxtbx.SelectedItem == null || equipmentNameTxtbx.SelectedItem == null || typeTxtbx.SelectedItem == null || quantityTxtbx.Value == 0)
             {
                 MessageBox.Show("Please fill out all required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -585,7 +571,7 @@ namespace Borrowing_System
                     refreshData();
                     equipmentNameTxtbx.SelectedIndex = -1;
                     typeTxtbx.SelectedIndex = -1;
-                    quantityTxtbx.Text = "";
+                    quantityTxtbx.Value = 0;
                     availableLabel.Text = "";
                     staffCmbx.SelectedIndex = -1;
 

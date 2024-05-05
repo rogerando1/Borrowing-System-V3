@@ -46,14 +46,14 @@
             this.clearBTN = new System.Windows.Forms.Button();
             this.addCartBTN = new System.Windows.Forms.Button();
             this.cartTable = new System.Windows.Forms.DataGridView();
-            this.staffCmbx = new System.Windows.Forms.ComboBox();
-            this.clearCart = new System.Windows.Forms.Button();
             this.cart_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.borrower_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.part_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffCmbx = new System.Windows.Forms.ComboBox();
+            this.clearCart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.quantityTxtbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartTable)).BeginInit();
             this.SuspendLayout();
@@ -236,7 +236,7 @@
             this.clearBTN.TabIndex = 32;
             this.clearBTN.Text = "Clear";
             this.clearBTN.UseVisualStyleBackColor = false;
-            this.clearBTN.Click += new System.EventHandler(this.clearBTN_Click_1);
+            this.clearBTN.Click += new System.EventHandler(this.clearBTN_Click);
             // 
             // addCartBTN
             // 
@@ -321,36 +321,6 @@
             this.cartTable.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartTable_CellMouseLeave);
             this.cartTable.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.cartTable_CellPainting);
             // 
-            // staffCmbx
-            // 
-            this.staffCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.staffCmbx.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffCmbx.FormattingEnabled = true;
-            this.staffCmbx.Location = new System.Drawing.Point(32, 12);
-            this.staffCmbx.Name = "staffCmbx";
-            this.staffCmbx.Size = new System.Drawing.Size(323, 36);
-            this.staffCmbx.TabIndex = 36;
-            this.staffCmbx.DropDown += new System.EventHandler(this.staffCmbx_DropDown);
-            this.staffCmbx.SelectedIndexChanged += new System.EventHandler(this.staffCmbx_SelectedIndexChanged);
-            // 
-            // clearCart
-            // 
-            this.clearCart.BackColor = System.Drawing.Color.White;
-            this.clearCart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clearCart.FlatAppearance.BorderSize = 0;
-            this.clearCart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
-            this.clearCart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
-            this.clearCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearCart.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearCart.ForeColor = System.Drawing.Color.Black;
-            this.clearCart.Location = new System.Drawing.Point(361, 12);
-            this.clearCart.Name = "clearCart";
-            this.clearCart.Size = new System.Drawing.Size(107, 36);
-            this.clearCart.TabIndex = 37;
-            this.clearCart.Text = "Clear Selection";
-            this.clearCart.UseVisualStyleBackColor = false;
-            this.clearCart.Click += new System.EventHandler(this.clearCart_Click);
-            // 
             // cart_ID
             // 
             this.cart_ID.DataPropertyName = "cartID";
@@ -400,6 +370,36 @@
             this.status.MinimumWidth = 2;
             this.status.Name = "status";
             this.status.ReadOnly = true;
+            // 
+            // staffCmbx
+            // 
+            this.staffCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.staffCmbx.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffCmbx.FormattingEnabled = true;
+            this.staffCmbx.Location = new System.Drawing.Point(32, 12);
+            this.staffCmbx.Name = "staffCmbx";
+            this.staffCmbx.Size = new System.Drawing.Size(323, 36);
+            this.staffCmbx.TabIndex = 36;
+            this.staffCmbx.DropDown += new System.EventHandler(this.staffCmbx_DropDown);
+            this.staffCmbx.SelectedIndexChanged += new System.EventHandler(this.staffCmbx_SelectedIndexChanged);
+            // 
+            // clearCart
+            // 
+            this.clearCart.BackColor = System.Drawing.Color.White;
+            this.clearCart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearCart.FlatAppearance.BorderSize = 0;
+            this.clearCart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearCart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearCart.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearCart.ForeColor = System.Drawing.Color.Black;
+            this.clearCart.Location = new System.Drawing.Point(361, 12);
+            this.clearCart.Name = "clearCart";
+            this.clearCart.Size = new System.Drawing.Size(107, 36);
+            this.clearCart.TabIndex = 37;
+            this.clearCart.Text = "Clear Selection";
+            this.clearCart.UseVisualStyleBackColor = false;
+            this.clearCart.Click += new System.EventHandler(this.clearCart_Click);
             // 
             // TransactionPage
             // 
