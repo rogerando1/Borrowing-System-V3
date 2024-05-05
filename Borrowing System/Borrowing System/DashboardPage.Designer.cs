@@ -106,7 +106,7 @@
             this.dashboardTable.RowTemplate.Height = 30;
             this.dashboardTable.RowTemplate.ReadOnly = true;
             this.dashboardTable.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dashboardTable.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dashboardTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dashboardTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dashboardTable.Size = new System.Drawing.Size(1467, 500);
             this.dashboardTable.TabIndex = 3;

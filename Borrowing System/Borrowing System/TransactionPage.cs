@@ -4,16 +4,22 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Borrowing_System
 {
     public partial class TransactionPage : Form
     {
+        Image normalImage = Properties.Resources.delete1;
+        Image hoverImage = Properties.Resources.delete2;
+        private DataGridViewCell selectedCell = null;
+
         public TransactionPage()
         {
             InitializeComponent();
@@ -23,8 +29,23 @@ namespace Borrowing_System
         {
             FillComboBox();
             FillProductComboBox();
+
+            refreshData();
             subjectnameLabel.Text = "";
             availableLabel.Text = "";
+            typeTxtbx.Enabled = false;
+            subjectCodeTxtbx.Enabled = false;
+            if (LoginPage.Position == "Admin")
+            {
+                FillStaffComboBox();
+                staffCmbx.Visible = true;
+                clearCart.Visible = true;
+            }
+            else
+            {
+                staffCmbx.Visible = false;
+                clearCart.Visible = false;
+            }
         }
 
         private void studentIDTxtbx_TextChanged(object sender, EventArgs e)
@@ -130,73 +151,68 @@ namespace Borrowing_System
             }
         }
 
-        // Declare a Dictionary to store the mapping between instructors and subject codes
-        private Dictionary<string, List<string>> instructorSubjectCodes = new Dictionary<string, List<string>>();
+        private void FillStaffComboBox()
+        {
+            try
+            {
+                //Show all staff/admin in the combobox
+                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID FROM sql6690575.Accounts " +
+                                                                                "INNER JOIN Person ON Accounts.personID = Person.personID ", connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    string staffName = reader.GetString("personID");
+                    staffCmbx.Items.Add(staffName);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void instructorNameTxtbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             subjectCodeTxtbx.SelectedIndex = -1;
             subjectnameLabel.Text = "";
 
-            if (instructorNameTxtbx.SelectedItem == null)
+            if (instructorNameTxtbx.Text == "")
             {
+                subjectCodeTxtbx.Enabled = false;
                 return;
-            }
-
-            string selectedInstructor = instructorNameTxtbx.SelectedItem.ToString();
-
-            // If the selected instructor's subject codes are already stored in the Dictionary, use them
-            if (instructorSubjectCodes.ContainsKey(selectedInstructor))
-            {
-                subjectCodeTxtbx.Items.Clear();
-                foreach (string subjectCode in instructorSubjectCodes[selectedInstructor])
-                {
-                    subjectCodeTxtbx.Items.Add(subjectCode);
-                }
             }
             else
             {
-                // If the selected instructor's subject codes are not in the Dictionary, fetch them from the database
                 MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 connection.Open();
                 string query = "SELECT CourseTime.courseID, CourseTime.section " +
-                   "FROM Instructor " +
+                   "FROM CourseTime " +
+                   "INNER JOIN Instructor ON CourseTime.instructorID = Instructor.instructorID " +
                    "INNER JOIN Person ON Instructor.personID = Person.personID " +
-                   "INNER JOIN CourseTime ON Instructor.instructorID = CourseTime.instructorID " +
                    "WHERE CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) = @instructorName";
-
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@instructorName", selectedInstructor);
+                cmd.Parameters.AddWithValue("@instructorName", instructorNameTxtbx.SelectedItem.ToString());
                 MySqlDataReader reader = cmd.ExecuteReader();
-
-                // Store the fetched subject codes in a List
-                List<string> subjectCodes = new List<string>();
+                subjectCodeTxtbx.Items.Clear();
                 while (reader.Read())
                 {
-                    string courseName = reader.GetString("courseID");
+                    string courseID = reader.GetString("courseID");
                     string section = reader.GetString("section");
-                    subjectCodes.Add($"{courseName} - {section}");
+                    subjectCodeTxtbx.Items.Add(courseID + " - " + section);
                 }
-
-                // Add the List of subject codes to the Dictionary
-                instructorSubjectCodes.Add(selectedInstructor, subjectCodes);
-
-                // Add the subject codes to the ComboBox
-                subjectCodeTxtbx.Items.Clear();
-                foreach (string subjectCode in subjectCodes)
-                {
-                    subjectCodeTxtbx.Items.Add(subjectCode);
-                }
-
                 connection.Close();
+                subjectCodeTxtbx.Enabled = true;
+
             }
         }
 
         private void subjectCodeTxtbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string defaultIndex = "Please select an instructor first";
 
-            if (subjectCodeTxtbx.SelectedItem == null || subjectCodeTxtbx.Text == defaultIndex)
+            if (subjectCodeTxtbx.Text == "")
             {
                 return;
             }
@@ -234,76 +250,199 @@ namespace Borrowing_System
             subjectnameLabel.Text = "";
             quantityTxtbx.Text = "";
             availableLabel.Text = "";
-            subjectCodeTxtbx.Items.Clear();
-            subjectCodeTxtbx.Items.Add("Please select an instructor first");
-            typeTxtbx.Items.Clear();
-            typeTxtbx.Items.Add("Please select an equipment first");
-
         }
-
-        // Declare a Dictionary to store the mapping between products and parts
-        private Dictionary<string, List<string>> productParts = new Dictionary<string, List<string>>();
 
         private void equipmentNameTxtbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             availableLabel.Text = "";
-            string defaultIndex = "Please select an equipment first";
 
-            if (equipmentNameTxtbx.SelectedItem == null || equipmentNameTxtbx.Text == defaultIndex)
+            if (equipmentNameTxtbx.Text == "")
             {
+                typeTxtbx.Enabled = false;
                 return;
             }
 
             else
             {
-                string selectedProductName = equipmentNameTxtbx.SelectedItem.ToString();
-
-                // If the selected product's parts are already stored in the Dictionary, use them
-                if (productParts.ContainsKey(selectedProductName))
+                typeTxtbx.Enabled = true;
+                //Display the parts of the selected product in the Type ComboBox
+                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                string query = "SELECT Part.partname " +
+                   "FROM Part " +
+                   "INNER JOIN Product ON Part.productID = Product.productID " +
+                   "WHERE Product.productName = @productName";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@productName", equipmentNameTxtbx.SelectedItem.ToString());
+                MySqlDataReader reader = cmd.ExecuteReader();
+                typeTxtbx.Items.Clear();
+                while (reader.Read())
                 {
-                    typeTxtbx.Items.Clear();
-                    foreach (string part in productParts[selectedProductName])
-                    {
-                        typeTxtbx.Items.Add(part);
-                    }
+                    string partName = reader.GetString("partName");
+                    typeTxtbx.Items.Add(partName);
                 }
-                else
-                {
-                    // If the selected product's parts are not in the Dictionary, fetch them from the database
-                    MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                    connection.Open();
-                    string query = "SELECT Part.partName " +
-                        "FROM Product " +
-                        "INNER JOIN Part ON Product.productID = Part.productID " +
-                        "WHERE Product.productName = @productName";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@productName", selectedProductName);
-                    MySqlDataReader reader = cmd.ExecuteReader();
+                connection.Close();
 
-                    // Store the fetched parts in a List
-                    List<string> parts = new List<string>();
-                    while (reader.Read())
-                    {
-                        string partName = reader.GetString("partName");
-                        parts.Add(partName);
-                    }
-
-                    // Add the List of parts to the Dictionary
-                    productParts.Add(selectedProductName, parts);
-
-                    // Add the parts to the ComboBox
-                    typeTxtbx.Items.Clear();
-                    foreach (string part in parts)
-                    {
-                        typeTxtbx.Items.Add(part);
-                    }
-
-                    connection.Close();
-                }
             }
         }
 
         private void submitBTN_Click(object sender, EventArgs e)
+        {
+            if(LoginPage.Position == "Admin")
+            {
+                if(staffCmbx.Text == "")
+                {
+                    MessageBox.Show("Please select a staff/admin first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (cartTable.Rows.Count == 0)
+                {
+                    MessageBox.Show("No pending transactions found for this employee", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    //CONFIRMATION OF DELETION
+                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to proceed with the transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.No)
+                    {
+                        return;
+                    }
+                    //Insert the records of the staff/admin from the AddCart table to the Transactions table
+                    MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                    connection.Open();
+                    MySqlCommand cmd = new MySqlCommand("SELECT Accounts.accountID FROM Accounts INNER JOIN Person ON Accounts.PersonID = Person.PersonID WHERE CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) = @staffName", connection);
+                    cmd.Parameters.AddWithValue("@staffName", staffCmbx.SelectedItem.ToString());
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    reader.Read();
+                    int accountID = reader.GetInt32("accountID");
+                    connection.Close();
+                    cmd = new MySqlCommand("INSERT INTO Transactions (studentID, instructorID, accountID, partID, quantity, orderDate, orderTime, status_) SELECT studentID, instructorID, accountID, partID, quantity, orderDate, orderTime, NULL FROM AddCart WHERE accountID = @accountID", connection);
+                    cmd.Parameters.AddWithValue("@accountID", accountID);
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    connection.Open();
+                    //Delete the record of the staff/admin from the AddCart table
+                    cmd = new MySqlCommand("DELETE FROM AddCart WHERE accountID = @accountID", connection);
+                    cmd.Parameters.AddWithValue("@accountID", accountID);
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    //Subtract the quantity of the product based on the equipment name and the staff in charge
+                    //cmd = new MySqlCommand("UPDATE Part INNER JOIN Product ON Part.productID = Product.productID INNER JOIN AddCart ON Part.partID = AddCart.partID SET Part.quantity = Part.quantity - AddCart.quantity WHERE Product.productName = @productName AND AddCart.accountID = @accountID", connection);
+                    //cmd.Parameters.AddWithValue("@productName", equipmentNameTxtbx.SelectedItem.ToString());
+                    //cmd.Parameters.AddWithValue("@accountID", accountID);
+                    //connection.Open();
+                    //cmd.ExecuteNonQuery();
+                    //connection.Close();
+
+
+                    MessageBox.Show("Transaction successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    refreshData();
+                    //Clear all fields
+                    studentIDTxtbx.Text = "";
+                    borrowerNameTxtbx.Text = "";
+                    courseTxtbx.Text = "";
+                    yearlevelTxtbx.Text = "";
+                    instructorNameTxtbx.SelectedIndex = -1;
+                    subjectCodeTxtbx.SelectedIndex = -1;
+                    equipmentNameTxtbx.SelectedIndex = -1;
+                    typeTxtbx.SelectedIndex = -1;
+                    staffCmbx.SelectedIndex = -1;
+                    quantityTxtbx.Text = "";
+                    availableLabel.Text = "";
+
+                }
+            }
+            else
+            {
+                if (cartTable.Rows.Count == 0)
+                {
+                    MessageBox.Show("Add items to the cart first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                //CONFIRMATION FOR DELETION
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to proceed with the transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+                //Insert the records of the staff/admin from the AddCart table to the Transactions table based on the employee ID
+                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO Transactions (studentID, instructorID, accountID, partID, quantity, orderDate, orderTime, status_) SELECT studentID, instructorID, accountID, partID, quantity, orderDate, orderTime, NULL FROM AddCart WHERE accountID = @accountID", connection);
+                cmd.Parameters.AddWithValue("@accountID", LoginPage.EmployeeID);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                connection.Open();
+                //Delete the record of the staff/admin from the AddCart table based on the employee ID
+                cmd = new MySqlCommand("DELETE FROM AddCart WHERE accountID = @accountID", connection);
+                cmd.Parameters.AddWithValue("@accountID", LoginPage.EmployeeID);
+                cmd.ExecuteNonQuery();
+                connection.Close();
+                //Subtract the quantity of the product using all records from the 'Part' database table based on the type of product and based on the account ID
+
+
+                MessageBox.Show("Transaction successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                refreshData();
+                //clear all fields
+                studentIDTxtbx.Text = "";
+                borrowerNameTxtbx.Text = "";
+                courseTxtbx.Text = "";
+                yearlevelTxtbx.Text = "";
+                instructorNameTxtbx.SelectedIndex = -1;
+                subjectCodeTxtbx.SelectedIndex = -1;
+                equipmentNameTxtbx.SelectedIndex = -1;
+                typeTxtbx.SelectedIndex = -1;
+                quantityTxtbx.Text = "";
+                availableLabel.Text = "";
+            }
+        }
+
+        private void typeTxtbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string partName = typeTxtbx.SelectedItem != null ? typeTxtbx.SelectedItem.ToString() : string.Empty;
+
+            if (typeTxtbx.Text == "")
+            {
+                return;
+            }
+
+            //Change the available label based on the quantity of the part selected
+
+            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+            connection.Open();
+            string query = "SELECT Part.quantity " +
+               "FROM Part " +
+               "WHERE Part.partname = @partName";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.AddWithValue("@partName", partName);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            if (reader.Read())
+            {
+                int quantity = reader.GetInt32("quantity");
+                availableLabel.Text = quantity.ToString();
+            }
+
+            connection.Close();
+
+        }
+
+        private void clearBTN_Click_1(object sender, EventArgs e)
+        {
+            studentIDTxtbx.Text = "";
+            borrowerNameTxtbx.Text = "";
+            courseTxtbx.Text = "";
+            yearlevelTxtbx.Text = "";
+            instructorNameTxtbx.SelectedIndex = -1;
+            subjectCodeTxtbx.SelectedIndex = -1;
+            equipmentNameTxtbx.SelectedIndex = -1;
+            typeTxtbx.SelectedIndex = -1;
+            quantityTxtbx.Text = "";
+            availableLabel.Text = "";
+        }
+
+        private void addCartBTN_Click(object sender, EventArgs e)
         {
             if (studentIDTxtbx.Text == "" || borrowerNameTxtbx.Text == "" || courseTxtbx.Text == "" || yearlevelTxtbx.Text == "" || instructorNameTxtbx.SelectedItem == null || subjectCodeTxtbx.SelectedItem == null || equipmentNameTxtbx.SelectedItem == null || typeTxtbx.SelectedItem == null || quantityTxtbx.Text == "")
             {
@@ -335,10 +474,11 @@ namespace Borrowing_System
             connection.Open();
             string query = "SELECT startTime, endTime " +
                "FROM CourseTime " +
-               "WHERE courseID = @courseID";
+               "WHERE courseID = @courseID AND section = @section";
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@courseID", selectedCourse);
+            cmd.Parameters.AddWithValue("@section", subjectCodeTxtbx.SelectedItem.ToString().Split('-')[1].Trim());
             MySqlDataReader reader = cmd.ExecuteReader();
 
             if (reader.Read())
@@ -354,7 +494,7 @@ namespace Borrowing_System
                     string quantity = quantityTxtbx.Text;
                     string orderDate = DateTime.Now.ToString("yyyy-MM-dd");
                     string orderTime = DateTime.Now.ToString("HH:mm:ss");
-                    string status = null;
+                    string status = "Added to Cart";
 
                     //Check Quantity Amount before proceeding
 
@@ -372,7 +512,7 @@ namespace Borrowing_System
                     query = "SELECT Part.quantity " +
                        "FROM Part " +
                        "INNER JOIN Product ON Part.productID = Product.productID " +
-                       "WHERE Part.partName = @partName";
+                       "WHERE Part.partname = @partName";
                     cmd = new MySqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("@partName", partName);
                     reader = cmd.ExecuteReader();
@@ -382,13 +522,6 @@ namespace Borrowing_System
                     if (quantityInt > existingQuantity)
                     {
                         MessageBox.Show($"Not enough {partName} in stock. Please enter a quantity less than or equal to {existingQuantity}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    //User transaction confirmation
-                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to proceed with the transaction?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dialogResult == DialogResult.No)
-                    {
                         return;
                     }
 
@@ -408,7 +541,7 @@ namespace Borrowing_System
                     //Get Product ID through Type textbox from 'Part' table
                     mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                     mySqlConnection.Open();
-                    mySqlCommand = new MySqlCommand("SELECT Product.productID FROM Part INNER JOIN Product ON Part.productID = Product.productID WHERE Part.partName = @partName", mySqlConnection);
+                    mySqlCommand = new MySqlCommand("SELECT Product.productID FROM Part INNER JOIN Product ON Part.productID = Product.productID WHERE Part.partname = @partName", mySqlConnection);
                     mySqlCommand.Parameters.AddWithValue("@partName", partName);
                     mySqlDataReader = mySqlCommand.ExecuteReader();
                     mySqlDataReader.Read();
@@ -420,7 +553,7 @@ namespace Borrowing_System
                     //Get the Part ID through the Product ID and Part Name from 'Part' table
                     mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                     mySqlConnection.Open();
-                    mySqlCommand = new MySqlCommand("SELECT Part.partID FROM Part INNER JOIN Product ON Part.productID = Product.productID WHERE Part.partName = @partName AND Product.productID = @productID", mySqlConnection);
+                    mySqlCommand = new MySqlCommand("SELECT Part.partID FROM Part INNER JOIN Product ON Part.productID = Product.productID WHERE Part.partname = @partName AND Product.productID = @productID", mySqlConnection);
                     mySqlCommand.Parameters.AddWithValue("@partName", partName);
                     mySqlCommand.Parameters.AddWithValue("@productID", productID);
                     mySqlDataReader = mySqlCommand.ExecuteReader();
@@ -433,7 +566,7 @@ namespace Borrowing_System
                     //Insert the following data into 'Transactions' table: studentID, instructorID, accountID, productID, quantity, orderDate, orderTime, status
                     mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                     mySqlConnection.Open();
-                    mySqlCommand = new MySqlCommand("INSERT INTO Transactions (studentID, instructorID, accountID, partID, quantity, orderDate, orderTime, status_) " +
+                    mySqlCommand = new MySqlCommand("INSERT INTO AddCart (studentID, instructorID, accountID, partID, quantity, orderDate, orderTime, status_) " +
                                                     "VALUES (@studentID, @instructorID, @accountID, @partID, @quantity, @orderDate, @orderTime, @status_)", mySqlConnection);
                     mySqlCommand.Parameters.AddWithValue("@studentID", studentIDTxtbx.Text);
                     mySqlCommand.Parameters.AddWithValue("@instructorID", instructorID);
@@ -447,19 +580,7 @@ namespace Borrowing_System
                     mySqlConnection.Close();
                     mySqlConnection.Dispose();
 
-
-                    //Subtract the quantity of the product from the 'Part' database table based on the type of product
-                    mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                    mySqlConnection.Open();
-                    mySqlCommand = new MySqlCommand("UPDATE Part SET quantity = quantity - @quantity WHERE partID = @partID", mySqlConnection);
-                    mySqlCommand.Parameters.AddWithValue("@quantity", quantity);
-                    mySqlCommand.Parameters.AddWithValue("@partID", partID);
-                    mySqlCommand.ExecuteNonQuery();
-                    mySqlConnection.Close();
-                    mySqlConnection.Dispose();
-
-                    MessageBox.Show($"Transaction successful for course {selectedCourse}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
- 
+                    refreshData();
                     studentIDTxtbx.Text = "";
                     borrowerNameTxtbx.Text = "";
                     courseTxtbx.Text = "";
@@ -470,8 +591,6 @@ namespace Borrowing_System
                     typeTxtbx.SelectedIndex = -1;
                     quantityTxtbx.Text = "";
                     availableLabel.Text = "";
-                    subjectCodeTxtbx.Items.Clear();
-                    subjectCodeTxtbx.Items.Add("Please select an instructor first");
 
                 }
                 else
@@ -487,55 +606,203 @@ namespace Borrowing_System
             connection.Close();
         }
 
-        private void typeTxtbx_SelectedIndexChanged(object sender, EventArgs e)
+        public void refreshData()
         {
-            string defaultIndex = "Please select an equipment first";
-            string partName = typeTxtbx.SelectedItem != null ? typeTxtbx.SelectedItem.ToString() : string.Empty;
+            MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+            MySqlCommand cmd;
 
-            if (typeTxtbx.Text == defaultIndex || typeTxtbx.Text == null)
+            if (LoginPage.Position == "Admin")
             {
+                cmd = new MySqlCommand(@"
+                    SELECT 
+                        CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS borrowerName,                  
+                        Part.partname,
+                        AddCart.quantity, 
+                        AddCart.status_
+                    FROM 
+                        AddCart
+                    INNER JOIN 
+                        Student ON AddCart.studentID = Student.studentID 
+                    INNER JOIN 
+                        Person AS StudentPerson ON Student.personID = StudentPerson.personID
+                    INNER JOIN
+                        Part ON AddCart.partID = Part.partID
+                    INNER JOIN 
+                        Accounts ON AddCart.accountID = Accounts.accountID
+                    WHERE AddCart.status_ IS NOT NULL", conn);
+
+                cmd.Parameters.AddWithValue("@employeeID", LoginPage.EmployeeID);
+            }
+            else
+            {
+                cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS borrowerName, Part.partname, AddCart.quantity, AddCart.status_ FROM AddCart INNER JOIN Part ON AddCart.partID = Part.partID INNER JOIN Student ON AddCart.studentID = Student.studentID INNER JOIN Person ON Student.personID = Person.personID WHERE AddCart.accountID = @employeeID", conn);
+                cmd.Parameters.AddWithValue("@employeeID", LoginPage.EmployeeID);
+            }
+            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            cartTable.DataSource = dt;
+        }
+
+        private void cartTable_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                cartTable.Cursor = Cursors.Hand;
+            }
+        }
+
+        private void cartTable_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                cartTable.Cursor = Cursors.Default;
+            }
+        }
+
+        private void cartTable_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
                 return;
-            }
 
-            //Change the available label based on the quantity of the part selected
-
-            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-            connection.Open();
-            string query = "SELECT Part.quantity " +
-               "FROM Part " +
-               "WHERE Part.partName = @partName";
-            MySqlCommand cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@partName", partName);
-            MySqlDataReader reader = cmd.ExecuteReader();
-            if (reader.Read())
+            if (e.ColumnIndex == 3)
             {
-                int quantity = reader.GetInt32("quantity");
-                availableLabel.Text = quantity.ToString();
+
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var image = normalImage;
+                if (selectedCell != null && selectedCell.RowIndex == e.RowIndex && selectedCell.ColumnIndex == e.ColumnIndex)
+                {
+                    image = hoverImage;
+                }
+
+                var w = image.Width;
+                var h = image.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(image, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void cartTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == 3)
+            {
+                //Change Image when selected
+                selectedCell = cartTable[e.ColumnIndex, e.RowIndex];
+                cartTable.InvalidateCell(e.ColumnIndex, e.RowIndex);
+                cartTable.Refresh();
+                if (MessageBox.Show("Are you sure you want to return the item?", "Return Item", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                        //DateTime return_DATE = DateTime.Now;
+                        //DateTime return_TIME = DateTime.Now;
+
+                        //using (MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
+                        //{
+                        //    //Check if quantity for AddNotes.Notes is less than to the quantity of item borrowed
+
+                        //    conn.Open();
+                        //    MySqlCommand cmd = new MySqlCommand("SELECT quantity FROM Transactions WHERE transactionID = @transactionID", conn);
+                        //    cmd.Parameters.AddWithValue("@transactionID", dashboardTable.Rows[e.RowIndex].Cells["transactionID"].Value.ToString());
+                        //    MySqlDataReader reader = cmd.ExecuteReader();
+                        //    reader.Read();
+                        //    int quantity = reader.GetInt32(0);
+                        //    reader.Close();
+                        //}
+
+                }
+                else
+                {
+                    selectedCell = null;
+                    cartTable.Refresh();
+                }
+            }
+        }
+
+        private void equipmentNameTxtbx_DropDown(object sender, EventArgs e)
+        {
+            //FIT THE DROPDOWN WIDTH TO THE WIDEST ITEM
+
+            int maxWidth = equipmentNameTxtbx.Width;
+            Graphics g = equipmentNameTxtbx.CreateGraphics();
+            Font font = equipmentNameTxtbx.Font;
+
+            foreach (var item in equipmentNameTxtbx.Items)
+            {
+                int itemWidth = (int)g.MeasureString(item.ToString(), font).Width;
+                if (itemWidth > maxWidth)
+                {
+                    maxWidth = itemWidth;
+                }
             }
 
-            connection.Close();
+            equipmentNameTxtbx.DropDownWidth = maxWidth;
+        }
+
+        private void staffCmbx_DropDown(object sender, EventArgs e)
+        {
+            //FIT THE DROPDOWN WIDTH TO THE WIDEST ITEM
+
+            int maxWidth = staffCmbx.Width;
+            Graphics g = staffCmbx.CreateGraphics();
+            Font font = staffCmbx.Font;
+
+            foreach (var item in staffCmbx.Items)
+            {
+                int itemWidth = (int)g.MeasureString(item.ToString(), font).Width;
+                if (itemWidth > maxWidth)
+                {
+                    maxWidth = itemWidth;
+                }
+            }
+
+            staffCmbx.DropDownWidth = maxWidth;
+        }
+
+        private void staffCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+            if (staffCmbx.Text == "")
+            {
+                refreshData();
+            }
+            else
+            {
+                // Get the employee name from the ComboBox
+                string employeeName = staffCmbx.SelectedItem.ToString();
+
+                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+
+                // Create a command to get the employee ID based on the employee name
+                MySqlCommand getEmployeeIdCmd = new MySqlCommand("SELECT Accounts.accountID FROM Accounts INNER JOIN Person ON Accounts.personID = Person.personID WHERE CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) = @employeeName", connection);
+                getEmployeeIdCmd.Parameters.AddWithValue("@employeeName", employeeName);
+
+                // Execute the command and get the employee ID
+                object result = getEmployeeIdCmd.ExecuteScalar();
+                if (result != null)
+                {
+                    int employeeID = Convert.ToInt32(result);
+                    MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), ' ', IFNULL(Person.lastname, '')) AS borrowerName, Part.partname, AddCart.quantity, AddCart.status_ FROM AddCart INNER JOIN Part ON AddCart.partID = Part.partID INNER JOIN Student ON AddCart.studentID = Student.studentID INNER JOIN Person ON Student.personID = Person.personID WHERE AddCart.accountID = @employeeID", connection);
+                    cmd.Parameters.AddWithValue("@employeeID", employeeID);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    cartTable.DataSource = dt;
+                }
+
+            }
 
         }
 
-        private void clearBTN_Click_1(object sender, EventArgs e)
+        private void clearCart_Click(object sender, EventArgs e)
         {
-            studentIDTxtbx.Text = "";
-            borrowerNameTxtbx.Text = "";
-            courseTxtbx.Text = "";
-            yearlevelTxtbx.Text = "";
-            instructorNameTxtbx.SelectedIndex = -1;
-            subjectCodeTxtbx.SelectedIndex = -1;
-            equipmentNameTxtbx.SelectedIndex = -1;
-            typeTxtbx.SelectedIndex = -1;
-            quantityTxtbx.Text = "";
-            availableLabel.Text = "";
-
-            subjectCodeTxtbx.Items.Clear();
-            subjectCodeTxtbx.Items.Add("Please select an instructor first");
-            
-            typeTxtbx.Items.Clear();
-            typeTxtbx.Items.Add("Please select an equipment first");
-
+            staffCmbx.SelectedIndex = -1;
         }
     }
 }
