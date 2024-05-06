@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dashboardTable = new System.Windows.Forms.DataGridView();
             this.transactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +44,8 @@
             this.status_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchBTN = new System.Windows.Forms.Button();
             this.searchTxtbx = new System.Windows.Forms.TextBox();
+            this.staffCmbx = new System.Windows.Forms.ComboBox();
+            this.clearDashBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,15 +61,15 @@
             this.dashboardTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dashboardTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dashboardTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dashboardTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dashboardTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dashboardTable.ColumnHeadersHeight = 50;
             this.dashboardTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dashboardTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -82,19 +84,19 @@
             this.status_});
             this.dashboardTable.EnableHeadersVisualStyles = false;
             this.dashboardTable.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dashboardTable.Location = new System.Drawing.Point(18, 101);
+            this.dashboardTable.Location = new System.Drawing.Point(18, 145);
             this.dashboardTable.Margin = new System.Windows.Forms.Padding(2);
             this.dashboardTable.Name = "dashboardTable";
             this.dashboardTable.ReadOnly = true;
             this.dashboardTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dashboardTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dashboardTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dashboardTable.RowHeadersVisible = false;
             this.dashboardTable.RowHeadersWidth = 50;
             this.dashboardTable.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -106,9 +108,9 @@
             this.dashboardTable.RowTemplate.Height = 30;
             this.dashboardTable.RowTemplate.ReadOnly = true;
             this.dashboardTable.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dashboardTable.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dashboardTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dashboardTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dashboardTable.Size = new System.Drawing.Size(1467, 500);
+            this.dashboardTable.Size = new System.Drawing.Size(1467, 456);
             this.dashboardTable.TabIndex = 3;
             this.dashboardTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dashboardTable_CellClick);
             this.dashboardTable.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dashboardTable_CellMouseEnter);
@@ -165,9 +167,9 @@
             // orderdate
             // 
             this.orderdate.DataPropertyName = "orderdate";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.orderdate.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Format = "d";
+            dataGridViewCellStyle10.NullValue = null;
+            this.orderdate.DefaultCellStyle = dataGridViewCellStyle10;
             this.orderdate.HeaderText = "Order Date";
             this.orderdate.MinimumWidth = 6;
             this.orderdate.Name = "orderdate";
@@ -176,9 +178,9 @@
             // ordertime
             // 
             this.ordertime.DataPropertyName = "ordertime";
-            dataGridViewCellStyle3.Format = "T";
-            dataGridViewCellStyle3.NullValue = null;
-            this.ordertime.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Format = "T";
+            dataGridViewCellStyle11.NullValue = null;
+            this.ordertime.DefaultCellStyle = dataGridViewCellStyle11;
             this.ordertime.HeaderText = "Order Time";
             this.ordertime.MinimumWidth = 6;
             this.ordertime.Name = "ordertime";
@@ -226,12 +228,44 @@
             this.searchTxtbx.TextChanged += new System.EventHandler(this.searchTxtbx_TextChanged);
             this.searchTxtbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTxtbx_KeyDown);
             // 
+            // staffCmbx
+            // 
+            this.staffCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.staffCmbx.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffCmbx.FormattingEnabled = true;
+            this.staffCmbx.Location = new System.Drawing.Point(20, 106);
+            this.staffCmbx.Name = "staffCmbx";
+            this.staffCmbx.Size = new System.Drawing.Size(323, 36);
+            this.staffCmbx.TabIndex = 37;
+            this.staffCmbx.DropDown += new System.EventHandler(this.staffCmbx_DropDown);
+            this.staffCmbx.SelectedIndexChanged += new System.EventHandler(this.staffCmbx_SelectedIndexChanged);
+            // 
+            // clearDashBtn
+            // 
+            this.clearDashBtn.BackColor = System.Drawing.Color.White;
+            this.clearDashBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearDashBtn.FlatAppearance.BorderSize = 0;
+            this.clearDashBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearDashBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearDashBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearDashBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearDashBtn.ForeColor = System.Drawing.Color.Black;
+            this.clearDashBtn.Location = new System.Drawing.Point(347, 106);
+            this.clearDashBtn.Name = "clearDashBtn";
+            this.clearDashBtn.Size = new System.Drawing.Size(107, 36);
+            this.clearDashBtn.TabIndex = 38;
+            this.clearDashBtn.Text = "Clear Selection";
+            this.clearDashBtn.UseVisualStyleBackColor = false;
+            this.clearDashBtn.Click += new System.EventHandler(this.clearDashBtn_Click);
+            // 
             // DashboardPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.Dashboard_Page;
             this.ClientSize = new System.Drawing.Size(1532, 650);
+            this.Controls.Add(this.clearDashBtn);
+            this.Controls.Add(this.staffCmbx);
             this.Controls.Add(this.searchTxtbx);
             this.Controls.Add(this.searchBTN);
             this.Controls.Add(this.dashboardTable);
@@ -259,5 +293,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn orderdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ordertime;
         private System.Windows.Forms.DataGridViewTextBoxColumn status_;
+        private System.Windows.Forms.ComboBox staffCmbx;
+        private System.Windows.Forms.Button clearDashBtn;
     }
 }

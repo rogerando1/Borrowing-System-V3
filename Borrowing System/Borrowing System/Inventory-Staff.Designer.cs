@@ -291,6 +291,7 @@
             this.productnamelist.Name = "productnamelist";
             this.productnamelist.Size = new System.Drawing.Size(284, 26);
             this.productnamelist.TabIndex = 42;
+            this.productnamelist.DropDown += new System.EventHandler(this.productnamelist_DropDown);
             this.productnamelist.SelectedIndexChanged += new System.EventHandler(this.productnamelist_SelectedIndexChanged);
             // 
             // Inventory_Staff

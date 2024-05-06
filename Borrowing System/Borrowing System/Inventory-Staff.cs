@@ -181,5 +181,25 @@ namespace Borrowing_System
                 searchBTN.PerformClick();
             }
         }
+
+        private void productnamelist_DropDown(object sender, EventArgs e)
+        {
+            //FIT THE DROPDOWN WIDTH TO THE WIDEST ITEM
+
+            int maxWidth = productnamelist.Width;
+            Graphics g = productnamelist.CreateGraphics();
+            Font font = productnamelist.Font;
+
+            foreach (var item in productnamelist.Items)
+            {
+                int itemWidth = (int)g.MeasureString(item.ToString(), font).Width;
+                if (itemWidth > maxWidth)
+                {
+                    maxWidth = itemWidth;
+                }
+            }
+
+            productnamelist.DropDownWidth = maxWidth;
+        }
     }
 }

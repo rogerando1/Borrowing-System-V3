@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.studentIDTxtbx = new System.Windows.Forms.TextBox();
             this.borrowerNameTxtbx = new System.Windows.Forms.TextBox();
             this.courseTxtbx = new System.Windows.Forms.TextBox();
@@ -42,7 +44,18 @@
             this.quantityTxtbx = new System.Windows.Forms.NumericUpDown();
             this.submitBTN = new System.Windows.Forms.Button();
             this.clearBTN = new System.Windows.Forms.Button();
+            this.addCartBTN = new System.Windows.Forms.Button();
+            this.cartTable = new System.Windows.Forms.DataGridView();
+            this.cart_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.borrower_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.part_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffCmbx = new System.Windows.Forms.ComboBox();
+            this.clearCart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.quantityTxtbx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartTable)).BeginInit();
             this.SuspendLayout();
             // 
             // studentIDTxtbx
@@ -136,6 +149,7 @@
             this.equipmentNameTxtbx.Name = "equipmentNameTxtbx";
             this.equipmentNameTxtbx.Size = new System.Drawing.Size(290, 32);
             this.equipmentNameTxtbx.TabIndex = 23;
+            this.equipmentNameTxtbx.DropDown += new System.EventHandler(this.equipmentNameTxtbx_DropDown);
             this.equipmentNameTxtbx.SelectedIndexChanged += new System.EventHandler(this.equipmentNameTxtbx_SelectedIndexChanged);
             // 
             // typeTxtbx
@@ -144,8 +158,6 @@
             this.typeTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.typeTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.typeTxtbx.FormattingEnabled = true;
-            this.typeTxtbx.Items.AddRange(new object[] {
-            "Please select an equipment first"});
             this.typeTxtbx.Location = new System.Drawing.Point(1157, 374);
             this.typeTxtbx.Name = "typeTxtbx";
             this.typeTxtbx.Size = new System.Drawing.Size(290, 32);
@@ -200,11 +212,11 @@
             this.submitBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.submitBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submitBTN.ForeColor = System.Drawing.Color.Black;
-            this.submitBTN.Location = new System.Drawing.Point(1110, 560);
+            this.submitBTN.Location = new System.Drawing.Point(254, 581);
             this.submitBTN.Name = "submitBTN";
             this.submitBTN.Size = new System.Drawing.Size(142, 45);
             this.submitBTN.TabIndex = 33;
-            this.submitBTN.Text = "Submit";
+            this.submitBTN.Text = "Submit Order";
             this.submitBTN.UseVisualStyleBackColor = false;
             this.submitBTN.Click += new System.EventHandler(this.submitBTN_Click);
             // 
@@ -224,7 +236,170 @@
             this.clearBTN.TabIndex = 32;
             this.clearBTN.Text = "Clear";
             this.clearBTN.UseVisualStyleBackColor = false;
-            this.clearBTN.Click += new System.EventHandler(this.clearBTN_Click_1);
+            this.clearBTN.Click += new System.EventHandler(this.clearBTN_Click);
+            // 
+            // addCartBTN
+            // 
+            this.addCartBTN.BackColor = System.Drawing.Color.White;
+            this.addCartBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addCartBTN.FlatAppearance.BorderSize = 0;
+            this.addCartBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.addCartBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.addCartBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addCartBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addCartBTN.ForeColor = System.Drawing.Color.Black;
+            this.addCartBTN.Location = new System.Drawing.Point(1113, 560);
+            this.addCartBTN.Name = "addCartBTN";
+            this.addCartBTN.Size = new System.Drawing.Size(142, 45);
+            this.addCartBTN.TabIndex = 34;
+            this.addCartBTN.Text = "Add to Cart";
+            this.addCartBTN.UseVisualStyleBackColor = false;
+            this.addCartBTN.Click += new System.EventHandler(this.addCartBTN_Click);
+            // 
+            // cartTable
+            // 
+            this.cartTable.AllowUserToAddRows = false;
+            this.cartTable.AllowUserToDeleteRows = false;
+            this.cartTable.AllowUserToOrderColumns = true;
+            this.cartTable.AllowUserToResizeColumns = false;
+            this.cartTable.AllowUserToResizeRows = false;
+            this.cartTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.cartTable.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(104)))), ((int)(((byte)(147)))));
+            this.cartTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cartTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.cartTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cartTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.cartTable.ColumnHeadersHeight = 60;
+            this.cartTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.cartTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cart_ID,
+            this.borrower_name,
+            this.product_name,
+            this.part_name,
+            this.quantity,
+            this.status});
+            this.cartTable.EnableHeadersVisualStyles = false;
+            this.cartTable.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            this.cartTable.Location = new System.Drawing.Point(32, 49);
+            this.cartTable.Margin = new System.Windows.Forms.Padding(2);
+            this.cartTable.Name = "cartTable";
+            this.cartTable.ReadOnly = true;
+            this.cartTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cartTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.cartTable.RowHeadersVisible = false;
+            this.cartTable.RowHeadersWidth = 50;
+            this.cartTable.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.cartTable.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(140)))), ((int)(((byte)(217)))));
+            this.cartTable.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cartTable.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.cartTable.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            this.cartTable.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.cartTable.RowTemplate.Height = 50;
+            this.cartTable.RowTemplate.ReadOnly = true;
+            this.cartTable.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cartTable.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.cartTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.cartTable.Size = new System.Drawing.Size(600, 520);
+            this.cartTable.TabIndex = 35;
+            this.cartTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartTable_CellClick);
+            this.cartTable.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartTable_CellMouseEnter);
+            this.cartTable.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartTable_CellMouseLeave);
+            this.cartTable.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.cartTable_CellPainting);
+            // 
+            // cart_ID
+            // 
+            this.cart_ID.DataPropertyName = "cartID";
+            this.cart_ID.HeaderText = "Cart ID";
+            this.cart_ID.Name = "cart_ID";
+            this.cart_ID.ReadOnly = true;
+            this.cart_ID.Visible = false;
+            // 
+            // borrower_name
+            // 
+            this.borrower_name.DataPropertyName = "borrowerName";
+            this.borrower_name.FillWeight = 98.52476F;
+            this.borrower_name.HeaderText = "Borrower Name";
+            this.borrower_name.Name = "borrower_name";
+            this.borrower_name.ReadOnly = true;
+            // 
+            // product_name
+            // 
+            this.product_name.DataPropertyName = "productname";
+            this.product_name.FillWeight = 98.52476F;
+            this.product_name.HeaderText = "Product Name";
+            this.product_name.Name = "product_name";
+            this.product_name.ReadOnly = true;
+            // 
+            // part_name
+            // 
+            this.part_name.DataPropertyName = "partname";
+            this.part_name.FillWeight = 138.7848F;
+            this.part_name.HeaderText = "Equipment Name";
+            this.part_name.MinimumWidth = 6;
+            this.part_name.Name = "part_name";
+            this.part_name.ReadOnly = true;
+            // 
+            // quantity
+            // 
+            this.quantity.DataPropertyName = "quantity";
+            this.quantity.FillWeight = 138.7848F;
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status_";
+            this.status.FillWeight = 25.3807F;
+            this.status.HeaderText = "";
+            this.status.MinimumWidth = 2;
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            // 
+            // staffCmbx
+            // 
+            this.staffCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.staffCmbx.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffCmbx.FormattingEnabled = true;
+            this.staffCmbx.Location = new System.Drawing.Point(32, 12);
+            this.staffCmbx.Name = "staffCmbx";
+            this.staffCmbx.Size = new System.Drawing.Size(323, 36);
+            this.staffCmbx.TabIndex = 36;
+            this.staffCmbx.DropDown += new System.EventHandler(this.staffCmbx_DropDown);
+            this.staffCmbx.SelectedIndexChanged += new System.EventHandler(this.staffCmbx_SelectedIndexChanged);
+            // 
+            // clearCart
+            // 
+            this.clearCart.BackColor = System.Drawing.Color.White;
+            this.clearCart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearCart.FlatAppearance.BorderSize = 0;
+            this.clearCart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearCart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearCart.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearCart.ForeColor = System.Drawing.Color.Black;
+            this.clearCart.Location = new System.Drawing.Point(361, 12);
+            this.clearCart.Name = "clearCart";
+            this.clearCart.Size = new System.Drawing.Size(107, 36);
+            this.clearCart.TabIndex = 37;
+            this.clearCart.Text = "Clear Selection";
+            this.clearCart.UseVisualStyleBackColor = false;
+            this.clearCart.Click += new System.EventHandler(this.clearCart_Click);
             // 
             // TransactionPage
             // 
@@ -232,6 +407,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.Transaction_Page;
             this.ClientSize = new System.Drawing.Size(1532, 650);
+            this.Controls.Add(this.clearCart);
+            this.Controls.Add(this.staffCmbx);
+            this.Controls.Add(this.cartTable);
+            this.Controls.Add(this.addCartBTN);
             this.Controls.Add(this.submitBTN);
             this.Controls.Add(this.clearBTN);
             this.Controls.Add(this.quantityTxtbx);
@@ -251,6 +430,7 @@
             this.Text = "TransactionPage";
             this.Load += new System.EventHandler(this.TransactionPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.quantityTxtbx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cartTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,5 +452,15 @@
         private System.Windows.Forms.NumericUpDown quantityTxtbx;
         private System.Windows.Forms.Button submitBTN;
         private System.Windows.Forms.Button clearBTN;
+        private System.Windows.Forms.Button addCartBTN;
+        private System.Windows.Forms.DataGridView cartTable;
+        private System.Windows.Forms.ComboBox staffCmbx;
+        private System.Windows.Forms.Button clearCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cart_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn borrower_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn part_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
     }
 }

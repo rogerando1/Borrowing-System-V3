@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.logsTable = new System.Windows.Forms.DataGridView();
-            this.searchBTN = new System.Windows.Forms.Button();
-            this.searchData = new System.Windows.Forms.TextBox();
             this.transactionlogID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +41,10 @@
             this.returndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returntime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.searchBTN = new System.Windows.Forms.Button();
+            this.searchData = new System.Windows.Forms.TextBox();
+            this.clearDashBtn = new System.Windows.Forms.Button();
+            this.staffCmbx = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.logsTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,14 +60,14 @@
             this.logsTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.logsTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.logsTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.logsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.logsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.logsTable.ColumnHeadersHeight = 50;
             this.logsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.logsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -78,28 +80,28 @@
             this.returndate,
             this.returntime,
             this.notes});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.logsTable.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.logsTable.DefaultCellStyle = dataGridViewCellStyle11;
             this.logsTable.EnableHeadersVisualStyles = false;
             this.logsTable.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.logsTable.Location = new System.Drawing.Point(17, 102);
+            this.logsTable.Location = new System.Drawing.Point(17, 147);
             this.logsTable.Name = "logsTable";
             this.logsTable.ReadOnly = true;
             this.logsTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.logsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.logsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.logsTable.RowHeadersVisible = false;
             this.logsTable.RowHeadersWidth = 50;
             this.logsTable.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(140)))), ((int)(((byte)(217)))));
@@ -107,39 +109,10 @@
             this.logsTable.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
             this.logsTable.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.RoyalBlue;
             this.logsTable.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.logsTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.logsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.logsTable.Size = new System.Drawing.Size(1471, 499);
+            this.logsTable.Size = new System.Drawing.Size(1471, 454);
             this.logsTable.TabIndex = 4;
-            // 
-            // searchBTN
-            // 
-            this.searchBTN.BackColor = System.Drawing.Color.White;
-            this.searchBTN.BackgroundImage = global::Borrowing_System.Properties.Resources.search_icon;
-            this.searchBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.searchBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.searchBTN.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.searchBTN.FlatAppearance.BorderSize = 0;
-            this.searchBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.searchBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.searchBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchBTN.ForeColor = System.Drawing.Color.White;
-            this.searchBTN.Location = new System.Drawing.Point(1124, 38);
-            this.searchBTN.Name = "searchBTN";
-            this.searchBTN.Size = new System.Drawing.Size(33, 36);
-            this.searchBTN.TabIndex = 33;
-            this.searchBTN.UseVisualStyleBackColor = false;
-            this.searchBTN.Click += new System.EventHandler(this.searchBTN_Click);
-            // 
-            // searchData
-            // 
-            this.searchData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchData.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchData.Location = new System.Drawing.Point(289, 43);
-            this.searchData.Name = "searchData";
-            this.searchData.Size = new System.Drawing.Size(829, 26);
-            this.searchData.TabIndex = 32;
-            this.searchData.TextChanged += new System.EventHandler(this.searchData_TextChanged);
-            this.searchData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchData_KeyDown);
             // 
             // transactionlogID
             // 
@@ -213,12 +186,74 @@
             this.notes.Name = "notes";
             this.notes.ReadOnly = true;
             // 
+            // searchBTN
+            // 
+            this.searchBTN.BackColor = System.Drawing.Color.White;
+            this.searchBTN.BackgroundImage = global::Borrowing_System.Properties.Resources.search_icon;
+            this.searchBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.searchBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchBTN.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.searchBTN.FlatAppearance.BorderSize = 0;
+            this.searchBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.searchBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.searchBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchBTN.ForeColor = System.Drawing.Color.White;
+            this.searchBTN.Location = new System.Drawing.Point(1124, 38);
+            this.searchBTN.Name = "searchBTN";
+            this.searchBTN.Size = new System.Drawing.Size(33, 36);
+            this.searchBTN.TabIndex = 33;
+            this.searchBTN.UseVisualStyleBackColor = false;
+            this.searchBTN.Click += new System.EventHandler(this.searchBTN_Click);
+            // 
+            // searchData
+            // 
+            this.searchData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchData.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchData.Location = new System.Drawing.Point(289, 43);
+            this.searchData.Name = "searchData";
+            this.searchData.Size = new System.Drawing.Size(829, 26);
+            this.searchData.TabIndex = 32;
+            this.searchData.TextChanged += new System.EventHandler(this.searchData_TextChanged);
+            this.searchData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchData_KeyDown);
+            // 
+            // clearDashBtn
+            // 
+            this.clearDashBtn.BackColor = System.Drawing.Color.White;
+            this.clearDashBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearDashBtn.FlatAppearance.BorderSize = 0;
+            this.clearDashBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearDashBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearDashBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearDashBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearDashBtn.ForeColor = System.Drawing.Color.Black;
+            this.clearDashBtn.Location = new System.Drawing.Point(348, 107);
+            this.clearDashBtn.Name = "clearDashBtn";
+            this.clearDashBtn.Size = new System.Drawing.Size(107, 36);
+            this.clearDashBtn.TabIndex = 40;
+            this.clearDashBtn.Text = "Clear Selection";
+            this.clearDashBtn.UseVisualStyleBackColor = false;
+            this.clearDashBtn.Click += new System.EventHandler(this.clearDashBtn_Click);
+            // 
+            // staffCmbx
+            // 
+            this.staffCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.staffCmbx.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffCmbx.FormattingEnabled = true;
+            this.staffCmbx.Location = new System.Drawing.Point(21, 107);
+            this.staffCmbx.Name = "staffCmbx";
+            this.staffCmbx.Size = new System.Drawing.Size(323, 36);
+            this.staffCmbx.TabIndex = 39;
+            this.staffCmbx.DropDown += new System.EventHandler(this.staffCmbx_DropDown);
+            this.staffCmbx.SelectedIndexChanged += new System.EventHandler(this.staffCmbx_SelectedIndexChanged);
+            // 
             // TransactionLogsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.Transaction_Logs_Page;
             this.ClientSize = new System.Drawing.Size(1532, 650);
+            this.Controls.Add(this.clearDashBtn);
+            this.Controls.Add(this.staffCmbx);
             this.Controls.Add(this.searchBTN);
             this.Controls.Add(this.searchData);
             this.Controls.Add(this.logsTable);
@@ -246,5 +281,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn returndate;
         private System.Windows.Forms.DataGridViewTextBoxColumn returntime;
         private System.Windows.Forms.DataGridViewTextBoxColumn notes;
+        private System.Windows.Forms.Button clearDashBtn;
+        private System.Windows.Forms.ComboBox staffCmbx;
     }
 }

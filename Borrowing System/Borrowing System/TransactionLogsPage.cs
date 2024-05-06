@@ -22,6 +22,17 @@ namespace Borrowing_System
         private void TransactionLogsPage_Load(object sender, EventArgs e)
         {
             refreshData();
+            if(LoginPage.Position == "Admin")
+            {
+                staffCmbx.Visible = true;
+                clearDashBtn.Visible = true;
+                FillStaffComboBox();
+            }
+            else
+            {
+                staffCmbx.Visible = false;
+                clearDashBtn.Visible = false;
+            }
         }
 
         public void refreshData()
@@ -104,6 +115,28 @@ namespace Borrowing_System
             logsTable.DataSource = dt;
         }
 
+        private void FillStaffComboBox()
+        {
+            try
+            {
+                //Show all staff/admin in the combobox
+                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID FROM sql6690575.Accounts " +
+                                                                                "INNER JOIN Person ON Accounts.personID = Person.personID ", connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    string staffName = reader.GetString("personID");
+                    staffCmbx.Items.Add(staffName);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void searchLogData(string search)
         {
@@ -223,6 +256,49 @@ namespace Borrowing_System
             if (e.KeyCode == Keys.Enter)
             {
                 searchBTN.PerformClick();
+            }
+        }
+
+        private void clearDashBtn_Click(object sender, EventArgs e)
+        {
+            staffCmbx.SelectedIndex = -1;
+        }
+
+        private void staffCmbx_DropDown(object sender, EventArgs e)
+        {
+            //FIT THE DROPDOWN WIDTH TO THE WIDEST ITEM
+
+            int maxWidth = staffCmbx.Width;
+            Graphics g = staffCmbx.CreateGraphics();
+            Font font = staffCmbx.Font;
+
+            foreach (var item in staffCmbx.Items)
+            {
+                int itemWidth = (int)g.MeasureString(item.ToString(), font).Width;
+                if (itemWidth > maxWidth)
+                {
+                    maxWidth = itemWidth;
+                }
+            }
+
+            staffCmbx.DropDownWidth = maxWidth;
+        }
+
+        private void staffCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (staffCmbx.SelectedIndex == -1)
+            {
+                refreshData();
+                return;
+            }
+            else
+            {
+                //search data by staff
+                string staffName = staffCmbx.Text;
+                string[] name = staffName.Split(' ');
+                string firstName = name[0];
+
+                searchLogData($"{firstName}");
             }
         }
     }
