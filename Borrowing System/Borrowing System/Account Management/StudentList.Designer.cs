@@ -34,6 +34,8 @@
             this.studentIDTxtbx = new System.Windows.Forms.TextBox();
             this.courseTxtbx = new System.Windows.Forms.TextBox();
             this.yearlevelTxtbx = new System.Windows.Forms.TextBox();
+            this.cleanBTN = new System.Windows.Forms.Button();
+            this.uploadBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // firstnameTxtbx
@@ -93,11 +95,43 @@
             this.yearlevelTxtbx.Size = new System.Drawing.Size(157, 22);
             this.yearlevelTxtbx.TabIndex = 5;
             // 
+            // cleanBTN
+            // 
+            this.cleanBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.cleanBTN.FlatAppearance.BorderSize = 0;
+            this.cleanBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cleanBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
+            this.cleanBTN.ForeColor = System.Drawing.Color.Red;
+            this.cleanBTN.Location = new System.Drawing.Point(292, 321);
+            this.cleanBTN.Name = "cleanBTN";
+            this.cleanBTN.Size = new System.Drawing.Size(158, 44);
+            this.cleanBTN.TabIndex = 54;
+            this.cleanBTN.Text = "Clean CSV";
+            this.cleanBTN.UseVisualStyleBackColor = false;
+            this.cleanBTN.Click += new System.EventHandler(this.cleanBTN_Click);
+            // 
+            // uploadBTN
+            // 
+            this.uploadBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.uploadBTN.FlatAppearance.BorderSize = 0;
+            this.uploadBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.uploadBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
+            this.uploadBTN.ForeColor = System.Drawing.Color.Blue;
+            this.uploadBTN.Location = new System.Drawing.Point(34, 321);
+            this.uploadBTN.Name = "uploadBTN";
+            this.uploadBTN.Size = new System.Drawing.Size(158, 44);
+            this.uploadBTN.TabIndex = 53;
+            this.uploadBTN.Text = "Upload CSV";
+            this.uploadBTN.UseVisualStyleBackColor = false;
+            this.uploadBTN.Click += new System.EventHandler(this.uploadBTN_Click);
+            // 
             // StudentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources._2_4_;
+            this.Controls.Add(this.cleanBTN);
+            this.Controls.Add(this.uploadBTN);
             this.Controls.Add(this.yearlevelTxtbx);
             this.Controls.Add(this.courseTxtbx);
             this.Controls.Add(this.studentIDTxtbx);
@@ -119,5 +153,7 @@
         private System.Windows.Forms.TextBox studentIDTxtbx;
         private System.Windows.Forms.TextBox courseTxtbx;
         private System.Windows.Forms.TextBox yearlevelTxtbx;
+        private System.Windows.Forms.Button cleanBTN;
+        private System.Windows.Forms.Button uploadBTN;
     }
 }

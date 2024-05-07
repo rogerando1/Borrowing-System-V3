@@ -53,6 +53,12 @@
             this.accountmanagementPanel = new System.Windows.Forms.Panel();
             this.instructorlistTxtbx = new System.Windows.Forms.ComboBox();
             this.studentData = new System.Windows.Forms.DataGridView();
+            this.studentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentMiddleinitial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentLastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.program = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearlevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorData = new System.Windows.Forms.DataGridView();
             this.instructorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,12 +81,6 @@
             this.studentList1 = new Borrowing_System.Account_Management.StudentList();
             this.instructorList1 = new Borrowing_System.Account_Management.InstructorList();
             this.courseList1 = new Borrowing_System.Account_Management.CourseList();
-            this.studentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentMiddleinitial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentLastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.program = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearlevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).BeginInit();
             this.accountmanagementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentData)).BeginInit();
@@ -339,6 +339,53 @@
             this.studentData.Visible = false;
             this.studentData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentData_CellClick);
             this.studentData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentData_CellContentClick);
+            // 
+            // studentID
+            // 
+            this.studentID.DataPropertyName = "studentID";
+            this.studentID.HeaderText = "Student ID";
+            this.studentID.Name = "studentID";
+            this.studentID.ReadOnly = true;
+            // 
+            // studentFirstname
+            // 
+            this.studentFirstname.DataPropertyName = "studentFirstname";
+            this.studentFirstname.FillWeight = 119.3331F;
+            this.studentFirstname.HeaderText = "First Name";
+            this.studentFirstname.Name = "studentFirstname";
+            this.studentFirstname.ReadOnly = true;
+            // 
+            // studentMiddleinitial
+            // 
+            this.studentMiddleinitial.DataPropertyName = "studentMiddleinitial";
+            this.studentMiddleinitial.FillWeight = 82.404F;
+            this.studentMiddleinitial.HeaderText = "Middle Initial";
+            this.studentMiddleinitial.Name = "studentMiddleinitial";
+            this.studentMiddleinitial.ReadOnly = true;
+            // 
+            // studentLastname
+            // 
+            this.studentLastname.DataPropertyName = "studentLastname";
+            this.studentLastname.FillWeight = 119.3331F;
+            this.studentLastname.HeaderText = "Last Name";
+            this.studentLastname.Name = "studentLastname";
+            this.studentLastname.ReadOnly = true;
+            // 
+            // program
+            // 
+            this.program.DataPropertyName = "program";
+            this.program.FillWeight = 119.3331F;
+            this.program.HeaderText = "Program";
+            this.program.Name = "program";
+            this.program.ReadOnly = true;
+            // 
+            // yearlevel
+            // 
+            this.yearlevel.DataPropertyName = "yearlevel";
+            this.yearlevel.FillWeight = 64.63219F;
+            this.yearlevel.HeaderText = "Year Level";
+            this.yearlevel.Name = "yearlevel";
+            this.yearlevel.ReadOnly = true;
             // 
             // instructorData
             // 
@@ -659,53 +706,6 @@
             this.courseList1.Name = "courseList1";
             this.courseList1.Size = new System.Drawing.Size(484, 591);
             this.courseList1.TabIndex = 21;
-            // 
-            // studentID
-            // 
-            this.studentID.DataPropertyName = "studentID";
-            this.studentID.HeaderText = "Student ID";
-            this.studentID.Name = "studentID";
-            this.studentID.ReadOnly = true;
-            // 
-            // studentFirstname
-            // 
-            this.studentFirstname.DataPropertyName = "studentFirstname";
-            this.studentFirstname.FillWeight = 119.3331F;
-            this.studentFirstname.HeaderText = "First Name";
-            this.studentFirstname.Name = "studentFirstname";
-            this.studentFirstname.ReadOnly = true;
-            // 
-            // studentMiddleinitial
-            // 
-            this.studentMiddleinitial.DataPropertyName = "studentMiddleinitial";
-            this.studentMiddleinitial.FillWeight = 82.404F;
-            this.studentMiddleinitial.HeaderText = "Middle Initial";
-            this.studentMiddleinitial.Name = "studentMiddleinitial";
-            this.studentMiddleinitial.ReadOnly = true;
-            // 
-            // studentLastname
-            // 
-            this.studentLastname.DataPropertyName = "studentLastname";
-            this.studentLastname.FillWeight = 119.3331F;
-            this.studentLastname.HeaderText = "Last Name";
-            this.studentLastname.Name = "studentLastname";
-            this.studentLastname.ReadOnly = true;
-            // 
-            // program
-            // 
-            this.program.DataPropertyName = "program";
-            this.program.FillWeight = 119.3331F;
-            this.program.HeaderText = "Program";
-            this.program.Name = "program";
-            this.program.ReadOnly = true;
-            // 
-            // yearlevel
-            // 
-            this.yearlevel.DataPropertyName = "yearlevel";
-            this.yearlevel.FillWeight = 64.63219F;
-            this.yearlevel.HeaderText = "Year Level";
-            this.yearlevel.Name = "yearlevel";
-            this.yearlevel.ReadOnly = true;
             // 
             // AccountManagementPage
             // 
