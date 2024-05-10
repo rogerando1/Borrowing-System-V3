@@ -62,7 +62,7 @@ namespace Borrowing_System
                         connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                         connection.Open();
 
-                        MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID, program, yearlevel FROM sql6690575.Student " +
+                        MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID, program, yearlevel FROM Student " +
                                                             "INNER JOIN Person ON Student.personID = Person.personID " +
                                                             "WHERE studentId = @studentID", connection);
                         cmd.Parameters.AddWithValue("@studentID", studentIDTxtbx.Text);
@@ -114,7 +114,7 @@ namespace Borrowing_System
             {
                 MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 connection.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID FROM sql6690575.Instructor " +
+                MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID FROM Instructor " +
                                                              "INNER JOIN Person ON Instructor.personID = Person.personID ", connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -158,7 +158,7 @@ namespace Borrowing_System
                 //Show all staff/admin in the combobox
                 MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 connection.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID FROM sql6690575.Accounts " +
+                MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID FROM Accounts " +
                                                                                 "INNER JOIN Person ON Accounts.personID = Person.personID ", connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while(reader.Read())
