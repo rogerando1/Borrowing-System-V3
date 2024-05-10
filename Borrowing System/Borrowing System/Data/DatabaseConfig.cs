@@ -11,7 +11,7 @@ namespace Borrowing_System.Data
     {
         public static string ServerName = "localhost";
         public static string UserId = "root";
-        public static string Password = "Admin1234-";
+        public static string Password = "root";
         public static string DatabaseName = "borrowingsystem";
     }
 }
