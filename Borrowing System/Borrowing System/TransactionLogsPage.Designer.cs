@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.logsTable = new System.Windows.Forms.DataGridView();
             this.transactionlogID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +50,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
+            this.excelExportBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logsTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,14 +66,14 @@
             this.logsTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.logsTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.logsTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.logsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.logsTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.logsTable.ColumnHeadersHeight = 50;
             this.logsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.logsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -86,28 +87,28 @@
             this.returndate,
             this.returntime,
             this.notes});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.logsTable.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.logsTable.DefaultCellStyle = dataGridViewCellStyle2;
             this.logsTable.EnableHeadersVisualStyles = false;
             this.logsTable.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.logsTable.Location = new System.Drawing.Point(17, 147);
             this.logsTable.Name = "logsTable";
             this.logsTable.ReadOnly = true;
             this.logsTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.logsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.logsTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.logsTable.RowHeadersVisible = false;
             this.logsTable.RowHeadersWidth = 50;
             this.logsTable.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(140)))), ((int)(((byte)(217)))));
@@ -303,12 +304,32 @@
             this.dateSearch1.TabIndex = 43;
             this.dateSearch1.ValueChanged += new System.EventHandler(this.dateSearch1_ValueChanged);
             // 
+            // excelExportBTN
+            // 
+            this.excelExportBTN.BackColor = System.Drawing.Color.White;
+            this.excelExportBTN.BackgroundImage = global::Borrowing_System.Properties.Resources.Excel_icon;
+            this.excelExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.excelExportBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.excelExportBTN.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.excelExportBTN.FlatAppearance.BorderSize = 0;
+            this.excelExportBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.excelExportBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.excelExportBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.excelExportBTN.ForeColor = System.Drawing.Color.White;
+            this.excelExportBTN.Location = new System.Drawing.Point(1445, 107);
+            this.excelExportBTN.Name = "excelExportBTN";
+            this.excelExportBTN.Size = new System.Drawing.Size(33, 36);
+            this.excelExportBTN.TabIndex = 47;
+            this.excelExportBTN.UseVisualStyleBackColor = false;
+            this.excelExportBTN.Click += new System.EventHandler(this.excelExportBTN_Click);
+            // 
             // TransactionLogsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.Transaction_Logs_Page;
             this.ClientSize = new System.Drawing.Size(1532, 650);
+            this.Controls.Add(this.excelExportBTN);
             this.Controls.Add(this.dateSearch2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -349,5 +370,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateSearch1;
+        private System.Windows.Forms.Button excelExportBTN;
     }
 }

@@ -9,6 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OfficeOpenXml;
+using System.IO;
+using OfficeOpenXml.Style;
+using System.Windows.Media;
+using OfficeOpenXml.Table;
 
 namespace Borrowing_System
 {
@@ -307,6 +312,91 @@ namespace Borrowing_System
         private void dateSearch2_ValueChanged(object sender, EventArgs e)
         {
             UpdateDate();
+        }
+
+        private void excelExportBTN_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog save = new SaveFileDialog()
+            {
+                Filter = "Excel Workbook|*.xlsx"
+            })
+            {
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial; // or OfficeOpenXml.LicenseContext.Commercial
+                        using (ExcelPackage package = new ExcelPackage())
+                        {
+                            ExcelWorksheet ws = package.Workbook.Worksheets.Add("Transaction Logs Page");
+
+                            DataTable dt = this.logsTable.DataSource as DataTable;
+
+                            // Format date and time columns
+                            int columnIndex = 1;
+                            foreach (DataColumn col in dt.Columns)
+                            {
+                                if (col.ColumnName == "returndate" && col.DataType == typeof(DateTime))
+                                {
+                                    // Format for date only
+                                    ws.Column(columnIndex).Style.Numberformat.Format = "yyyy-MM-dd";
+                                }
+                                else if (col.ColumnName == "returntime" && col.DataType == typeof(TimeSpan))
+                                {
+                                    // Convert TimeSpan to Excel time and format it
+                                    for (int rowIndex = 0; rowIndex < dt.Rows.Count; rowIndex++)
+                                    {
+                                        TimeSpan timeSpan = (TimeSpan)dt.Rows[rowIndex][col.ColumnName];
+                                        double excelTime = timeSpan.TotalDays; // Convert TimeSpan to Excel time
+                                        ws.Cells[rowIndex + 3, columnIndex].Value = excelTime; // +3 because Excel is 1-indexed and we have a header row
+                                    }
+                                    ws.Column(columnIndex).Style.Numberformat.Format = "hh:mm:ss AM/PM";
+                                }
+                                columnIndex++;
+                            }
+
+                            // Load data into worksheet
+                            ws.Cells["A2"].LoadFromDataTable(dt, true);
+
+                            // Merge and format the title row
+                            ws.Cells["A1:J1"].Merge = true;
+                            ws.Cells["A1"].Value = $"Returned Equipment";
+                            ws.Cells["A1"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                            ws.Cells["A1"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.Cyan);
+                            ws.Cells["A1"].Style.Font.Color.SetColor(System.Drawing.Color.DarkBlue);
+                            ws.Cells["A1"].Style.Font.Bold = true;
+                            ws.Cells["A1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                            // Center align header row
+                            ws.Row(2).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                            // Adjust column widths
+                            ws.Cells[ws.Dimension.Address].AutoFitColumns();
+
+                            using (var range = ws.Cells[2, 1, dt.Rows.Count + 2, dt.Columns.Count])
+                            {
+                                var table = ws.Tables.Add(range, "TransactionLogsTable");
+                                table.ShowHeader = true;
+                                table.TableStyle = TableStyles.Medium9;
+                            }
+
+                            var fi = new FileInfo(save.FileName);
+                            package.SaveAs(fi);
+                        }
+
+                        MessageBox.Show("You have successfully exported the database table", "NOTICE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        //Open the file after exporting
+                        System.Diagnostics.Process.Start(save.FileName);
+                    }
+                }
+            }
         }
     }
 }
