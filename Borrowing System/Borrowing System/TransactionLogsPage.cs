@@ -21,93 +21,130 @@ namespace Borrowing_System
 
         private void TransactionLogsPage_Load(object sender, EventArgs e)
         {
+            DefaultDate();
             refreshData();
-            if(LoginPage.Position == "Admin")
+            FillStaffComboBox();
+        }
+
+        private void DefaultDate()
+        {
+            dateSearch1.Value = DateTime.Now;
+            dateSearch2.Value = DateTime.Now;
+
+            dateSearch1.CustomFormat = "MM/dd/yyyy";
+            dateSearch1.Format = DateTimePickerFormat.Custom;
+            dateSearch2.CustomFormat = "MM/dd/yyyy";
+            dateSearch2.Format = DateTimePickerFormat.Custom;
+
+        }
+
+        private void UpdateDate()
+        {
+            try
             {
-                staffCmbx.Visible = true;
-                clearDashBtn.Visible = true;
-                FillStaffComboBox();
+                string date1 = dateSearch1.Value.ToString("yyyy-MM-dd");
+                string date2 = dateSearch2.Value.ToString("yyyy-MM-dd");
+                string connStr = $"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}";
+
+                using (MySqlConnection conn = new MySqlConnection(connStr))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(@"
+                        SELECT 
+                            TransactionLogs.transactionlogID,
+                            CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
+                            CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
+                            CONCAT(IFNULL(ReceiverPerson.firstname, ''), ' ', IFNULL(ReceiverPerson.middleinitial, ''), ' ', IFNULL(ReceiverPerson.lastname, '')) AS receiverName,
+                            CONCAT(IFNULL(ReleaserPerson.firstname, ''), ' ', IFNULL(ReleaserPerson.middleinitial, ''), ' ', IFNULL(ReleaserPerson.lastname, '')) AS releaserName,
+                            Part.partname,
+                            Transactions.quantity, 
+                            TransactionLogs.returndate,
+                            TransactionLogs.returntime, 
+                            TransactionLogs.notes
+                        FROM 
+                            TransactionLogs
+                        INNER JOIN 
+                            Transactions ON TransactionLogs.transactionID = Transactions.transactionID
+                        INNER JOIN 
+                            Student ON Transactions.studentID = Student.studentID
+                        INNER JOIN
+                            Instructor ON Transactions.instructorID = Instructor.instructorID
+                        INNER JOIN
+                            Accounts AS ReceiverAccount ON TransactionLogs.receiverID = ReceiverAccount.accountID
+                        INNER JOIN 
+                            Accounts AS ReleaserAccount ON TransactionLogs.releaserID = ReleaserAccount.accountID
+                        INNER JOIN 
+                            Person AS StudentPerson ON Student.personID = StudentPerson.personID
+                        INNER JOIN 
+                            Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
+                        INNER JOIN 
+                            Person AS ReceiverPerson ON ReceiverAccount.personID = ReceiverPerson.personID
+                        INNER JOIN 
+                            Person AS ReleaserPerson ON ReleaserAccount.personID = ReleaserPerson.personID
+                        INNER JOIN
+                            Part ON Transactions.partID = Part.partID
+                        WHERE 
+                            Transactions.status_ IS NOT NULL AND 
+                            TransactionLogs.returndate BETWEEN @date1 AND @date2", conn))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@date1", date1);
+                        cmd.Parameters.AddWithValue("@date2", date2);
+
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        logsTable.DataSource = dt;
+                    }
+
+                    conn.Close();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                staffCmbx.Visible = false;
-                clearDashBtn.Visible = false;
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
 
         public void refreshData()
         {
             MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-
-            MySqlCommand cmd;
-
-            if (LoginPage.Position == "Admin")
-            {
-                cmd = new MySqlCommand(@"
-                    SELECT 
-                        TransactionLogs.transactionlogID,
-                        CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
-                        CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
-                        CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,                    
-                        Part.partname,
-                        Transactions.quantity, 
-                        TransactionLogs.returndate,
-                        TransactionLogs.returntime, 
-                        TransactionLogs.notes
-                    FROM 
-                        TransactionLogs
-                    INNER JOIN 
-                        Transactions ON TransactionLogs.transactionID = Transactions.transactionID
-                    INNER JOIN 
-                        Student ON Transactions.studentID = Student.studentID
-                    INNER JOIN
-                        Instructor ON Transactions.instructorID = Instructor.instructorID
-                    INNER JOIN
-                        Accounts ON Transactions.accountID = Accounts.accountID
-                    INNER JOIN 
-                        Person AS StudentPerson ON Student.personID = StudentPerson.personID
-                    INNER JOIN 
-                        Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
-                    INNER JOIN 
-                        Person AS AccountsPerson ON Accounts.personID = AccountsPerson.personID
-                    INNER JOIN
-                        Part ON Transactions.partID = Part.partID
-                    WHERE Transactions.status_ IS NOT NULL", conn);
-            }
-            else
-            {
-                cmd = new MySqlCommand(@"
-                    SELECT 
-                        TransactionLogs.transactionlogID,
-                        CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
-                        CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
-                        CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,                    
-                        Part.partname,
-                        Transactions.quantity, 
-                        TransactionLogs.returndate,
-                        TransactionLogs.returntime, 
-                        TransactionLogs.notes
-                    FROM 
-                        TransactionLogs
-                    INNER JOIN 
-                        Transactions ON TransactionLogs.transactionID = Transactions.transactionID
-                    INNER JOIN 
-                        Student ON Transactions.studentID = Student.studentID
-                    INNER JOIN
-                        Instructor ON Transactions.instructorID = Instructor.instructorID
-                    INNER JOIN
-                        Accounts ON Transactions.accountID = Accounts.accountID
-                    INNER JOIN 
-                        Person AS StudentPerson ON Student.personID = StudentPerson.personID
-                    INNER JOIN 
-                        Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
-                    INNER JOIN 
-                        Person AS AccountsPerson ON Accounts.personID = AccountsPerson.personID
-                    INNER JOIN
-                        Part ON Transactions.partID = Part.partID
-                    WHERE Transactions.status_ IS NOT NULL AND Transactions.accountID = @accountID", conn);
-                cmd.Parameters.AddWithValue("@accountID", LoginPage.EmployeeID);
-            }
+            MySqlCommand cmd = new MySqlCommand(@"
+                SELECT 
+                    TransactionLogs.transactionlogID,
+                    CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
+                    CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
+                    CONCAT(IFNULL(ReceiverPerson.firstname, ''), ' ', IFNULL(ReceiverPerson.middleinitial, ''), ' ', IFNULL(ReceiverPerson.lastname, '')) AS receiverName,
+                    CONCAT(IFNULL(ReleaserPerson.firstname, ''), ' ', IFNULL(ReleaserPerson.middleinitial, ''), ' ', IFNULL(ReleaserPerson.lastname, '')) AS releaserName,
+                    Part.partname,
+                    Transactions.quantity, 
+                    TransactionLogs.returndate,
+                    TransactionLogs.returntime, 
+                    TransactionLogs.notes
+                FROM 
+                    TransactionLogs
+                INNER JOIN 
+                    Transactions ON TransactionLogs.transactionID = Transactions.transactionID
+                INNER JOIN 
+                    Student ON Transactions.studentID = Student.studentID
+                INNER JOIN
+                    Instructor ON Transactions.instructorID = Instructor.instructorID
+                INNER JOIN
+                    Accounts AS ReceiverAccount ON TransactionLogs.receiverID = ReceiverAccount.accountID
+                INNER JOIN 
+                    Accounts AS ReleaserAccount ON TransactionLogs.releaserID = ReleaserAccount.accountID
+                INNER JOIN 
+                    Person AS StudentPerson ON Student.personID = StudentPerson.personID
+                INNER JOIN 
+                    Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
+                INNER JOIN 
+                    Person AS ReceiverPerson ON ReceiverAccount.personID = ReceiverPerson.personID
+                INNER JOIN 
+                    Person AS ReleaserPerson ON ReleaserAccount.personID = ReleaserPerson.personID
+                INNER JOIN
+                    Part ON Transactions.partID = Part.partID
+                WHERE 
+                    Transactions.status_ IS NOT NULL", conn);
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -140,96 +177,54 @@ namespace Borrowing_System
 
         private void searchLogData(string search)
         {
-            MySqlCommand cmd;
-
-            if(LoginPage.Position == "Admin")
-            {
                 MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                cmd = new MySqlCommand(@"
-            SELECT 
-                        TransactionLogs.transactionlogID,
-                        CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
-                        CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
-                        CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,                    
-                        Part.partname,
-                        Transactions.quantity, 
-                        TransactionLogs.returndate,
-                        TransactionLogs.returntime, 
-                        TransactionLogs.notes
-                    FROM 
-                        TransactionLogs
-                    INNER JOIN 
-                        Transactions ON TransactionLogs.transactionID = Transactions.transactionID
-                    INNER JOIN 
-                        Student ON Transactions.studentID = Student.studentID
-                    INNER JOIN
-                        Instructor ON Transactions.instructorID = Instructor.instructorID
-                    INNER JOIN
-                        Accounts ON Transactions.accountID = Accounts.accountID
-                    INNER JOIN 
-                        Person AS StudentPerson ON Student.personID = StudentPerson.personID
-                    INNER JOIN 
-                        Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
-                    INNER JOIN 
-                        Person AS AccountsPerson ON Accounts.personID = AccountsPerson.personID
-                    INNER JOIN
-                        Part ON Transactions.partID = Part.partID
-                    WHERE Transactions.status_ IS NOT NULL AND 
-                        (CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) LIKE @search OR 
-                        CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) LIKE @search OR 
-                        CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) LIKE @search OR 
-                        Part.partname LIKE @search OR 
-                        TransactionLogs.returndate LIKE @search OR 
-                        TransactionLogs.returntime LIKE @search OR 
-                        TransactionLogs.notes LIKE @search)", conn);
+                MySqlCommand cmd = new MySqlCommand(@"
+                    SELECT 
+                                TransactionLogs.transactionlogID,
+                                CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
+                                CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
+                                CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,   
+                                CONCAT(IFNULL(ReceiverPerson.firstname, ''), ' ', IFNULL(ReceiverPerson.middleinitial, ''), ' ', IFNULL(ReceiverPerson.lastname, '')) AS receiverName,
+                                CONCAT(IFNULL(ReleaserPerson.firstname, ''), ' ', IFNULL(ReleaserPerson.middleinitial, ''), ' ', IFNULL(ReleaserPerson.lastname, '')) AS releaserName,
+                                Part.partname,
+                                Transactions.quantity, 
+                                TransactionLogs.returndate,
+                                TransactionLogs.returntime, 
+                                TransactionLogs.notes
+                            FROM 
+                                TransactionLogs
+                            INNER JOIN 
+                                Transactions ON TransactionLogs.transactionID = Transactions.transactionID
+                            INNER JOIN 
+                                Student ON Transactions.studentID = Student.studentID
+                            INNER JOIN
+                                Instructor ON Transactions.instructorID = Instructor.instructorID
+                            INNER JOIN
+                                Accounts ON Transactions.accountID = Accounts.accountID
+                            INNER JOIN 
+                                Person AS StudentPerson ON Student.personID = StudentPerson.personID
+                            INNER JOIN 
+                                Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
+                            INNER JOIN 
+                                Person AS AccountsPerson ON Accounts.personID = AccountsPerson.personID
+                            INNER JOIN
+                                Person AS ReceiverPerson ON Accounts.personID = ReceiverPerson.personID
+                            INNER JOIN
+                                Person AS ReleaserPerson ON Accounts.personID = ReleaserPerson.personID
+                            INNER JOIN
+                                Part ON Transactions.partID = Part.partID
+                            WHERE Transactions.status_ IS NOT NULL AND 
+                                (CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) LIKE @search OR 
+                                CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) LIKE @search OR 
+                                CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) LIKE @search OR 
+                                CONCAT(IFNULL(ReceiverPerson.firstname, ''), ' ', IFNULL(ReceiverPerson.middleinitial, ''), ' ', IFNULL(ReceiverPerson.lastname, '')) LIKE @search OR
+                                CONCAT(IFNULL(ReleaserPerson.firstname, ''), ' ', IFNULL(ReleaserPerson.middleinitial, ''), ' ', IFNULL(ReleaserPerson.lastname, '')) LIKE @search OR
+                                Part.partname LIKE @search OR 
+                                TransactionLogs.returndate LIKE @search OR 
+                                TransactionLogs.returntime LIKE @search OR 
+                                TransactionLogs.notes LIKE @search)", conn);
                 
                 cmd.Parameters.AddWithValue("@search", "%" + search + "%");
-            }
-            else
-            {
-                //Search Filter: Staff
-                MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                cmd = new MySqlCommand(@"
-                SELECT 
-                        TransactionLogs.transactionlogID,
-                        CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
-                        CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
-                        CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,                    
-                        Part.partname,
-                        Transactions.quantity, 
-                        TransactionLogs.returndate,
-                        TransactionLogs.returntime, 
-                        TransactionLogs.notes
-                    FROM 
-                        TransactionLogs
-                    INNER JOIN 
-                        Transactions ON TransactionLogs.transactionID = Transactions.transactionID
-                    INNER JOIN 
-                        Student ON Transactions.studentID = Student.studentID
-                    INNER JOIN
-                        Instructor ON Transactions.instructorID = Instructor.instructorID
-                    INNER JOIN
-                        Accounts ON Transactions.accountID = Accounts.accountID
-                    INNER JOIN 
-                        Person AS StudentPerson ON Student.personID = StudentPerson.personID
-                    INNER JOIN 
-                        Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
-                    INNER JOIN 
-                        Person AS AccountsPerson ON Accounts.personID = AccountsPerson.personID
-                    INNER JOIN
-                        Part ON Transactions.partID = Part.partID
-                    WHERE Transactions.status_ IS NOT NULL AND Transactions.accountID = @accountID AND 
-                        (CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) LIKE @search OR 
-                        CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) LIKE @search OR 
-                        CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) LIKE @search OR 
-                        Part.partname LIKE @search OR 
-                        TransactionLogs.returndate LIKE @search OR 
-                        TransactionLogs.returntime LIKE @search OR 
-                        TransactionLogs.notes LIKE @search)", conn);
-                cmd.Parameters.AddWithValue("@accountID", LoginPage.EmployeeID);
-                cmd.Parameters.AddWithValue("@search", "%" + search + "%");
-            }
-
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -262,6 +257,8 @@ namespace Borrowing_System
         private void clearDashBtn_Click(object sender, EventArgs e)
         {
             staffCmbx.SelectedIndex = -1;
+            DefaultDate();
+            refreshData();
         }
 
         private void staffCmbx_DropDown(object sender, EventArgs e)
@@ -300,6 +297,16 @@ namespace Borrowing_System
 
                 searchLogData($"{firstName}");
             }
+        }
+
+        private void dateSearch1_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateDate();
+        }
+
+        private void dateSearch2_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateDate();
         }
     }
 }

@@ -122,6 +122,12 @@
     <Compile Include="Account Management\InstructorList.Designer.cs">
       <DependentUpon>InstructorList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Account Management\ScheduleList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Account Management\ScheduleList.Designer.cs">
+      <DependentUpon>ScheduleList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Account Management\StudentList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Account Management\InstructorList.resx">
       <DependentUpon>InstructorList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account Management\ScheduleList.resx">
+      <DependentUpon>ScheduleList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Account Management\StudentList.resx">
       <DependentUpon>StudentList.cs</DependentUpon>
@@ -454,6 +463,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Excel-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

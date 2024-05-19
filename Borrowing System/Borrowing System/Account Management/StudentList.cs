@@ -90,44 +90,192 @@ namespace Borrowing_System.Account_Management
             }
         }
 
+        private void ClearTextBox()
+        {
+            firstnameTxtbx.Text = "";
+            middleinitialTxtbx.Text = "";
+            lastnameTxtbx.Text = "";
+            studentIDTxtbx.Text = "";
+            courseTxtbx.Text = "";
+            yearlevelTxtbx.Text = "";
+        }
+
         private void cleanBTN_Click(object sender, EventArgs e)
         {
-            // Delete all data from 'Student' table and also its relation to 'Person' table data
-            DialogResult dialogResult = MessageBox.Show("All data related to all student will be deleted. Are you sure you want to proceed cleaning all the data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialogResult == DialogResult.Yes)
-            {
-                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                connection.Open();
+            //// Delete all data from 'Student' table and also its relation to 'Person' table data
+            //DialogResult dialogResult = MessageBox.Show("All data related to all student will be deleted. Are you sure you want to proceed cleaning all the data?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            //if (dialogResult == DialogResult.Yes)
+            //{
+            //    MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+            //    connection.Open();
 
-                // Get the list of 'PersonID's from the 'Student' table
-                string query = "SELECT PersonID FROM Student";
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+            //    // Get the list of 'PersonID's from the 'Student' table
+            //    string query = "SELECT PersonID FROM Student";
+            //    MySqlCommand cmd = new MySqlCommand(query, connection);
+            //    MySqlDataReader reader = cmd.ExecuteReader();
+            //    List<string> personIDs = new List<string>();
+            //    while (reader.Read())
+            //    {
+            //        personIDs.Add(reader["PersonID"].ToString());
+            //    }
+            //    reader.Close();
+
+            //    // Delete all data from 'Student' table
+            //    query = "DELETE FROM Student";
+            //    cmd = new MySqlCommand(query, connection);
+            //    cmd.ExecuteNonQuery();
+
+            //    // Delete the 'Person' records that have a 'PersonID' in the stored list
+            //    foreach (string personID in personIDs)
+            //    {
+            //        query = $"DELETE FROM Person WHERE PersonID = {personID}";
+            //        cmd = new MySqlCommand(query, connection);
+            //        cmd.ExecuteNonQuery();
+            //    }
+
+            //    connection.Close();
+            //    MessageBox.Show("Data has been successfully cleaned", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    AccountManagementPage.instance.refreshData();
+            //}
+
+
+        }
+
+        private void createBTN_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(firstnameTxtbx.Text) || string.IsNullOrEmpty(lastnameTxtbx.Text) || string.IsNullOrEmpty(studentIDTxtbx.Text) || string.IsNullOrEmpty(courseTxtbx.Text) || string.IsNullOrEmpty(yearlevelTxtbx.Text))
+            {
+                MessageBox.Show("Please fill up all fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string studentID = studentIDTxtbx.Text;
+                string firstname = firstnameTxtbx.Text;
+                string middleinitial = middleinitialTxtbx.Text;
+                string lastname = lastnameTxtbx.Text;
+                string program = courseTxtbx.Text;
+                string yearlevel = yearlevelTxtbx.Text;
+                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                string query = $"SELECT * FROM Student WHERE studentID = '{studentID}'";
+                MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
                 MySqlDataReader reader = cmd.ExecuteReader();
-                List<string> personIDs = new List<string>();
-                while (reader.Read())
+                if (reader.HasRows)
                 {
-                    personIDs.Add(reader["PersonID"].ToString());
+                    reader.Close();
+                    MessageBox.Show("Student ID already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mySqlConnection.Close();
+                    return;
+                }
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to create this student?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
                 }
                 reader.Close();
-
-                // Delete all data from 'Student' table
-                query = "DELETE FROM Student";
-                cmd = new MySqlCommand(query, connection);
+                query = $"INSERT INTO Person (firstname, middleinitial, lastname) VALUES ('{firstname}', '{middleinitial}', '{lastname}')";
+                cmd = new MySqlCommand(query, mySqlConnection);
                 cmd.ExecuteNonQuery();
-
-                // Delete the 'Person' records that have a 'PersonID' in the stored list
-                foreach (string personID in personIDs)
-                {
-                    query = $"DELETE FROM Person WHERE PersonID = {personID}";
-                    cmd = new MySqlCommand(query, connection);
-                    cmd.ExecuteNonQuery();
-                }
-
-                connection.Close();
-                MessageBox.Show("Data has been successfully cleaned", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                query = $"INSERT INTO Student (studentID, program, yearlevel, personID) VALUES ('{studentID}', '{program}', '{yearlevel}', (SELECT personID FROM Person ORDER BY personID DESC LIMIT 1))";
+                cmd = new MySqlCommand(query, mySqlConnection);
+                cmd.ExecuteNonQuery();
+                mySqlConnection.Close();
+                MessageBox.Show("Student has been successfully created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 AccountManagementPage.instance.refreshData();
+                ClearTextBox();
             }
+          
+        }
 
+        private void clearBTN_Click(object sender, EventArgs e)
+        {
+           ClearTextBox();
+        }
+
+        private void updateBTN_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(firstnameTxtbx.Text) || string.IsNullOrEmpty(lastnameTxtbx.Text) || string.IsNullOrEmpty(studentIDTxtbx.Text) || string.IsNullOrEmpty(courseTxtbx.Text) || string.IsNullOrEmpty(yearlevelTxtbx.Text))
+            {
+                MessageBox.Show("Please fill up all fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string studentID = studentIDTxtbx.Text;
+                string firstname = firstnameTxtbx.Text;
+                string middleinitial = middleinitialTxtbx.Text;
+                string lastname = lastnameTxtbx.Text;
+                string program = courseTxtbx.Text;
+                string yearlevel = yearlevelTxtbx.Text;
+                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                string query = $"SELECT * FROM Student WHERE studentID = '{studentID}'";
+                MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (!reader.HasRows)
+                {
+                    reader.Close();
+                    MessageBox.Show("Student ID does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mySqlConnection.Close();
+                    return;
+                }
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to update this student?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+                reader.Close();
+                query = $"UPDATE Person SET firstname = '{firstname}', middleinitial = '{middleinitial}', lastname = '{lastname}' WHERE personID = (SELECT personID FROM Student WHERE studentID = '{studentID}')";
+                cmd = new MySqlCommand(query, mySqlConnection);
+                cmd.ExecuteNonQuery();
+                query = $"UPDATE Student SET program = '{program}', yearlevel = '{yearlevel}' WHERE studentID = '{studentID}'";
+                cmd = new MySqlCommand(query, mySqlConnection);
+                cmd.ExecuteNonQuery();
+                mySqlConnection.Close();
+                MessageBox.Show("Student has been successfully updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AccountManagementPage.instance.refreshData();
+                ClearTextBox();
+            }
+        }
+
+        private void deleteBTN_Click(object sender, EventArgs e)
+        {
+            //Delete student data from 'Student' table and also its relation to 'Person' table data
+            if (string.IsNullOrEmpty(firstnameTxtbx.Text) || string.IsNullOrEmpty(lastnameTxtbx.Text) || string.IsNullOrEmpty(studentIDTxtbx.Text) || string.IsNullOrEmpty(courseTxtbx.Text) || string.IsNullOrEmpty(yearlevelTxtbx.Text))
+            {
+                MessageBox.Show("Please fill up all fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string studentID = studentIDTxtbx.Text;
+                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                string query = $"SELECT * FROM Student WHERE studentID = '{studentID}'";
+                MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (!reader.HasRows)
+                {
+                    reader.Close();
+                    MessageBox.Show("Student ID does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mySqlConnection.Close();
+                    return;
+                }
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete this student?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+                reader.Close();
+                query = $"DELETE FROM Person WHERE personID = (SELECT personID FROM Student WHERE studentID = '{studentID}')";
+                cmd = new MySqlCommand(query, mySqlConnection);
+                cmd.ExecuteNonQuery();
+                query = $"DELETE FROM Student WHERE studentID = '{studentID}'";
+                cmd = new MySqlCommand(query, mySqlConnection);
+                cmd.ExecuteNonQuery();
+                mySqlConnection.Close();
+                MessageBox.Show("Student has been successfully deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AccountManagementPage.instance.refreshData();
+                ClearTextBox();
+            }
 
         }
     }
