@@ -33,7 +33,7 @@ namespace Borrowing_System
             connection.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT Product.productname, Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition " +
                 "FROM Part " +
-                "INNER JOIN Product ON Part.productID = Product.productname", connection);
+                "INNER JOIN Product ON Part.productID = Product.productID", connection);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
@@ -146,7 +146,7 @@ namespace Borrowing_System
                 connection.Open();
                 MySqlCommand cmd = new MySqlCommand("SELECT Product.productname, Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition " +
                  "FROM Part " +
-                 "INNER JOIN Product ON Part.productID = Product.productname", connection);
+                 "INNER JOIN Product ON Part.productID = Product.productID", connection);
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 adp.Fill(dt);
                 adminInventoryData.DataSource = dt;
@@ -470,6 +470,61 @@ namespace Borrowing_System
             if (e.KeyCode == Keys.Enter)
             {
                 searchBTN.PerformClick();
+            }
+        }
+
+        private void uploadBTN_Click(object sender, EventArgs e)
+        {
+            //Upload CSV for Inventory
+            try
+            {
+
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "CSV Files|*.csv";
+                openFileDialog.Title = "Select a CSV File";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+                    string[] lines = File.ReadAllLines(filePath);
+                    string[] fields;
+                    string query = "";
+                    MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                    connection.Open();
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    for (int i = 1; i < lines.Length; i++)
+                    {
+                        fields = lines[i].Split(',');
+                        string productID = fields[0];
+                        string partname = fields[1];
+                        string partdescription = fields[2];
+                        string quantity = fields[3];
+                        string condition = fields[4];
+
+                        //If a part already existed, show an error message
+                        query = $"SELECT * FROM Part WHERE productID = '{productID}' AND partname = '{partname}' AND partdescription = '{partdescription}' AND quantity = '{quantity}' AND `condition` = '{condition}'";
+                        cmd = new MySqlCommand(query, connection);
+                        MySqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            MessageBox.Show("Some parts already exists. Please check for duplicates.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            connection.Close();
+                            return;
+                        }
+                        reader.Close();
+
+                        // If productID does not exist, proceed with insertion
+                        query = $"INSERT INTO Part (productID, partname, partdescription, quantity, `condition`) VALUES ('{productID}', '{partname}', '{partdescription}', '{quantity}', '{condition}')";
+                        cmd = new MySqlCommand(query, connection);
+                        cmd.ExecuteNonQuery();
+                    }
+                    connection.Close();
+                    MessageBox.Show("Data has been successfully imported", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ReloadDataGridView();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please follow the correct excel/csv format: productID, partname, partdescription, quantity, and condition as columns respectively.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

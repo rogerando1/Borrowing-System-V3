@@ -28,68 +28,101 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.courseIDTxtbx = new System.Windows.Forms.TextBox();
-            this.coursenameTxtbx = new System.Windows.Forms.TextBox();
-            this.sectionTxtbx = new System.Windows.Forms.TextBox();
-            this.clearBtn = new System.Windows.Forms.Button();
+            this.instructorID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.firstname = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.middleinitial = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lastname = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.deleteBTN = new System.Windows.Forms.Button();
+            this.updateBTN = new System.Windows.Forms.Button();
+            this.clearBTN = new System.Windows.Forms.Button();
             this.createBTN = new System.Windows.Forms.Button();
-            this.instructornameTxtbx = new System.Windows.Forms.TextBox();
-            this.instructorIDTxtbx = new System.Windows.Forms.TextBox();
-            this.instructorTimer = new System.Windows.Forms.Timer(this.components);
-            this.courseTimer = new System.Windows.Forms.Timer(this.components);
-            this.coursenameTimer = new System.Windows.Forms.Timer(this.components);
-            this.starttimeTxtbx = new System.Windows.Forms.DateTimePicker();
-            this.endtimeTxtbx = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // courseIDTxtbx
+            // instructorID
             // 
-            this.courseIDTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.courseIDTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.courseIDTxtbx.Location = new System.Drawing.Point(43, 257);
-            this.courseIDTxtbx.Multiline = true;
-            this.courseIDTxtbx.Name = "courseIDTxtbx";
-            this.courseIDTxtbx.Size = new System.Drawing.Size(234, 28);
-            this.courseIDTxtbx.TabIndex = 25;
-            this.courseIDTxtbx.TextChanged += new System.EventHandler(this.courseIDTxtbx_TextChanged);
+            this.instructorID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.instructorID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructorID.Location = new System.Drawing.Point(26, 74);
+            this.instructorID.Multiline = true;
+            this.instructorID.Name = "instructorID";
+            this.instructorID.Size = new System.Drawing.Size(213, 25);
+            this.instructorID.TabIndex = 1;
             // 
-            // coursenameTxtbx
+            // label1
             // 
-            this.coursenameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.coursenameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.coursenameTxtbx.Location = new System.Drawing.Point(43, 342);
-            this.coursenameTxtbx.Multiline = true;
-            this.coursenameTxtbx.Name = "coursenameTxtbx";
-            this.coursenameTxtbx.Size = new System.Drawing.Size(393, 28);
-            this.coursenameTxtbx.TabIndex = 26;
-            this.coursenameTxtbx.TextChanged += new System.EventHandler(this.coursenameTxtbx_TextChanged);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(22, 39);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Instructor ID";
             // 
-            // sectionTxtbx
+            // firstname
             // 
-            this.sectionTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.sectionTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.sectionTxtbx.Location = new System.Drawing.Point(43, 426);
-            this.sectionTxtbx.Multiline = true;
-            this.sectionTxtbx.Name = "sectionTxtbx";
-            this.sectionTxtbx.Size = new System.Drawing.Size(100, 28);
-            this.sectionTxtbx.TabIndex = 27;
+            this.firstname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.firstname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstname.Location = new System.Drawing.Point(26, 162);
+            this.firstname.Multiline = true;
+            this.firstname.Name = "firstname";
+            this.firstname.Size = new System.Drawing.Size(213, 25);
+            this.firstname.TabIndex = 3;
             // 
-            // clearBtn
+            // label2
             // 
-            this.clearBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
-            this.clearBtn.FlatAppearance.BorderSize = 0;
-            this.clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearBtn.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearBtn.ForeColor = System.Drawing.Color.Black;
-            this.clearBtn.Location = new System.Drawing.Point(84, 487);
-            this.clearBtn.Name = "clearBtn";
-            this.clearBtn.Size = new System.Drawing.Size(96, 44);
-            this.clearBtn.TabIndex = 57;
-            this.clearBtn.Text = " Clear";
-            this.clearBtn.UseVisualStyleBackColor = false;
-            this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 21);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "First Name";
+            // 
+            // middleinitial
+            // 
+            this.middleinitial.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.middleinitial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleinitial.Location = new System.Drawing.Point(26, 257);
+            this.middleinitial.MaxLength = 1;
+            this.middleinitial.Multiline = true;
+            this.middleinitial.Name = "middleinitial";
+            this.middleinitial.Size = new System.Drawing.Size(213, 25);
+            this.middleinitial.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(22, 222);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 21);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Middle Initial";
+            // 
+            // lastname
+            // 
+            this.lastname.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lastname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastname.Location = new System.Drawing.Point(26, 357);
+            this.lastname.MaxLength = 1;
+            this.lastname.Multiline = true;
+            this.lastname.Name = "lastname";
+            this.lastname.Size = new System.Drawing.Size(213, 25);
+            this.lastname.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(22, 322);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 21);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Last Name";
             // 
             // deleteBTN
             // 
@@ -98,13 +131,43 @@
             this.deleteBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
             this.deleteBTN.ForeColor = System.Drawing.Color.Black;
-            this.deleteBTN.Location = new System.Drawing.Point(288, 487);
+            this.deleteBTN.Location = new System.Drawing.Point(349, 421);
             this.deleteBTN.Name = "deleteBTN";
-            this.deleteBTN.Size = new System.Drawing.Size(96, 44);
-            this.deleteBTN.TabIndex = 56;
+            this.deleteBTN.Size = new System.Drawing.Size(94, 44);
+            this.deleteBTN.TabIndex = 61;
             this.deleteBTN.Text = "Delete";
             this.deleteBTN.UseVisualStyleBackColor = false;
             this.deleteBTN.Click += new System.EventHandler(this.deleteBTN_Click);
+            // 
+            // updateBTN
+            // 
+            this.updateBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.updateBTN.FlatAppearance.BorderSize = 0;
+            this.updateBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.updateBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
+            this.updateBTN.ForeColor = System.Drawing.Color.Black;
+            this.updateBTN.Location = new System.Drawing.Point(183, 421);
+            this.updateBTN.Name = "updateBTN";
+            this.updateBTN.Size = new System.Drawing.Size(94, 44);
+            this.updateBTN.TabIndex = 60;
+            this.updateBTN.Text = "Update";
+            this.updateBTN.UseVisualStyleBackColor = false;
+            this.updateBTN.Click += new System.EventHandler(this.updateBTN_Click);
+            // 
+            // clearBTN
+            // 
+            this.clearBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.clearBTN.FlatAppearance.BorderSize = 0;
+            this.clearBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
+            this.clearBTN.ForeColor = System.Drawing.Color.Black;
+            this.clearBTN.Location = new System.Drawing.Point(183, 477);
+            this.clearBTN.Name = "clearBTN";
+            this.clearBTN.Size = new System.Drawing.Size(94, 44);
+            this.clearBTN.TabIndex = 59;
+            this.clearBTN.Text = "Clear";
+            this.clearBTN.UseVisualStyleBackColor = false;
+            this.clearBTN.Click += new System.EventHandler(this.clearBTN_Click);
             // 
             // createBTN
             // 
@@ -113,87 +176,31 @@
             this.createBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
             this.createBTN.ForeColor = System.Drawing.Color.Black;
-            this.createBTN.Location = new System.Drawing.Point(186, 487);
+            this.createBTN.Location = new System.Drawing.Point(28, 421);
             this.createBTN.Name = "createBTN";
-            this.createBTN.Size = new System.Drawing.Size(96, 44);
-            this.createBTN.TabIndex = 54;
+            this.createBTN.Size = new System.Drawing.Size(94, 44);
+            this.createBTN.TabIndex = 58;
             this.createBTN.Text = "Create";
             this.createBTN.UseVisualStyleBackColor = false;
             this.createBTN.Click += new System.EventHandler(this.createBTN_Click);
-            // 
-            // instructornameTxtbx
-            // 
-            this.instructornameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.instructornameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.instructornameTxtbx.Location = new System.Drawing.Point(48, 173);
-            this.instructornameTxtbx.Multiline = true;
-            this.instructornameTxtbx.Name = "instructornameTxtbx";
-            this.instructornameTxtbx.Size = new System.Drawing.Size(336, 28);
-            this.instructornameTxtbx.TabIndex = 60;
-            this.instructornameTxtbx.TextChanged += new System.EventHandler(this.instructornameTxtbx_TextChanged);
-            // 
-            // instructorIDTxtbx
-            // 
-            this.instructorIDTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.instructorIDTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.instructorIDTxtbx.Location = new System.Drawing.Point(46, 91);
-            this.instructorIDTxtbx.Multiline = true;
-            this.instructorIDTxtbx.Name = "instructorIDTxtbx";
-            this.instructorIDTxtbx.Size = new System.Drawing.Size(238, 28);
-            this.instructorIDTxtbx.TabIndex = 61;
-            this.instructorIDTxtbx.TextChanged += new System.EventHandler(this.instructorIDTxtbx_TextChanged);
-            // 
-            // instructorTimer
-            // 
-            this.instructorTimer.Interval = 500;
-            this.instructorTimer.Tick += new System.EventHandler(this.instructorTimer_Tick);
-            // 
-            // courseTimer
-            // 
-            this.courseTimer.Interval = 500;
-            this.courseTimer.Tick += new System.EventHandler(this.courseTimer_Tick);
-            // 
-            // coursenameTimer
-            // 
-            this.coursenameTimer.Interval = 500;
-            this.coursenameTimer.Tick += new System.EventHandler(this.coursenameTimer_Tick);
-            // 
-            // starttimeTxtbx
-            // 
-            this.starttimeTxtbx.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.starttimeTxtbx.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.starttimeTxtbx.Location = new System.Drawing.Point(173, 427);
-            this.starttimeTxtbx.Name = "starttimeTxtbx";
-            this.starttimeTxtbx.ShowUpDown = true;
-            this.starttimeTxtbx.Size = new System.Drawing.Size(113, 25);
-            this.starttimeTxtbx.TabIndex = 62;
-            this.starttimeTxtbx.ValueChanged += new System.EventHandler(this.starttimeTxtbx_ValueChanged);
-            // 
-            // endtimeTxtbx
-            // 
-            this.endtimeTxtbx.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endtimeTxtbx.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.endtimeTxtbx.Location = new System.Drawing.Point(323, 426);
-            this.endtimeTxtbx.Name = "endtimeTxtbx";
-            this.endtimeTxtbx.ShowUpDown = true;
-            this.endtimeTxtbx.Size = new System.Drawing.Size(113, 25);
-            this.endtimeTxtbx.TabIndex = 63;
             // 
             // InstructorList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources._111;
-            this.Controls.Add(this.endtimeTxtbx);
-            this.Controls.Add(this.starttimeTxtbx);
-            this.Controls.Add(this.instructorIDTxtbx);
-            this.Controls.Add(this.instructornameTxtbx);
-            this.Controls.Add(this.clearBtn);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
             this.Controls.Add(this.deleteBTN);
+            this.Controls.Add(this.updateBTN);
+            this.Controls.Add(this.clearBTN);
             this.Controls.Add(this.createBTN);
-            this.Controls.Add(this.sectionTxtbx);
-            this.Controls.Add(this.coursenameTxtbx);
-            this.Controls.Add(this.courseIDTxtbx);
+            this.Controls.Add(this.lastname);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.middleinitial);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.firstname);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.instructorID);
+            this.Controls.Add(this.label1);
             this.Name = "InstructorList";
             this.Size = new System.Drawing.Size(484, 580);
             this.Load += new System.EventHandler(this.InstructorList_Load);
@@ -203,18 +210,17 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox courseIDTxtbx;
-        private System.Windows.Forms.TextBox coursenameTxtbx;
-        private System.Windows.Forms.TextBox sectionTxtbx;
-        private System.Windows.Forms.Button clearBtn;
+        private System.Windows.Forms.TextBox instructorID;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox firstname;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox middleinitial;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox lastname;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button deleteBTN;
+        private System.Windows.Forms.Button updateBTN;
+        private System.Windows.Forms.Button clearBTN;
         private System.Windows.Forms.Button createBTN;
-        private System.Windows.Forms.TextBox instructornameTxtbx;
-        private System.Windows.Forms.TextBox instructorIDTxtbx;
-        private System.Windows.Forms.Timer instructorTimer;
-        private System.Windows.Forms.Timer courseTimer;
-        private System.Windows.Forms.Timer coursenameTimer;
-        private System.Windows.Forms.DateTimePicker starttimeTxtbx;
-        private System.Windows.Forms.DateTimePicker endtimeTxtbx;
     }
 }

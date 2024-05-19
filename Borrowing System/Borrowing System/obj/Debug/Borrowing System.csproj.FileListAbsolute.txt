@@ -86,7 +86,6 @@ C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Trainin
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.csproj.AssemblyReference.cache
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.CourseList.resources
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.EmployeeList.resources
-C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.InstructorList.resources
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.StudentList.resources
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.AccountManagementPage.resources
 C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.AdminPage.resources
@@ -237,3 +236,12 @@ C:\Users\Ryan\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\
 C:\Users\Ryan\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowin.3FCC196B.Up2Date
 C:\Users\Ryan\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.exe
 C:\Users\Ryan\Desktop\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing System.pdb
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.ScheduleList.resources
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\obj\Debug\Borrowing_System.Account_Management.InstructorList.resources
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\EPPlus.dll
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\EPPlus.Interfaces.dll
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\EPPlus.System.Drawing.dll
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\EPPlus.xml
+C:\Users\Gerald\Desktop\Personal Files\2nd Sem Files\CPE460 - On the Job Training\Borrowing-System-V3\Borrowing System\Borrowing System\bin\Debug\Microsoft.IO.RecyclableMemoryStream.xml

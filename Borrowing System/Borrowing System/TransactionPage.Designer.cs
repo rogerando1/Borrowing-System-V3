@@ -258,7 +258,7 @@
             this.addCartBTN.Name = "addCartBTN";
             this.addCartBTN.Size = new System.Drawing.Size(142, 45);
             this.addCartBTN.TabIndex = 34;
-            this.addCartBTN.Text = "Add to Cart";
+            this.addCartBTN.Text = "Add to Order";
             this.addCartBTN.UseVisualStyleBackColor = false;
             this.addCartBTN.Click += new System.EventHandler(this.addCartBTN_Click);
             // 

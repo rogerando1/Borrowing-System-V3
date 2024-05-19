@@ -40,6 +40,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.searchData = new System.Windows.Forms.TextBox();
             this.employeeData = new System.Windows.Forms.DataGridView();
             this.personID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +55,10 @@
             this.searchBTN = new System.Windows.Forms.Button();
             this.accountmanagementPanel = new System.Windows.Forms.Panel();
             this.instructorlistTxtbx = new System.Windows.Forms.ComboBox();
+            this.employeeList1 = new Borrowing_System.Account_Management.EmployeeList();
+            this.studentList1 = new Borrowing_System.Account_Management.StudentList();
+            this.scheduleList1 = new Borrowing_System.Account_Management.ScheduleList();
+            this.courseList1 = new Borrowing_System.Account_Management.CourseList();
             this.studentData = new System.Windows.Forms.DataGridView();
             this.studentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +66,7 @@
             this.studentLastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.program = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearlevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorData = new System.Windows.Forms.DataGridView();
+            this.scheduleData = new System.Windows.Forms.DataGridView();
             this.instructorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,19 +80,23 @@
             this.courseData = new System.Windows.Forms.DataGridView();
             this.courseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorList1 = new Borrowing_System.Account_Management.InstructorList();
             this.employeeBTN = new System.Windows.Forms.Button();
             this.studentBTN = new System.Windows.Forms.Button();
-            this.instructorBTN = new System.Windows.Forms.Button();
+            this.scheduleBTN = new System.Windows.Forms.Button();
             this.courseBTN = new System.Windows.Forms.Button();
-            this.employeeList1 = new Borrowing_System.Account_Management.EmployeeList();
-            this.studentList1 = new Borrowing_System.Account_Management.StudentList();
-            this.instructorList1 = new Borrowing_System.Account_Management.InstructorList();
-            this.courseList1 = new Borrowing_System.Account_Management.CourseList();
+            this.instructorBTN = new System.Windows.Forms.Button();
+            this.instructorData = new System.Windows.Forms.DataGridView();
+            this.instructor_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ins_first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ins_middle_initial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ins_last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).BeginInit();
             this.accountmanagementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.instructorData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instructorData)).BeginInit();
             this.SuspendLayout();
             // 
             // searchData
@@ -249,12 +260,14 @@
             this.accountmanagementPanel.Controls.Add(this.searchBTN);
             this.accountmanagementPanel.Controls.Add(this.employeeList1);
             this.accountmanagementPanel.Controls.Add(this.studentList1);
-            this.accountmanagementPanel.Controls.Add(this.instructorList1);
+            this.accountmanagementPanel.Controls.Add(this.scheduleList1);
             this.accountmanagementPanel.Controls.Add(this.courseList1);
             this.accountmanagementPanel.Controls.Add(this.employeeData);
             this.accountmanagementPanel.Controls.Add(this.studentData);
-            this.accountmanagementPanel.Controls.Add(this.instructorData);
+            this.accountmanagementPanel.Controls.Add(this.scheduleData);
             this.accountmanagementPanel.Controls.Add(this.courseData);
+            this.accountmanagementPanel.Controls.Add(this.instructorList1);
+            this.accountmanagementPanel.Controls.Add(this.instructorData);
             this.accountmanagementPanel.Location = new System.Drawing.Point(0, 70);
             this.accountmanagementPanel.Name = "accountmanagementPanel";
             this.accountmanagementPanel.Size = new System.Drawing.Size(1533, 580);
@@ -273,6 +286,42 @@
             this.instructorlistTxtbx.TabIndex = 23;
             this.instructorlistTxtbx.Visible = false;
             this.instructorlistTxtbx.SelectedIndexChanged += new System.EventHandler(this.instructorlistTxtbx_SelectedIndexChanged);
+            // 
+            // employeeList1
+            // 
+            this.employeeList1.BackgroundImage = global::Borrowing_System.Properties.Resources._1_3_;
+            this.employeeList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.employeeList1.Location = new System.Drawing.Point(1053, -8);
+            this.employeeList1.Name = "employeeList1";
+            this.employeeList1.Size = new System.Drawing.Size(484, 588);
+            this.employeeList1.TabIndex = 0;
+            this.employeeList1.Load += new System.EventHandler(this.employeeList1_Load);
+            // 
+            // studentList1
+            // 
+            this.studentList1.BackgroundImage = global::Borrowing_System.Properties.Resources._2_4_;
+            this.studentList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.studentList1.Location = new System.Drawing.Point(1054, -8);
+            this.studentList1.Name = "studentList1";
+            this.studentList1.Size = new System.Drawing.Size(484, 588);
+            this.studentList1.TabIndex = 19;
+            // 
+            // scheduleList1
+            // 
+            this.scheduleList1.BackgroundImage = global::Borrowing_System.Properties.Resources._111;
+            this.scheduleList1.Location = new System.Drawing.Point(1053, -8);
+            this.scheduleList1.Name = "scheduleList1";
+            this.scheduleList1.Size = new System.Drawing.Size(484, 588);
+            this.scheduleList1.TabIndex = 20;
+            // 
+            // courseList1
+            // 
+            this.courseList1.BackgroundImage = global::Borrowing_System.Properties.Resources.First_Name;
+            this.courseList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.courseList1.Location = new System.Drawing.Point(1054, -11);
+            this.courseList1.Name = "courseList1";
+            this.courseList1.Size = new System.Drawing.Size(484, 591);
+            this.courseList1.TabIndex = 21;
             // 
             // studentData
             // 
@@ -387,18 +436,18 @@
             this.yearlevel.Name = "yearlevel";
             this.yearlevel.ReadOnly = true;
             // 
-            // instructorData
+            // scheduleData
             // 
-            this.instructorData.AllowUserToAddRows = false;
-            this.instructorData.AllowUserToDeleteRows = false;
-            this.instructorData.AllowUserToOrderColumns = true;
-            this.instructorData.AllowUserToResizeColumns = false;
-            this.instructorData.AllowUserToResizeRows = false;
-            this.instructorData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.instructorData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(104)))), ((int)(((byte)(147)))));
-            this.instructorData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.instructorData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.instructorData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.scheduleData.AllowUserToAddRows = false;
+            this.scheduleData.AllowUserToDeleteRows = false;
+            this.scheduleData.AllowUserToOrderColumns = true;
+            this.scheduleData.AllowUserToResizeColumns = false;
+            this.scheduleData.AllowUserToResizeRows = false;
+            this.scheduleData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.scheduleData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(104)))), ((int)(((byte)(147)))));
+            this.scheduleData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.scheduleData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.scheduleData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
@@ -406,10 +455,10 @@
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.instructorData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.instructorData.ColumnHeadersHeight = 45;
-            this.instructorData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.instructorData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.scheduleData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.scheduleData.ColumnHeadersHeight = 45;
+            this.scheduleData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.scheduleData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.instructorID,
             this.instructorname,
             this.instructorFirstname,
@@ -427,13 +476,13 @@
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.instructorData.DefaultCellStyle = dataGridViewCellStyle8;
-            this.instructorData.EnableHeadersVisualStyles = false;
-            this.instructorData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.instructorData.Location = new System.Drawing.Point(8, 66);
-            this.instructorData.Name = "instructorData";
-            this.instructorData.ReadOnly = true;
-            this.instructorData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.scheduleData.DefaultCellStyle = dataGridViewCellStyle8;
+            this.scheduleData.EnableHeadersVisualStyles = false;
+            this.scheduleData.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            this.scheduleData.Location = new System.Drawing.Point(8, 66);
+            this.scheduleData.Name = "scheduleData";
+            this.scheduleData.ReadOnly = true;
+            this.scheduleData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
@@ -441,20 +490,20 @@
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Red;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.instructorData.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.instructorData.RowHeadersVisible = false;
-            this.instructorData.RowHeadersWidth = 51;
-            this.instructorData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.instructorData.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(140)))), ((int)(((byte)(217)))));
-            this.instructorData.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructorData.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.instructorData.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            this.instructorData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.instructorData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.instructorData.Size = new System.Drawing.Size(1034, 411);
-            this.instructorData.TabIndex = 17;
-            this.instructorData.Visible = false;
-            this.instructorData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.instructorData_CellClick);
+            this.scheduleData.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.scheduleData.RowHeadersVisible = false;
+            this.scheduleData.RowHeadersWidth = 51;
+            this.scheduleData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.scheduleData.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(140)))), ((int)(((byte)(217)))));
+            this.scheduleData.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scheduleData.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.scheduleData.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            this.scheduleData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.scheduleData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.scheduleData.Size = new System.Drawing.Size(1034, 411);
+            this.scheduleData.TabIndex = 17;
+            this.scheduleData.Visible = false;
+            this.scheduleData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.instructorData_CellClick);
             // 
             // instructorID
             // 
@@ -611,6 +660,13 @@
             this.coursename.Name = "coursename";
             this.coursename.ReadOnly = true;
             // 
+            // instructorList1
+            // 
+            this.instructorList1.Location = new System.Drawing.Point(1053, -8);
+            this.instructorList1.Name = "instructorList1";
+            this.instructorList1.Size = new System.Drawing.Size(484, 580);
+            this.instructorList1.TabIndex = 24;
+            // 
             // employeeBTN
             // 
             this.employeeBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
@@ -618,7 +674,7 @@
             this.employeeBTN.FlatAppearance.BorderSize = 0;
             this.employeeBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.employeeBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.employeeBTN.Location = new System.Drawing.Point(90, 12);
+            this.employeeBTN.Location = new System.Drawing.Point(22, 12);
             this.employeeBTN.Name = "employeeBTN";
             this.employeeBTN.Size = new System.Drawing.Size(174, 44);
             this.employeeBTN.TabIndex = 43;
@@ -633,7 +689,7 @@
             this.studentBTN.FlatAppearance.BorderSize = 0;
             this.studentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.studentBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.studentBTN.Location = new System.Drawing.Point(298, 12);
+            this.studentBTN.Location = new System.Drawing.Point(219, 12);
             this.studentBTN.Name = "studentBTN";
             this.studentBTN.Size = new System.Drawing.Size(174, 44);
             this.studentBTN.TabIndex = 44;
@@ -641,20 +697,20 @@
             this.studentBTN.UseVisualStyleBackColor = false;
             this.studentBTN.Click += new System.EventHandler(this.studentBTN_Click);
             // 
-            // instructorBTN
+            // scheduleBTN
             // 
-            this.instructorBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
-            this.instructorBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.instructorBTN.FlatAppearance.BorderSize = 0;
-            this.instructorBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.instructorBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.instructorBTN.Location = new System.Drawing.Point(505, 12);
-            this.instructorBTN.Name = "instructorBTN";
-            this.instructorBTN.Size = new System.Drawing.Size(174, 44);
-            this.instructorBTN.TabIndex = 45;
-            this.instructorBTN.Text = "Instructor List";
-            this.instructorBTN.UseVisualStyleBackColor = false;
-            this.instructorBTN.Click += new System.EventHandler(this.instructorBTN_Click);
+            this.scheduleBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.scheduleBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.scheduleBTN.FlatAppearance.BorderSize = 0;
+            this.scheduleBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.scheduleBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.scheduleBTN.Location = new System.Drawing.Point(846, 12);
+            this.scheduleBTN.Name = "scheduleBTN";
+            this.scheduleBTN.Size = new System.Drawing.Size(174, 44);
+            this.scheduleBTN.TabIndex = 45;
+            this.scheduleBTN.Text = "Schedule List";
+            this.scheduleBTN.UseVisualStyleBackColor = false;
+            this.scheduleBTN.Click += new System.EventHandler(this.scheduleBTN_Click);
             // 
             // courseBTN
             // 
@@ -663,7 +719,7 @@
             this.courseBTN.FlatAppearance.BorderSize = 0;
             this.courseBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.courseBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.courseBTN.Location = new System.Drawing.Point(713, 12);
+            this.courseBTN.Location = new System.Drawing.Point(634, 12);
             this.courseBTN.Name = "courseBTN";
             this.courseBTN.Size = new System.Drawing.Size(174, 44);
             this.courseBTN.TabIndex = 46;
@@ -671,41 +727,114 @@
             this.courseBTN.UseVisualStyleBackColor = false;
             this.courseBTN.Click += new System.EventHandler(this.courseBTN_Click);
             // 
-            // employeeList1
+            // instructorBTN
             // 
-            this.employeeList1.BackgroundImage = global::Borrowing_System.Properties.Resources._1_3_;
-            this.employeeList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.employeeList1.Location = new System.Drawing.Point(1053, -8);
-            this.employeeList1.Name = "employeeList1";
-            this.employeeList1.Size = new System.Drawing.Size(484, 588);
-            this.employeeList1.TabIndex = 0;
-            this.employeeList1.Load += new System.EventHandler(this.employeeList1_Load);
+            this.instructorBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.instructorBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.instructorBTN.FlatAppearance.BorderSize = 0;
+            this.instructorBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.instructorBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.instructorBTN.Location = new System.Drawing.Point(420, 12);
+            this.instructorBTN.Name = "instructorBTN";
+            this.instructorBTN.Size = new System.Drawing.Size(174, 44);
+            this.instructorBTN.TabIndex = 47;
+            this.instructorBTN.Text = "Instructor List";
+            this.instructorBTN.UseVisualStyleBackColor = false;
+            this.instructorBTN.Click += new System.EventHandler(this.instructorBTN_Click);
             // 
-            // studentList1
+            // instructorData
             // 
-            this.studentList1.BackgroundImage = global::Borrowing_System.Properties.Resources._2_4_;
-            this.studentList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.studentList1.Location = new System.Drawing.Point(1054, -8);
-            this.studentList1.Name = "studentList1";
-            this.studentList1.Size = new System.Drawing.Size(484, 588);
-            this.studentList1.TabIndex = 19;
+            this.instructorData.AllowUserToAddRows = false;
+            this.instructorData.AllowUserToDeleteRows = false;
+            this.instructorData.AllowUserToOrderColumns = true;
+            this.instructorData.AllowUserToResizeColumns = false;
+            this.instructorData.AllowUserToResizeRows = false;
+            this.instructorData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.instructorData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(104)))), ((int)(((byte)(147)))));
+            this.instructorData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.instructorData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.instructorData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.instructorData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.instructorData.ColumnHeadersHeight = 45;
+            this.instructorData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.instructorData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.instructor_ID,
+            this.ins_first_name,
+            this.ins_middle_initial,
+            this.ins_last_name});
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.instructorData.DefaultCellStyle = dataGridViewCellStyle14;
+            this.instructorData.EnableHeadersVisualStyles = false;
+            this.instructorData.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            this.instructorData.Location = new System.Drawing.Point(8, 66);
+            this.instructorData.Name = "instructorData";
+            this.instructorData.ReadOnly = true;
+            this.instructorData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.instructorData.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.instructorData.RowHeadersVisible = false;
+            this.instructorData.RowHeadersWidth = 51;
+            this.instructorData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.instructorData.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(140)))), ((int)(((byte)(217)))));
+            this.instructorData.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructorData.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.instructorData.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            this.instructorData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.instructorData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.instructorData.Size = new System.Drawing.Size(1034, 503);
+            this.instructorData.TabIndex = 25;
+            this.instructorData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.instructorData_CellClick_1);
             // 
-            // instructorList1
+            // instructor_ID
             // 
-            this.instructorList1.BackgroundImage = global::Borrowing_System.Properties.Resources._111;
-            this.instructorList1.Location = new System.Drawing.Point(1053, -8);
-            this.instructorList1.Name = "instructorList1";
-            this.instructorList1.Size = new System.Drawing.Size(484, 588);
-            this.instructorList1.TabIndex = 20;
+            this.instructor_ID.DataPropertyName = "instructorID";
+            this.instructor_ID.FillWeight = 75.63123F;
+            this.instructor_ID.HeaderText = "Instructor ID";
+            this.instructor_ID.Name = "instructor_ID";
+            this.instructor_ID.ReadOnly = true;
             // 
-            // courseList1
+            // ins_first_name
             // 
-            this.courseList1.BackgroundImage = global::Borrowing_System.Properties.Resources.First_Name;
-            this.courseList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.courseList1.Location = new System.Drawing.Point(1054, -11);
-            this.courseList1.Name = "courseList1";
-            this.courseList1.Size = new System.Drawing.Size(484, 591);
-            this.courseList1.TabIndex = 21;
+            this.ins_first_name.DataPropertyName = "instructorFirstname";
+            this.ins_first_name.FillWeight = 118.0909F;
+            this.ins_first_name.HeaderText = "First Name";
+            this.ins_first_name.Name = "ins_first_name";
+            this.ins_first_name.ReadOnly = true;
+            // 
+            // ins_middle_initial
+            // 
+            this.ins_middle_initial.DataPropertyName = "instructorMiddleInitial";
+            this.ins_middle_initial.FillWeight = 88.04581F;
+            this.ins_middle_initial.HeaderText = "Middle Initial";
+            this.ins_middle_initial.Name = "ins_middle_initial";
+            this.ins_middle_initial.ReadOnly = true;
+            // 
+            // ins_last_name
+            // 
+            this.ins_last_name.DataPropertyName = "instructorLastname";
+            this.ins_last_name.FillWeight = 118.0909F;
+            this.ins_last_name.HeaderText = "Last Name";
+            this.ins_last_name.Name = "ins_last_name";
+            this.ins_last_name.ReadOnly = true;
             // 
             // AccountManagementPage
             // 
@@ -714,8 +843,9 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.accmangemtnt;
             this.ClientSize = new System.Drawing.Size(1532, 650);
-            this.Controls.Add(this.courseBTN);
             this.Controls.Add(this.instructorBTN);
+            this.Controls.Add(this.courseBTN);
+            this.Controls.Add(this.scheduleBTN);
             this.Controls.Add(this.studentBTN);
             this.Controls.Add(this.employeeBTN);
             this.Controls.Add(this.accountmanagementPanel);
@@ -727,8 +857,9 @@
             this.accountmanagementPanel.ResumeLayout(false);
             this.accountmanagementPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.instructorData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.instructorData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -741,7 +872,7 @@
         private System.Windows.Forms.Panel accountmanagementPanel;
         private System.Windows.Forms.Button employeeBTN;
         private System.Windows.Forms.Button studentBTN;
-        private System.Windows.Forms.Button instructorBTN;
+        private System.Windows.Forms.Button scheduleBTN;
         private System.Windows.Forms.DataGridViewTextBoxColumn personID;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstname;
         private System.Windows.Forms.DataGridViewTextBoxColumn middleinitial;
@@ -750,10 +881,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn password_;
         private System.Windows.Forms.DataGridViewTextBoxColumn position;
         private Account_Management.EmployeeList employeeList1;
-        private System.Windows.Forms.DataGridView instructorData;
+        private System.Windows.Forms.DataGridView scheduleData;
         private System.Windows.Forms.DataGridView studentData;
         private Account_Management.StudentList studentList1;
-        private Account_Management.InstructorList instructorList1;
+        private Account_Management.ScheduleList scheduleList1;
         private Account_Management.CourseList courseList1;
         private System.Windows.Forms.ComboBox instructorlistTxtbx;
         private System.Windows.Forms.DataGridView courseData;
@@ -776,5 +907,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn studentLastname;
         private System.Windows.Forms.DataGridViewTextBoxColumn program;
         private System.Windows.Forms.DataGridViewTextBoxColumn yearlevel;
+        private System.Windows.Forms.Button instructorBTN;
+        private Account_Management.InstructorList instructorList1;
+        private System.Windows.Forms.DataGridView instructorData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn instructor_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ins_first_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ins_middle_initial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ins_last_name;
     }
 }

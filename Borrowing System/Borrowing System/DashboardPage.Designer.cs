@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dashboardTable = new System.Windows.Forms.DataGridView();
             this.transactionID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,10 +42,16 @@
             this.orderdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ordertime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.account_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchBTN = new System.Windows.Forms.Button();
             this.searchTxtbx = new System.Windows.Forms.TextBox();
             this.staffCmbx = new System.Windows.Forms.ComboBox();
             this.clearDashBtn = new System.Windows.Forms.Button();
+            this.dateSearch1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dateSearch2 = new System.Windows.Forms.DateTimePicker();
+            this.excelExportBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dashboardTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,15 +67,15 @@
             this.dashboardTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dashboardTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dashboardTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dashboardTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dashboardTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dashboardTable.ColumnHeadersHeight = 50;
             this.dashboardTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dashboardTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -81,7 +87,8 @@
             this.quantity,
             this.orderdate,
             this.ordertime,
-            this.status_});
+            this.status_,
+            this.account_ID});
             this.dashboardTable.EnableHeadersVisualStyles = false;
             this.dashboardTable.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.dashboardTable.Location = new System.Drawing.Point(18, 145);
@@ -89,14 +96,14 @@
             this.dashboardTable.Name = "dashboardTable";
             this.dashboardTable.ReadOnly = true;
             this.dashboardTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dashboardTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dashboardTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dashboardTable.RowHeadersVisible = false;
             this.dashboardTable.RowHeadersWidth = 50;
             this.dashboardTable.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -144,7 +151,7 @@
             // accountName
             // 
             this.accountName.DataPropertyName = "accountName";
-            this.accountName.HeaderText = "Employee Name";
+            this.accountName.HeaderText = "Releaser Name";
             this.accountName.MinimumWidth = 6;
             this.accountName.Name = "accountName";
             this.accountName.ReadOnly = true;
@@ -167,9 +174,9 @@
             // orderdate
             // 
             this.orderdate.DataPropertyName = "orderdate";
-            dataGridViewCellStyle10.Format = "d";
-            dataGridViewCellStyle10.NullValue = null;
-            this.orderdate.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.orderdate.DefaultCellStyle = dataGridViewCellStyle2;
             this.orderdate.HeaderText = "Order Date";
             this.orderdate.MinimumWidth = 6;
             this.orderdate.Name = "orderdate";
@@ -178,9 +185,9 @@
             // ordertime
             // 
             this.ordertime.DataPropertyName = "ordertime";
-            dataGridViewCellStyle11.Format = "T";
-            dataGridViewCellStyle11.NullValue = null;
-            this.ordertime.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Format = "T";
+            dataGridViewCellStyle3.NullValue = null;
+            this.ordertime.DefaultCellStyle = dataGridViewCellStyle3;
             this.ordertime.HeaderText = "Order Time";
             this.ordertime.MinimumWidth = 6;
             this.ordertime.Name = "ordertime";
@@ -196,6 +203,14 @@
             this.status_.ReadOnly = true;
             this.status_.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.status_.Width = 89;
+            // 
+            // account_ID
+            // 
+            this.account_ID.DataPropertyName = "accountID";
+            this.account_ID.HeaderText = "Account ID";
+            this.account_ID.Name = "account_ID";
+            this.account_ID.ReadOnly = true;
+            this.account_ID.Visible = false;
             // 
             // searchBTN
             // 
@@ -250,7 +265,7 @@
             this.clearDashBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearDashBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearDashBtn.ForeColor = System.Drawing.Color.Black;
-            this.clearDashBtn.Location = new System.Drawing.Point(347, 106);
+            this.clearDashBtn.Location = new System.Drawing.Point(349, 106);
             this.clearDashBtn.Name = "clearDashBtn";
             this.clearDashBtn.Size = new System.Drawing.Size(107, 36);
             this.clearDashBtn.TabIndex = 38;
@@ -258,12 +273,80 @@
             this.clearDashBtn.UseVisualStyleBackColor = false;
             this.clearDashBtn.Click += new System.EventHandler(this.clearDashBtn_Click);
             // 
+            // dateSearch1
+            // 
+            this.dateSearch1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateSearch1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateSearch1.Location = new System.Drawing.Point(589, 110);
+            this.dateSearch1.Name = "dateSearch1";
+            this.dateSearch1.Size = new System.Drawing.Size(116, 29);
+            this.dateSearch1.TabIndex = 39;
+            this.dateSearch1.ValueChanged += new System.EventHandler(this.dateSearch1_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(471, 109);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(112, 30);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "From date:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(711, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 30);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "To date:";
+            // 
+            // dateSearch2
+            // 
+            this.dateSearch2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateSearch2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateSearch2.Location = new System.Drawing.Point(803, 110);
+            this.dateSearch2.Name = "dateSearch2";
+            this.dateSearch2.Size = new System.Drawing.Size(110, 29);
+            this.dateSearch2.TabIndex = 42;
+            this.dateSearch2.ValueChanged += new System.EventHandler(this.dateSearch2_ValueChanged);
+            // 
+            // excelExportBTN
+            // 
+            this.excelExportBTN.BackColor = System.Drawing.Color.White;
+            this.excelExportBTN.BackgroundImage = global::Borrowing_System.Properties.Resources.Excel_icon;
+            this.excelExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.excelExportBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.excelExportBTN.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.excelExportBTN.FlatAppearance.BorderSize = 0;
+            this.excelExportBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.excelExportBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.excelExportBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.excelExportBTN.ForeColor = System.Drawing.Color.White;
+            this.excelExportBTN.Location = new System.Drawing.Point(1442, 106);
+            this.excelExportBTN.Name = "excelExportBTN";
+            this.excelExportBTN.Size = new System.Drawing.Size(33, 36);
+            this.excelExportBTN.TabIndex = 43;
+            this.excelExportBTN.UseVisualStyleBackColor = false;
+            this.excelExportBTN.Click += new System.EventHandler(this.excelExportBTN_Click);
+            // 
             // DashboardPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.Dashboard_Page;
             this.ClientSize = new System.Drawing.Size(1532, 650);
+            this.Controls.Add(this.excelExportBTN);
+            this.Controls.Add(this.dateSearch2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dateSearch1);
             this.Controls.Add(this.clearDashBtn);
             this.Controls.Add(this.staffCmbx);
             this.Controls.Add(this.searchTxtbx);
@@ -284,6 +367,8 @@
         private System.Windows.Forms.DataGridView dashboardTable;
         private System.Windows.Forms.Button searchBTN;
         private System.Windows.Forms.TextBox searchTxtbx;
+        private System.Windows.Forms.ComboBox staffCmbx;
+        private System.Windows.Forms.Button clearDashBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn transactionID;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn instructorName;
@@ -293,7 +378,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn orderdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ordertime;
         private System.Windows.Forms.DataGridViewTextBoxColumn status_;
-        private System.Windows.Forms.ComboBox staffCmbx;
-        private System.Windows.Forms.Button clearDashBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn account_ID;
+        private System.Windows.Forms.DateTimePicker dateSearch1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dateSearch2;
+        private System.Windows.Forms.Button excelExportBTN;
     }
 }
