@@ -28,7 +28,8 @@ namespace Borrowing_System
         {
             DefaultDate();
             refreshData();
-            FillStaffComboBox();
+            populateStudent();
+            logsTable.Columns["studentName"].Visible = true;
         }
 
         private void DefaultDate()
@@ -40,6 +41,32 @@ namespace Borrowing_System
             dateSearch1.Format = DateTimePickerFormat.Custom;
             dateSearch2.CustomFormat = "MM/dd/yyyy";
             dateSearch2.Format = DateTimePickerFormat.Custom;
+
+        }
+
+        public void populateStudent()
+        {
+            using (MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
+            {
+                MySqlCommand cmd = new MySqlCommand(@"
+                SELECT DISTINCT
+                    CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName
+                FROM 
+                    TransactionLogs
+                INNER JOIN 
+                    Transactions ON TransactionLogs.transactionID= Transactions.transactionID
+                INNER JOIN
+                    Student ON Transactions.studentID = Student.studentID
+                INNER JOIN 
+                    Person AS StudentPerson ON Student.personID = StudentPerson.personID
+                WHERE TransactionLogs.notes IS NOT NULL", conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                studentView.DataSource = dt;
+                studentView.Refresh();
+            }
+
 
         }
 
@@ -157,28 +184,6 @@ namespace Borrowing_System
             logsTable.DataSource = dt;
         }
 
-        private void FillStaffComboBox()
-        {
-            try
-            {
-                //Show all staff/admin in the combobox
-                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                connection.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID FROM Accounts " +
-                                                                                "INNER JOIN Person ON Accounts.personID = Person.personID ", connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    string staffName = reader.GetString("personID");
-                    staffCmbx.Items.Add(staffName);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
 
 
@@ -256,6 +261,7 @@ namespace Borrowing_System
         {
             string search = searchData.Text;
             searchLogData(search);
+            logsTable.Columns["studentName"].Visible = true;
         }
 
         private void searchData_TextChanged(object sender, EventArgs e)
@@ -263,6 +269,7 @@ namespace Borrowing_System
             if(searchData.Text == "")
             {
                 refreshData();
+                logsTable.Columns["studentName"].Visible = true;
             }
         }
 
@@ -276,57 +283,23 @@ namespace Borrowing_System
 
         private void clearDashBtn_Click(object sender, EventArgs e)
         {
-            staffCmbx.SelectedIndex = -1;
             DefaultDate();
             refreshData();
+            logsTable.Columns["studentName"].Visible = true;
         }
 
-        private void staffCmbx_DropDown(object sender, EventArgs e)
-        {
-            //FIT THE DROPDOWN WIDTH TO THE WIDEST ITEM
 
-            int maxWidth = staffCmbx.Width;
-            Graphics g = staffCmbx.CreateGraphics();
-            Font font = staffCmbx.Font;
-
-            foreach (var item in staffCmbx.Items)
-            {
-                int itemWidth = (int)g.MeasureString(item.ToString(), font).Width;
-                if (itemWidth > maxWidth)
-                {
-                    maxWidth = itemWidth;
-                }
-            }
-
-            staffCmbx.DropDownWidth = maxWidth;
-        }
-
-        private void staffCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (staffCmbx.SelectedIndex == -1)
-            {
-                refreshData();
-                return;
-            }
-            else
-            {
-                //search data by staff
-                string staffName = staffCmbx.Text;
-                string[] name = staffName.Split(' ');
-                string firstName = name[0];
-
-                searchLogData($"{ firstName}");
-            }
-        }
 
         private void dateSearch1_ValueChanged(object sender, EventArgs e)
         {
             UpdateDate();
+            logsTable.Columns["studentName"].Visible = true;
         }
 
         private void dateSearch2_ValueChanged(object sender, EventArgs e)
         {
             UpdateDate();
+            logsTable.Columns["studentName"].Visible = true;
         }
 
         private void excelExportBTN_Click(object sender, EventArgs e)
@@ -418,6 +391,20 @@ namespace Borrowing_System
                         //Open the file after exporting
                         System.Diagnostics.Process.Start(save.FileName);
                     }
+                }
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                logsTable.Columns["studentName"].Visible = false;
+                string studentName = studentView.Rows[e.RowIndex].Cells["student_name"].Value.ToString();
+                searchLogData(studentName);
+                if (logsTable.Rows.Count == 0)
+                {
+                    searchLogData("");
                 }
             }
         }

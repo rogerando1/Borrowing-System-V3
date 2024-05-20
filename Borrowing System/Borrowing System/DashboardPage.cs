@@ -22,6 +22,7 @@ namespace Borrowing_System
         Image normalImage = Properties.Resources.return3;
         Image hoverImage = Properties.Resources.return2;
         private DataGridViewCell selectedCell = null;
+        string tempStore = null;
 
         public DashboardPage()
         {
@@ -32,33 +33,10 @@ namespace Borrowing_System
         {
             DefaultDate();
             refreshData();
-            FillStaffComboBox();
-            staffCmbx.Visible = true;
+            populateStudent();
             clearDashBtn.Visible = true;
+            dashboardTable.Columns["studentName"].Visible = true;
 
-        }
-
-        private void FillStaffComboBox()
-        {
-            try
-            {
-                //Show all staff/admin in the combobox
-                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                connection.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID FROM Accounts " +
-                                                                                "INNER JOIN Person ON Accounts.personID = Person.personID ", connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    string staffName = reader.GetString("personID");
-                    staffCmbx.Items.Add(staffName);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void DefaultDate()
@@ -70,6 +48,33 @@ namespace Borrowing_System
             dateSearch1.Format = DateTimePickerFormat.Custom;
             dateSearch2.CustomFormat = "MM/dd/yyyy";
             dateSearch2.Format = DateTimePickerFormat.Custom;
+
+        }
+
+        public void populateStudent()
+        {
+            using (MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
+            {
+                MySqlCommand cmd = new MySqlCommand(@"
+                SELECT DISTINCT
+                    CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName
+                FROM 
+                    Transactions 
+                INNER JOIN 
+                    Student ON Transactions.studentID = Student.studentID 
+                INNER JOIN 
+                    Person AS StudentPerson ON Student.personID = StudentPerson.personID
+                WHERE Transactions.status_ IS NULL", conn);
+
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                studentView.DataSource = dt;
+                studentView.Refresh();
+
+            }
+
 
         }
 
@@ -275,6 +280,9 @@ namespace Borrowing_System
                                     MessageBox.Show("Item has been returned successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     selectedCell = null;
                                     dashboardTable.Refresh();
+                                    searchData(tempStore);
+
+
                                 }
                                 catch (Exception ex)
                                 {
@@ -299,6 +307,8 @@ namespace Borrowing_System
         {
             string searchText = searchTxtbx.Text.Trim();
             searchData(searchText);
+            dashboardTable.Columns["studentName"].Visible = true;
+
         }
 
         public void searchData(string search)
@@ -354,6 +364,7 @@ namespace Borrowing_System
             if(searchTxtbx.Text == "")
             {
                 refreshData();
+                dashboardTable.Columns["studentName"].Visible = true;
             }
         }
 
@@ -367,58 +378,23 @@ namespace Borrowing_System
 
         private void clearDashBtn_Click(object sender, EventArgs e)
         {
-            staffCmbx.SelectedIndex = -1;
             DefaultDate();
             refreshData();
+            dashboardTable.Columns["studentName"].Visible = true;
 
         }
 
-        private void staffCmbx_DropDown(object sender, EventArgs e)
-        {
-            //FIT THE DROPDOWN WIDTH TO THE WIDEST ITEM
-
-            int maxWidth = staffCmbx.Width;
-            Graphics g = staffCmbx.CreateGraphics();
-            Font font = staffCmbx.Font;
-
-            foreach (var item in staffCmbx.Items)
-            {
-                int itemWidth = (int)g.MeasureString(item.ToString(), font).Width;
-                if (itemWidth > maxWidth)
-                {
-                    maxWidth = itemWidth;
-                }
-            }
-
-            staffCmbx.DropDownWidth = maxWidth;
-        }
-
-        private void staffCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(staffCmbx.SelectedIndex == -1)
-            {
-                refreshData();
-                return;
-            }
-            else
-            {
-                //search data by staff
-                string staffName = staffCmbx.Text;
-                string[] name = staffName.Split(' ');
-                string firstName = name[0];
-
-                searchData($"{firstName}");
-            }
-        }
 
         private void dateSearch2_ValueChanged(object sender, EventArgs e)
         {
-            UpdateDate();   
+            UpdateDate();
+            dashboardTable.Columns["studentName"].Visible = true;
         }
 
         private void dateSearch1_ValueChanged(object sender, EventArgs e)
         {
             UpdateDate();
+            dashboardTable.Columns["studentName"].Visible = true;
         }
 
         private void excelExportBTN_Click(object sender, EventArgs e)
@@ -520,6 +496,21 @@ namespace Borrowing_System
                             row["status_"] = null;
                         }
                     }
+                }
+            }
+        }
+
+        private void studentView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dashboardTable.Columns["studentName"].Visible = false;
+                string studentName = studentView.Rows[e.RowIndex].Cells["student_name"].Value.ToString();
+                tempStore = studentName;
+                searchData(studentName);
+                if(dashboardTable.Rows.Count == 0)
+                {
+                    searchData("");
                 }
             }
         }
