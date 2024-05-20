@@ -128,11 +128,11 @@
             this.deleteBTN.FlatAppearance.BorderSize = 0;
             this.deleteBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
-            this.deleteBTN.Location = new System.Drawing.Point(352, 438);
+            this.deleteBTN.Location = new System.Drawing.Point(340, 438);
             this.deleteBTN.Name = "deleteBTN";
-            this.deleteBTN.Size = new System.Drawing.Size(96, 44);
+            this.deleteBTN.Size = new System.Drawing.Size(107, 44);
             this.deleteBTN.TabIndex = 52;
-            this.deleteBTN.Text = "Delete";
+            this.deleteBTN.Text = "Remove";
             this.deleteBTN.UseVisualStyleBackColor = false;
             this.deleteBTN.Click += new System.EventHandler(this.deleteBTN_Click);
             // 
@@ -142,7 +142,7 @@
             this.updateBTN.FlatAppearance.BorderSize = 0;
             this.updateBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
-            this.updateBTN.Location = new System.Drawing.Point(250, 438);
+            this.updateBTN.Location = new System.Drawing.Point(240, 438);
             this.updateBTN.Name = "updateBTN";
             this.updateBTN.Size = new System.Drawing.Size(96, 44);
             this.updateBTN.TabIndex = 51;
@@ -156,11 +156,11 @@
             this.createBTN.FlatAppearance.BorderSize = 0;
             this.createBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
-            this.createBTN.Location = new System.Drawing.Point(148, 438);
+            this.createBTN.Location = new System.Drawing.Point(147, 438);
             this.createBTN.Name = "createBTN";
-            this.createBTN.Size = new System.Drawing.Size(96, 44);
+            this.createBTN.Size = new System.Drawing.Size(88, 44);
             this.createBTN.TabIndex = 50;
-            this.createBTN.Text = "Create";
+            this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
             this.createBTN.Click += new System.EventHandler(this.createBTN_Click);
             // 
@@ -191,6 +191,7 @@
             this.Controls.Add(this.updateBTN);
             this.Controls.Add(this.createBTN);
             this.Controls.Add(this.lnameTxtbx);
+            this.DoubleBuffered = true;
             this.Name = "EmployeeList";
             this.Size = new System.Drawing.Size(484, 580);
             this.Load += new System.EventHandler(this.EmployeeList_Load);

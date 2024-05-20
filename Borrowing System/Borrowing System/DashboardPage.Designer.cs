@@ -352,6 +352,7 @@
             this.Controls.Add(this.searchTxtbx);
             this.Controls.Add(this.searchBTN);
             this.Controls.Add(this.dashboardTable);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DashboardPage";
             this.Text = "DashboardPage";

@@ -363,21 +363,6 @@ namespace Borrowing_System
             }
         }
 
-        private void editBTN_Click_1(object sender, EventArgs e)
-        {
-            createBTN.Visible = true;
-            updateBTN.Visible = true;
-            deleteBTN.Visible = true;
-            doneBTN.Visible = true;
-            clearBtn.Visible = true;
-            editBTN.Visible = false;
-            partnameTxtbx.ReadOnly = false;
-            productnameTxtbx.Enabled = true;
-            partdescriptionTxtbx.ReadOnly = false;
-            quantityTxtbx.Enabled = true;
-            conditionTxtbx.Enabled = true;
-        }
-
         private void clearBtn_Click(object sender, EventArgs e)
         {
             productnameTxtbx.SelectedIndex = -1;
@@ -386,29 +371,7 @@ namespace Borrowing_System
             partdescriptionTxtbx.Text = "";
             quantityTxtbx.Value = 0;
             conditionTxtbx.SelectedIndex = -1;
-        }
-
-        private void doneBTN_Click(object sender, EventArgs e)
-        {
-            createBTN.Visible = false;
-            updateBTN.Visible = false;
-            deleteBTN.Visible = false;
-            doneBTN.Visible = false;
-            clearBtn.Visible = false;
-            editBTN.Visible = true;
-            partnameTxtbx.ReadOnly = true;
-            productnameTxtbx.Enabled = false;
-            partdescriptionTxtbx.ReadOnly = true;
-            quantityTxtbx.Enabled = false;
-            conditionTxtbx.Enabled = false;
-            productnameTxtbx.SelectedIndex = -1;
-            partIdTxtbx.Text = "";
-            partnameTxtbx.Text = "";
-            partdescriptionTxtbx.Text = "";
-            quantityTxtbx.Value = 0;
-            conditionTxtbx.SelectedIndex = -1;
-
-        }
+        }    
 
         private void adminInventoryData_CellClick(object sender, DataGridViewCellEventArgs e)
         {

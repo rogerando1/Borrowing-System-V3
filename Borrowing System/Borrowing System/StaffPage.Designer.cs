@@ -262,6 +262,7 @@
             this.Controls.Add(this.navBar);
             this.Controls.Add(this.MinimizeButton);
             this.Controls.Add(this.CloseButton);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StaffPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

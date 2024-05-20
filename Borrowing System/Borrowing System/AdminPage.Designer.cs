@@ -281,6 +281,7 @@
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.adminFormPanel);
             this.Controls.Add(this.navPanel);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminPage";

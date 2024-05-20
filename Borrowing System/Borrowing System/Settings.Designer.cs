@@ -259,6 +259,7 @@
             this.Controls.Add(this.aboutBTN);
             this.Controls.Add(this.accountInfoPanel);
             this.Controls.Add(this.aboutPanel);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Settings";
             this.Text = "Settings";

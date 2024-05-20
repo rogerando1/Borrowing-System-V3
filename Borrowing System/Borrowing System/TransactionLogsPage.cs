@@ -328,6 +328,7 @@ namespace Borrowing_System
                         OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial; // or OfficeOpenXml.LicenseContext.Commercial
                         using (ExcelPackage package = new ExcelPackage())
                         {
+                           
                             ExcelWorksheet ws = package.Workbook.Worksheets.Add("Transaction Logs Page");
 
                             DataTable dt = this.logsTable.DataSource as DataTable;
@@ -372,6 +373,10 @@ namespace Borrowing_System
 
                             // Adjust column widths
                             ws.Cells[ws.Dimension.Address].AutoFitColumns();
+
+                            ws.PrinterSettings.PaperSize = ePaperSize.Folio;
+                            ws.PrinterSettings.Orientation = eOrientation.Landscape;               
+                            ws.PrinterSettings.FitToPage = true;
 
                             using (var range = ws.Cells[2, 1, dt.Rows.Count + 2, dt.Columns.Count])
                             {

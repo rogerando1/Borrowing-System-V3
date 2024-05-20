@@ -150,6 +150,7 @@
             this.Controls.Add(this.loginBTN);
             this.Controls.Add(this.MinimizeButton);
             this.Controls.Add(this.CloseButton);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

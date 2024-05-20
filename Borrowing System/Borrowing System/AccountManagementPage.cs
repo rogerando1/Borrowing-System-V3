@@ -367,6 +367,7 @@ namespace Borrowing_System
             scheduleBTN.BackColor = Color.FromArgb(252, 168, 115); //SELECTED
             courseBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
             employeeBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
+            instructorBTN.BackColor = Color.FromArgb(233, 215, 174); //NOT SELECTED
             scheduleData.Visible = true;
             studentData.Visible = false;
             employeeData.Visible = false;

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory_Admin));
             this.productnamelist = new System.Windows.Forms.ComboBox();
             this.adminInventoryData = new System.Windows.Forms.DataGridView();
@@ -47,8 +47,6 @@
             this.partnameTxtbx = new System.Windows.Forms.TextBox();
             this.partdescriptionTxtbx = new System.Windows.Forms.TextBox();
             this.clearBtn = new System.Windows.Forms.Button();
-            this.editBTN = new System.Windows.Forms.Button();
-            this.doneBTN = new System.Windows.Forms.Button();
             this.deleteBTN = new System.Windows.Forms.Button();
             this.updateBTN = new System.Windows.Forms.Button();
             this.createBTN = new System.Windows.Forms.Button();
@@ -88,14 +86,14 @@
             this.adminInventoryData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.adminInventoryData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.adminInventoryData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.adminInventoryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.adminInventoryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.adminInventoryData.ColumnHeadersHeight = 50;
             this.adminInventoryData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.adminInventoryData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -112,14 +110,14 @@
             this.adminInventoryData.Name = "adminInventoryData";
             this.adminInventoryData.ReadOnly = true;
             this.adminInventoryData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.adminInventoryData.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.adminInventoryData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.adminInventoryData.RowHeadersVisible = false;
             this.adminInventoryData.RowHeadersWidth = 50;
             this.adminInventoryData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -286,39 +284,7 @@
             this.clearBtn.TabIndex = 47;
             this.clearBtn.Text = "Clear";
             this.clearBtn.UseVisualStyleBackColor = false;
-            this.clearBtn.Visible = false;
             this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
-            // 
-            // editBTN
-            // 
-            this.editBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
-            this.editBTN.FlatAppearance.BorderSize = 0;
-            this.editBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
-            this.editBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.editBTN.Location = new System.Drawing.Point(136, 564);
-            this.editBTN.Name = "editBTN";
-            this.editBTN.Size = new System.Drawing.Size(96, 36);
-            this.editBTN.TabIndex = 46;
-            this.editBTN.Text = "Edit";
-            this.editBTN.UseVisualStyleBackColor = false;
-            this.editBTN.Click += new System.EventHandler(this.editBTN_Click_1);
-            // 
-            // doneBTN
-            // 
-            this.doneBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
-            this.doneBTN.FlatAppearance.BorderSize = 0;
-            this.doneBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.doneBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
-            this.doneBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.doneBTN.Location = new System.Drawing.Point(250, 564);
-            this.doneBTN.Name = "doneBTN";
-            this.doneBTN.Size = new System.Drawing.Size(96, 36);
-            this.doneBTN.TabIndex = 45;
-            this.doneBTN.Text = "Done";
-            this.doneBTN.UseVisualStyleBackColor = false;
-            this.doneBTN.Visible = false;
-            this.doneBTN.Click += new System.EventHandler(this.doneBTN_Click);
             // 
             // deleteBTN
             // 
@@ -333,7 +299,6 @@
             this.deleteBTN.TabIndex = 44;
             this.deleteBTN.Text = "Remove";
             this.deleteBTN.UseVisualStyleBackColor = false;
-            this.deleteBTN.Visible = false;
             this.deleteBTN.Click += new System.EventHandler(this.deleteBTN_Click);
             // 
             // updateBTN
@@ -349,7 +314,6 @@
             this.updateBTN.TabIndex = 43;
             this.updateBTN.Text = "Update";
             this.updateBTN.UseVisualStyleBackColor = false;
-            this.updateBTN.Visible = false;
             this.updateBTN.Click += new System.EventHandler(this.updateBTN_Click);
             // 
             // createBTN
@@ -365,7 +329,6 @@
             this.createBTN.TabIndex = 42;
             this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
-            this.createBTN.Visible = false;
             this.createBTN.Click += new System.EventHandler(this.createBTN_Click);
             // 
             // productnameTxtbx
@@ -422,16 +385,16 @@
             // 
             // uploadBTN
             // 
-            this.uploadBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.uploadBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
             this.uploadBTN.FlatAppearance.BorderSize = 0;
             this.uploadBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
-            this.uploadBTN.ForeColor = System.Drawing.Color.Blue;
-            this.uploadBTN.Location = new System.Drawing.Point(114, 486);
+            this.uploadBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
+            this.uploadBTN.Location = new System.Drawing.Point(136, 564);
             this.uploadBTN.Name = "uploadBTN";
-            this.uploadBTN.Size = new System.Drawing.Size(131, 31);
+            this.uploadBTN.Size = new System.Drawing.Size(210, 36);
             this.uploadBTN.TabIndex = 54;
-            this.uploadBTN.Text = "Upload CSV";
+            this.uploadBTN.Text = "Upload through CSV";
             this.uploadBTN.UseVisualStyleBackColor = false;
             this.uploadBTN.Click += new System.EventHandler(this.uploadBTN_Click);
             // 
@@ -447,8 +410,6 @@
             this.Controls.Add(this.conditionTxtbx);
             this.Controls.Add(this.productnameTxtbx);
             this.Controls.Add(this.clearBtn);
-            this.Controls.Add(this.editBTN);
-            this.Controls.Add(this.doneBTN);
             this.Controls.Add(this.deleteBTN);
             this.Controls.Add(this.updateBTN);
             this.Controls.Add(this.createBTN);
@@ -459,6 +420,7 @@
             this.Controls.Add(this.searchData);
             this.Controls.Add(this.adminInventoryData);
             this.Controls.Add(this.productnamelist);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inventory_Admin";
             this.Text = "Inventory_Admin";
@@ -487,8 +449,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn condition;
         private System.Windows.Forms.Button clearBtn;
-        private System.Windows.Forms.Button editBTN;
-        private System.Windows.Forms.Button doneBTN;
         private System.Windows.Forms.Button deleteBTN;
         private System.Windows.Forms.Button updateBTN;
         private System.Windows.Forms.Button createBTN;

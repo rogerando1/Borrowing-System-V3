@@ -311,6 +311,7 @@
             this.Controls.Add(this.staffInventoryData);
             this.Controls.Add(this.productnamelist);
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inventory_Staff";
             this.Text = "Inventory_Staff";

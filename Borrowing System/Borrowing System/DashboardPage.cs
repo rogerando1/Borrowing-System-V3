@@ -482,6 +482,9 @@ namespace Borrowing_System
 
                             // Center align header row
                             ws.Row(2).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                            ws.PrinterSettings.PaperSize = ePaperSize.Folio;
+                            ws.PrinterSettings.Orientation = eOrientation.Landscape;
+                            ws.PrinterSettings.FitToPage = true;
 
                             // Adjust column widths
                             ws.Cells[ws.Dimension.Address].AutoFitColumns();

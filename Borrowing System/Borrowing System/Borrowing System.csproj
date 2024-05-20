@@ -485,5 +485,11 @@
   <ItemGroup>
     <None Include="Resources\Excel-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\instructorl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\instructor1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

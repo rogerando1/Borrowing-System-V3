@@ -339,6 +339,7 @@
             this.Controls.Add(this.searchBTN);
             this.Controls.Add(this.searchData);
             this.Controls.Add(this.logsTable);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TransactionLogsPage";
             this.Text = "TransactionLogsPage";

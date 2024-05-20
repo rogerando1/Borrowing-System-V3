@@ -100,9 +100,9 @@
             this.deleteBTN.ForeColor = System.Drawing.Color.Black;
             this.deleteBTN.Location = new System.Drawing.Point(288, 487);
             this.deleteBTN.Name = "deleteBTN";
-            this.deleteBTN.Size = new System.Drawing.Size(96, 44);
+            this.deleteBTN.Size = new System.Drawing.Size(110, 44);
             this.deleteBTN.TabIndex = 56;
-            this.deleteBTN.Text = "Delete";
+            this.deleteBTN.Text = "Remove";
             this.deleteBTN.UseVisualStyleBackColor = false;
             this.deleteBTN.Click += new System.EventHandler(this.deleteBTN_Click);
             // 
@@ -117,7 +117,7 @@
             this.createBTN.Name = "createBTN";
             this.createBTN.Size = new System.Drawing.Size(96, 44);
             this.createBTN.TabIndex = 54;
-            this.createBTN.Text = "Create";
+            this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
             this.createBTN.Click += new System.EventHandler(this.createBTN_Click);
             // 
@@ -179,7 +179,7 @@
             this.endtimeTxtbx.Size = new System.Drawing.Size(113, 25);
             this.endtimeTxtbx.TabIndex = 63;
             // 
-            // InstructorList
+            // ScheduleList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -194,7 +194,8 @@
             this.Controls.Add(this.sectionTxtbx);
             this.Controls.Add(this.coursenameTxtbx);
             this.Controls.Add(this.courseIDTxtbx);
-            this.Name = "InstructorList";
+            this.DoubleBuffered = true;
+            this.Name = "ScheduleList";
             this.Size = new System.Drawing.Size(484, 580);
             this.Load += new System.EventHandler(this.InstructorList_Load);
             this.ResumeLayout(false);

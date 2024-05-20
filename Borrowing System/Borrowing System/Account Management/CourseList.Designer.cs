@@ -79,7 +79,7 @@
             this.createBTN.Name = "createBTN";
             this.createBTN.Size = new System.Drawing.Size(96, 44);
             this.createBTN.TabIndex = 13;
-            this.createBTN.Text = "Create";
+            this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
             this.createBTN.Click += new System.EventHandler(this.createBTN_Click);
             // 
@@ -92,9 +92,9 @@
             this.deleteBTN.ForeColor = System.Drawing.Color.Black;
             this.deleteBTN.Location = new System.Drawing.Point(301, 412);
             this.deleteBTN.Name = "deleteBTN";
-            this.deleteBTN.Size = new System.Drawing.Size(96, 44);
+            this.deleteBTN.Size = new System.Drawing.Size(106, 44);
             this.deleteBTN.TabIndex = 14;
-            this.deleteBTN.Text = "Delete";
+            this.deleteBTN.Text = "Remove";
             this.deleteBTN.UseVisualStyleBackColor = false;
             this.deleteBTN.Click += new System.EventHandler(this.deleteBTN_Click);
             // 
@@ -109,6 +109,7 @@
             this.Controls.Add(this.clearBTN);
             this.Controls.Add(this.coursenameTxtbx);
             this.Controls.Add(this.courseIDTxtbx);
+            this.DoubleBuffered = true;
             this.Name = "CourseList";
             this.Size = new System.Drawing.Size(484, 580);
             this.ResumeLayout(false);

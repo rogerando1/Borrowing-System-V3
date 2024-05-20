@@ -40,6 +40,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountManagementPage));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -81,16 +82,16 @@
             this.courseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorList1 = new Borrowing_System.Account_Management.InstructorList();
-            this.employeeBTN = new System.Windows.Forms.Button();
-            this.studentBTN = new System.Windows.Forms.Button();
-            this.scheduleBTN = new System.Windows.Forms.Button();
-            this.courseBTN = new System.Windows.Forms.Button();
-            this.instructorBTN = new System.Windows.Forms.Button();
             this.instructorData = new System.Windows.Forms.DataGridView();
             this.instructor_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ins_first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ins_middle_initial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ins_last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeBTN = new System.Windows.Forms.Button();
+            this.studentBTN = new System.Windows.Forms.Button();
+            this.scheduleBTN = new System.Windows.Forms.Button();
+            this.courseBTN = new System.Windows.Forms.Button();
+            this.instructorBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).BeginInit();
             this.accountmanagementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentData)).BeginInit();
@@ -662,85 +663,12 @@
             // 
             // instructorList1
             // 
+            this.instructorList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
+            this.instructorList1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("instructorList1.BackgroundImage")));
             this.instructorList1.Location = new System.Drawing.Point(1053, -8);
             this.instructorList1.Name = "instructorList1";
             this.instructorList1.Size = new System.Drawing.Size(484, 580);
             this.instructorList1.TabIndex = 24;
-            // 
-            // employeeBTN
-            // 
-            this.employeeBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
-            this.employeeBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.employeeBTN.FlatAppearance.BorderSize = 0;
-            this.employeeBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.employeeBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.employeeBTN.Location = new System.Drawing.Point(22, 12);
-            this.employeeBTN.Name = "employeeBTN";
-            this.employeeBTN.Size = new System.Drawing.Size(174, 44);
-            this.employeeBTN.TabIndex = 43;
-            this.employeeBTN.Text = "Employee List";
-            this.employeeBTN.UseVisualStyleBackColor = false;
-            this.employeeBTN.Click += new System.EventHandler(this.employeeBTN_Click);
-            // 
-            // studentBTN
-            // 
-            this.studentBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
-            this.studentBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.studentBTN.FlatAppearance.BorderSize = 0;
-            this.studentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.studentBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.studentBTN.Location = new System.Drawing.Point(219, 12);
-            this.studentBTN.Name = "studentBTN";
-            this.studentBTN.Size = new System.Drawing.Size(174, 44);
-            this.studentBTN.TabIndex = 44;
-            this.studentBTN.Text = "Student List";
-            this.studentBTN.UseVisualStyleBackColor = false;
-            this.studentBTN.Click += new System.EventHandler(this.studentBTN_Click);
-            // 
-            // scheduleBTN
-            // 
-            this.scheduleBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
-            this.scheduleBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.scheduleBTN.FlatAppearance.BorderSize = 0;
-            this.scheduleBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.scheduleBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.scheduleBTN.Location = new System.Drawing.Point(846, 12);
-            this.scheduleBTN.Name = "scheduleBTN";
-            this.scheduleBTN.Size = new System.Drawing.Size(174, 44);
-            this.scheduleBTN.TabIndex = 45;
-            this.scheduleBTN.Text = "Schedule List";
-            this.scheduleBTN.UseVisualStyleBackColor = false;
-            this.scheduleBTN.Click += new System.EventHandler(this.scheduleBTN_Click);
-            // 
-            // courseBTN
-            // 
-            this.courseBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
-            this.courseBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.courseBTN.FlatAppearance.BorderSize = 0;
-            this.courseBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.courseBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.courseBTN.Location = new System.Drawing.Point(634, 12);
-            this.courseBTN.Name = "courseBTN";
-            this.courseBTN.Size = new System.Drawing.Size(174, 44);
-            this.courseBTN.TabIndex = 46;
-            this.courseBTN.Text = "Course List";
-            this.courseBTN.UseVisualStyleBackColor = false;
-            this.courseBTN.Click += new System.EventHandler(this.courseBTN_Click);
-            // 
-            // instructorBTN
-            // 
-            this.instructorBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
-            this.instructorBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.instructorBTN.FlatAppearance.BorderSize = 0;
-            this.instructorBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.instructorBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.instructorBTN.Location = new System.Drawing.Point(420, 12);
-            this.instructorBTN.Name = "instructorBTN";
-            this.instructorBTN.Size = new System.Drawing.Size(174, 44);
-            this.instructorBTN.TabIndex = 47;
-            this.instructorBTN.Text = "Instructor List";
-            this.instructorBTN.UseVisualStyleBackColor = false;
-            this.instructorBTN.Click += new System.EventHandler(this.instructorBTN_Click);
             // 
             // instructorData
             // 
@@ -836,6 +764,81 @@
             this.ins_last_name.Name = "ins_last_name";
             this.ins_last_name.ReadOnly = true;
             // 
+            // employeeBTN
+            // 
+            this.employeeBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.employeeBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.employeeBTN.FlatAppearance.BorderSize = 0;
+            this.employeeBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.employeeBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.employeeBTN.Location = new System.Drawing.Point(22, 12);
+            this.employeeBTN.Name = "employeeBTN";
+            this.employeeBTN.Size = new System.Drawing.Size(174, 44);
+            this.employeeBTN.TabIndex = 43;
+            this.employeeBTN.Text = "Employee List";
+            this.employeeBTN.UseVisualStyleBackColor = false;
+            this.employeeBTN.Click += new System.EventHandler(this.employeeBTN_Click);
+            // 
+            // studentBTN
+            // 
+            this.studentBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.studentBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.studentBTN.FlatAppearance.BorderSize = 0;
+            this.studentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.studentBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.studentBTN.Location = new System.Drawing.Point(219, 12);
+            this.studentBTN.Name = "studentBTN";
+            this.studentBTN.Size = new System.Drawing.Size(174, 44);
+            this.studentBTN.TabIndex = 44;
+            this.studentBTN.Text = "Student List";
+            this.studentBTN.UseVisualStyleBackColor = false;
+            this.studentBTN.Click += new System.EventHandler(this.studentBTN_Click);
+            // 
+            // scheduleBTN
+            // 
+            this.scheduleBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.scheduleBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.scheduleBTN.FlatAppearance.BorderSize = 0;
+            this.scheduleBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.scheduleBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.scheduleBTN.Location = new System.Drawing.Point(846, 12);
+            this.scheduleBTN.Name = "scheduleBTN";
+            this.scheduleBTN.Size = new System.Drawing.Size(174, 44);
+            this.scheduleBTN.TabIndex = 45;
+            this.scheduleBTN.Text = "Schedule List";
+            this.scheduleBTN.UseVisualStyleBackColor = false;
+            this.scheduleBTN.Click += new System.EventHandler(this.scheduleBTN_Click);
+            // 
+            // courseBTN
+            // 
+            this.courseBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.courseBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.courseBTN.FlatAppearance.BorderSize = 0;
+            this.courseBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.courseBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.courseBTN.Location = new System.Drawing.Point(634, 12);
+            this.courseBTN.Name = "courseBTN";
+            this.courseBTN.Size = new System.Drawing.Size(174, 44);
+            this.courseBTN.TabIndex = 46;
+            this.courseBTN.Text = "Course List";
+            this.courseBTN.UseVisualStyleBackColor = false;
+            this.courseBTN.Click += new System.EventHandler(this.courseBTN_Click);
+            // 
+            // instructorBTN
+            // 
+            this.instructorBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.instructorBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.instructorBTN.FlatAppearance.BorderSize = 0;
+            this.instructorBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.instructorBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.instructorBTN.Location = new System.Drawing.Point(420, 12);
+            this.instructorBTN.Name = "instructorBTN";
+            this.instructorBTN.Size = new System.Drawing.Size(174, 44);
+            this.instructorBTN.TabIndex = 47;
+            this.instructorBTN.Text = "Instructor List";
+            this.instructorBTN.UseVisualStyleBackColor = false;
+            this.instructorBTN.Click += new System.EventHandler(this.instructorBTN_Click);
+            // 
             // AccountManagementPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -849,6 +852,7 @@
             this.Controls.Add(this.studentBTN);
             this.Controls.Add(this.employeeBTN);
             this.Controls.Add(this.accountmanagementPanel);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AccountManagementPage";
             this.Text = "AccountManagementPage";
