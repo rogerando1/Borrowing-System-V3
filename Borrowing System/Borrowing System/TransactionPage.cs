@@ -475,8 +475,8 @@ namespace Borrowing_System
                 TimeSpan endTime = reader.GetTimeSpan("endTime");
                 TimeSpan currentTime = DateTime.Now.TimeOfDay;
 
-                if (currentTime >= startTime && currentTime <= endTime)
-                {
+                //if (currentTime >= startTime && currentTime <= endTime)
+                //{
                     string instructorName = instructorNameTxtbx.SelectedItem.ToString();
                     string partName = typeTxtbx.SelectedItem.ToString();
                     string quantity = quantityTxtbx.Text;
@@ -575,11 +575,11 @@ namespace Borrowing_System
                     availableLabel.Text = "";
                     staffCmbx.SelectedIndex = -1;
 
-                }
-                else
-                {
-                    MessageBox.Show($"Transaction failed. Current time is not within the course time range for {selectedCourse}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //}
+                //else
+                //{
+                //    MessageBox.Show($"Transaction failed. Current time is not within the course time range for {selectedCourse}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
             }
             else
             {

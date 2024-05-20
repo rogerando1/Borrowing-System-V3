@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.conditionTxtbx = new System.Windows.Forms.TextBox();
             this.partdescriptionTxtbx = new System.Windows.Forms.TextBox();
             this.partnameTxtbx = new System.Windows.Forms.TextBox();
@@ -48,6 +48,7 @@
             this.quantityTxtbx = new System.Windows.Forms.TextBox();
             this.staffInventoryData = new System.Windows.Forms.DataGridView();
             this.productnamelist = new System.Windows.Forms.ComboBox();
+            this.excelExportBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.staffInventoryData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -231,14 +232,14 @@
             this.staffInventoryData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.staffInventoryData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.staffInventoryData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.staffInventoryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.staffInventoryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.staffInventoryData.ColumnHeadersHeight = 50;
             this.staffInventoryData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.staffInventoryData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -255,14 +256,14 @@
             this.staffInventoryData.Name = "staffInventoryData";
             this.staffInventoryData.ReadOnly = true;
             this.staffInventoryData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.staffInventoryData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.staffInventoryData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.staffInventoryData.RowHeadersVisible = false;
             this.staffInventoryData.RowHeadersWidth = 50;
             this.staffInventoryData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -294,12 +295,32 @@
             this.productnamelist.DropDown += new System.EventHandler(this.productnamelist_DropDown);
             this.productnamelist.SelectedIndexChanged += new System.EventHandler(this.productnamelist_SelectedIndexChanged);
             // 
+            // excelExportBTN
+            // 
+            this.excelExportBTN.BackColor = System.Drawing.Color.White;
+            this.excelExportBTN.BackgroundImage = global::Borrowing_System.Properties.Resources.Excel_icon;
+            this.excelExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.excelExportBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.excelExportBTN.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.excelExportBTN.FlatAppearance.BorderSize = 0;
+            this.excelExportBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.excelExportBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.excelExportBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.excelExportBTN.ForeColor = System.Drawing.Color.White;
+            this.excelExportBTN.Location = new System.Drawing.Point(1453, 69);
+            this.excelExportBTN.Name = "excelExportBTN";
+            this.excelExportBTN.Size = new System.Drawing.Size(33, 36);
+            this.excelExportBTN.TabIndex = 52;
+            this.excelExportBTN.UseVisualStyleBackColor = false;
+            this.excelExportBTN.Click += new System.EventHandler(this.excelExportBTN_Click);
+            // 
             // Inventory_Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.Admin_invenotry__4_;
             this.ClientSize = new System.Drawing.Size(1532, 650);
+            this.Controls.Add(this.excelExportBTN);
             this.Controls.Add(this.conditionTxtbx);
             this.Controls.Add(this.partdescriptionTxtbx);
             this.Controls.Add(this.partnameTxtbx);
@@ -342,5 +363,6 @@
         private System.Windows.Forms.TextBox quantityTxtbx;
         private System.Windows.Forms.DataGridView staffInventoryData;
         private System.Windows.Forms.ComboBox productnamelist;
+        private System.Windows.Forms.Button excelExportBTN;
     }
 }

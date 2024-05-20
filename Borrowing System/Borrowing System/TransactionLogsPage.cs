@@ -180,62 +180,77 @@ namespace Borrowing_System
             }
         }
 
+
+
+
         private void searchLogData(string search)
         {
-                MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                MySqlCommand cmd = new MySqlCommand(@"
-                    SELECT 
-                                TransactionLogs.transactionlogID,
-                                CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
-                                CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
-                                CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,   
-                                CONCAT(IFNULL(ReceiverPerson.firstname, ''), ' ', IFNULL(ReceiverPerson.middleinitial, ''), ' ', IFNULL(ReceiverPerson.lastname, '')) AS receiverName,
-                                CONCAT(IFNULL(ReleaserPerson.firstname, ''), ' ', IFNULL(ReleaserPerson.middleinitial, ''), ' ', IFNULL(ReleaserPerson.lastname, '')) AS releaserName,
-                                Part.partname,
-                                Transactions.quantity, 
-                                TransactionLogs.returndate,
-                                TransactionLogs.returntime, 
-                                TransactionLogs.notes
-                            FROM 
-                                TransactionLogs
-                            INNER JOIN 
-                                Transactions ON TransactionLogs.transactionID = Transactions.transactionID
-                            INNER JOIN 
-                                Student ON Transactions.studentID = Student.studentID
-                            INNER JOIN
-                                Instructor ON Transactions.instructorID = Instructor.instructorID
-                            INNER JOIN
-                                Accounts ON Transactions.accountID = Accounts.accountID
-                            INNER JOIN 
-                                Person AS StudentPerson ON Student.personID = StudentPerson.personID
-                            INNER JOIN 
-                                Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
-                            INNER JOIN 
-                                Person AS AccountsPerson ON Accounts.personID = AccountsPerson.personID
-                            INNER JOIN
-                                Person AS ReceiverPerson ON Accounts.personID = ReceiverPerson.personID
-                            INNER JOIN
-                                Person AS ReleaserPerson ON Accounts.personID = ReleaserPerson.personID
-                            INNER JOIN
-                                Part ON Transactions.partID = Part.partID
-                            WHERE Transactions.status_ IS NOT NULL AND 
-                                (CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) LIKE @search OR 
-                                CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) LIKE @search OR 
-                                CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) LIKE @search OR 
-                                CONCAT(IFNULL(ReceiverPerson.firstname, ''), ' ', IFNULL(ReceiverPerson.middleinitial, ''), ' ', IFNULL(ReceiverPerson.lastname, '')) LIKE @search OR
-                                CONCAT(IFNULL(ReleaserPerson.firstname, ''), ' ', IFNULL(ReleaserPerson.middleinitial, ''), ' ', IFNULL(ReleaserPerson.lastname, '')) LIKE @search OR
-                                Part.partname LIKE @search OR 
-                                TransactionLogs.returndate LIKE @search OR 
-                                TransactionLogs.returntime LIKE @search OR 
-                                TransactionLogs.notes LIKE @search)", conn);
-                
-                cmd.Parameters.AddWithValue("@search", "%" + search + "%");
+            search = "%" + search + "%";
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            logsTable.DataSource = dt;
+            using (MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(@"
+                SELECT 
+                    TransactionLogs.transactionlogID,
+                    CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
+                    CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
+                    CONCAT(IFNULL(ReceiverPerson.firstname, ''), ' ', IFNULL(ReceiverPerson.middleinitial, ''), ' ', IFNULL(ReceiverPerson.lastname, '')) AS receiverName,
+                    CONCAT(IFNULL(ReleaserPerson.firstname, ''), ' ', IFNULL(ReleaserPerson.middleinitial, ''), ' ', IFNULL(ReleaserPerson.lastname, '')) AS releaserName,
+                    Part.partname,
+                    Transactions.quantity, 
+                    TransactionLogs.returndate,
+                    TransactionLogs.returntime, 
+                    TransactionLogs.notes
+                FROM 
+                    TransactionLogs
+                INNER JOIN 
+                    Transactions ON TransactionLogs.transactionID = Transactions.transactionID
+                INNER JOIN 
+                    Student ON Transactions.studentID = Student.studentID
+                INNER JOIN
+                    Instructor ON Transactions.instructorID = Instructor.instructorID
+                INNER JOIN
+                    Accounts AS ReceiverAccount ON TransactionLogs.receiverID = ReceiverAccount.accountID
+                INNER JOIN 
+                    Accounts AS ReleaserAccount ON TransactionLogs.releaserID = ReleaserAccount.accountID
+                INNER JOIN 
+                    Person AS StudentPerson ON Student.personID = StudentPerson.personID
+                INNER JOIN 
+                    Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
+                INNER JOIN 
+                    Person AS ReceiverPerson ON ReceiverAccount.personID = ReceiverPerson.personID
+                INNER JOIN 
+                    Person AS ReleaserPerson ON ReleaserAccount.personID = ReleaserPerson.personID
+                INNER JOIN
+                    Part ON Transactions.partID = Part.partID
+                WHERE 
+                    Transactions.status_ IS NOT NULL AND 
+                    (CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) LIKE @search OR 
+                    CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) LIKE @search OR 
+                    CONCAT(IFNULL(ReceiverPerson.firstname, ''), ' ', IFNULL(ReceiverPerson.middleinitial, ''), ' ', IFNULL(ReceiverPerson.lastname, '')) LIKE @search OR
+                    CONCAT(IFNULL(ReleaserPerson.firstname, ''), ' ', IFNULL(ReleaserPerson.middleinitial, ''), ' ', IFNULL(ReleaserPerson.lastname, '')) LIKE @search OR
+                    Part.partname LIKE @search OR
+                    TransactionLogs.notes LIKE @search)", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@search", search);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+                            logsTable.DataSource = dt;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+
 
         private void searchBTN_Click(object sender, EventArgs e)
         {
@@ -300,7 +315,7 @@ namespace Borrowing_System
                 string[] name = staffName.Split(' ');
                 string firstName = name[0];
 
-                searchLogData($"{firstName}");
+                searchLogData($"{ firstName}");
             }
         }
 
@@ -363,13 +378,16 @@ namespace Borrowing_System
                             ws.Cells["A1:J1"].Merge = true;
                             ws.Cells["A1"].Value = $"Returned Equipment";
                             ws.Cells["A1"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                            ws.Cells["A1"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.Cyan);
-                            ws.Cells["A1"].Style.Font.Color.SetColor(System.Drawing.Color.DarkBlue);
+                            ws.Cells["A1"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.WhiteSmoke);
+                            ws.Cells["A1"].Style.Font.Color.SetColor(System.Drawing.Color.Black);
                             ws.Cells["A1"].Style.Font.Bold = true;
                             ws.Cells["A1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
                             // Center align header row
                             ws.Row(2).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                            // Center text for each cells
+                            ws.Cells[ws.Dimension.Address].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
                             // Adjust column widths
                             ws.Cells[ws.Dimension.Address].AutoFitColumns();
@@ -382,7 +400,7 @@ namespace Borrowing_System
                             {
                                 var table = ws.Tables.Add(range, "TransactionLogsTable");
                                 table.ShowHeader = true;
-                                table.TableStyle = TableStyles.Medium9;
+                                table.TableStyle = TableStyles.Light15;
                             }
 
                             var fi = new FileInfo(save.FileName);

@@ -73,7 +73,7 @@ namespace Borrowing_System.Account_Management
             instructorTimer.Start();
         }
 
-        private void clearBtn_Click(object sender, EventArgs e)
+        public void clearBtn_Click(object sender, EventArgs e)
         {
             instructorIDTxtbx.Text = "";
             instructornameTxtbx.Text = "";

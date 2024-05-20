@@ -475,8 +475,8 @@ namespace Borrowing_System
                             ws.Cells["A1:J1"].Merge = true;
                             ws.Cells["A1"].Value = $"Borrowed Equipment";
                             ws.Cells["A1"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                            ws.Cells["A1"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.Cyan);
-                            ws.Cells["A1"].Style.Font.Color.SetColor(System.Drawing.Color.DarkBlue);
+                            ws.Cells["A1"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.WhiteSmoke);
+                            ws.Cells["A1"].Style.Font.Color.SetColor(System.Drawing.Color.Black);
                             ws.Cells["A1"].Style.Font.Bold = true;
                             ws.Cells["A1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
@@ -486,6 +486,9 @@ namespace Borrowing_System
                             ws.PrinterSettings.Orientation = eOrientation.Landscape;
                             ws.PrinterSettings.FitToPage = true;
 
+                            // Center text for each cells
+                            ws.Cells[ws.Dimension.Address].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
                             // Adjust column widths
                             ws.Cells[ws.Dimension.Address].AutoFitColumns();
 
@@ -493,7 +496,7 @@ namespace Borrowing_System
                             {
                                 var table = ws.Tables.Add(range, "TransactionTable");
                                 table.ShowHeader = true;
-                                table.TableStyle = TableStyles.Medium9;
+                                table.TableStyle = TableStyles.Light15;
                             }
 
                             var fi = new FileInfo(save.FileName);
