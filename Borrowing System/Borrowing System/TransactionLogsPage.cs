@@ -28,7 +28,8 @@ namespace Borrowing_System
         {
             DefaultDate();
             refreshData();
-            FillStaffComboBox();
+            populateStudent();
+            logsTable.Columns["studentName"].Visible = true;
         }
 
         private void DefaultDate()
@@ -40,6 +41,32 @@ namespace Borrowing_System
             dateSearch1.Format = DateTimePickerFormat.Custom;
             dateSearch2.CustomFormat = "MM/dd/yyyy";
             dateSearch2.Format = DateTimePickerFormat.Custom;
+
+        }
+
+        public void populateStudent()
+        {
+            using (MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
+            {
+                MySqlCommand cmd = new MySqlCommand(@"
+                SELECT DISTINCT
+                    CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName
+                FROM 
+                    TransactionLogs
+                INNER JOIN 
+                    Transactions ON TransactionLogs.transactionID= Transactions.transactionID
+                INNER JOIN
+                    Student ON Transactions.studentID = Student.studentID
+                INNER JOIN 
+                    Person AS StudentPerson ON Student.personID = StudentPerson.personID
+                WHERE TransactionLogs.notes IS NOT NULL", conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                studentView.DataSource = dt;
+                studentView.Refresh();
+            }
+
 
         }
 
@@ -157,90 +184,84 @@ namespace Borrowing_System
             logsTable.DataSource = dt;
         }
 
-        private void FillStaffComboBox()
-        {
-            try
-            {
-                //Show all staff/admin in the combobox
-                MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                connection.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID FROM Accounts " +
-                                                                                "INNER JOIN Person ON Accounts.personID = Person.personID ", connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    string staffName = reader.GetString("personID");
-                    staffCmbx.Items.Add(staffName);
-                }
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+
+
 
         private void searchLogData(string search)
         {
-                MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                MySqlCommand cmd = new MySqlCommand(@"
-                    SELECT 
-                                TransactionLogs.transactionlogID,
-                                CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
-                                CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
-                                CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) AS accountName,   
-                                CONCAT(IFNULL(ReceiverPerson.firstname, ''), ' ', IFNULL(ReceiverPerson.middleinitial, ''), ' ', IFNULL(ReceiverPerson.lastname, '')) AS receiverName,
-                                CONCAT(IFNULL(ReleaserPerson.firstname, ''), ' ', IFNULL(ReleaserPerson.middleinitial, ''), ' ', IFNULL(ReleaserPerson.lastname, '')) AS releaserName,
-                                Part.partname,
-                                Transactions.quantity, 
-                                TransactionLogs.returndate,
-                                TransactionLogs.returntime, 
-                                TransactionLogs.notes
-                            FROM 
-                                TransactionLogs
-                            INNER JOIN 
-                                Transactions ON TransactionLogs.transactionID = Transactions.transactionID
-                            INNER JOIN 
-                                Student ON Transactions.studentID = Student.studentID
-                            INNER JOIN
-                                Instructor ON Transactions.instructorID = Instructor.instructorID
-                            INNER JOIN
-                                Accounts ON Transactions.accountID = Accounts.accountID
-                            INNER JOIN 
-                                Person AS StudentPerson ON Student.personID = StudentPerson.personID
-                            INNER JOIN 
-                                Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
-                            INNER JOIN 
-                                Person AS AccountsPerson ON Accounts.personID = AccountsPerson.personID
-                            INNER JOIN
-                                Person AS ReceiverPerson ON Accounts.personID = ReceiverPerson.personID
-                            INNER JOIN
-                                Person AS ReleaserPerson ON Accounts.personID = ReleaserPerson.personID
-                            INNER JOIN
-                                Part ON Transactions.partID = Part.partID
-                            WHERE Transactions.status_ IS NOT NULL AND 
-                                (CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) LIKE @search OR 
-                                CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) LIKE @search OR 
-                                CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) LIKE @search OR 
-                                CONCAT(IFNULL(ReceiverPerson.firstname, ''), ' ', IFNULL(ReceiverPerson.middleinitial, ''), ' ', IFNULL(ReceiverPerson.lastname, '')) LIKE @search OR
-                                CONCAT(IFNULL(ReleaserPerson.firstname, ''), ' ', IFNULL(ReleaserPerson.middleinitial, ''), ' ', IFNULL(ReleaserPerson.lastname, '')) LIKE @search OR
-                                Part.partname LIKE @search OR 
-                                TransactionLogs.returndate LIKE @search OR 
-                                TransactionLogs.returntime LIKE @search OR 
-                                TransactionLogs.notes LIKE @search)", conn);
-                
-                cmd.Parameters.AddWithValue("@search", "%" + search + "%");
+            search = "%" + search + "%";
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            logsTable.DataSource = dt;
+            using (MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}"))
+            {
+                try
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(@"
+                SELECT 
+                    TransactionLogs.transactionlogID,
+                    CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
+                    CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) AS instructorName, 
+                    CONCAT(IFNULL(ReceiverPerson.firstname, ''), ' ', IFNULL(ReceiverPerson.middleinitial, ''), ' ', IFNULL(ReceiverPerson.lastname, '')) AS receiverName,
+                    CONCAT(IFNULL(ReleaserPerson.firstname, ''), ' ', IFNULL(ReleaserPerson.middleinitial, ''), ' ', IFNULL(ReleaserPerson.lastname, '')) AS releaserName,
+                    Part.partname,
+                    Transactions.quantity, 
+                    TransactionLogs.returndate,
+                    TransactionLogs.returntime, 
+                    TransactionLogs.notes
+                FROM 
+                    TransactionLogs
+                INNER JOIN 
+                    Transactions ON TransactionLogs.transactionID = Transactions.transactionID
+                INNER JOIN 
+                    Student ON Transactions.studentID = Student.studentID
+                INNER JOIN
+                    Instructor ON Transactions.instructorID = Instructor.instructorID
+                INNER JOIN
+                    Accounts AS ReceiverAccount ON TransactionLogs.receiverID = ReceiverAccount.accountID
+                INNER JOIN 
+                    Accounts AS ReleaserAccount ON TransactionLogs.releaserID = ReleaserAccount.accountID
+                INNER JOIN 
+                    Person AS StudentPerson ON Student.personID = StudentPerson.personID
+                INNER JOIN 
+                    Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
+                INNER JOIN 
+                    Person AS ReceiverPerson ON ReceiverAccount.personID = ReceiverPerson.personID
+                INNER JOIN 
+                    Person AS ReleaserPerson ON ReleaserAccount.personID = ReleaserPerson.personID
+                INNER JOIN
+                    Part ON Transactions.partID = Part.partID
+                WHERE 
+                    Transactions.status_ IS NOT NULL AND 
+                    (CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) LIKE @search OR 
+                    CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) LIKE @search OR 
+                    CONCAT(IFNULL(ReceiverPerson.firstname, ''), ' ', IFNULL(ReceiverPerson.middleinitial, ''), ' ', IFNULL(ReceiverPerson.lastname, '')) LIKE @search OR
+                    CONCAT(IFNULL(ReleaserPerson.firstname, ''), ' ', IFNULL(ReleaserPerson.middleinitial, ''), ' ', IFNULL(ReleaserPerson.lastname, '')) LIKE @search OR
+                    Part.partname LIKE @search OR
+                    TransactionLogs.notes LIKE @search)", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@search", search);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            DataTable dt = new DataTable();
+                            dt.Load(reader);
+                            logsTable.DataSource = dt;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
+
 
         private void searchBTN_Click(object sender, EventArgs e)
         {
             string search = searchData.Text;
             searchLogData(search);
+            logsTable.Columns["studentName"].Visible = true;
         }
 
         private void searchData_TextChanged(object sender, EventArgs e)
@@ -248,6 +269,7 @@ namespace Borrowing_System
             if(searchData.Text == "")
             {
                 refreshData();
+                logsTable.Columns["studentName"].Visible = true;
             }
         }
 
@@ -261,57 +283,23 @@ namespace Borrowing_System
 
         private void clearDashBtn_Click(object sender, EventArgs e)
         {
-            staffCmbx.SelectedIndex = -1;
             DefaultDate();
             refreshData();
+            logsTable.Columns["studentName"].Visible = true;
         }
 
-        private void staffCmbx_DropDown(object sender, EventArgs e)
-        {
-            //FIT THE DROPDOWN WIDTH TO THE WIDEST ITEM
 
-            int maxWidth = staffCmbx.Width;
-            Graphics g = staffCmbx.CreateGraphics();
-            Font font = staffCmbx.Font;
-
-            foreach (var item in staffCmbx.Items)
-            {
-                int itemWidth = (int)g.MeasureString(item.ToString(), font).Width;
-                if (itemWidth > maxWidth)
-                {
-                    maxWidth = itemWidth;
-                }
-            }
-
-            staffCmbx.DropDownWidth = maxWidth;
-        }
-
-        private void staffCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (staffCmbx.SelectedIndex == -1)
-            {
-                refreshData();
-                return;
-            }
-            else
-            {
-                //search data by staff
-                string staffName = staffCmbx.Text;
-                string[] name = staffName.Split(' ');
-                string firstName = name[0];
-
-                searchLogData($"{firstName}");
-            }
-        }
 
         private void dateSearch1_ValueChanged(object sender, EventArgs e)
         {
             UpdateDate();
+            logsTable.Columns["studentName"].Visible = true;
         }
 
         private void dateSearch2_ValueChanged(object sender, EventArgs e)
         {
             UpdateDate();
+            logsTable.Columns["studentName"].Visible = true;
         }
 
         private void excelExportBTN_Click(object sender, EventArgs e)
@@ -363,13 +351,16 @@ namespace Borrowing_System
                             ws.Cells["A1:J1"].Merge = true;
                             ws.Cells["A1"].Value = $"Returned Equipment";
                             ws.Cells["A1"].Style.Fill.PatternType = ExcelFillStyle.Solid;
-                            ws.Cells["A1"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.Cyan);
-                            ws.Cells["A1"].Style.Font.Color.SetColor(System.Drawing.Color.DarkBlue);
+                            ws.Cells["A1"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.WhiteSmoke);
+                            ws.Cells["A1"].Style.Font.Color.SetColor(System.Drawing.Color.Black);
                             ws.Cells["A1"].Style.Font.Bold = true;
                             ws.Cells["A1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
                             // Center align header row
                             ws.Row(2).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                            // Center text for each cells
+                            ws.Cells[ws.Dimension.Address].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
                             // Adjust column widths
                             ws.Cells[ws.Dimension.Address].AutoFitColumns();
@@ -382,7 +373,7 @@ namespace Borrowing_System
                             {
                                 var table = ws.Tables.Add(range, "TransactionLogsTable");
                                 table.ShowHeader = true;
-                                table.TableStyle = TableStyles.Medium9;
+                                table.TableStyle = TableStyles.Light15;
                             }
 
                             var fi = new FileInfo(save.FileName);
@@ -400,6 +391,20 @@ namespace Borrowing_System
                         //Open the file after exporting
                         System.Diagnostics.Process.Start(save.FileName);
                     }
+                }
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                logsTable.Columns["studentName"].Visible = false;
+                string studentName = studentView.Rows[e.RowIndex].Cells["student_name"].Value.ToString();
+                searchLogData(studentName);
+                if (logsTable.Rows.Count == 0)
+                {
+                    searchLogData("");
                 }
             }
         }

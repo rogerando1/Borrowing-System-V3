@@ -35,7 +35,6 @@
             this.personIDTxtbx = new System.Windows.Forms.TextBox();
             this.positionCmbx = new System.Windows.Forms.ComboBox();
             this.clearBtn = new System.Windows.Forms.Button();
-            this.deleteBTN = new System.Windows.Forms.Button();
             this.updateBTN = new System.Windows.Forms.Button();
             this.createBTN = new System.Windows.Forms.Button();
             this.lnameTxtbx = new System.Windows.Forms.TextBox();
@@ -114,7 +113,8 @@
             this.clearBtn.FlatAppearance.BorderSize = 0;
             this.clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearBtn.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearBtn.Location = new System.Drawing.Point(46, 438);
+            this.clearBtn.ForeColor = System.Drawing.Color.Black;
+            this.clearBtn.Location = new System.Drawing.Point(64, 443);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(96, 44);
             this.clearBtn.TabIndex = 53;
@@ -122,27 +122,14 @@
             this.clearBtn.UseVisualStyleBackColor = false;
             this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
             // 
-            // deleteBTN
-            // 
-            this.deleteBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
-            this.deleteBTN.FlatAppearance.BorderSize = 0;
-            this.deleteBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
-            this.deleteBTN.Location = new System.Drawing.Point(340, 438);
-            this.deleteBTN.Name = "deleteBTN";
-            this.deleteBTN.Size = new System.Drawing.Size(107, 44);
-            this.deleteBTN.TabIndex = 52;
-            this.deleteBTN.Text = "Remove";
-            this.deleteBTN.UseVisualStyleBackColor = false;
-            this.deleteBTN.Click += new System.EventHandler(this.deleteBTN_Click);
-            // 
             // updateBTN
             // 
             this.updateBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
             this.updateBTN.FlatAppearance.BorderSize = 0;
             this.updateBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
-            this.updateBTN.Location = new System.Drawing.Point(240, 438);
+            this.updateBTN.ForeColor = System.Drawing.Color.Black;
+            this.updateBTN.Location = new System.Drawing.Point(336, 443);
             this.updateBTN.Name = "updateBTN";
             this.updateBTN.Size = new System.Drawing.Size(96, 44);
             this.updateBTN.TabIndex = 51;
@@ -156,7 +143,8 @@
             this.createBTN.FlatAppearance.BorderSize = 0;
             this.createBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
-            this.createBTN.Location = new System.Drawing.Point(147, 438);
+            this.createBTN.ForeColor = System.Drawing.Color.Black;
+            this.createBTN.Location = new System.Drawing.Point(198, 443);
             this.createBTN.Name = "createBTN";
             this.createBTN.Size = new System.Drawing.Size(88, 44);
             this.createBTN.TabIndex = 50;
@@ -187,7 +175,6 @@
             this.Controls.Add(this.personIDTxtbx);
             this.Controls.Add(this.positionCmbx);
             this.Controls.Add(this.clearBtn);
-            this.Controls.Add(this.deleteBTN);
             this.Controls.Add(this.updateBTN);
             this.Controls.Add(this.createBTN);
             this.Controls.Add(this.lnameTxtbx);
@@ -209,7 +196,6 @@
         private System.Windows.Forms.TextBox personIDTxtbx;
         private System.Windows.Forms.ComboBox positionCmbx;
         private System.Windows.Forms.Button clearBtn;
-        private System.Windows.Forms.Button deleteBTN;
         private System.Windows.Forms.Button updateBTN;
         private System.Windows.Forms.Button createBTN;
         private System.Windows.Forms.TextBox lnameTxtbx;

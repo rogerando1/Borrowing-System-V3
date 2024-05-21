@@ -36,7 +36,7 @@ namespace Borrowing_System.Account_Management
             positionCmbx.Text = AccountManagementPage.employeePosition;
         }
 
-        private void clearBtn_Click(object sender, EventArgs e)
+        public void clearBtn_Click(object sender, EventArgs e)
         {
             personIDTxtbx.Text = "";
             fnameTxtbx.Text = "";

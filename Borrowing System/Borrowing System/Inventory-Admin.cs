@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Borrowing_System.Data;
 using MySql.Data.MySqlClient;
+using OfficeOpenXml.Style;
+using OfficeOpenXml.Table;
+using OfficeOpenXml;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
@@ -25,10 +28,6 @@ namespace Borrowing_System
 
         private void Inventory_Admin_Load(object sender, EventArgs e)
         {
-            productnameTxtbx.Enabled = false;
-            conditionTxtbx.Enabled = false;
-            quantityTxtbx.Enabled = false;
-
             MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
             connection.Open();
             MySqlCommand cmd = new MySqlCommand("SELECT Product.productname, Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition " +
@@ -208,7 +207,7 @@ namespace Borrowing_System
 
                         partIdTxtbx.Text = "";
 
-                        if (MessageBox.Show("Are you sure you want to create this account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        if (MessageBox.Show("Are you sure you want to add this equipment to inventory?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
                             using (var command = conn.CreateCommand())
                             {
@@ -228,7 +227,7 @@ namespace Borrowing_System
                                     partnameTxtbx.Text = "";
                                     partdescriptionTxtbx.Text = "";
                                     quantityTxtbx.Value = 0;
-                                    conditionTxtbx.SelectedIndex = -1;
+                                    conditionTxtbx.Text = "";
                                     ReloadDataGridView();
                                 }
                                 else
@@ -283,7 +282,7 @@ namespace Borrowing_System
                         partnameTxtbx.Text = "";
                         partdescriptionTxtbx.Text = "";
                         quantityTxtbx.Value = 0;
-                        conditionTxtbx.SelectedIndex = -1;
+                        conditionTxtbx.Text = "";
 
                         ReloadDataGridView();
                     }
@@ -346,7 +345,7 @@ namespace Borrowing_System
                         partnameTxtbx.Text = "";
                         partdescriptionTxtbx.Text = "";
                         quantityTxtbx.Value = 0;
-                        conditionTxtbx.SelectedIndex = -1;
+                        conditionTxtbx.Text = "";
                         ReloadDataGridView();
                     }
                     else
@@ -370,7 +369,7 @@ namespace Borrowing_System
             partnameTxtbx.Text = "";
             partdescriptionTxtbx.Text = "";
             quantityTxtbx.Value = 0;
-            conditionTxtbx.SelectedIndex = -1;
+            conditionTxtbx.Text = "";
         }    
 
         private void adminInventoryData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -491,70 +490,73 @@ namespace Borrowing_System
             }
         }
 
+        private void excelExportBTN_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog save = new SaveFileDialog()
+            {
+                Filter = "Excel Workbook|*.xlsx"
+            })
+            {
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial; // or OfficeOpenXml.LicenseContext.Commercial
+                        using (ExcelPackage package = new ExcelPackage())
+                        {
+                            ExcelWorksheet ws = package.Workbook.Worksheets.Add("Inventory Page");
 
-        //Printing Error ~~~~~~~~~~~~
+                            DataTable dt = this.adminInventoryData.DataSource as DataTable;
 
 
-        //private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        //{
-        //    e.Graphics.DrawString("Welcome to Borrowing System", new Font("Arial", 12, FontStyle.Regular), Brushes.Black, new Point(100, 10));
+                            // Load data into worksheet
+                            ws.Cells["A2"].LoadFromDataTable(dt, true);
 
-        //    Font font = new Font("Arial", 10);
+                            // Merge and format the title row
+                            ws.Cells["A1:F1"].Merge = true;
+                            ws.Cells["A1"].Value = $"Inventory Details";
+                            ws.Cells["A1"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                            ws.Cells["A1"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.WhiteSmoke);
+                            ws.Cells["A1"].Style.Font.Color.SetColor(System.Drawing.Color.Black);
+                            ws.Cells["A1"].Style.Font.Bold = true;
+                            ws.Cells["A1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
-        //    float yPos = 50;
-        //    int count = 0;
+                            // Center align header row
+                            ws.Row(2).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                            ws.PrinterSettings.PaperSize = ePaperSize.Legal;
+                            ws.PrinterSettings.Orientation = eOrientation.Landscape;
 
-        //    // Print the data from the database table
-        //    foreach (DataGridView rowView in adminInventoryData.Rows)
-        //    {
-        //        if (count >= 30) // Maximum 30 rows per page
-        //        {
-        //            e.HasMorePages = true; // Indicates there are more pages to print
-        //            return;
-        //        }
+                            // Center text for each cells
+                            ws.Cells[ws.Dimension.Address].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
 
-        //        DataRow row = rowView.NewRowIndex();
-        //        string data = $"{row["column1"]} {row["column2"]}"; // Assuming column1 and column2 are the columns you want to print
-        //        e.Graphics.DrawString(data, font, Brushes.Black, new Point(100, (int)yPos));
-        //        yPos += 20; // Adjust the spacing as needed
-        //        count++;
-        //    }
+                            // Adjust column widths
+                            ws.Cells[ws.Dimension.Address].AutoFitColumns();
 
-        //    e.HasMorePages = false;
-        //}
+                            using (var range = ws.Cells[2, 1, dt.Rows.Count + 2, dt.Columns.Count])
+                            {
+                                var table = ws.Tables.Add(range, "InventoryTable");
+                                table.ShowHeader = true;
+                                table.TableStyle = TableStyles.Light15;
+                            }
 
-        //Bitmap bitmap;
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    // Create a new DataTable to store the data
-        //    DataTable dataTable = new DataTable();
-        //    dataTable.Columns.Add("Column1"); // Replace "Column1" with your actual column name
-        //    dataTable.Columns.Add("Column2"); // Replace "Column2" with your actual column name
-        //    dataTable.Columns.Add("Column3");
-        //    dataTable.Columns.Add("Column4");
-        //    dataTable.Columns.Add("Column5");
-        //    dataTable.Columns.Add("Column6");
+                            var fi = new FileInfo(save.FileName);
+                            package.SaveAs(fi);
+                        }
 
-        //    // Iterate through each row in the DataGridView and add the data to the DataTable
-        //    foreach (DataGridViewRow row in adminInventoryData.Rows)
-        //    {
-        //        if (!row.IsNewRow)
-        //        {
-        //            DataRow dataRow = dataTable.NewRow();
-        //            dataRow["Column1"] = row.Cells["productname"].Value.ToString(); // Replace "yourColumn1" with the actual column name
-        //            dataRow["Column2"] = row.Cells["partID"].Value.ToString(); // Replace "yourColumn2" with the actual column name
-        //            dataRow["Column3"] = row.Cells["partname"].Value.ToString();
-        //            dataRow["Column4"] = row.Cells["partdescription"].Value.ToString();
-        //            dataRow["Column5"] = row.Cells["quantity"].Value.ToString();
-        //            dataRow["Column6"] = row.Cells["condition"].Value.ToString();
-        //            dataTable.Rows.Add(dataRow);
-        //        }
-        //    }
-
-        //    // Display the print preview dialog
-        //    printPreviewDialog1.PrintPreviewControl.Zoom = 1;
-        //    printPreviewDialog1.Document = printDocument1;
-        //    printPreviewDialog1.ShowDialog();
-        //}
+                        MessageBox.Show("You have successfully exported the database table", "NOTICE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        DataTable dt = this.adminInventoryData.DataSource as DataTable;
+                        //Open the file after exporting
+                        System.Diagnostics.Process.Start(save.FileName);
+                    }
+                }
+            }
+        }
     }
 }

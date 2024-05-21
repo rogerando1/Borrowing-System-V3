@@ -16,6 +16,10 @@ namespace Borrowing_System
 {
     public partial class AccountManagementPage : Form
     {
+        Image normalImage = Properties.Resources.delete1;
+        Image hoverImage = Properties.Resources.delete2;
+        private DataGridViewCell selectedCell = null;
+
         public static AccountManagementPage instance;
         public static string employeePersonID { get; set; }
         public static string employeeFname { get; set; }
@@ -74,7 +78,6 @@ namespace Borrowing_System
             dataTable = new DataTable();
             mySqlDataAdapter.Fill(dataTable);
             studentData.DataSource = dataTable;
-
 
             //Show Instructor Data from Instructor Table
             mySqlCommand = new MySqlCommand("SELECT Instructor.instructorID, Person.firstname AS instructorFirstname, Person.middleinitial AS instructorMiddleInitial, Person.lastname AS instructorLastname FROM Instructor " +
@@ -153,7 +156,7 @@ namespace Borrowing_System
                 //Refresh Instructor List Data
                 MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 mySqlConnection.Open();
-                MySqlCommand mySqlCommand = new MySqlCommand("SELECT Instructor.instructorID, Person.firstname AS ins_first_name, Person.middleinitial AS ins_middle_initial, Person.lastname AS ins_last_name FROM Instructor INNER JOIN Person ON Instructor.personID = Person.personID", mySqlConnection);
+                MySqlCommand mySqlCommand = new MySqlCommand("SELECT Instructor.instructorID, Person.firstname AS instructorFirstname, Person.middleinitial AS instructorMiddleInitial, Person.lastname AS instructorLastname FROM Instructor INNER JOIN Person ON Instructor.personID = Person.personID", mySqlConnection);
                 MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
                 DataTable dataTable = new DataTable();
                 mySqlDataAdapter.Fill(dataTable);
@@ -208,7 +211,14 @@ namespace Borrowing_System
                 else if (instructorBTN.BackColor == Color.FromArgb(252, 168, 115))
                 {
                     //SEARCH INSTRUCTOR
-
+                    MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                    mySqlConnection.Open();
+                    MySqlCommand mySqlCommand = new MySqlCommand($"SELECT Instructor.instructorID, Person.firstname AS instructorFirstname, Person.middleinitial AS instructorMiddleInitial, Person.lastname AS instructorLastname FROM Instructor INNER JOIN Person ON Instructor.personID = Person.personID WHERE Person.firstname LIKE '%{searchData.Text}%' OR Person.lastname LIKE '%{searchData.Text}%'", mySqlConnection);
+                    MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+                    DataTable dataTable = new DataTable();
+                    mySqlDataAdapter.Fill(dataTable);
+                    instructorData.DataSource = dataTable;
+                    mySqlConnection.Close();
                 }
                 else if (scheduleBTN.BackColor == Color.FromArgb(252, 168, 115))
                 {
@@ -345,18 +355,60 @@ namespace Borrowing_System
 
         private void employeeData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                DataGridViewRow row = this.employeeData.Rows[e.RowIndex];
-                employeePersonID = row.Cells["personID"].Value.ToString();
-                employeeFname = row.Cells["firstname"].Value.ToString();
-                employeeMinitial = row.Cells["middleinitial"].Value.ToString();
-                employeeLname = row.Cells["lastname"].Value.ToString();
-                employeeUsername = row.Cells["username"].Value.ToString();
-                employeePassword = row.Cells["password_"].Value.ToString();
-                employeePosition = row.Cells["position"].Value.ToString();
-                employeeList1.updateEmployeeList();
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = this.employeeData.Rows[e.RowIndex];
+                    employeePersonID = row.Cells["personID"].Value.ToString();
+                    employeeFname = row.Cells["firstname"].Value.ToString();
+                    employeeMinitial = row.Cells["middleinitial"].Value.ToString();
+                    employeeLname = row.Cells["lastname"].Value.ToString();
+                    employeeUsername = row.Cells["username"].Value.ToString();
+                    employeePassword = row.Cells["password_"].Value.ToString();
+                    employeePosition = row.Cells["position"].Value.ToString();
+                    employeeList1.updateEmployeeList();
+                }
+                if (e.ColumnIndex == employeeData.Columns["removeEmployee"].Index)
+                {
+                    //Change image when selected
+                    selectedCell = employeeData[e.ColumnIndex, e.RowIndex];
+                    employeeData.InvalidateCell(e.ColumnIndex, e.RowIndex);
+                    employeeData.Refresh();
+                    if (MessageBox.Show("Are you sure you want to delete this record?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                            connection.Open();
+                            MySqlCommand cmd = new MySqlCommand("DELETE FROM Accounts WHERE personID = @personID", connection);
+                            cmd.Parameters.AddWithValue("@personID", employeePersonID);
+                            cmd.ExecuteNonQuery();
+                            connection.Close();
+                            MessageBox.Show("Record has been deleted successfully!", "Delete Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            refreshData();
+                            employeeList1.clearBtn_Click(sender, e);
+
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        selectedCell = null;
+                        employeeData.Refresh();
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
         }
 
         private void scheduleBTN_Click(object sender, EventArgs e)
@@ -376,17 +428,55 @@ namespace Borrowing_System
 
         private void studentData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            try
             {
-                DataGridViewRow row = studentData.Rows[e.RowIndex];
-                studentId = row.Cells["studentID"].Value.ToString();
-                studentFirstName = row.Cells["studentFirstname"].Value.ToString();
-                studentMiddleInitial = row.Cells["studentMiddleInitial"].Value.ToString();
-                studentLastName = row.Cells["studentLastname"].Value.ToString();
-                studentProgram = row.Cells["program"].Value.ToString();
-                studentYearLevel = row.Cells["yearlevel"].Value.ToString();
-                studentList1.updateStudentList();
-
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = this.studentData.Rows[e.RowIndex];
+                    studentFirstName = row.Cells["studentFirstname"].Value.ToString();
+                    studentMiddleInitial = row.Cells["studentMiddleInitial"].Value.ToString();
+                    studentLastName = row.Cells["studentLastname"].Value.ToString();
+                    studentId = row.Cells["studentID"].Value.ToString();
+                    studentProgram = row.Cells["program"].Value.ToString();
+                    studentYearLevel = row.Cells["yearlevel"].Value.ToString();
+                    studentList1.updateStudentList();
+                }
+                //Delete Student
+                if (e.ColumnIndex == studentData.Columns["removeStudent"].Index)
+                {
+                    //Change image when selected
+                    selectedCell = studentData[e.ColumnIndex, e.RowIndex];
+                    studentData.InvalidateCell(e.ColumnIndex, e.RowIndex);
+                    studentData.Refresh();
+                    if (MessageBox.Show("Are you sure you want to delete this record?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                            connection.Open();
+                            MySqlCommand cmd = new MySqlCommand("DELETE FROM Student WHERE studentID = @studentID", connection);
+                            cmd.Parameters.AddWithValue("@studentID", studentId);
+                            cmd.ExecuteNonQuery();
+                            connection.Close();
+                            MessageBox.Show("Record has been deleted successfully!", "Delete Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            refreshData();
+                            studentList1.clearBTN_Click(sender, e);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        selectedCell = null;
+                        studentData.Refresh();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -468,15 +558,52 @@ namespace Borrowing_System
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = scheduleData.Rows[e.RowIndex];
-                instructorId = row.Cells["instructorID"].Value.ToString();
-                instructorName = row.Cells["instructorname"].Value.ToString();
-                instructorCourseId = row.Cells["instructorcourseId"].Value.ToString();
-                instructorCourseName = row.Cells["instructorcName"].Value.ToString();
-                instructorCourseSection = row.Cells["instructorSection"].Value.ToString();
-                instructorCourseStartTime = row.Cells["instructorStartTime"].Value.ToString();
-                instructorCourseEndTime = row.Cells["instructorEndTime"].Value.ToString();
-                scheduleList1.updateInstructorList();
+                DataGridViewRow row = instructorData.Rows[e.RowIndex];
+                instructorId1 = row.Cells["instructor_ID"].Value.ToString();
+                instructor1Firstname = row.Cells["ins_first_name"].Value.ToString();
+                instructor1MiddleInitial = row.Cells["ins_middle_initial"].Value.ToString();
+                instructor1Lastname = row.Cells["ins_last_name"].Value.ToString();
+                instructorList1.updateInstructorList();
+                instructorData.Refresh();
+            }
+            //delete instructor
+            if (e.ColumnIndex == instructorData.Columns["removeInstructor"].Index)
+            {
+                try
+                {
+                    //Change image when selected
+                    selectedCell = instructorData[e.ColumnIndex, e.RowIndex];
+                    instructorData.InvalidateCell(e.ColumnIndex, e.RowIndex);
+                    instructorData.Refresh();
+                    if (MessageBox.Show("Are you sure you want to delete this record?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                            connection.Open();
+                            MySqlCommand cmd = new MySqlCommand("DELETE FROM Instructor WHERE instructorID = @instructorID", connection);
+                            cmd.Parameters.AddWithValue("@instructorID", instructorId1);
+                            cmd.ExecuteNonQuery();
+                            connection.Close();
+                            MessageBox.Show("Record has been deleted successfully!", "Delete Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            refreshData();
+                            instructorList1.clearBTN_Click(sender, e);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        selectedCell = null;
+                        instructorData.Refresh();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -489,6 +616,44 @@ namespace Borrowing_System
                 courseId = row.Cells["courseID"].Value.ToString();
                 courseList1.updateCourseList();
             }
+            if (e.ColumnIndex == courseData.Columns["removeCourse"].Index)
+            {
+                try
+                {
+                    //Change image when selected
+                    selectedCell = courseData[e.ColumnIndex, e.RowIndex];
+                    courseData.InvalidateCell(e.ColumnIndex, e.RowIndex);
+                    courseData.Refresh();
+                    if (MessageBox.Show("Are you sure you want to delete this record?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                            connection.Open();
+                            MySqlCommand cmd = new MySqlCommand("DELETE FROM Course WHERE courseID = @courseID", connection);
+                            cmd.Parameters.AddWithValue("@courseID", courseId);
+                            cmd.ExecuteNonQuery();
+                            connection.Close();
+                            MessageBox.Show("Record has been deleted successfully!", "Delete Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            refreshData();
+                            courseList1.clearBTN_Click(sender, e);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        selectedCell = null;
+                        courseData.Refresh();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void searchData_KeyDown(object sender, KeyEventArgs e)
@@ -499,17 +664,256 @@ namespace Borrowing_System
             }
         }
 
-        private void instructorData_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void employeeData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (e.ColumnIndex == employeeData.Columns["removeEmployee"].Index)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var image = normalImage;
+                if (selectedCell != null && selectedCell.RowIndex == e.RowIndex && selectedCell.ColumnIndex == e.ColumnIndex)
+                {
+                    image = hoverImage;
+                }
+
+                var w = image.Width;
+                var h = image.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(image, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void employeeData_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == employeeData.Columns["removeEmployee"].Index)
+            {
+                employeeData.Cursor = Cursors.Hand;
+            }
+        }
+
+        private void employeeData_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == employeeData.Columns["removeEmployee"].Index)
+            {
+                employeeData.Cursor = Cursors.Default;
+            }
+        }
+
+        private void studentData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (e.ColumnIndex == studentData.Columns["removeStudent"].Index)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var image = normalImage;
+                if (selectedCell != null && selectedCell.RowIndex == e.RowIndex && selectedCell.ColumnIndex == e.ColumnIndex)
+                {
+                    image = hoverImage;
+                }
+
+                var w = image.Width;
+                var h = image.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(image, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void studentData_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == studentData.Columns["removeStudent"].Index)
+            {
+                studentData.Cursor = Cursors.Hand;
+            }
+        }
+
+        private void studentData_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == studentData.Columns["removeStudent"].Index)
+            {
+                studentData.Cursor = Cursors.Default;
+            }
+        }
+
+        private void instructorData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == instructorData.Columns["removeInstructor"].Index)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var image = normalImage;
+                if (selectedCell != null && selectedCell.RowIndex == e.RowIndex && selectedCell.ColumnIndex == e.ColumnIndex)
+                {
+                    image = hoverImage;
+                }
+
+                var w = image.Width;
+                var h = image.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(image, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void instructorData_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == instructorData.Columns["removeInstructor"].Index)
+            {
+                instructorData.Cursor = Cursors.Hand;
+            }
+        }
+
+        private void instructorData_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == instructorData.Columns["removeInstructor"].Index)
+            {
+                instructorData.Cursor = Cursors.Default;
+            }
+        }
+
+        private void scheduleData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = instructorData.Rows[e.RowIndex];
-                instructorId1 = row.Cells["instructor_ID"].Value.ToString();
-                instructor1Firstname = row.Cells["ins_first_name"].Value.ToString();
-                instructor1MiddleInitial = row.Cells["ins_middle_initial"].Value.ToString();
-                instructor1Lastname = row.Cells["ins_last_name"].Value.ToString();
-                instructorList1.updateInstructorList();
+                DataGridViewRow row = scheduleData.Rows[e.RowIndex];
+                instructorId = row.Cells["instructorID"].Value.ToString();
+                instructorName = row.Cells["instructorname"].Value.ToString();
+                instructorCourseId = row.Cells["instructorcourseId"].Value.ToString();
+                instructorCourseName = row.Cells["instructorcName"].Value.ToString();
+                instructorCourseSection = row.Cells["instructorSection"].Value.ToString();
+                instructorCourseStartTime = row.Cells["instructorStartTime"].Value.ToString();
+                instructorCourseEndTime = row.Cells["instructorEndTime"].Value.ToString();
+                scheduleList1.updateInstructorList();
+            }
+            if (e.ColumnIndex == scheduleData.Columns["removeSchedule"].Index)
+            {
+                try
+                {
+                    //Change image when selected
+                    selectedCell = scheduleData[e.ColumnIndex, e.RowIndex];
+                    scheduleData.InvalidateCell(e.ColumnIndex, e.RowIndex);
+                    scheduleData.Refresh();
+                    if (MessageBox.Show("Are you sure you want to delete this record?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
 
+                            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                            connection.Open();
+                            MySqlCommand cmd = new MySqlCommand("DELETE FROM CourseTime WHERE instructorID = @instructorID AND courseID = @courseID", connection);
+                            cmd.Parameters.AddWithValue("@instructorID", instructorId);
+                            cmd.Parameters.AddWithValue("@courseID", instructorCourseId);
+                            cmd.ExecuteNonQuery();
+                            connection.Close();
+                            MessageBox.Show("Record has been deleted successfully!", "Delete Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            refreshData();
+                            scheduleList1.clearBtn_Click(sender, e);
+                    }
+                    else
+                    {
+                        selectedCell = null;
+                        scheduleData.Refresh();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void courseData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            if (e.ColumnIndex == courseData.Columns["removeCourse"].Index)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var image = normalImage;
+                if (selectedCell != null && selectedCell.RowIndex == e.RowIndex && selectedCell.ColumnIndex == e.ColumnIndex)
+                {
+                    image = hoverImage;
+                }
+
+                var w = image.Width;
+                var h = image.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(image, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void courseData_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == courseData.Columns["removeCourse"].Index)
+            {
+                courseData.Cursor = Cursors.Hand;
+            }
+        }
+
+        private void courseData_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == courseData.Columns["removeCourse"].Index)
+            {
+                courseData.Cursor = Cursors.Default;
+            }
+        }
+
+        private void scheduleData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if(e.RowIndex < 0)
+            {
+                return;
+            }
+            if (e.ColumnIndex == scheduleData.Columns["removeSchedule"].Index)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+
+                var image = normalImage;
+                if (selectedCell != null && selectedCell.RowIndex == e.RowIndex && selectedCell.ColumnIndex == e.ColumnIndex)
+                {
+                    image = hoverImage;
+                }
+
+                var w = image.Width;
+                var h = image.Height;
+                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
+                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+
+                e.Graphics.DrawImage(image, new Rectangle(x, y, w, h));
+                e.Handled = true;
+            }
+        }
+
+        private void scheduleData_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == scheduleData.Columns["removeSchedule"].Index)
+            {
+                scheduleData.Cursor = Cursors.Hand;
+            }
+        }
+
+        private void scheduleData_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == scheduleData.Columns["removeSchedule"].Index)
+            {
+                scheduleData.Cursor = Cursors.Default;
             }
         }
     }

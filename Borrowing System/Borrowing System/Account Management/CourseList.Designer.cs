@@ -32,7 +32,6 @@
             this.courseIDTxtbx = new System.Windows.Forms.TextBox();
             this.clearBTN = new System.Windows.Forms.Button();
             this.createBTN = new System.Windows.Forms.Button();
-            this.deleteBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // coursenameTxtbx
@@ -60,7 +59,7 @@
             this.clearBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
             this.clearBTN.ForeColor = System.Drawing.Color.Black;
-            this.clearBTN.Location = new System.Drawing.Point(82, 412);
+            this.clearBTN.Location = new System.Drawing.Point(159, 359);
             this.clearBTN.Name = "clearBTN";
             this.clearBTN.Size = new System.Drawing.Size(96, 44);
             this.clearBTN.TabIndex = 12;
@@ -75,7 +74,7 @@
             this.createBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
             this.createBTN.ForeColor = System.Drawing.Color.Black;
-            this.createBTN.Location = new System.Drawing.Point(193, 412);
+            this.createBTN.Location = new System.Drawing.Point(45, 359);
             this.createBTN.Name = "createBTN";
             this.createBTN.Size = new System.Drawing.Size(96, 44);
             this.createBTN.TabIndex = 13;
@@ -83,28 +82,12 @@
             this.createBTN.UseVisualStyleBackColor = false;
             this.createBTN.Click += new System.EventHandler(this.createBTN_Click);
             // 
-            // deleteBTN
-            // 
-            this.deleteBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
-            this.deleteBTN.FlatAppearance.BorderSize = 0;
-            this.deleteBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
-            this.deleteBTN.ForeColor = System.Drawing.Color.Black;
-            this.deleteBTN.Location = new System.Drawing.Point(301, 412);
-            this.deleteBTN.Name = "deleteBTN";
-            this.deleteBTN.Size = new System.Drawing.Size(106, 44);
-            this.deleteBTN.TabIndex = 14;
-            this.deleteBTN.Text = "Remove";
-            this.deleteBTN.UseVisualStyleBackColor = false;
-            this.deleteBTN.Click += new System.EventHandler(this.deleteBTN_Click);
-            // 
             // CourseList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources.First_Name;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Controls.Add(this.deleteBTN);
             this.Controls.Add(this.createBTN);
             this.Controls.Add(this.clearBTN);
             this.Controls.Add(this.coursenameTxtbx);
@@ -122,6 +105,5 @@
         private System.Windows.Forms.TextBox courseIDTxtbx;
         private System.Windows.Forms.Button clearBTN;
         private System.Windows.Forms.Button createBTN;
-        private System.Windows.Forms.Button deleteBTN;
     }
 }

@@ -9,6 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OfficeOpenXml;
+using System.IO;
+using OfficeOpenXml.Style;
+using System.Windows.Media;
+using OfficeOpenXml.Table;
 
 namespace Borrowing_System
 {
@@ -200,6 +205,74 @@ namespace Borrowing_System
             }
 
             productnamelist.DropDownWidth = maxWidth;
+        }
+
+        private void excelExportBTN_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog save = new SaveFileDialog()
+            {
+                Filter = "Excel Workbook|*.xlsx"
+            })
+            {
+                if (save.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial; // or OfficeOpenXml.LicenseContext.Commercial
+                        using (ExcelPackage package = new ExcelPackage())
+                        {
+                            ExcelWorksheet ws = package.Workbook.Worksheets.Add("Inventory Page");
+
+                            DataTable dt = this.staffInventoryData.DataSource as DataTable;
+
+                            // Load data into worksheet
+                            ws.Cells["A2"].LoadFromDataTable(dt, true);
+
+                            // Merge and format the title row
+                            ws.Cells["A1:F1"].Merge = true;
+                            ws.Cells["A1"].Value = $"Inventory Details";
+                            ws.Cells["A1"].Style.Fill.PatternType = ExcelFillStyle.Solid;
+                            ws.Cells["A1"].Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.WhiteSmoke);
+                            ws.Cells["A1"].Style.Font.Color.SetColor(System.Drawing.Color.Black);
+                            ws.Cells["A1"].Style.Font.Bold = true;
+                            ws.Cells["A1"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                            // Center align header row
+                            ws.Row(2).Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                            ws.PrinterSettings.PaperSize = ePaperSize.Legal;
+                            ws.PrinterSettings.Orientation = eOrientation.Landscape;
+
+                            // Center text for each cells
+                            ws.Cells[ws.Dimension.Address].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+
+                            // Adjust column widths
+                            ws.Cells[ws.Dimension.Address].AutoFitColumns();
+
+                            using (var range = ws.Cells[2, 1, dt.Rows.Count + 2, dt.Columns.Count])
+                            {
+                                var table = ws.Tables.Add(range, "InventoryTable");
+                                table.ShowHeader = true;
+                                table.TableStyle = TableStyles.Light15;
+                            }
+
+                            var fi = new FileInfo(save.FileName);
+                            package.SaveAs(fi);
+                        }
+
+                        MessageBox.Show("You have successfully exported the database table", "NOTICE", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred: {ex.Message}", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        DataTable dt = this.staffInventoryData.DataSource as DataTable;
+                        //Open the file after exporting
+                        System.Diagnostics.Process.Start(save.FileName);
+                    }
+                }
+            }
         }
     }
 }

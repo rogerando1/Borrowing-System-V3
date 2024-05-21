@@ -68,7 +68,7 @@ namespace Borrowing_System.Account_Management
             }
         }
 
-        private void clearBTN_Click(object sender, EventArgs e)
+        public void clearBTN_Click(object sender, EventArgs e)
         {
             courseIDTxtbx.Text = "";
             coursenameTxtbx.Text = "";

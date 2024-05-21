@@ -38,7 +38,6 @@
             this.createBTN = new System.Windows.Forms.Button();
             this.clearBTN = new System.Windows.Forms.Button();
             this.updateBTN = new System.Windows.Forms.Button();
-            this.deleteBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // firstnameTxtbx
@@ -106,9 +105,9 @@
             this.uploadBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
             this.uploadBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(16)))));
-            this.uploadBTN.Location = new System.Drawing.Point(101, 451);
+            this.uploadBTN.Location = new System.Drawing.Point(74, 451);
             this.uploadBTN.Name = "uploadBTN";
-            this.uploadBTN.Size = new System.Drawing.Size(279, 44);
+            this.uploadBTN.Size = new System.Drawing.Size(333, 44);
             this.uploadBTN.TabIndex = 53;
             this.uploadBTN.Text = "Upload through CSV";
             this.uploadBTN.UseVisualStyleBackColor = false;
@@ -121,7 +120,7 @@
             this.createBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
             this.createBTN.ForeColor = System.Drawing.Color.Black;
-            this.createBTN.Location = new System.Drawing.Point(134, 386);
+            this.createBTN.Location = new System.Drawing.Point(194, 385);
             this.createBTN.Name = "createBTN";
             this.createBTN.Size = new System.Drawing.Size(94, 44);
             this.createBTN.TabIndex = 54;
@@ -136,7 +135,7 @@
             this.clearBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
             this.clearBTN.ForeColor = System.Drawing.Color.Black;
-            this.clearBTN.Location = new System.Drawing.Point(34, 386);
+            this.clearBTN.Location = new System.Drawing.Point(94, 385);
             this.clearBTN.Name = "clearBTN";
             this.clearBTN.Size = new System.Drawing.Size(94, 44);
             this.clearBTN.TabIndex = 55;
@@ -151,7 +150,7 @@
             this.updateBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.updateBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
             this.updateBTN.ForeColor = System.Drawing.Color.Black;
-            this.updateBTN.Location = new System.Drawing.Point(234, 386);
+            this.updateBTN.Location = new System.Drawing.Point(294, 385);
             this.updateBTN.Name = "updateBTN";
             this.updateBTN.Size = new System.Drawing.Size(94, 44);
             this.updateBTN.TabIndex = 56;
@@ -159,27 +158,11 @@
             this.updateBTN.UseVisualStyleBackColor = false;
             this.updateBTN.Click += new System.EventHandler(this.updateBTN_Click);
             // 
-            // deleteBTN
-            // 
-            this.deleteBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
-            this.deleteBTN.FlatAppearance.BorderSize = 0;
-            this.deleteBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
-            this.deleteBTN.ForeColor = System.Drawing.Color.Black;
-            this.deleteBTN.Location = new System.Drawing.Point(334, 386);
-            this.deleteBTN.Name = "deleteBTN";
-            this.deleteBTN.Size = new System.Drawing.Size(115, 44);
-            this.deleteBTN.TabIndex = 57;
-            this.deleteBTN.Text = "Remove";
-            this.deleteBTN.UseVisualStyleBackColor = false;
-            this.deleteBTN.Click += new System.EventHandler(this.deleteBTN_Click);
-            // 
             // StudentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Borrowing_System.Properties.Resources._2_4_;
-            this.Controls.Add(this.deleteBTN);
             this.Controls.Add(this.updateBTN);
             this.Controls.Add(this.clearBTN);
             this.Controls.Add(this.createBTN);
@@ -210,6 +193,5 @@
         private System.Windows.Forms.Button createBTN;
         private System.Windows.Forms.Button clearBTN;
         private System.Windows.Forms.Button updateBTN;
-        private System.Windows.Forms.Button deleteBTN;
     }
 }
