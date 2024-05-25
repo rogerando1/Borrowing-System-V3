@@ -211,7 +211,8 @@ namespace Borrowing_System
                         {
                             using (var command = conn.CreateCommand())
                             {
-                                command.CommandText = "INSERT INTO Part (productID, partname, partdescription, quantity, `condition`) VALUES (@productname, @partname, @partdescription, @quantity, @condition)";
+                                command.CommandText = "INSERT INTO Part (productID, partname, partdescription, quantity, `condition`) " +
+                                                         "VALUES (@productname, @partname, @partdescription, @quantity, @condition)";
                                 command.Parameters.AddWithValue("@productname", productnameTxtbx.Text);
                                 command.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
                                 command.Parameters.AddWithValue("@partdescription", partdescriptionTxtbx.Text);
@@ -245,8 +246,6 @@ namespace Borrowing_System
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
 
         private void deleteBTN_Click(object sender, EventArgs e)
         {
@@ -353,8 +352,6 @@ namespace Borrowing_System
                         MessageBox.Show("Failed to update equipment.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-
-
             }
             catch (Exception ex)
             {

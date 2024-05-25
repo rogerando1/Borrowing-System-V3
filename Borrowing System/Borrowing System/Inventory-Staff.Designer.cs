@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.conditionTxtbx = new System.Windows.Forms.TextBox();
             this.partdescriptionTxtbx = new System.Windows.Forms.TextBox();
             this.partnameTxtbx = new System.Windows.Forms.TextBox();
@@ -120,7 +120,7 @@
             this.searchBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.searchBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchBTN.ForeColor = System.Drawing.Color.White;
-            this.searchBTN.Location = new System.Drawing.Point(1430, 43);
+            this.searchBTN.Location = new System.Drawing.Point(1373, 31);
             this.searchBTN.Name = "searchBTN";
             this.searchBTN.Size = new System.Drawing.Size(33, 36);
             this.searchBTN.TabIndex = 45;
@@ -131,9 +131,9 @@
             // 
             this.searchData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchData.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchData.Location = new System.Drawing.Point(714, 48);
+            this.searchData.Location = new System.Drawing.Point(707, 35);
             this.searchData.Name = "searchData";
-            this.searchData.Size = new System.Drawing.Size(710, 26);
+            this.searchData.Size = new System.Drawing.Size(665, 26);
             this.searchData.TabIndex = 44;
             this.searchData.TextChanged += new System.EventHandler(this.searchData_TextChanged);
             this.searchData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchData_KeyDown);
@@ -232,14 +232,14 @@
             this.staffInventoryData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.staffInventoryData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.staffInventoryData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.staffInventoryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.staffInventoryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.staffInventoryData.ColumnHeadersHeight = 50;
             this.staffInventoryData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.staffInventoryData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -251,19 +251,19 @@
             this.condition});
             this.staffInventoryData.EnableHeadersVisualStyles = false;
             this.staffInventoryData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.staffInventoryData.Location = new System.Drawing.Point(380, 110);
+            this.staffInventoryData.Location = new System.Drawing.Point(378, 100);
             this.staffInventoryData.Margin = new System.Windows.Forms.Padding(2);
             this.staffInventoryData.Name = "staffInventoryData";
             this.staffInventoryData.ReadOnly = true;
             this.staffInventoryData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.staffInventoryData.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.staffInventoryData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.staffInventoryData.RowHeadersVisible = false;
             this.staffInventoryData.RowHeadersWidth = 50;
             this.staffInventoryData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -276,7 +276,7 @@
             this.staffInventoryData.RowTemplate.ReadOnly = true;
             this.staffInventoryData.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.staffInventoryData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.staffInventoryData.Size = new System.Drawing.Size(1106, 491);
+            this.staffInventoryData.Size = new System.Drawing.Size(1107, 500);
             this.staffInventoryData.TabIndex = 43;
             this.staffInventoryData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.staffInventoryData_CellClick);
             this.staffInventoryData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.staffInventoryData_CellContentClick);
@@ -288,7 +288,7 @@
             this.productnamelist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.productnamelist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.productnamelist.FormattingEnabled = true;
-            this.productnamelist.Location = new System.Drawing.Point(380, 48);
+            this.productnamelist.Location = new System.Drawing.Point(381, 36);
             this.productnamelist.Name = "productnamelist";
             this.productnamelist.Size = new System.Drawing.Size(284, 26);
             this.productnamelist.TabIndex = 42;
@@ -307,9 +307,9 @@
             this.excelExportBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.excelExportBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.excelExportBTN.ForeColor = System.Drawing.Color.White;
-            this.excelExportBTN.Location = new System.Drawing.Point(1453, 69);
+            this.excelExportBTN.Location = new System.Drawing.Point(1445, 28);
             this.excelExportBTN.Name = "excelExportBTN";
-            this.excelExportBTN.Size = new System.Drawing.Size(33, 36);
+            this.excelExportBTN.Size = new System.Drawing.Size(40, 40);
             this.excelExportBTN.TabIndex = 52;
             this.excelExportBTN.UseVisualStyleBackColor = false;
             this.excelExportBTN.Click += new System.EventHandler(this.excelExportBTN_Click);
@@ -318,7 +318,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Admin_invenotry__4_;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources._1532__650;
             this.ClientSize = new System.Drawing.Size(1532, 650);
             this.Controls.Add(this.excelExportBTN);
             this.Controls.Add(this.conditionTxtbx);

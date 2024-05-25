@@ -102,8 +102,6 @@ namespace Borrowing_System
 
         private void editBTN_Click(object sender, EventArgs e)
         {
-            firstnameTxtbx.ReadOnly = false;
-            lastnameTxtbx.ReadOnly = false;
             usernameTxtbx.ReadOnly = false;
             passwordTxtbx.ReadOnly = false;
             updateBTN.Visible = true;

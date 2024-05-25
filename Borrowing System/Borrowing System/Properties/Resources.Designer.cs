@@ -103,6 +103,16 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1532__650 {
+            get {
+                object obj = ResourceManager.GetObject("1532, 650", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _2_1_ {
             get {
                 object obj = ResourceManager.GetObject("2(1)", resourceCulture);
@@ -413,9 +423,9 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap dashboard_icon {
+        internal static System.Drawing.Bitmap Dashboard {
             get {
-                object obj = ResourceManager.GetObject("dashboard icon", resourceCulture);
+                object obj = ResourceManager.GetObject("Dashboard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -423,9 +433,19 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dashboard_Page {
+        internal static System.Drawing.Bitmap Dashboard__1_ {
             get {
-                object obj = ResourceManager.GetObject("Dashboard Page", resourceCulture);
+                object obj = ResourceManager.GetObject("Dashboard (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dashboard_icon {
+            get {
+                object obj = ResourceManager.GetObject("dashboard icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -516,6 +536,16 @@ namespace Borrowing_System.Properties {
         internal static System.Drawing.Bitmap home_icon {
             get {
                 object obj = ResourceManager.GetObject("home icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Home_Page {
+            get {
+                object obj = ResourceManager.GetObject("Home_Page", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -716,6 +746,26 @@ namespace Borrowing_System.Properties {
         internal static System.Drawing.Bitmap Staff_invenotry_Page1 {
             get {
                 object obj = ResourceManager.GetObject("Staff invenotry Page1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Staff_Logs__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Staff Logs (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Staff_Logs__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Staff Logs (2)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

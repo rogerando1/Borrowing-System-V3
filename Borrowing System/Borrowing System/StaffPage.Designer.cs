@@ -252,7 +252,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Full_Page__1_;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Home_Page;
             this.ClientSize = new System.Drawing.Size(1556, 850);
             this.Controls.Add(this.employeeITxt);
             this.Controls.Add(this.poslbl);

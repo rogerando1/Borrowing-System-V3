@@ -218,7 +218,7 @@
             this.submitBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.submitBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submitBTN.ForeColor = System.Drawing.Color.Black;
-            this.submitBTN.Location = new System.Drawing.Point(254, 581);
+            this.submitBTN.Location = new System.Drawing.Point(246, 593);
             this.submitBTN.Name = "submitBTN";
             this.submitBTN.Size = new System.Drawing.Size(142, 45);
             this.submitBTN.TabIndex = 33;
@@ -294,7 +294,7 @@
             this.status});
             this.cartTable.EnableHeadersVisualStyles = false;
             this.cartTable.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.cartTable.Location = new System.Drawing.Point(32, 49);
+            this.cartTable.Location = new System.Drawing.Point(32, 60);
             this.cartTable.Margin = new System.Windows.Forms.Padding(2);
             this.cartTable.Name = "cartTable";
             this.cartTable.ReadOnly = true;
@@ -320,7 +320,7 @@
             this.cartTable.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.cartTable.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.cartTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.cartTable.Size = new System.Drawing.Size(600, 520);
+            this.cartTable.Size = new System.Drawing.Size(600, 516);
             this.cartTable.TabIndex = 35;
             this.cartTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartTable_CellClick);
             this.cartTable.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartTable_CellMouseEnter);
@@ -382,7 +382,7 @@
             this.staffCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.staffCmbx.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.staffCmbx.FormattingEnabled = true;
-            this.staffCmbx.Location = new System.Drawing.Point(32, 12);
+            this.staffCmbx.Location = new System.Drawing.Point(86, 12);
             this.staffCmbx.Name = "staffCmbx";
             this.staffCmbx.Size = new System.Drawing.Size(323, 36);
             this.staffCmbx.TabIndex = 36;
@@ -399,7 +399,7 @@
             this.clearCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearCart.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearCart.ForeColor = System.Drawing.Color.Black;
-            this.clearCart.Location = new System.Drawing.Point(361, 12);
+            this.clearCart.Location = new System.Drawing.Point(425, 12);
             this.clearCart.Name = "clearCart";
             this.clearCart.Size = new System.Drawing.Size(107, 36);
             this.clearCart.TabIndex = 37;

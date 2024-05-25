@@ -62,8 +62,29 @@
             this.scheduleList1 = new Borrowing_System.Account_Management.ScheduleList();
             this.courseList1 = new Borrowing_System.Account_Management.CourseList();
             this.studentData = new System.Windows.Forms.DataGridView();
+            this.studentFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentMiddleinitial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentLastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.program = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearlevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.removeStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduleData = new System.Windows.Forms.DataGridView();
+            this.instructorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorcourseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorSection = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorEndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorLastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorMiddleinitial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.removeSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseData = new System.Windows.Forms.DataGridView();
+            this.courseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coursename = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.removeCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.instructorList1 = new Borrowing_System.Account_Management.InstructorList();
             this.instructorData = new System.Windows.Forms.DataGridView();
             this.instructor_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,27 +97,6 @@
             this.scheduleBTN = new System.Windows.Forms.Button();
             this.courseBTN = new System.Windows.Forms.Button();
             this.instructorBTN = new System.Windows.Forms.Button();
-            this.studentFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentMiddleinitial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentLastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.program = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearlevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.removeStudent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coursename = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.removeCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorcourseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorcName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorSection = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorEndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorLastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorMiddleinitial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.removeSchedule = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).BeginInit();
             this.accountmanagementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentData)).BeginInit();
@@ -109,7 +109,7 @@
             // 
             this.searchData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchData.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.searchData.Location = new System.Drawing.Point(349, 22);
+            this.searchData.Location = new System.Drawing.Point(302, 19);
             this.searchData.Name = "searchData";
             this.searchData.Size = new System.Drawing.Size(620, 23);
             this.searchData.TabIndex = 0;
@@ -179,7 +179,7 @@
             this.employeeData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.employeeData.RowTemplate.Height = 50;
             this.employeeData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.employeeData.Size = new System.Drawing.Size(1034, 503);
+            this.employeeData.Size = new System.Drawing.Size(1034, 514);
             this.employeeData.TabIndex = 15;
             this.employeeData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeData_CellClick);
             this.employeeData.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeData_CellMouseEnter);
@@ -263,7 +263,7 @@
             this.searchBTN.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Bold);
             this.searchBTN.ForeColor = System.Drawing.Color.Transparent;
             this.searchBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.searchBTN.Location = new System.Drawing.Point(975, 16);
+            this.searchBTN.Location = new System.Drawing.Point(938, 14);
             this.searchBTN.Name = "searchBTN";
             this.searchBTN.Size = new System.Drawing.Size(35, 35);
             this.searchBTN.TabIndex = 22;
@@ -288,7 +288,7 @@
             this.accountmanagementPanel.Controls.Add(this.instructorData);
             this.accountmanagementPanel.Location = new System.Drawing.Point(0, 70);
             this.accountmanagementPanel.Name = "accountmanagementPanel";
-            this.accountmanagementPanel.Size = new System.Drawing.Size(1533, 580);
+            this.accountmanagementPanel.Size = new System.Drawing.Size(1533, 581);
             this.accountmanagementPanel.TabIndex = 42;
             // 
             // instructorlistTxtbx
@@ -298,9 +298,9 @@
             this.instructorlistTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.instructorlistTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.instructorlistTxtbx.FormattingEnabled = true;
-            this.instructorlistTxtbx.Location = new System.Drawing.Point(22, 19);
+            this.instructorlistTxtbx.Location = new System.Drawing.Point(8, 14);
             this.instructorlistTxtbx.Name = "instructorlistTxtbx";
-            this.instructorlistTxtbx.Size = new System.Drawing.Size(298, 32);
+            this.instructorlistTxtbx.Size = new System.Drawing.Size(277, 32);
             this.instructorlistTxtbx.TabIndex = 23;
             this.instructorlistTxtbx.Visible = false;
             this.instructorlistTxtbx.SelectedIndexChanged += new System.EventHandler(this.instructorlistTxtbx_SelectedIndexChanged);
@@ -412,6 +412,61 @@
             this.studentData.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentData_CellMouseLeave);
             this.studentData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.studentData_CellPainting);
             // 
+            // studentFirstname
+            // 
+            this.studentFirstname.DataPropertyName = "studentFirstname";
+            this.studentFirstname.FillWeight = 144.0194F;
+            this.studentFirstname.HeaderText = "First Name";
+            this.studentFirstname.Name = "studentFirstname";
+            this.studentFirstname.ReadOnly = true;
+            // 
+            // studentMiddleinitial
+            // 
+            this.studentMiddleinitial.DataPropertyName = "studentMiddleInitial";
+            this.studentMiddleinitial.FillWeight = 99.45087F;
+            this.studentMiddleinitial.HeaderText = "Middle Initial";
+            this.studentMiddleinitial.Name = "studentMiddleinitial";
+            this.studentMiddleinitial.ReadOnly = true;
+            // 
+            // studentLastname
+            // 
+            this.studentLastname.DataPropertyName = "studentLastname";
+            this.studentLastname.FillWeight = 144.0194F;
+            this.studentLastname.HeaderText = "Last Name";
+            this.studentLastname.Name = "studentLastname";
+            this.studentLastname.ReadOnly = true;
+            // 
+            // studentID
+            // 
+            this.studentID.DataPropertyName = "studentID";
+            this.studentID.FillWeight = 120.6869F;
+            this.studentID.HeaderText = "Student ID";
+            this.studentID.Name = "studentID";
+            this.studentID.ReadOnly = true;
+            // 
+            // program
+            // 
+            this.program.DataPropertyName = "program";
+            this.program.FillWeight = 144.0194F;
+            this.program.HeaderText = "Program";
+            this.program.Name = "program";
+            this.program.ReadOnly = true;
+            // 
+            // yearlevel
+            // 
+            this.yearlevel.DataPropertyName = "yearlevel";
+            this.yearlevel.FillWeight = 78.00261F;
+            this.yearlevel.HeaderText = "Year Level";
+            this.yearlevel.Name = "yearlevel";
+            this.yearlevel.ReadOnly = true;
+            // 
+            // removeStudent
+            // 
+            this.removeStudent.FillWeight = 39.04806F;
+            this.removeStudent.HeaderText = "";
+            this.removeStudent.Name = "removeStudent";
+            this.removeStudent.ReadOnly = true;
+            // 
             // scheduleData
             // 
             this.scheduleData.AllowUserToAddRows = false;
@@ -486,6 +541,93 @@
             this.scheduleData.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.scheduleData_CellMouseLeave);
             this.scheduleData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.scheduleData_CellPainting);
             // 
+            // instructorID
+            // 
+            this.instructorID.DataPropertyName = "instructorID";
+            this.instructorID.FillWeight = 108.4871F;
+            this.instructorID.HeaderText = "Instructor ID";
+            this.instructorID.Name = "instructorID";
+            this.instructorID.ReadOnly = true;
+            // 
+            // instructorcourseId
+            // 
+            this.instructorcourseId.DataPropertyName = "courseID";
+            this.instructorcourseId.FillWeight = 79.28159F;
+            this.instructorcourseId.HeaderText = "Course ID";
+            this.instructorcourseId.Name = "instructorcourseId";
+            this.instructorcourseId.ReadOnly = true;
+            // 
+            // instructorcName
+            // 
+            this.instructorcName.DataPropertyName = "coursename";
+            this.instructorcName.FillWeight = 294.7751F;
+            this.instructorcName.HeaderText = "Course Name";
+            this.instructorcName.Name = "instructorcName";
+            this.instructorcName.ReadOnly = true;
+            // 
+            // instructorSection
+            // 
+            this.instructorSection.DataPropertyName = "section";
+            this.instructorSection.FillWeight = 56.77934F;
+            this.instructorSection.HeaderText = "Section";
+            this.instructorSection.Name = "instructorSection";
+            this.instructorSection.ReadOnly = true;
+            // 
+            // instructorStartTime
+            // 
+            this.instructorStartTime.DataPropertyName = "startTime";
+            this.instructorStartTime.FillWeight = 54.95752F;
+            this.instructorStartTime.HeaderText = "Start Time";
+            this.instructorStartTime.Name = "instructorStartTime";
+            this.instructorStartTime.ReadOnly = true;
+            // 
+            // instructorEndTime
+            // 
+            this.instructorEndTime.DataPropertyName = "endTime";
+            this.instructorEndTime.FillWeight = 45.90816F;
+            this.instructorEndTime.HeaderText = "End Time";
+            this.instructorEndTime.Name = "instructorEndTime";
+            this.instructorEndTime.ReadOnly = true;
+            // 
+            // instructorname
+            // 
+            this.instructorname.DataPropertyName = "instructorname";
+            this.instructorname.FillWeight = 119.068F;
+            this.instructorname.HeaderText = "Instructor Name";
+            this.instructorname.Name = "instructorname";
+            this.instructorname.ReadOnly = true;
+            // 
+            // instructorFirstname
+            // 
+            this.instructorFirstname.DataPropertyName = "instructorFirstname";
+            this.instructorFirstname.HeaderText = "Instructor First Name";
+            this.instructorFirstname.Name = "instructorFirstname";
+            this.instructorFirstname.ReadOnly = true;
+            this.instructorFirstname.Visible = false;
+            // 
+            // instructorLastname
+            // 
+            this.instructorLastname.DataPropertyName = "instructorLastname";
+            this.instructorLastname.HeaderText = "Instructor Last Name";
+            this.instructorLastname.Name = "instructorLastname";
+            this.instructorLastname.ReadOnly = true;
+            this.instructorLastname.Visible = false;
+            // 
+            // instructorMiddleinitial
+            // 
+            this.instructorMiddleinitial.DataPropertyName = "instructorMiddleinitial";
+            this.instructorMiddleinitial.HeaderText = "Instructor Middle Initial";
+            this.instructorMiddleinitial.Name = "instructorMiddleinitial";
+            this.instructorMiddleinitial.ReadOnly = true;
+            this.instructorMiddleinitial.Visible = false;
+            // 
+            // removeSchedule
+            // 
+            this.removeSchedule.FillWeight = 40.60198F;
+            this.removeSchedule.HeaderText = "";
+            this.removeSchedule.Name = "removeSchedule";
+            this.removeSchedule.ReadOnly = true;
+            // 
             // courseData
             // 
             this.courseData.AllowUserToAddRows = false;
@@ -551,6 +693,29 @@
             this.courseData.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseData_CellMouseEnter);
             this.courseData.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseData_CellMouseLeave);
             this.courseData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.courseData_CellPainting);
+            // 
+            // courseID
+            // 
+            this.courseID.DataPropertyName = "courseID";
+            this.courseID.FillWeight = 122.4768F;
+            this.courseID.HeaderText = "Course ID";
+            this.courseID.Name = "courseID";
+            this.courseID.ReadOnly = true;
+            // 
+            // coursename
+            // 
+            this.coursename.DataPropertyName = "coursename";
+            this.coursename.FillWeight = 299.4734F;
+            this.coursename.HeaderText = "Course Name";
+            this.coursename.Name = "coursename";
+            this.coursename.ReadOnly = true;
+            // 
+            // removeCourse
+            // 
+            this.removeCourse.FillWeight = 22.56418F;
+            this.removeCourse.HeaderText = "";
+            this.removeCourse.Name = "removeCourse";
+            this.removeCourse.ReadOnly = true;
             // 
             // instructorList1
             // 
@@ -742,177 +907,12 @@
             this.instructorBTN.UseVisualStyleBackColor = false;
             this.instructorBTN.Click += new System.EventHandler(this.instructorBTN_Click);
             // 
-            // studentFirstname
-            // 
-            this.studentFirstname.DataPropertyName = "studentFirstname";
-            this.studentFirstname.FillWeight = 144.0194F;
-            this.studentFirstname.HeaderText = "First Name";
-            this.studentFirstname.Name = "studentFirstname";
-            this.studentFirstname.ReadOnly = true;
-            // 
-            // studentMiddleinitial
-            // 
-            this.studentMiddleinitial.DataPropertyName = "studentMiddleInitial";
-            this.studentMiddleinitial.FillWeight = 99.45087F;
-            this.studentMiddleinitial.HeaderText = "Middle Initial";
-            this.studentMiddleinitial.Name = "studentMiddleinitial";
-            this.studentMiddleinitial.ReadOnly = true;
-            // 
-            // studentLastname
-            // 
-            this.studentLastname.DataPropertyName = "studentLastname";
-            this.studentLastname.FillWeight = 144.0194F;
-            this.studentLastname.HeaderText = "Last Name";
-            this.studentLastname.Name = "studentLastname";
-            this.studentLastname.ReadOnly = true;
-            // 
-            // studentID
-            // 
-            this.studentID.DataPropertyName = "studentID";
-            this.studentID.FillWeight = 120.6869F;
-            this.studentID.HeaderText = "Student ID";
-            this.studentID.Name = "studentID";
-            this.studentID.ReadOnly = true;
-            // 
-            // program
-            // 
-            this.program.DataPropertyName = "program";
-            this.program.FillWeight = 144.0194F;
-            this.program.HeaderText = "Program";
-            this.program.Name = "program";
-            this.program.ReadOnly = true;
-            // 
-            // yearlevel
-            // 
-            this.yearlevel.DataPropertyName = "yearlevel";
-            this.yearlevel.FillWeight = 78.00261F;
-            this.yearlevel.HeaderText = "Year Level";
-            this.yearlevel.Name = "yearlevel";
-            this.yearlevel.ReadOnly = true;
-            // 
-            // removeStudent
-            // 
-            this.removeStudent.FillWeight = 39.04806F;
-            this.removeStudent.HeaderText = "";
-            this.removeStudent.Name = "removeStudent";
-            this.removeStudent.ReadOnly = true;
-            // 
-            // courseID
-            // 
-            this.courseID.DataPropertyName = "courseID";
-            this.courseID.FillWeight = 122.4768F;
-            this.courseID.HeaderText = "Course ID";
-            this.courseID.Name = "courseID";
-            this.courseID.ReadOnly = true;
-            // 
-            // coursename
-            // 
-            this.coursename.DataPropertyName = "coursename";
-            this.coursename.FillWeight = 299.4734F;
-            this.coursename.HeaderText = "Course Name";
-            this.coursename.Name = "coursename";
-            this.coursename.ReadOnly = true;
-            // 
-            // removeCourse
-            // 
-            this.removeCourse.FillWeight = 22.56418F;
-            this.removeCourse.HeaderText = "";
-            this.removeCourse.Name = "removeCourse";
-            this.removeCourse.ReadOnly = true;
-            // 
-            // instructorID
-            // 
-            this.instructorID.DataPropertyName = "instructorID";
-            this.instructorID.FillWeight = 108.4871F;
-            this.instructorID.HeaderText = "Instructor ID";
-            this.instructorID.Name = "instructorID";
-            this.instructorID.ReadOnly = true;
-            // 
-            // instructorcourseId
-            // 
-            this.instructorcourseId.DataPropertyName = "courseID";
-            this.instructorcourseId.FillWeight = 79.28159F;
-            this.instructorcourseId.HeaderText = "Course ID";
-            this.instructorcourseId.Name = "instructorcourseId";
-            this.instructorcourseId.ReadOnly = true;
-            // 
-            // instructorcName
-            // 
-            this.instructorcName.DataPropertyName = "coursename";
-            this.instructorcName.FillWeight = 294.7751F;
-            this.instructorcName.HeaderText = "Course Name";
-            this.instructorcName.Name = "instructorcName";
-            this.instructorcName.ReadOnly = true;
-            // 
-            // instructorSection
-            // 
-            this.instructorSection.DataPropertyName = "section";
-            this.instructorSection.FillWeight = 56.77934F;
-            this.instructorSection.HeaderText = "Section";
-            this.instructorSection.Name = "instructorSection";
-            this.instructorSection.ReadOnly = true;
-            // 
-            // instructorStartTime
-            // 
-            this.instructorStartTime.DataPropertyName = "startTime";
-            this.instructorStartTime.FillWeight = 54.95752F;
-            this.instructorStartTime.HeaderText = "Start Time";
-            this.instructorStartTime.Name = "instructorStartTime";
-            this.instructorStartTime.ReadOnly = true;
-            // 
-            // instructorEndTime
-            // 
-            this.instructorEndTime.DataPropertyName = "endTime";
-            this.instructorEndTime.FillWeight = 45.90816F;
-            this.instructorEndTime.HeaderText = "End Time";
-            this.instructorEndTime.Name = "instructorEndTime";
-            this.instructorEndTime.ReadOnly = true;
-            // 
-            // instructorname
-            // 
-            this.instructorname.DataPropertyName = "instructorname";
-            this.instructorname.FillWeight = 119.068F;
-            this.instructorname.HeaderText = "Instructor Name";
-            this.instructorname.Name = "instructorname";
-            this.instructorname.ReadOnly = true;
-            // 
-            // instructorFirstname
-            // 
-            this.instructorFirstname.DataPropertyName = "instructorFirstname";
-            this.instructorFirstname.HeaderText = "Instructor First Name";
-            this.instructorFirstname.Name = "instructorFirstname";
-            this.instructorFirstname.ReadOnly = true;
-            this.instructorFirstname.Visible = false;
-            // 
-            // instructorLastname
-            // 
-            this.instructorLastname.DataPropertyName = "instructorLastname";
-            this.instructorLastname.HeaderText = "Instructor Last Name";
-            this.instructorLastname.Name = "instructorLastname";
-            this.instructorLastname.ReadOnly = true;
-            this.instructorLastname.Visible = false;
-            // 
-            // instructorMiddleinitial
-            // 
-            this.instructorMiddleinitial.DataPropertyName = "instructorMiddleinitial";
-            this.instructorMiddleinitial.HeaderText = "Instructor Middle Initial";
-            this.instructorMiddleinitial.Name = "instructorMiddleinitial";
-            this.instructorMiddleinitial.ReadOnly = true;
-            this.instructorMiddleinitial.Visible = false;
-            // 
-            // removeSchedule
-            // 
-            this.removeSchedule.FillWeight = 40.60198F;
-            this.removeSchedule.HeaderText = "";
-            this.removeSchedule.Name = "removeSchedule";
-            this.removeSchedule.ReadOnly = true;
-            // 
             // AccountManagementPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.accmangemtnt;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Staff_Logs__2_;
             this.ClientSize = new System.Drawing.Size(1532, 650);
             this.Controls.Add(this.instructorBTN);
             this.Controls.Add(this.courseBTN);

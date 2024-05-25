@@ -496,6 +496,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="borrow.ico" />
+    <None Include="Resources\Staff Logs %282%29.png" />
+    <None Include="Resources\Staff Logs %281%29.png" />
+    <None Include="Resources\1532, 650.png" />
+    <None Include="Resources\Dashboard %281%29.png" />
+    <None Include="Resources\Dashboard.png" />
+    <None Include="Resources\Dashboard_Page.png" />
+    <None Include="Resources\Home_Page.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

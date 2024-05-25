@@ -35,6 +35,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.logsTable = new System.Windows.Forms.DataGridView();
+            this.transactionlogID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.instructorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.receiver_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returntime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchBTN = new System.Windows.Forms.Button();
             this.searchData = new System.Windows.Forms.TextBox();
             this.clearDashBtn = new System.Windows.Forms.Button();
@@ -54,16 +64,6 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transactionlogID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receiver_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipmentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returndate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returntime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.logsTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studentView)).BeginInit();
             this.SuspendLayout();
@@ -111,7 +111,7 @@
             this.logsTable.DefaultCellStyle = dataGridViewCellStyle2;
             this.logsTable.EnableHeadersVisualStyles = false;
             this.logsTable.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.logsTable.Location = new System.Drawing.Point(446, 153);
+            this.logsTable.Location = new System.Drawing.Point(331, 99);
             this.logsTable.Name = "logsTable";
             this.logsTable.ReadOnly = true;
             this.logsTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -132,8 +132,88 @@
             this.logsTable.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.logsTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.logsTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.logsTable.Size = new System.Drawing.Size(1032, 439);
+            this.logsTable.Size = new System.Drawing.Size(1136, 484);
             this.logsTable.TabIndex = 4;
+            // 
+            // transactionlogID
+            // 
+            this.transactionlogID.DataPropertyName = "transactionlogID";
+            this.transactionlogID.FillWeight = 77.9696F;
+            this.transactionlogID.HeaderText = "Log ID";
+            this.transactionlogID.Name = "transactionlogID";
+            this.transactionlogID.ReadOnly = true;
+            // 
+            // studentName
+            // 
+            this.studentName.DataPropertyName = "studentName";
+            this.studentName.FillWeight = 147.8824F;
+            this.studentName.HeaderText = "Student Name";
+            this.studentName.Name = "studentName";
+            this.studentName.ReadOnly = true;
+            this.studentName.Visible = false;
+            // 
+            // instructorName
+            // 
+            this.instructorName.DataPropertyName = "instructorName";
+            this.instructorName.FillWeight = 158.3756F;
+            this.instructorName.HeaderText = "Instructor Name";
+            this.instructorName.Name = "instructorName";
+            this.instructorName.ReadOnly = true;
+            // 
+            // fullName
+            // 
+            this.fullName.DataPropertyName = "releaserName";
+            this.fullName.FillWeight = 117.3844F;
+            this.fullName.HeaderText = "Releaser Name";
+            this.fullName.Name = "fullName";
+            this.fullName.ReadOnly = true;
+            // 
+            // receiver_name
+            // 
+            this.receiver_name.DataPropertyName = "receiverName";
+            this.receiver_name.HeaderText = "Receiver Name";
+            this.receiver_name.Name = "receiver_name";
+            this.receiver_name.ReadOnly = true;
+            // 
+            // equipmentName
+            // 
+            this.equipmentName.DataPropertyName = "partname";
+            this.equipmentName.FillWeight = 117.3844F;
+            this.equipmentName.HeaderText = "Equipment Name";
+            this.equipmentName.Name = "equipmentName";
+            this.equipmentName.ReadOnly = true;
+            // 
+            // quantity
+            // 
+            this.quantity.DataPropertyName = "quantity";
+            this.quantity.FillWeight = 72.8822F;
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            // 
+            // returndate
+            // 
+            this.returndate.DataPropertyName = "returndate";
+            this.returndate.FillWeight = 84.94601F;
+            this.returndate.HeaderText = "Return Date";
+            this.returndate.Name = "returndate";
+            this.returndate.ReadOnly = true;
+            // 
+            // returntime
+            // 
+            this.returntime.DataPropertyName = "returntime";
+            this.returntime.FillWeight = 82.8419F;
+            this.returntime.HeaderText = "Return Time";
+            this.returntime.Name = "returntime";
+            this.returntime.ReadOnly = true;
+            // 
+            // notes
+            // 
+            this.notes.DataPropertyName = "notes";
+            this.notes.FillWeight = 117.3844F;
+            this.notes.HeaderText = "Notes";
+            this.notes.Name = "notes";
+            this.notes.ReadOnly = true;
             // 
             // searchBTN
             // 
@@ -147,7 +227,7 @@
             this.searchBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.searchBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchBTN.ForeColor = System.Drawing.Color.White;
-            this.searchBTN.Location = new System.Drawing.Point(1124, 38);
+            this.searchBTN.Location = new System.Drawing.Point(1347, 40);
             this.searchBTN.Name = "searchBTN";
             this.searchBTN.Size = new System.Drawing.Size(33, 36);
             this.searchBTN.TabIndex = 33;
@@ -158,9 +238,9 @@
             // 
             this.searchData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchData.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchData.Location = new System.Drawing.Point(289, 43);
+            this.searchData.Location = new System.Drawing.Point(904, 44);
             this.searchData.Name = "searchData";
-            this.searchData.Size = new System.Drawing.Size(829, 26);
+            this.searchData.Size = new System.Drawing.Size(441, 26);
             this.searchData.TabIndex = 32;
             this.searchData.TextChanged += new System.EventHandler(this.searchData_TextChanged);
             this.searchData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchData_KeyDown);
@@ -175,9 +255,9 @@
             this.clearDashBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearDashBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearDashBtn.ForeColor = System.Drawing.Color.Black;
-            this.clearDashBtn.Location = new System.Drawing.Point(56, 111);
+            this.clearDashBtn.Location = new System.Drawing.Point(34, 35);
             this.clearDashBtn.Name = "clearDashBtn";
-            this.clearDashBtn.Size = new System.Drawing.Size(346, 36);
+            this.clearDashBtn.Size = new System.Drawing.Size(282, 50);
             this.clearDashBtn.TabIndex = 40;
             this.clearDashBtn.Text = "Show All";
             this.clearDashBtn.UseVisualStyleBackColor = false;
@@ -187,7 +267,7 @@
             // 
             this.dateSearch2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateSearch2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateSearch2.Location = new System.Drawing.Point(796, 110);
+            this.dateSearch2.Location = new System.Drawing.Point(716, 45);
             this.dateSearch2.Name = "dateSearch2";
             this.dateSearch2.Size = new System.Drawing.Size(110, 29);
             this.dateSearch2.TabIndex = 46;
@@ -199,7 +279,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(704, 110);
+            this.label2.Location = new System.Drawing.Point(624, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 30);
             this.label2.TabIndex = 45;
@@ -211,7 +291,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(464, 109);
+            this.label1.Location = new System.Drawing.Point(384, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 30);
             this.label1.TabIndex = 44;
@@ -221,7 +301,7 @@
             // 
             this.dateSearch1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateSearch1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateSearch1.Location = new System.Drawing.Point(582, 110);
+            this.dateSearch1.Location = new System.Drawing.Point(502, 45);
             this.dateSearch1.Name = "dateSearch1";
             this.dateSearch1.Size = new System.Drawing.Size(116, 29);
             this.dateSearch1.TabIndex = 43;
@@ -239,9 +319,9 @@
             this.excelExportBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.excelExportBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.excelExportBTN.ForeColor = System.Drawing.Color.White;
-            this.excelExportBTN.Location = new System.Drawing.Point(1445, 111);
+            this.excelExportBTN.Location = new System.Drawing.Point(1427, 39);
             this.excelExportBTN.Name = "excelExportBTN";
-            this.excelExportBTN.Size = new System.Drawing.Size(33, 36);
+            this.excelExportBTN.Size = new System.Drawing.Size(40, 40);
             this.excelExportBTN.TabIndex = 47;
             this.excelExportBTN.UseVisualStyleBackColor = false;
             this.excelExportBTN.Click += new System.EventHandler(this.excelExportBTN_Click);
@@ -289,7 +369,7 @@
             this.studentView.DefaultCellStyle = dataGridViewCellStyle5;
             this.studentView.EnableHeadersVisualStyles = false;
             this.studentView.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.studentView.Location = new System.Drawing.Point(33, 153);
+            this.studentView.Location = new System.Drawing.Point(33, 97);
             this.studentView.Name = "studentView";
             this.studentView.ReadOnly = true;
             this.studentView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -310,7 +390,7 @@
             this.studentView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.studentView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.studentView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.studentView.Size = new System.Drawing.Size(394, 439);
+            this.studentView.Size = new System.Drawing.Size(283, 486);
             this.studentView.TabIndex = 48;
             this.studentView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -402,91 +482,11 @@
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             this.dataGridViewTextBoxColumn10.Visible = false;
             // 
-            // transactionlogID
-            // 
-            this.transactionlogID.DataPropertyName = "transactionlogID";
-            this.transactionlogID.FillWeight = 77.9696F;
-            this.transactionlogID.HeaderText = "Log ID";
-            this.transactionlogID.Name = "transactionlogID";
-            this.transactionlogID.ReadOnly = true;
-            // 
-            // studentName
-            // 
-            this.studentName.DataPropertyName = "studentName";
-            this.studentName.FillWeight = 147.8824F;
-            this.studentName.HeaderText = "Student Name";
-            this.studentName.Name = "studentName";
-            this.studentName.ReadOnly = true;
-            this.studentName.Visible = false;
-            // 
-            // instructorName
-            // 
-            this.instructorName.DataPropertyName = "instructorName";
-            this.instructorName.FillWeight = 158.3756F;
-            this.instructorName.HeaderText = "Instructor Name";
-            this.instructorName.Name = "instructorName";
-            this.instructorName.ReadOnly = true;
-            // 
-            // fullName
-            // 
-            this.fullName.DataPropertyName = "releaserName";
-            this.fullName.FillWeight = 117.3844F;
-            this.fullName.HeaderText = "Releaser Name";
-            this.fullName.Name = "fullName";
-            this.fullName.ReadOnly = true;
-            // 
-            // receiver_name
-            // 
-            this.receiver_name.DataPropertyName = "receiverName";
-            this.receiver_name.HeaderText = "Receiver Name";
-            this.receiver_name.Name = "receiver_name";
-            this.receiver_name.ReadOnly = true;
-            // 
-            // equipmentName
-            // 
-            this.equipmentName.DataPropertyName = "partname";
-            this.equipmentName.FillWeight = 117.3844F;
-            this.equipmentName.HeaderText = "Equipment Name";
-            this.equipmentName.Name = "equipmentName";
-            this.equipmentName.ReadOnly = true;
-            // 
-            // quantity
-            // 
-            this.quantity.DataPropertyName = "quantity";
-            this.quantity.FillWeight = 72.8822F;
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            // 
-            // returndate
-            // 
-            this.returndate.DataPropertyName = "returndate";
-            this.returndate.FillWeight = 84.94601F;
-            this.returndate.HeaderText = "Return Date";
-            this.returndate.Name = "returndate";
-            this.returndate.ReadOnly = true;
-            // 
-            // returntime
-            // 
-            this.returntime.DataPropertyName = "returntime";
-            this.returntime.FillWeight = 82.8419F;
-            this.returntime.HeaderText = "Return Time";
-            this.returntime.Name = "returntime";
-            this.returntime.ReadOnly = true;
-            // 
-            // notes
-            // 
-            this.notes.DataPropertyName = "notes";
-            this.notes.FillWeight = 117.3844F;
-            this.notes.HeaderText = "Notes";
-            this.notes.Name = "notes";
-            this.notes.ReadOnly = true;
-            // 
             // TransactionLogsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Transaction_Logs_Page;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Dashboard__1_;
             this.ClientSize = new System.Drawing.Size(1532, 650);
             this.Controls.Add(this.studentView);
             this.Controls.Add(this.excelExportBTN);
