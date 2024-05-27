@@ -29,9 +29,9 @@ namespace Borrowing_System
 
             MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
             connection.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT Product.productname, Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition " +
+            MySqlCommand cmd = new MySqlCommand("SELECT Product.productname, Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.defective " +
                 "FROM Part " +
-                "INNER JOIN Product ON Part.productID = Product.productname", connection);
+                "INNER JOIN Product ON Part.productID = Product.productID", connection);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
@@ -82,10 +82,10 @@ namespace Borrowing_System
             MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
             connection.Open();
 
-            string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition, Product.productname " +
+            string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.defective, Product.productname " +
                            "FROM Part " +
                            "INNER JOIN Product ON Part.productID = Product.productID " +
-                           "WHERE CONCAT(Part.partname, Part.partdescription, Part.quantity, Part.condition, Product.productname) LIKE '%" + searchData.Text + "%'";
+                           "WHERE CONCAT(Part.partname, Part.partdescription, Part.quantity, Part.defective, Product.productname) LIKE '%" + searchData.Text + "%'";
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -108,7 +108,7 @@ namespace Borrowing_System
                 DataTable dt = new DataTable();
                 MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 connection.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT Product.productname, Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition " +
+                MySqlCommand cmd = new MySqlCommand("SELECT Product.productname, Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.defective " +
                  "FROM Part " +
                  "INNER JOIN Product ON Part.productID = Product.productname", connection);
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -132,7 +132,7 @@ namespace Borrowing_System
                 partnameTxtbx.Text = row.Cells["partname"].Value?.ToString();
                 partdescriptionTxtbx.Text = row.Cells["partdescription"].Value.ToString();
                 quantityTxtbx.Text = row.Cells["quantity"].Value.ToString();
-                conditionTxtbx.Text = row.Cells["condition"].Value.ToString();
+                defectiveTxtbx.Text = row.Cells["defective"].Value.ToString();
             }
         }
 
@@ -152,7 +152,7 @@ namespace Borrowing_System
                 string productName = productnamelist.SelectedItem.ToString();
                 MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 connection.Open();
-                string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition, CONCAT(Product.productname) AS productname FROM Part " +
+                string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.defective, CONCAT(Product.productname) AS productname FROM Part " +
                         "INNER JOIN Product on Part.productID = Product.productID " +
                         "WHERE Product.productname = @productName";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -175,7 +175,7 @@ namespace Borrowing_System
                 partnameTxtbx.Text = row.Cells["partname"].Value?.ToString();
                 partdescriptionTxtbx.Text = row.Cells["partdescription"].Value.ToString();
                 quantityTxtbx.Text = row.Cells["quantity"].Value.ToString();
-                conditionTxtbx.Text = row.Cells["condition"].Value.ToString();
+                defectiveTxtbx.Text = row.Cells["defective"].Value.ToString();
             }
         }
 

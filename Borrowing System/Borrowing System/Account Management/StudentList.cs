@@ -86,7 +86,7 @@ namespace Borrowing_System.Account_Management
             }
             catch (Exception)
             {
-                MessageBox.Show("Please follow the correct excel/csv format: studentID, firstname, middleinitial, lastname, program, and yearlevel as columns respectively.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("DO NOT USE special characters like a comma and please follow the correct excel/csv format: studentID, firstname, middleinitial, lastname, program, and yearlevel as columns respectively.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
