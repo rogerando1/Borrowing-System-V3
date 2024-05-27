@@ -30,7 +30,7 @@ namespace Borrowing_System
         {
             MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
             connection.Open();
-            MySqlCommand cmd = new MySqlCommand("SELECT Product.productname, Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition " +
+            MySqlCommand cmd = new MySqlCommand("SELECT Product.productname, Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.defective " +
                 "FROM Part " +
                 "INNER JOIN Product ON Part.productID = Product.productID", connection);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -56,7 +56,7 @@ namespace Borrowing_System
                 string productName = productnamelist.SelectedItem.ToString();
                 MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 connection.Open();
-                string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition, CONCAT(Product.productname) AS productname FROM Part " +
+                string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.defective, CONCAT(Product.productname) AS productname FROM Part " +
                         "INNER JOIN Product on Part.productID = Product.productID " +
                         "WHERE Product.productname = @productName";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -117,10 +117,10 @@ namespace Borrowing_System
             MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
             connection.Open();
 
-            string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition, Product.productname " +
+            string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.defective, Product.productname " +
                            "FROM Part " +
                            "INNER JOIN Product ON Part.productID = Product.productID " +
-                           "WHERE CONCAT(Part.partname, Part.partdescription, Part.quantity, Part.condition, Product.productname) LIKE '%" + searchData.Text + "%'";
+                           "WHERE CONCAT(Part.partname, Part.partdescription, Part.quantity, Part.defective, Product.productname) LIKE '%" + searchData.Text + "%'";
 
             MySqlCommand cmd = new MySqlCommand(query, connection);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -143,7 +143,7 @@ namespace Borrowing_System
                 DataTable dt = new DataTable();
                 MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 connection.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT Product.productname, Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.condition " +
+                MySqlCommand cmd = new MySqlCommand("SELECT Product.productname, Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.defective " +
                  "FROM Part " +
                  "INNER JOIN Product ON Part.productID = Product.productID", connection);
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -158,9 +158,26 @@ namespace Borrowing_System
 
         private void createBTN_Click(object sender, EventArgs e)
         {
+            //Read the product name from the textbox and convert it into its productID and store it in a variable and make sure it is integer
+            string productName = productnameTxtbx.Text;
+            int productID = 0;
+
+            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT productID FROM Product WHERE productname = @productName", connection);
+                cmd.Parameters.AddWithValue("@productName", productName);
+                MySqlDataReader reader1 = cmd.ExecuteReader();
+                if (reader1.Read())
+                {
+                    productID = reader1.GetInt32("productID");
+                }
+                reader1.Close();
+
+
+
             try
             {
-                if (productnameTxtbx.Text == "" || partnameTxtbx.Text == "" || partdescriptionTxtbx.Text == "" || conditionTxtbx.Text == "")
+                if (productnameTxtbx.Text == "" || partnameTxtbx.Text == "" || partdescriptionTxtbx.Text == "" || defectiveTxtbx.Text == "")
                 {
                     MessageBox.Show("Please fill in the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -211,13 +228,13 @@ namespace Borrowing_System
                         {
                             using (var command = conn.CreateCommand())
                             {
-                                command.CommandText = "INSERT INTO Part (productID, partname, partdescription, quantity, `condition`) " +
-                                                         "VALUES (@productname, @partname, @partdescription, @quantity, @condition)";
-                                command.Parameters.AddWithValue("@productname", productnameTxtbx.Text);
+                                command.CommandText = "INSERT INTO Part (productID, partname, partdescription, quantity, `defective`) " +
+                                                         "VALUES (@productname, @partname, @partdescription, @quantity, @defective)";
+                                command.Parameters.AddWithValue("@productname", productID);
                                 command.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
                                 command.Parameters.AddWithValue("@partdescription", partdescriptionTxtbx.Text);
                                 command.Parameters.AddWithValue("@quantity", quantityTxtbx.Text);
-                                command.Parameters.AddWithValue("@condition", conditionTxtbx.Text);
+                                command.Parameters.AddWithValue("@defective", defectiveTxtbx.Text);
 
                                 int rowsAffected = command.ExecuteNonQuery();
                                 if (rowsAffected > 0)
@@ -228,7 +245,7 @@ namespace Borrowing_System
                                     partnameTxtbx.Text = "";
                                     partdescriptionTxtbx.Text = "";
                                     quantityTxtbx.Value = 0;
-                                    conditionTxtbx.Text = "";
+                                    defectiveTxtbx.Value = 0;
                                     ReloadDataGridView();
                                 }
                                 else
@@ -281,7 +298,7 @@ namespace Borrowing_System
                         partnameTxtbx.Text = "";
                         partdescriptionTxtbx.Text = "";
                         quantityTxtbx.Value = 0;
-                        conditionTxtbx.Text = "";
+                        defectiveTxtbx.Value = 0;
 
                         ReloadDataGridView();
                     }
@@ -300,6 +317,22 @@ namespace Borrowing_System
 
         private void updateBTN_Click(object sender, EventArgs e)
         {
+
+            //Read the product name from the textbox and convert it into its productID and store it in a variable and make sure it is integer
+            string productName = productnameTxtbx.Text;
+            int productID = 0;
+
+            MySqlConnection connection1 = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+            connection1.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT productID FROM Product WHERE productname = @productName", connection1);
+            cmd.Parameters.AddWithValue("@productName", productName);
+            MySqlDataReader reader1 = cmd.ExecuteReader();
+            if (reader1.Read())
+            {
+                productID = reader1.GetInt32("productID");
+            }
+            reader1.Close();
+
             try
             {
                 if (string.IsNullOrWhiteSpace(partdescriptionTxtbx.Text) || string.IsNullOrWhiteSpace(quantityTxtbx.Text))
@@ -327,13 +360,13 @@ namespace Borrowing_System
                 {
 
                     command = connection.CreateCommand();
-                    command.CommandText = "UPDATE Part SET productID = @productname, partname = @partname, partdescription = @partdescription, quantity = @quantity, `condition` = @condition WHERE partID = @partID";
-                    command.Parameters.AddWithValue("@productname", productnameTxtbx.Text);
+                    command.CommandText = "UPDATE Part SET productID = @productname, partname = @partname, partdescription = @partdescription, quantity = @quantity, `defective` = @defective WHERE partID = @partID";
+                    command.Parameters.AddWithValue("@productname", productID);
                     command.Parameters.AddWithValue("@partID", partIdTxtbx.Text);
                     command.Parameters.AddWithValue("@partname", partnameTxtbx.Text);
                     command.Parameters.AddWithValue("@partdescription", partdescriptionTxtbx.Text);
                     command.Parameters.AddWithValue("@quantity", quantityTxtbx.Text);
-                    command.Parameters.AddWithValue("@condition", conditionTxtbx.Text);
+                    command.Parameters.AddWithValue("@defective", defectiveTxtbx.Text);
 
                     int rowsAffected = command.ExecuteNonQuery();
                     if (rowsAffected > 0)
@@ -344,7 +377,7 @@ namespace Borrowing_System
                         partnameTxtbx.Text = "";
                         partdescriptionTxtbx.Text = "";
                         quantityTxtbx.Value = 0;
-                        conditionTxtbx.Text = "";
+                        defectiveTxtbx.Value = 0;
                         ReloadDataGridView();
                     }
                     else
@@ -366,7 +399,7 @@ namespace Borrowing_System
             partnameTxtbx.Text = "";
             partdescriptionTxtbx.Text = "";
             quantityTxtbx.Value = 0;
-            conditionTxtbx.Text = "";
+            defectiveTxtbx.Value = 0;
         }    
 
         private void adminInventoryData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -380,7 +413,7 @@ namespace Borrowing_System
                 partnameTxtbx.Text = row.Cells["partname"].Value?.ToString();
                 partdescriptionTxtbx.Text = row.Cells["partdescription"].Value.ToString();
                 quantityTxtbx.Text = row.Cells["quantity"].Value.ToString();
-                conditionTxtbx.Text = row.Cells["condition"].Value.ToString();
+                defectiveTxtbx.Text = row.Cells["defective"].Value.ToString();
             }
         }
 
@@ -437,7 +470,6 @@ namespace Borrowing_System
             //Upload CSV for Inventory
             try
             {
-
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "CSV Files|*.csv";
                 openFileDialog.Title = "Select a CSV File";
@@ -457,10 +489,10 @@ namespace Borrowing_System
                         string partname = fields[1];
                         string partdescription = fields[2];
                         string quantity = fields[3];
-                        string condition = fields[4];
+                        string defective = fields[4];
 
                         //If a part already existed, show an error message
-                        query = $"SELECT * FROM Part WHERE productID = '{productID}' AND partname = '{partname}' AND partdescription = '{partdescription}' AND quantity = '{quantity}' AND `condition` = '{condition}'";
+                        query = $"SELECT * FROM Part WHERE productID = '{productID}' AND partname = '{partname}' AND partdescription = '{partdescription}' AND quantity = '{quantity}' AND `defective` = '{defective}'";
                         cmd = new MySqlCommand(query, connection);
                         MySqlDataReader reader = cmd.ExecuteReader();
                         if (reader.HasRows)
@@ -472,7 +504,7 @@ namespace Borrowing_System
                         reader.Close();
 
                         // If productID does not exist, proceed with insertion
-                        query = $"INSERT INTO Part (productID, partname, partdescription, quantity, `condition`) VALUES ('{productID}', '{partname}', '{partdescription}', '{quantity}', '{condition}')";
+                        query = $"INSERT INTO Part (productID, partname, partdescription, quantity, `defective`) VALUES ('{productID}', '{partname}', '{partdescription}', '{quantity}', '{defective}')";
                         cmd = new MySqlCommand(query, connection);
                         cmd.ExecuteNonQuery();
                     }
@@ -483,7 +515,7 @@ namespace Borrowing_System
             }
             catch (Exception)
             {
-                MessageBox.Show("Please follow the correct excel/csv format: productID, partname, partdescription, quantity, and condition as columns respectively.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"DO NOT USE special characters like a comma and please follow the correct excel/csv format: productID, partname, partdescription, quantity, and defective as columns respectively.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

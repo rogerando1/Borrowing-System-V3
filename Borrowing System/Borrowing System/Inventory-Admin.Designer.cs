@@ -50,17 +50,17 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.uploadBTN = new System.Windows.Forms.Button();
-            this.conditionTxtbx = new System.Windows.Forms.NumericUpDown();
+            this.defectiveTxtbx = new System.Windows.Forms.NumericUpDown();
             this.excelExportBTN = new System.Windows.Forms.Button();
             this.productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partdescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.defective = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.adminInventoryData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantityTxtbx)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.conditionTxtbx)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.defectiveTxtbx)).BeginInit();
             this.SuspendLayout();
             // 
             // productnamelist
@@ -104,7 +104,7 @@
             this.partname,
             this.partdescription,
             this.quantity,
-            this.condition});
+            this.defective});
             this.adminInventoryData.EnableHeadersVisualStyles = false;
             this.adminInventoryData.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.adminInventoryData.Location = new System.Drawing.Point(378, 100);
@@ -329,19 +329,19 @@
             this.uploadBTN.UseVisualStyleBackColor = false;
             this.uploadBTN.Click += new System.EventHandler(this.uploadBTN_Click);
             // 
-            // conditionTxtbx
+            // defectiveTxtbx
             // 
-            this.conditionTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.conditionTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conditionTxtbx.Location = new System.Drawing.Point(151, 454);
-            this.conditionTxtbx.Maximum = new decimal(new int[] {
+            this.defectiveTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.defectiveTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.defectiveTxtbx.Location = new System.Drawing.Point(151, 454);
+            this.defectiveTxtbx.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
-            this.conditionTxtbx.Name = "conditionTxtbx";
-            this.conditionTxtbx.Size = new System.Drawing.Size(190, 20);
-            this.conditionTxtbx.TabIndex = 56;
+            this.defectiveTxtbx.Name = "defectiveTxtbx";
+            this.defectiveTxtbx.Size = new System.Drawing.Size(190, 20);
+            this.defectiveTxtbx.TabIndex = 56;
             // 
             // excelExportBTN
             // 
@@ -410,15 +410,15 @@
             this.quantity.ReadOnly = true;
             this.quantity.Width = 80;
             // 
-            // condition
+            // defective
             // 
-            this.condition.DataPropertyName = "condition";
-            this.condition.FillWeight = 42.95186F;
-            this.condition.HeaderText = "Defective";
-            this.condition.MinimumWidth = 6;
-            this.condition.Name = "condition";
-            this.condition.ReadOnly = true;
-            this.condition.Width = 79;
+            this.defective.DataPropertyName = "defective";
+            this.defective.FillWeight = 42.95186F;
+            this.defective.HeaderText = "Defective";
+            this.defective.MinimumWidth = 6;
+            this.defective.Name = "defective";
+            this.defective.ReadOnly = true;
+            this.defective.Width = 79;
             // 
             // Inventory_Admin
             // 
@@ -428,7 +428,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1532, 650);
             this.Controls.Add(this.excelExportBTN);
-            this.Controls.Add(this.conditionTxtbx);
+            this.Controls.Add(this.defectiveTxtbx);
             this.Controls.Add(this.uploadBTN);
             this.Controls.Add(this.quantityTxtbx);
             this.Controls.Add(this.productnameTxtbx);
@@ -450,7 +450,7 @@
             this.Load += new System.EventHandler(this.Inventory_Admin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.adminInventoryData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantityTxtbx)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.conditionTxtbx)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.defectiveTxtbx)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,13 +476,13 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Button uploadBTN;
-        private System.Windows.Forms.NumericUpDown conditionTxtbx;
+        private System.Windows.Forms.NumericUpDown defectiveTxtbx;
         private System.Windows.Forms.Button excelExportBTN;
         private System.Windows.Forms.DataGridViewTextBoxColumn productname;
         private System.Windows.Forms.DataGridViewTextBoxColumn partID;
         private System.Windows.Forms.DataGridViewTextBoxColumn partname;
         private System.Windows.Forms.DataGridViewTextBoxColumn partdescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn condition;
+        private System.Windows.Forms.DataGridViewTextBoxColumn defective;
     }
 }

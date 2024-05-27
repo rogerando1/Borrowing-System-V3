@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.conditionTxtbx = new System.Windows.Forms.TextBox();
+            this.defectiveTxtbx = new System.Windows.Forms.TextBox();
             this.partdescriptionTxtbx = new System.Windows.Forms.TextBox();
             this.partnameTxtbx = new System.Windows.Forms.TextBox();
             this.productnameTxtbx = new System.Windows.Forms.TextBox();
@@ -39,29 +39,29 @@
             this.searchData = new System.Windows.Forms.TextBox();
             this.mySqlCommand2 = new MySql.Data.MySqlClient.MySqlCommand();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            this.condition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partdescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityTxtbx = new System.Windows.Forms.TextBox();
             this.staffInventoryData = new System.Windows.Forms.DataGridView();
             this.productnamelist = new System.Windows.Forms.ComboBox();
             this.excelExportBTN = new System.Windows.Forms.Button();
+            this.productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partdescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.defective = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.staffInventoryData)).BeginInit();
             this.SuspendLayout();
             // 
-            // conditionTxtbx
+            // defectiveTxtbx
             // 
-            this.conditionTxtbx.BackColor = System.Drawing.Color.White;
-            this.conditionTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.conditionTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.conditionTxtbx.Location = new System.Drawing.Point(145, 456);
-            this.conditionTxtbx.Name = "conditionTxtbx";
-            this.conditionTxtbx.ReadOnly = true;
-            this.conditionTxtbx.Size = new System.Drawing.Size(201, 17);
-            this.conditionTxtbx.TabIndex = 51;
+            this.defectiveTxtbx.BackColor = System.Drawing.Color.White;
+            this.defectiveTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.defectiveTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.defectiveTxtbx.Location = new System.Drawing.Point(145, 456);
+            this.defectiveTxtbx.Name = "defectiveTxtbx";
+            this.defectiveTxtbx.ReadOnly = true;
+            this.defectiveTxtbx.Size = new System.Drawing.Size(201, 17);
+            this.defectiveTxtbx.TabIndex = 51;
             // 
             // partdescriptionTxtbx
             // 
@@ -152,64 +152,6 @@
             this.mySqlCommand1.EnableCaching = false;
             this.mySqlCommand1.Transaction = null;
             // 
-            // condition
-            // 
-            this.condition.DataPropertyName = "condition";
-            this.condition.FillWeight = 42.95186F;
-            this.condition.HeaderText = "Condition";
-            this.condition.MinimumWidth = 6;
-            this.condition.Name = "condition";
-            this.condition.ReadOnly = true;
-            this.condition.Width = 79;
-            // 
-            // quantity
-            // 
-            this.quantity.DataPropertyName = "quantity";
-            this.quantity.FillWeight = 43.05165F;
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.Width = 80;
-            // 
-            // partdescription
-            // 
-            this.partdescription.DataPropertyName = "partdescription";
-            this.partdescription.FillWeight = 236.8824F;
-            this.partdescription.HeaderText = "Part Description";
-            this.partdescription.MinimumWidth = 6;
-            this.partdescription.Name = "partdescription";
-            this.partdescription.ReadOnly = true;
-            this.partdescription.Width = 439;
-            // 
-            // partname
-            // 
-            this.partname.DataPropertyName = "partname";
-            this.partname.FillWeight = 105.6566F;
-            this.partname.HeaderText = "Part Name";
-            this.partname.MinimumWidth = 6;
-            this.partname.Name = "partname";
-            this.partname.ReadOnly = true;
-            this.partname.Width = 170;
-            // 
-            // partID
-            // 
-            this.partID.DataPropertyName = "partID";
-            this.partID.FillWeight = 54.24955F;
-            this.partID.HeaderText = "Part ID";
-            this.partID.MinimumWidth = 6;
-            this.partID.Name = "partID";
-            this.partID.ReadOnly = true;
-            // 
-            // productname
-            // 
-            this.productname.DataPropertyName = "productname";
-            this.productname.FillWeight = 117.2078F;
-            this.productname.HeaderText = "Product Name";
-            this.productname.MinimumWidth = 6;
-            this.productname.Name = "productname";
-            this.productname.ReadOnly = true;
-            this.productname.Width = 218;
-            // 
             // quantityTxtbx
             // 
             this.quantityTxtbx.BackColor = System.Drawing.Color.White;
@@ -248,7 +190,7 @@
             this.partname,
             this.partdescription,
             this.quantity,
-            this.condition});
+            this.defective});
             this.staffInventoryData.EnableHeadersVisualStyles = false;
             this.staffInventoryData.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.staffInventoryData.Location = new System.Drawing.Point(378, 100);
@@ -314,6 +256,64 @@
             this.excelExportBTN.UseVisualStyleBackColor = false;
             this.excelExportBTN.Click += new System.EventHandler(this.excelExportBTN_Click);
             // 
+            // productname
+            // 
+            this.productname.DataPropertyName = "productname";
+            this.productname.FillWeight = 117.2078F;
+            this.productname.HeaderText = "Product Name";
+            this.productname.MinimumWidth = 6;
+            this.productname.Name = "productname";
+            this.productname.ReadOnly = true;
+            this.productname.Width = 218;
+            // 
+            // partID
+            // 
+            this.partID.DataPropertyName = "partID";
+            this.partID.FillWeight = 54.24955F;
+            this.partID.HeaderText = "Part ID";
+            this.partID.MinimumWidth = 6;
+            this.partID.Name = "partID";
+            this.partID.ReadOnly = true;
+            // 
+            // partname
+            // 
+            this.partname.DataPropertyName = "partname";
+            this.partname.FillWeight = 105.6566F;
+            this.partname.HeaderText = "Part Name";
+            this.partname.MinimumWidth = 6;
+            this.partname.Name = "partname";
+            this.partname.ReadOnly = true;
+            this.partname.Width = 170;
+            // 
+            // partdescription
+            // 
+            this.partdescription.DataPropertyName = "partdescription";
+            this.partdescription.FillWeight = 236.8824F;
+            this.partdescription.HeaderText = "Part Description";
+            this.partdescription.MinimumWidth = 6;
+            this.partdescription.Name = "partdescription";
+            this.partdescription.ReadOnly = true;
+            this.partdescription.Width = 439;
+            // 
+            // quantity
+            // 
+            this.quantity.DataPropertyName = "quantity";
+            this.quantity.FillWeight = 43.05165F;
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            this.quantity.Width = 80;
+            // 
+            // defective
+            // 
+            this.defective.DataPropertyName = "defective";
+            this.defective.FillWeight = 42.95186F;
+            this.defective.HeaderText = "Defective";
+            this.defective.MinimumWidth = 6;
+            this.defective.Name = "defective";
+            this.defective.ReadOnly = true;
+            this.defective.Width = 79;
+            // 
             // Inventory_Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,7 +321,7 @@
             this.BackgroundImage = global::Borrowing_System.Properties.Resources._1532__650;
             this.ClientSize = new System.Drawing.Size(1532, 650);
             this.Controls.Add(this.excelExportBTN);
-            this.Controls.Add(this.conditionTxtbx);
+            this.Controls.Add(this.defectiveTxtbx);
             this.Controls.Add(this.partdescriptionTxtbx);
             this.Controls.Add(this.partnameTxtbx);
             this.Controls.Add(this.productnameTxtbx);
@@ -345,7 +345,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox conditionTxtbx;
+        private System.Windows.Forms.TextBox defectiveTxtbx;
         private System.Windows.Forms.TextBox partdescriptionTxtbx;
         private System.Windows.Forms.TextBox partnameTxtbx;
         private System.Windows.Forms.TextBox productnameTxtbx;
@@ -354,15 +354,15 @@
         private System.Windows.Forms.TextBox searchData;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand2;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn condition;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn partdescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn partname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn partID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productname;
         private System.Windows.Forms.TextBox quantityTxtbx;
         private System.Windows.Forms.DataGridView staffInventoryData;
         private System.Windows.Forms.ComboBox productnamelist;
         private System.Windows.Forms.Button excelExportBTN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn partdescription;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn defective;
     }
 }
