@@ -73,7 +73,7 @@
             this.accountManangementBTN.Location = new System.Drawing.Point(886, 1);
             this.accountManangementBTN.Name = "accountManangementBTN";
             this.accountManangementBTN.Size = new System.Drawing.Size(249, 49);
-            this.accountManangementBTN.TabIndex = 21;
+            this.accountManangementBTN.TabIndex = 5;
             this.accountManangementBTN.Text = "      Account Management";
             this.accountManangementBTN.UseVisualStyleBackColor = true;
             this.accountManangementBTN.Click += new System.EventHandler(this.accountManangementBTN_Click);
@@ -90,7 +90,7 @@
             this.settingsBTN.Location = new System.Drawing.Point(1141, 1);
             this.settingsBTN.Name = "settingsBTN";
             this.settingsBTN.Size = new System.Drawing.Size(153, 49);
-            this.settingsBTN.TabIndex = 20;
+            this.settingsBTN.TabIndex = 6;
             this.settingsBTN.Text = "      Settings";
             this.settingsBTN.UseVisualStyleBackColor = true;
             this.settingsBTN.Click += new System.EventHandler(this.settingsBTN_Click);
@@ -108,7 +108,7 @@
             this.homeBTN.Location = new System.Drawing.Point(1, 1);
             this.homeBTN.Name = "homeBTN";
             this.homeBTN.Size = new System.Drawing.Size(130, 49);
-            this.homeBTN.TabIndex = 18;
+            this.homeBTN.TabIndex = 0;
             this.homeBTN.Text = "        Home";
             this.homeBTN.UseVisualStyleBackColor = false;
             this.homeBTN.Click += new System.EventHandler(this.homeBTN_Click);
@@ -125,7 +125,7 @@
             this.logsBTN.Location = new System.Drawing.Point(661, 1);
             this.logsBTN.Name = "logsBTN";
             this.logsBTN.Size = new System.Drawing.Size(219, 49);
-            this.logsBTN.TabIndex = 17;
+            this.logsBTN.TabIndex = 4;
             this.logsBTN.Text = "      Transaction Logs";
             this.logsBTN.UseVisualStyleBackColor = true;
             this.logsBTN.Click += new System.EventHandler(this.logsBTN_Click);
@@ -142,7 +142,7 @@
             this.adminInventoryBTN.Location = new System.Drawing.Point(490, 1);
             this.adminInventoryBTN.Name = "adminInventoryBTN";
             this.adminInventoryBTN.Size = new System.Drawing.Size(165, 49);
-            this.adminInventoryBTN.TabIndex = 16;
+            this.adminInventoryBTN.TabIndex = 3;
             this.adminInventoryBTN.Text = "      Inventory";
             this.adminInventoryBTN.UseVisualStyleBackColor = true;
             this.adminInventoryBTN.Click += new System.EventHandler(this.adminInventoryBTN_Click);
@@ -159,7 +159,7 @@
             this.dashboardBTN.Location = new System.Drawing.Point(137, 1);
             this.dashboardBTN.Name = "dashboardBTN";
             this.dashboardBTN.Size = new System.Drawing.Size(164, 49);
-            this.dashboardBTN.TabIndex = 14;
+            this.dashboardBTN.TabIndex = 1;
             this.dashboardBTN.Text = "        Dashboard";
             this.dashboardBTN.UseVisualStyleBackColor = true;
             this.dashboardBTN.Click += new System.EventHandler(this.dashboardBTN_Click);
@@ -176,7 +176,7 @@
             this.transactionBTN.Location = new System.Drawing.Point(307, 1);
             this.transactionBTN.Name = "transactionBTN";
             this.transactionBTN.Size = new System.Drawing.Size(177, 49);
-            this.transactionBTN.TabIndex = 15;
+            this.transactionBTN.TabIndex = 2;
             this.transactionBTN.Text = "      Transaction";
             this.transactionBTN.UseVisualStyleBackColor = true;
             this.transactionBTN.Click += new System.EventHandler(this.transactionBTN_Click);
@@ -187,7 +187,7 @@
             this.adminFormPanel.Location = new System.Drawing.Point(12, 176);
             this.adminFormPanel.Name = "adminFormPanel";
             this.adminFormPanel.Size = new System.Drawing.Size(1296, 582);
-            this.adminFormPanel.TabIndex = 24;
+            this.adminFormPanel.TabIndex = 6;
             // 
             // MinimizeButton
             // 
@@ -200,7 +200,7 @@
             this.MinimizeButton.Location = new System.Drawing.Point(1252, 5);
             this.MinimizeButton.Name = "MinimizeButton";
             this.MinimizeButton.Size = new System.Drawing.Size(22, 22);
-            this.MinimizeButton.TabIndex = 26;
+            this.MinimizeButton.TabIndex = 0;
             this.MinimizeButton.UseVisualStyleBackColor = false;
             this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
             // 
@@ -215,7 +215,7 @@
             this.CloseButton.Location = new System.Drawing.Point(1288, 4);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(22, 22);
-            this.CloseButton.TabIndex = 25;
+            this.CloseButton.TabIndex = 1;
             this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
@@ -228,7 +228,7 @@
             this.employeeITxt.Location = new System.Drawing.Point(1150, 76);
             this.employeeITxt.Name = "employeeITxt";
             this.employeeITxt.Size = new System.Drawing.Size(96, 18);
-            this.employeeITxt.TabIndex = 30;
+            this.employeeITxt.TabIndex = 4;
             this.employeeITxt.Text = "Employee ID:";
             // 
             // poslbl
@@ -240,7 +240,7 @@
             this.poslbl.Location = new System.Drawing.Point(1216, 45);
             this.poslbl.Name = "poslbl";
             this.poslbl.Size = new System.Drawing.Size(80, 18);
-            this.poslbl.TabIndex = 29;
+            this.poslbl.TabIndex = 3;
             this.poslbl.Text = "{position}";
             // 
             // positionTxt
@@ -252,7 +252,7 @@
             this.positionTxt.Location = new System.Drawing.Point(1151, 45);
             this.positionTxt.Name = "positionTxt";
             this.positionTxt.Size = new System.Drawing.Size(66, 18);
-            this.positionTxt.TabIndex = 27;
+            this.positionTxt.TabIndex = 2;
             this.positionTxt.Text = "Position:";
             // 
             // idlbl
@@ -264,7 +264,7 @@
             this.idlbl.Location = new System.Drawing.Point(1244, 76);
             this.idlbl.Name = "idlbl";
             this.idlbl.Size = new System.Drawing.Size(33, 18);
-            this.idlbl.TabIndex = 28;
+            this.idlbl.TabIndex = 5;
             this.idlbl.Text = "{id}";
             // 
             // AdminPage

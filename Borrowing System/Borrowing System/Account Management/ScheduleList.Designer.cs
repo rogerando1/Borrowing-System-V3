@@ -50,7 +50,7 @@
             this.courseIDTxtbx.Location = new System.Drawing.Point(18, 150);
             this.courseIDTxtbx.Name = "courseIDTxtbx";
             this.courseIDTxtbx.Size = new System.Drawing.Size(132, 19);
-            this.courseIDTxtbx.TabIndex = 25;
+            this.courseIDTxtbx.TabIndex = 2;
             this.courseIDTxtbx.TextChanged += new System.EventHandler(this.courseIDTxtbx_TextChanged);
             // 
             // coursenameTxtbx
@@ -61,7 +61,7 @@
             this.coursenameTxtbx.Multiline = true;
             this.coursenameTxtbx.Name = "coursenameTxtbx";
             this.coursenameTxtbx.Size = new System.Drawing.Size(337, 20);
-            this.coursenameTxtbx.TabIndex = 26;
+            this.coursenameTxtbx.TabIndex = 3;
             this.coursenameTxtbx.TextChanged += new System.EventHandler(this.coursenameTxtbx_TextChanged);
             // 
             // sectionTxtbx
@@ -71,7 +71,7 @@
             this.sectionTxtbx.Location = new System.Drawing.Point(18, 292);
             this.sectionTxtbx.Name = "sectionTxtbx";
             this.sectionTxtbx.Size = new System.Drawing.Size(75, 22);
-            this.sectionTxtbx.TabIndex = 27;
+            this.sectionTxtbx.TabIndex = 4;
             // 
             // clearBtn
             // 
@@ -83,7 +83,7 @@
             this.clearBtn.Location = new System.Drawing.Point(189, 352);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(71, 40);
-            this.clearBtn.TabIndex = 57;
+            this.clearBtn.TabIndex = 8;
             this.clearBtn.Text = " Clear";
             this.clearBtn.UseVisualStyleBackColor = false;
             this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
@@ -98,7 +98,7 @@
             this.createBTN.Location = new System.Drawing.Point(114, 352);
             this.createBTN.Name = "createBTN";
             this.createBTN.Size = new System.Drawing.Size(71, 40);
-            this.createBTN.TabIndex = 54;
+            this.createBTN.TabIndex = 7;
             this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
             this.createBTN.Click += new System.EventHandler(this.createBTN_Click);
@@ -111,7 +111,7 @@
             this.instructornameTxtbx.Multiline = true;
             this.instructornameTxtbx.Name = "instructornameTxtbx";
             this.instructornameTxtbx.Size = new System.Drawing.Size(185, 20);
-            this.instructornameTxtbx.TabIndex = 60;
+            this.instructornameTxtbx.TabIndex = 1;
             this.instructornameTxtbx.TextChanged += new System.EventHandler(this.instructornameTxtbx_TextChanged);
             // 
             // instructorIDTxtbx
@@ -121,7 +121,7 @@
             this.instructorIDTxtbx.Location = new System.Drawing.Point(18, 77);
             this.instructorIDTxtbx.Name = "instructorIDTxtbx";
             this.instructorIDTxtbx.Size = new System.Drawing.Size(132, 19);
-            this.instructorIDTxtbx.TabIndex = 61;
+            this.instructorIDTxtbx.TabIndex = 0;
             this.instructorIDTxtbx.TextChanged += new System.EventHandler(this.instructorIDTxtbx_TextChanged);
             // 
             // instructorTimer
@@ -147,7 +147,7 @@
             this.starttimeTxtbx.Name = "starttimeTxtbx";
             this.starttimeTxtbx.ShowUpDown = true;
             this.starttimeTxtbx.Size = new System.Drawing.Size(113, 27);
-            this.starttimeTxtbx.TabIndex = 62;
+            this.starttimeTxtbx.TabIndex = 5;
             this.starttimeTxtbx.ValueChanged += new System.EventHandler(this.starttimeTxtbx_ValueChanged);
             // 
             // endtimeTxtbx
@@ -158,7 +158,7 @@
             this.endtimeTxtbx.Name = "endtimeTxtbx";
             this.endtimeTxtbx.ShowUpDown = true;
             this.endtimeTxtbx.Size = new System.Drawing.Size(113, 27);
-            this.endtimeTxtbx.TabIndex = 63;
+            this.endtimeTxtbx.TabIndex = 6;
             // 
             // ScheduleList
             // 

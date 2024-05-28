@@ -70,7 +70,7 @@
             this.productnamelist.Location = new System.Drawing.Point(324, 31);
             this.productnamelist.Name = "productnamelist";
             this.productnamelist.Size = new System.Drawing.Size(306, 26);
-            this.productnamelist.TabIndex = 25;
+            this.productnamelist.TabIndex = 11;
             this.productnamelist.DropDown += new System.EventHandler(this.productnamelist_DropDown);
             this.productnamelist.SelectedIndexChanged += new System.EventHandler(this.productnamelist_SelectedIndexChanged);
             // 
@@ -130,7 +130,7 @@
             this.adminInventoryData.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.adminInventoryData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.adminInventoryData.Size = new System.Drawing.Size(966, 493);
-            this.adminInventoryData.TabIndex = 26;
+            this.adminInventoryData.TabIndex = 15;
             this.adminInventoryData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.adminInventoryData_CellClick);
             this.adminInventoryData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.adminInventoryData_CellContentClick);
             // 
@@ -222,7 +222,7 @@
             this.searchBTN.Location = new System.Drawing.Point(1185, 28);
             this.searchBTN.Name = "searchBTN";
             this.searchBTN.Size = new System.Drawing.Size(31, 29);
-            this.searchBTN.TabIndex = 35;
+            this.searchBTN.TabIndex = 13;
             this.searchBTN.UseVisualStyleBackColor = false;
             this.searchBTN.Click += new System.EventHandler(this.searchBTN_Click);
             // 
@@ -233,7 +233,7 @@
             this.searchData.Location = new System.Drawing.Point(654, 33);
             this.searchData.Name = "searchData";
             this.searchData.Size = new System.Drawing.Size(519, 19);
-            this.searchData.TabIndex = 34;
+            this.searchData.TabIndex = 12;
             this.searchData.TextChanged += new System.EventHandler(this.searchData_TextChanged);
             this.searchData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchData_KeyDown);
             // 
@@ -246,7 +246,7 @@
             this.partIdTxtbx.Name = "partIdTxtbx";
             this.partIdTxtbx.ReadOnly = true;
             this.partIdTxtbx.Size = new System.Drawing.Size(80, 17);
-            this.partIdTxtbx.TabIndex = 36;
+            this.partIdTxtbx.TabIndex = 0;
             // 
             // partnameTxtbx
             // 
@@ -256,7 +256,7 @@
             this.partnameTxtbx.Location = new System.Drawing.Point(17, 185);
             this.partnameTxtbx.Name = "partnameTxtbx";
             this.partnameTxtbx.Size = new System.Drawing.Size(275, 19);
-            this.partnameTxtbx.TabIndex = 38;
+            this.partnameTxtbx.TabIndex = 2;
             // 
             // partdescriptionTxtbx
             // 
@@ -267,7 +267,7 @@
             this.partdescriptionTxtbx.Multiline = true;
             this.partdescriptionTxtbx.Name = "partdescriptionTxtbx";
             this.partdescriptionTxtbx.Size = new System.Drawing.Size(270, 80);
-            this.partdescriptionTxtbx.TabIndex = 39;
+            this.partdescriptionTxtbx.TabIndex = 3;
             // 
             // clearBtn
             // 
@@ -280,7 +280,7 @@
             this.clearBtn.Location = new System.Drawing.Point(206, 451);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(90, 40);
-            this.clearBtn.TabIndex = 47;
+            this.clearBtn.TabIndex = 8;
             this.clearBtn.Text = "Clear";
             this.clearBtn.UseVisualStyleBackColor = false;
             this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
@@ -296,7 +296,7 @@
             this.deleteBTN.Location = new System.Drawing.Point(13, 504);
             this.deleteBTN.Name = "deleteBTN";
             this.deleteBTN.Size = new System.Drawing.Size(91, 40);
-            this.deleteBTN.TabIndex = 44;
+            this.deleteBTN.TabIndex = 9;
             this.deleteBTN.Text = "Remove";
             this.deleteBTN.UseVisualStyleBackColor = false;
             this.deleteBTN.Click += new System.EventHandler(this.deleteBTN_Click);
@@ -312,7 +312,7 @@
             this.updateBTN.Location = new System.Drawing.Point(110, 451);
             this.updateBTN.Name = "updateBTN";
             this.updateBTN.Size = new System.Drawing.Size(90, 40);
-            this.updateBTN.TabIndex = 43;
+            this.updateBTN.TabIndex = 7;
             this.updateBTN.Text = "Update";
             this.updateBTN.UseVisualStyleBackColor = false;
             this.updateBTN.Click += new System.EventHandler(this.updateBTN_Click);
@@ -328,7 +328,7 @@
             this.createBTN.Location = new System.Drawing.Point(13, 451);
             this.createBTN.Name = "createBTN";
             this.createBTN.Size = new System.Drawing.Size(91, 40);
-            this.createBTN.TabIndex = 42;
+            this.createBTN.TabIndex = 6;
             this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
             this.createBTN.Click += new System.EventHandler(this.createBTN_Click);
@@ -343,7 +343,7 @@
             this.productnameTxtbx.Location = new System.Drawing.Point(125, 113);
             this.productnameTxtbx.Name = "productnameTxtbx";
             this.productnameTxtbx.Size = new System.Drawing.Size(167, 26);
-            this.productnameTxtbx.TabIndex = 48;
+            this.productnameTxtbx.TabIndex = 1;
             this.productnameTxtbx.DropDown += new System.EventHandler(this.productnameTxtbx_DropDown);
             // 
             // quantityTxtbx
@@ -358,7 +358,7 @@
             0});
             this.quantityTxtbx.Name = "quantityTxtbx";
             this.quantityTxtbx.Size = new System.Drawing.Size(76, 20);
-            this.quantityTxtbx.TabIndex = 51;
+            this.quantityTxtbx.TabIndex = 4;
             // 
             // printDialog1
             // 
@@ -375,7 +375,7 @@
             this.uploadBTN.Location = new System.Drawing.Point(110, 504);
             this.uploadBTN.Name = "uploadBTN";
             this.uploadBTN.Size = new System.Drawing.Size(186, 40);
-            this.uploadBTN.TabIndex = 54;
+            this.uploadBTN.TabIndex = 10;
             this.uploadBTN.Text = "Upload through CSV";
             this.uploadBTN.UseVisualStyleBackColor = false;
             this.uploadBTN.Click += new System.EventHandler(this.uploadBTN_Click);
@@ -392,7 +392,7 @@
             0});
             this.defectiveTxtbx.Name = "defectiveTxtbx";
             this.defectiveTxtbx.Size = new System.Drawing.Size(162, 20);
-            this.defectiveTxtbx.TabIndex = 56;
+            this.defectiveTxtbx.TabIndex = 5;
             // 
             // excelExportBTN
             // 
@@ -409,7 +409,7 @@
             this.excelExportBTN.Location = new System.Drawing.Point(1245, 24);
             this.excelExportBTN.Name = "excelExportBTN";
             this.excelExportBTN.Size = new System.Drawing.Size(40, 40);
-            this.excelExportBTN.TabIndex = 57;
+            this.excelExportBTN.TabIndex = 14;
             this.excelExportBTN.UseVisualStyleBackColor = false;
             this.excelExportBTN.Click += new System.EventHandler(this.excelExportBTN_Click);
             // 

@@ -65,7 +65,7 @@
             this.studentIDTxtbx.Location = new System.Drawing.Point(784, 86);
             this.studentIDTxtbx.Name = "studentIDTxtbx";
             this.studentIDTxtbx.Size = new System.Drawing.Size(207, 17);
-            this.studentIDTxtbx.TabIndex = 11;
+            this.studentIDTxtbx.TabIndex = 0;
             this.studentIDTxtbx.TextChanged += new System.EventHandler(this.studentIDTxtbx_TextChanged);
             // 
             // borrowerNameTxtbx
@@ -77,7 +77,7 @@
             this.borrowerNameTxtbx.Multiline = true;
             this.borrowerNameTxtbx.Name = "borrowerNameTxtbx";
             this.borrowerNameTxtbx.Size = new System.Drawing.Size(207, 20);
-            this.borrowerNameTxtbx.TabIndex = 12;
+            this.borrowerNameTxtbx.TabIndex = 1;
             // 
             // courseTxtbx
             // 
@@ -87,7 +87,7 @@
             this.courseTxtbx.Location = new System.Drawing.Point(784, 249);
             this.courseTxtbx.Name = "courseTxtbx";
             this.courseTxtbx.Size = new System.Drawing.Size(207, 17);
-            this.courseTxtbx.TabIndex = 15;
+            this.courseTxtbx.TabIndex = 2;
             // 
             // availableLabel
             // 
@@ -98,7 +98,7 @@
             this.availableLabel.Location = new System.Drawing.Point(1256, 448);
             this.availableLabel.Name = "availableLabel";
             this.availableLabel.Size = new System.Drawing.Size(18, 13);
-            this.availableLabel.TabIndex = 20;
+            this.availableLabel.TabIndex = 16;
             this.availableLabel.Text = "{ }";
             // 
             // instructorNameTxtbx
@@ -110,7 +110,7 @@
             this.instructorNameTxtbx.Location = new System.Drawing.Point(1031, 83);
             this.instructorNameTxtbx.Name = "instructorNameTxtbx";
             this.instructorNameTxtbx.Size = new System.Drawing.Size(210, 26);
-            this.instructorNameTxtbx.TabIndex = 21;
+            this.instructorNameTxtbx.TabIndex = 4;
             this.instructorNameTxtbx.SelectedIndexChanged += new System.EventHandler(this.instructorNameTxtbx_SelectedIndexChanged);
             // 
             // subjectCodeTxtbx
@@ -124,7 +124,7 @@
             this.subjectCodeTxtbx.Location = new System.Drawing.Point(1031, 163);
             this.subjectCodeTxtbx.Name = "subjectCodeTxtbx";
             this.subjectCodeTxtbx.Size = new System.Drawing.Size(210, 26);
-            this.subjectCodeTxtbx.TabIndex = 22;
+            this.subjectCodeTxtbx.TabIndex = 5;
             this.subjectCodeTxtbx.SelectedIndexChanged += new System.EventHandler(this.subjectCodeTxtbx_SelectedIndexChanged);
             // 
             // equipmentNameTxtbx
@@ -139,7 +139,7 @@
             this.equipmentNameTxtbx.Location = new System.Drawing.Point(1031, 253);
             this.equipmentNameTxtbx.Name = "equipmentNameTxtbx";
             this.equipmentNameTxtbx.Size = new System.Drawing.Size(210, 26);
-            this.equipmentNameTxtbx.TabIndex = 23;
+            this.equipmentNameTxtbx.TabIndex = 6;
             this.equipmentNameTxtbx.DropDown += new System.EventHandler(this.equipmentNameTxtbx_DropDown);
             this.equipmentNameTxtbx.SelectedIndexChanged += new System.EventHandler(this.equipmentNameTxtbx_SelectedIndexChanged);
             // 
@@ -155,7 +155,7 @@
             this.typeTxtbx.Location = new System.Drawing.Point(1031, 334);
             this.typeTxtbx.Name = "typeTxtbx";
             this.typeTxtbx.Size = new System.Drawing.Size(210, 26);
-            this.typeTxtbx.TabIndex = 24;
+            this.typeTxtbx.TabIndex = 7;
             this.typeTxtbx.SelectedIndexChanged += new System.EventHandler(this.typeTxtbx_SelectedIndexChanged);
             // 
             // subjectnameLabel
@@ -167,7 +167,7 @@
             this.subjectnameLabel.Location = new System.Drawing.Point(1106, 197);
             this.subjectnameLabel.Name = "subjectnameLabel";
             this.subjectnameLabel.Size = new System.Drawing.Size(18, 13);
-            this.subjectnameLabel.TabIndex = 29;
+            this.subjectnameLabel.TabIndex = 15;
             this.subjectnameLabel.Text = "{ }";
             // 
             // quantityTxtbx
@@ -182,7 +182,7 @@
             0});
             this.quantityTxtbx.Name = "quantityTxtbx";
             this.quantityTxtbx.Size = new System.Drawing.Size(195, 22);
-            this.quantityTxtbx.TabIndex = 31;
+            this.quantityTxtbx.TabIndex = 8;
             // 
             // submitBTN
             // 
@@ -197,7 +197,7 @@
             this.submitBTN.Location = new System.Drawing.Point(291, 513);
             this.submitBTN.Name = "submitBTN";
             this.submitBTN.Size = new System.Drawing.Size(155, 40);
-            this.submitBTN.TabIndex = 33;
+            this.submitBTN.TabIndex = 13;
             this.submitBTN.Text = "Submit Order";
             this.submitBTN.UseVisualStyleBackColor = false;
             this.submitBTN.Click += new System.EventHandler(this.submitBTN_Click);
@@ -215,7 +215,7 @@
             this.clearBTN.Location = new System.Drawing.Point(901, 513);
             this.clearBTN.Name = "clearBTN";
             this.clearBTN.Size = new System.Drawing.Size(100, 39);
-            this.clearBTN.TabIndex = 32;
+            this.clearBTN.TabIndex = 9;
             this.clearBTN.Text = "Clear";
             this.clearBTN.UseVisualStyleBackColor = false;
             this.clearBTN.Click += new System.EventHandler(this.clearBTN_Click);
@@ -233,7 +233,7 @@
             this.addCartBTN.Location = new System.Drawing.Point(1024, 513);
             this.addCartBTN.Name = "addCartBTN";
             this.addCartBTN.Size = new System.Drawing.Size(100, 39);
-            this.addCartBTN.TabIndex = 34;
+            this.addCartBTN.TabIndex = 10;
             this.addCartBTN.Text = "Add";
             this.addCartBTN.UseVisualStyleBackColor = false;
             this.addCartBTN.Click += new System.EventHandler(this.addCartBTN_Click);
@@ -297,7 +297,7 @@
             this.cartTable.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.cartTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cartTable.Size = new System.Drawing.Size(701, 413);
-            this.cartTable.TabIndex = 35;
+            this.cartTable.TabIndex = 14;
             this.cartTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartTable_CellClick);
             this.cartTable.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartTable_CellMouseEnter);
             this.cartTable.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartTable_CellMouseLeave);
@@ -364,7 +364,7 @@
             this.staffCmbx.Location = new System.Drawing.Point(32, 28);
             this.staffCmbx.Name = "staffCmbx";
             this.staffCmbx.Size = new System.Drawing.Size(254, 29);
-            this.staffCmbx.TabIndex = 36;
+            this.staffCmbx.TabIndex = 11;
             this.staffCmbx.DropDown += new System.EventHandler(this.staffCmbx_DropDown);
             this.staffCmbx.SelectedIndexChanged += new System.EventHandler(this.staffCmbx_SelectedIndexChanged);
             // 
@@ -381,7 +381,7 @@
             this.clearCart.Location = new System.Drawing.Point(312, 23);
             this.clearCart.Name = "clearCart";
             this.clearCart.Size = new System.Drawing.Size(99, 37);
-            this.clearCart.TabIndex = 37;
+            this.clearCart.TabIndex = 12;
             this.clearCart.Text = "Clear Selection";
             this.clearCart.UseVisualStyleBackColor = false;
             this.clearCart.Click += new System.EventHandler(this.clearCart_Click);
@@ -394,7 +394,7 @@
             this.yearlevelTxtbx.Location = new System.Drawing.Point(784, 330);
             this.yearlevelTxtbx.Name = "yearlevelTxtbx";
             this.yearlevelTxtbx.Size = new System.Drawing.Size(207, 17);
-            this.yearlevelTxtbx.TabIndex = 38;
+            this.yearlevelTxtbx.TabIndex = 3;
             // 
             // TransactionPage
             // 

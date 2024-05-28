@@ -49,7 +49,7 @@
             this.MinimizeButton.Location = new System.Drawing.Point(1252, 5);
             this.MinimizeButton.Name = "MinimizeButton";
             this.MinimizeButton.Size = new System.Drawing.Size(22, 22);
-            this.MinimizeButton.TabIndex = 11;
+            this.MinimizeButton.TabIndex = 5;
             this.MinimizeButton.UseVisualStyleBackColor = false;
             this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
             // 
@@ -64,7 +64,7 @@
             this.CloseButton.Location = new System.Drawing.Point(1288, 4);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(22, 22);
-            this.CloseButton.TabIndex = 10;
+            this.CloseButton.TabIndex = 6;
             this.CloseButton.UseVisualStyleBackColor = false;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
@@ -81,7 +81,7 @@
             this.loginBTN.Location = new System.Drawing.Point(964, 482);
             this.loginBTN.Name = "loginBTN";
             this.loginBTN.Size = new System.Drawing.Size(135, 44);
-            this.loginBTN.TabIndex = 12;
+            this.loginBTN.TabIndex = 4;
             this.loginBTN.Text = "LOGIN";
             this.loginBTN.UseVisualStyleBackColor = false;
             this.loginBTN.Click += new System.EventHandler(this.loginBTN_Click);
@@ -95,7 +95,7 @@
             this.usernameTxtbx.Multiline = true;
             this.usernameTxtbx.Name = "usernameTxtbx";
             this.usernameTxtbx.Size = new System.Drawing.Size(214, 20);
-            this.usernameTxtbx.TabIndex = 13;
+            this.usernameTxtbx.TabIndex = 0;
             this.usernameTxtbx.UseSystemPasswordChar = true;
             this.usernameTxtbx.TextChanged += new System.EventHandler(this.usernameTxtbx_TextChanged);
             this.usernameTxtbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usernameTxtbx_KeyDown);
@@ -108,7 +108,7 @@
             this.passwordTxtbx.Location = new System.Drawing.Point(942, 414);
             this.passwordTxtbx.Name = "passwordTxtbx";
             this.passwordTxtbx.Size = new System.Drawing.Size(214, 19);
-            this.passwordTxtbx.TabIndex = 14;
+            this.passwordTxtbx.TabIndex = 1;
             this.passwordTxtbx.UseSystemPasswordChar = true;
             this.passwordTxtbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTxtbx_KeyDown);
             // 
@@ -122,7 +122,7 @@
             this.unhideButton.Location = new System.Drawing.Point(1111, 408);
             this.unhideButton.Name = "unhideButton";
             this.unhideButton.Size = new System.Drawing.Size(40, 30);
-            this.unhideButton.TabIndex = 15;
+            this.unhideButton.TabIndex = 2;
             this.unhideButton.UseVisualStyleBackColor = true;
             this.unhideButton.Click += new System.EventHandler(this.unhideButton_Click);
             // 
@@ -136,7 +136,7 @@
             this.hideButton.Location = new System.Drawing.Point(1111, 405);
             this.hideButton.Name = "hideButton";
             this.hideButton.Size = new System.Drawing.Size(44, 35);
-            this.hideButton.TabIndex = 16;
+            this.hideButton.TabIndex = 3;
             this.hideButton.UseVisualStyleBackColor = true;
             this.hideButton.Click += new System.EventHandler(this.hideButton_Click);
             // 
