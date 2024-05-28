@@ -503,6 +503,16 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap StudentListPanel__374x422___1_ {
+            get {
+                object obj = ResourceManager.GetObject("StudentListPanel (374x422) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap StudentListPanel__374x422_1 {
             get {
                 object obj = ResourceManager.GetObject("StudentListPanel (374x422)1", resourceCulture);

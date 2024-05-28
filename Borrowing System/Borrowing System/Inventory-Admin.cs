@@ -49,8 +49,9 @@ namespace Borrowing_System
                 string productName = productnamelist.SelectedItem.ToString();
                 MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                 connection.Open();
-                string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.defective, CONCAT(Product.productname) AS productname FROM Part " +
-                        "INNER JOIN Product on Part.productID = Product.productID " +
+                string query = "SELECT Part.partID, Part.partname, Part.partdescription, Part.quantity, Part.defective, " +
+                        "CONCAT(Product.productname) AS productname FROM Part " +
+                        "LEFT JOIN Product on Part.productID = Product.productID " +
                         "WHERE Product.productname = @productName";
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.Parameters.AddWithValue("@productName", productName);
@@ -529,8 +530,7 @@ namespace Borrowing_System
                             ExcelWorksheet ws = package.Workbook.Worksheets.Add("Inventory Page");
 
                             DataTable dt = this.adminInventoryData.DataSource as DataTable;
-
-
+                                                                                 
                             // Load data into worksheet
                             ws.Cells["A2"].LoadFromDataTable(dt, true);
 

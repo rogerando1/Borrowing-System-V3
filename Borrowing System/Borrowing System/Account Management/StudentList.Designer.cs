@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.StudentListPanel__374x422_1;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.StudentListPanel__374x422___1_;
             this.Controls.Add(this.updateBTN);
             this.Controls.Add(this.clearBTN);
             this.Controls.Add(this.createBTN);

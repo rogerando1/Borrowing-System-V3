@@ -355,6 +355,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="borrow.ico" />
+    <None Include="Resources\StudentListPanel %28374x422%29 %281%29.png" />
     <None Include="Resources\Admininventorypage %281296x582%29%281296x582%29 %282%29.png" />
     <None Include="Resources\Staffinventorypage %281296x582%29 %283%29.png" />
     <None Include="Resources\Staffinventorypage %281296x582%29 %282%29.png" />

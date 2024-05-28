@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.studentIDTxtbx = new System.Windows.Forms.TextBox();
             this.borrowerNameTxtbx = new System.Windows.Forms.TextBox();
             this.courseTxtbx = new System.Windows.Forms.TextBox();
@@ -44,15 +44,15 @@
             this.clearBTN = new System.Windows.Forms.Button();
             this.addCartBTN = new System.Windows.Forms.Button();
             this.cartTable = new System.Windows.Forms.DataGridView();
-            this.staffCmbx = new System.Windows.Forms.ComboBox();
-            this.clearCart = new System.Windows.Forms.Button();
-            this.yearlevelTxtbx = new System.Windows.Forms.TextBox();
             this.cart_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.borrower_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.part_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.staffCmbx = new System.Windows.Forms.ComboBox();
+            this.clearCart = new System.Windows.Forms.Button();
+            this.yearlevelTxtbx = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.quantityTxtbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartTable)).BeginInit();
             this.SuspendLayout();
@@ -250,15 +250,15 @@
             this.cartTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.cartTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.cartTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cartTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cartTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.cartTable.ColumnHeadersHeight = 60;
             this.cartTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.cartTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -275,14 +275,14 @@
             this.cartTable.Name = "cartTable";
             this.cartTable.ReadOnly = true;
             this.cartTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cartTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cartTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.cartTable.RowHeadersVisible = false;
             this.cartTable.RowHeadersWidth = 50;
             this.cartTable.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -302,49 +302,6 @@
             this.cartTable.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartTable_CellMouseEnter);
             this.cartTable.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.cartTable_CellMouseLeave);
             this.cartTable.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.cartTable_CellPainting);
-            // 
-            // staffCmbx
-            // 
-            this.staffCmbx.BackColor = System.Drawing.SystemColors.Window;
-            this.staffCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.staffCmbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.staffCmbx.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffCmbx.FormattingEnabled = true;
-            this.staffCmbx.IntegralHeight = false;
-            this.staffCmbx.Location = new System.Drawing.Point(32, 28);
-            this.staffCmbx.Name = "staffCmbx";
-            this.staffCmbx.Size = new System.Drawing.Size(254, 29);
-            this.staffCmbx.TabIndex = 36;
-            this.staffCmbx.DropDown += new System.EventHandler(this.staffCmbx_DropDown);
-            this.staffCmbx.SelectedIndexChanged += new System.EventHandler(this.staffCmbx_SelectedIndexChanged);
-            // 
-            // clearCart
-            // 
-            this.clearCart.BackColor = System.Drawing.Color.White;
-            this.clearCart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clearCart.FlatAppearance.BorderSize = 0;
-            this.clearCart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
-            this.clearCart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
-            this.clearCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearCart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearCart.ForeColor = System.Drawing.Color.Black;
-            this.clearCart.Location = new System.Drawing.Point(312, 23);
-            this.clearCart.Name = "clearCart";
-            this.clearCart.Size = new System.Drawing.Size(99, 37);
-            this.clearCart.TabIndex = 37;
-            this.clearCart.Text = "Clear Selection";
-            this.clearCart.UseVisualStyleBackColor = false;
-            this.clearCart.Click += new System.EventHandler(this.clearCart_Click);
-            // 
-            // yearlevelTxtbx
-            // 
-            this.yearlevelTxtbx.BackColor = System.Drawing.Color.White;
-            this.yearlevelTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.yearlevelTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yearlevelTxtbx.Location = new System.Drawing.Point(784, 330);
-            this.yearlevelTxtbx.Name = "yearlevelTxtbx";
-            this.yearlevelTxtbx.Size = new System.Drawing.Size(207, 17);
-            this.yearlevelTxtbx.TabIndex = 38;
             // 
             // cart_ID
             // 
@@ -395,6 +352,49 @@
             this.status.MinimumWidth = 2;
             this.status.Name = "status";
             this.status.ReadOnly = true;
+            // 
+            // staffCmbx
+            // 
+            this.staffCmbx.BackColor = System.Drawing.SystemColors.Window;
+            this.staffCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.staffCmbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.staffCmbx.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffCmbx.FormattingEnabled = true;
+            this.staffCmbx.IntegralHeight = false;
+            this.staffCmbx.Location = new System.Drawing.Point(32, 28);
+            this.staffCmbx.Name = "staffCmbx";
+            this.staffCmbx.Size = new System.Drawing.Size(254, 29);
+            this.staffCmbx.TabIndex = 36;
+            this.staffCmbx.DropDown += new System.EventHandler(this.staffCmbx_DropDown);
+            this.staffCmbx.SelectedIndexChanged += new System.EventHandler(this.staffCmbx_SelectedIndexChanged);
+            // 
+            // clearCart
+            // 
+            this.clearCart.BackColor = System.Drawing.Color.White;
+            this.clearCart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearCart.FlatAppearance.BorderSize = 0;
+            this.clearCart.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearCart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
+            this.clearCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearCart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearCart.ForeColor = System.Drawing.Color.Black;
+            this.clearCart.Location = new System.Drawing.Point(312, 23);
+            this.clearCart.Name = "clearCart";
+            this.clearCart.Size = new System.Drawing.Size(99, 37);
+            this.clearCart.TabIndex = 37;
+            this.clearCart.Text = "Clear Selection";
+            this.clearCart.UseVisualStyleBackColor = false;
+            this.clearCart.Click += new System.EventHandler(this.clearCart_Click);
+            // 
+            // yearlevelTxtbx
+            // 
+            this.yearlevelTxtbx.BackColor = System.Drawing.Color.White;
+            this.yearlevelTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.yearlevelTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearlevelTxtbx.Location = new System.Drawing.Point(784, 330);
+            this.yearlevelTxtbx.Name = "yearlevelTxtbx";
+            this.yearlevelTxtbx.Size = new System.Drawing.Size(207, 17);
+            this.yearlevelTxtbx.TabIndex = 38;
             // 
             // TransactionPage
             // 

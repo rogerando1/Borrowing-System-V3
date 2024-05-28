@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory_Admin));
             this.productnamelist = new System.Windows.Forms.ComboBox();
             this.adminInventoryData = new System.Windows.Forms.DataGridView();
             this.productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,8 +52,6 @@
             this.productnameTxtbx = new System.Windows.Forms.ComboBox();
             this.quantityTxtbx = new System.Windows.Forms.NumericUpDown();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.uploadBTN = new System.Windows.Forms.Button();
             this.defectiveTxtbx = new System.Windows.Forms.NumericUpDown();
             this.excelExportBTN = new System.Windows.Forms.Button();
@@ -367,16 +364,6 @@
             // 
             this.printDialog1.UseEXDialog = true;
             // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.Visible = false;
-            // 
             // uploadBTN
             // 
             this.uploadBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
@@ -479,8 +466,6 @@
         private System.Windows.Forms.ComboBox productnameTxtbx;
         private System.Windows.Forms.NumericUpDown quantityTxtbx;
         private System.Windows.Forms.PrintDialog printDialog1;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Button uploadBTN;
         private System.Windows.Forms.NumericUpDown defectiveTxtbx;
         private System.Windows.Forms.Button excelExportBTN;

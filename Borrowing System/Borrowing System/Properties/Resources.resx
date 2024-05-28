@@ -124,145 +124,148 @@
   <data name="EmploeeListPanel (374x422) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EmploeeListPanel (374x422) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CourseListPanel (374x422)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CourseListPanel (374x422)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Staffinventorypage (1296x582) (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Staffinventorypage (1296x582) (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="delete2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="logs icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logs icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AccountInfo (935x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AccountInfo (935x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NotePanel (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NotePanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="StudentListPanel (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StudentListPanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="return3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\return3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dashboard icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dashboard icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AboutPage (935x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AboutPage (935x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SettingsPage (1296x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SettingsPage (1296x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Home_Page" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Home_Page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="account management icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\account management icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-   <data name="home icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\home icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="about icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\about icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="EmploeeListPanel (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EmploeeListPanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ScheduleListPanel (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ScheduleListPanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="delete1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eye2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="transaction icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\transaction icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eye1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\eye1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="return2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\return2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Staffpage (1320x770)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Staffpage (1320x770).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Settings (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Settings (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Admininventorypage (1296x582)(1296x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Admininventorypage (1296x582)(1296x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="EmploeeListPanel (374x422)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EmploeeListPanel (374x422)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Profile Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Profile Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="search icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Transactionlogspage (1296x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Transactionlogspage (1296x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Staffinventorypage (1296x582) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Staffinventorypage (1296x582) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Staffinventorypage (1296x582) (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Staffinventorypage (1296x582) (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="StudentListPanel (374x422)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\StudentListPanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NotePanel (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NotePanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Excel-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Excel-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CourseListPanel (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CourseListPanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Transactionlogpage (1296x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Transactionlogpage (1296x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Loginpage (1320x770)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Loginpage (1320x770).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Studentlist (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Studentlist (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Exit Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Exit Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Transactionlogspage (1296x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Transactionlogspage (1296x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Accountmanagementpage (1296x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Accountmanagementpage (1296x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Adminpage (1320x770)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Adminpage (1320x770).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="eye2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="InstructorListPanel (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\InstructorListPanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Profile Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Profile Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Minimize Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Minimize Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logs icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logs icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Exit Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exit Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Loginpage (1320x770)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Loginpage (1320x770).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ScheduleListPanel (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ScheduleListPanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Dashboardpage (1296x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Dashboardpage (1296x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CourseListPanel (374x422)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CourseListPanel (374x422)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="inventory icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\inventory icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Excel-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Excel-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Staffpage (1320x770)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Staffpage (1320x770).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SettingsPage (1296x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SettingsPage (1296x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="about icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\about icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eye1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="transaction icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transaction icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Home_Page" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Home_Page.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Transactionlogpage (1296x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Transactionlogpage (1296x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Settings (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Settings (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Admininventorypage (1296x582)(1296x582) (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Admininventorypage (1296x582)(1296x582) (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Studentlist (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Studentlist (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="account management icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\account management icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="InstructorListPanel (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\InstructorListPanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AccountInfo (935x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AccountInfo (935x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Admininventorypage (1296x582)(1296x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Admininventorypage (1296x582)(1296x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="return2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\return2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Staffinventorypage (1296x582) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Staffinventorypage (1296x582) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StudentListPanel (374x422)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StudentListPanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dashboard icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dashboard icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EmploeeListPanel (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EmploeeListPanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AboutPage (935x582)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AboutPage (935x582).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="return3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\return3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CourseListPanel (374x422)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CourseListPanel (374x422).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EmploeeListPanel (374x422)1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EmploeeListPanel (374x422)1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Adminpage (1320x770)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Adminpage (1320x770).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Staffinventorypage (1296x582) (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Staffinventorypage (1296x582) (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Staffinventorypage (1296x582) (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Staffinventorypage (1296x582) (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StudentListPanel (374x422) (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StudentListPanel (374x422) (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

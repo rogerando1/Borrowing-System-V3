@@ -86,16 +86,16 @@
             this.ins_middle_initial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ins_last_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.removeInstructor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeList1 = new Borrowing_System.Account_Management.EmployeeList();
+            this.studentList1 = new Borrowing_System.Account_Management.StudentList();
+            this.scheduleList1 = new Borrowing_System.Account_Management.ScheduleList();
+            this.courseList1 = new Borrowing_System.Account_Management.CourseList();
+            this.instructorList1 = new Borrowing_System.Account_Management.InstructorList();
             this.employeeBTN = new System.Windows.Forms.Button();
             this.studentBTN = new System.Windows.Forms.Button();
             this.scheduleBTN = new System.Windows.Forms.Button();
             this.courseBTN = new System.Windows.Forms.Button();
             this.instructorBTN = new System.Windows.Forms.Button();
-            this.scheduleList1 = new Borrowing_System.Account_Management.ScheduleList();
-            this.courseList1 = new Borrowing_System.Account_Management.CourseList();
-            this.instructorList1 = new Borrowing_System.Account_Management.InstructorList();
-            this.employeeList1 = new Borrowing_System.Account_Management.EmployeeList();
-            this.studentList1 = new Borrowing_System.Account_Management.StudentList();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).BeginInit();
             this.accountmanagementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentData)).BeginInit();
@@ -786,6 +786,51 @@
             this.removeInstructor.Name = "removeInstructor";
             this.removeInstructor.ReadOnly = true;
             // 
+            // employeeList1
+            // 
+            this.employeeList1.BackgroundImage = global::Borrowing_System.Properties.Resources.EmploeeListPanel__374x422___1_;
+            this.employeeList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.employeeList1.Location = new System.Drawing.Point(907, 64);
+            this.employeeList1.Name = "employeeList1";
+            this.employeeList1.Size = new System.Drawing.Size(374, 422);
+            this.employeeList1.TabIndex = 0;
+            this.employeeList1.Load += new System.EventHandler(this.employeeList1_Load);
+            // 
+            // studentList1
+            // 
+            this.studentList1.BackgroundImage = global::Borrowing_System.Properties.Resources.StudentListPanel__374x422___1_;
+            this.studentList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.studentList1.Location = new System.Drawing.Point(907, 64);
+            this.studentList1.Name = "studentList1";
+            this.studentList1.Size = new System.Drawing.Size(374, 422);
+            this.studentList1.TabIndex = 28;
+            // 
+            // scheduleList1
+            // 
+            this.scheduleList1.BackgroundImage = global::Borrowing_System.Properties.Resources.ScheduleListPanel__374x422_;
+            this.scheduleList1.Location = new System.Drawing.Point(907, 64);
+            this.scheduleList1.Name = "scheduleList1";
+            this.scheduleList1.Size = new System.Drawing.Size(374, 422);
+            this.scheduleList1.TabIndex = 20;
+            // 
+            // courseList1
+            // 
+            this.courseList1.BackgroundImage = global::Borrowing_System.Properties.Resources.CourseListPanel__374x422_1;
+            this.courseList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.courseList1.Location = new System.Drawing.Point(907, 64);
+            this.courseList1.Name = "courseList1";
+            this.courseList1.Size = new System.Drawing.Size(374, 422);
+            this.courseList1.TabIndex = 21;
+            // 
+            // instructorList1
+            // 
+            this.instructorList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
+            this.instructorList1.BackgroundImage = global::Borrowing_System.Properties.Resources.InstructorListPanel__374x422_;
+            this.instructorList1.Location = new System.Drawing.Point(907, 64);
+            this.instructorList1.Name = "instructorList1";
+            this.instructorList1.Size = new System.Drawing.Size(374, 422);
+            this.instructorList1.TabIndex = 24;
+            // 
             // employeeBTN
             // 
             this.employeeBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
@@ -860,51 +905,6 @@
             this.instructorBTN.Text = "Instructor List";
             this.instructorBTN.UseVisualStyleBackColor = false;
             this.instructorBTN.Click += new System.EventHandler(this.instructorBTN_Click);
-            // 
-            // scheduleList1
-            // 
-            this.scheduleList1.BackgroundImage = global::Borrowing_System.Properties.Resources.ScheduleListPanel__374x422_;
-            this.scheduleList1.Location = new System.Drawing.Point(907, 64);
-            this.scheduleList1.Name = "scheduleList1";
-            this.scheduleList1.Size = new System.Drawing.Size(374, 422);
-            this.scheduleList1.TabIndex = 20;
-            // 
-            // courseList1
-            // 
-            this.courseList1.BackgroundImage = global::Borrowing_System.Properties.Resources.CourseListPanel__374x422_1;
-            this.courseList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.courseList1.Location = new System.Drawing.Point(907, 64);
-            this.courseList1.Name = "courseList1";
-            this.courseList1.Size = new System.Drawing.Size(374, 422);
-            this.courseList1.TabIndex = 21;
-            // 
-            // instructorList1
-            // 
-            this.instructorList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
-            this.instructorList1.BackgroundImage = global::Borrowing_System.Properties.Resources.InstructorListPanel__374x422_;
-            this.instructorList1.Location = new System.Drawing.Point(907, 64);
-            this.instructorList1.Name = "instructorList1";
-            this.instructorList1.Size = new System.Drawing.Size(374, 422);
-            this.instructorList1.TabIndex = 24;
-            // 
-            // employeeList1
-            // 
-            this.employeeList1.BackgroundImage = global::Borrowing_System.Properties.Resources.EmploeeListPanel__374x422_1;
-            this.employeeList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.employeeList1.Location = new System.Drawing.Point(907, 64);
-            this.employeeList1.Name = "employeeList1";
-            this.employeeList1.Size = new System.Drawing.Size(374, 422);
-            this.employeeList1.TabIndex = 0;
-            this.employeeList1.Load += new System.EventHandler(this.employeeList1_Load);
-            // 
-            // studentList1
-            // 
-            this.studentList1.BackgroundImage = global::Borrowing_System.Properties.Resources.StudentListPanel__374x422_1;
-            this.studentList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.studentList1.Location = new System.Drawing.Point(907, 64);
-            this.studentList1.Name = "studentList1";
-            this.studentList1.Size = new System.Drawing.Size(374, 422);
-            this.studentList1.TabIndex = 28;
             // 
             // AccountManagementPage
             // 

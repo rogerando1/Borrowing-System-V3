@@ -32,12 +32,14 @@ namespace Borrowing_System
             {
                 FillStaffComboBox();
                 staffCmbx.Visible = true;
-                clearCart.Visible = true;
+                clearCart.Visible = true;      
             }
             else
             {
                 staffCmbx.Visible = false;
                 clearCart.Visible = false;
+                cartTable.Location = new Point(19, 16);
+                cartTable.Size = new Size(701, 471);
             }
         }
 
