@@ -46,22 +46,21 @@
             // courseIDTxtbx
             // 
             this.courseIDTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.courseIDTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.courseIDTxtbx.Location = new System.Drawing.Point(43, 257);
-            this.courseIDTxtbx.Multiline = true;
+            this.courseIDTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.courseIDTxtbx.Location = new System.Drawing.Point(18, 150);
             this.courseIDTxtbx.Name = "courseIDTxtbx";
-            this.courseIDTxtbx.Size = new System.Drawing.Size(234, 28);
+            this.courseIDTxtbx.Size = new System.Drawing.Size(132, 19);
             this.courseIDTxtbx.TabIndex = 25;
             this.courseIDTxtbx.TextChanged += new System.EventHandler(this.courseIDTxtbx_TextChanged);
             // 
             // coursenameTxtbx
             // 
             this.coursenameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.coursenameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.coursenameTxtbx.Location = new System.Drawing.Point(43, 342);
+            this.coursenameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coursenameTxtbx.Location = new System.Drawing.Point(18, 222);
             this.coursenameTxtbx.Multiline = true;
             this.coursenameTxtbx.Name = "coursenameTxtbx";
-            this.coursenameTxtbx.Size = new System.Drawing.Size(393, 28);
+            this.coursenameTxtbx.Size = new System.Drawing.Size(337, 20);
             this.coursenameTxtbx.TabIndex = 26;
             this.coursenameTxtbx.TextChanged += new System.EventHandler(this.coursenameTxtbx_TextChanged);
             // 
@@ -69,10 +68,9 @@
             // 
             this.sectionTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.sectionTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.sectionTxtbx.Location = new System.Drawing.Point(43, 426);
-            this.sectionTxtbx.Multiline = true;
+            this.sectionTxtbx.Location = new System.Drawing.Point(18, 292);
             this.sectionTxtbx.Name = "sectionTxtbx";
-            this.sectionTxtbx.Size = new System.Drawing.Size(100, 28);
+            this.sectionTxtbx.Size = new System.Drawing.Size(75, 22);
             this.sectionTxtbx.TabIndex = 27;
             // 
             // clearBtn
@@ -80,11 +78,11 @@
             this.clearBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
             this.clearBtn.FlatAppearance.BorderSize = 0;
             this.clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearBtn.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearBtn.ForeColor = System.Drawing.Color.Black;
-            this.clearBtn.Location = new System.Drawing.Point(155, 487);
+            this.clearBtn.Location = new System.Drawing.Point(189, 352);
             this.clearBtn.Name = "clearBtn";
-            this.clearBtn.Size = new System.Drawing.Size(96, 44);
+            this.clearBtn.Size = new System.Drawing.Size(71, 40);
             this.clearBtn.TabIndex = 57;
             this.clearBtn.Text = " Clear";
             this.clearBtn.UseVisualStyleBackColor = false;
@@ -95,11 +93,11 @@
             this.createBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
             this.createBTN.FlatAppearance.BorderSize = 0;
             this.createBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
+            this.createBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.createBTN.ForeColor = System.Drawing.Color.Black;
-            this.createBTN.Location = new System.Drawing.Point(43, 487);
+            this.createBTN.Location = new System.Drawing.Point(114, 352);
             this.createBTN.Name = "createBTN";
-            this.createBTN.Size = new System.Drawing.Size(96, 44);
+            this.createBTN.Size = new System.Drawing.Size(71, 40);
             this.createBTN.TabIndex = 54;
             this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
@@ -108,22 +106,21 @@
             // instructornameTxtbx
             // 
             this.instructornameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.instructornameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.instructornameTxtbx.Location = new System.Drawing.Point(48, 173);
+            this.instructornameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructornameTxtbx.Location = new System.Drawing.Point(170, 77);
             this.instructornameTxtbx.Multiline = true;
             this.instructornameTxtbx.Name = "instructornameTxtbx";
-            this.instructornameTxtbx.Size = new System.Drawing.Size(336, 28);
+            this.instructornameTxtbx.Size = new System.Drawing.Size(185, 20);
             this.instructornameTxtbx.TabIndex = 60;
             this.instructornameTxtbx.TextChanged += new System.EventHandler(this.instructornameTxtbx_TextChanged);
             // 
             // instructorIDTxtbx
             // 
             this.instructorIDTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.instructorIDTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.instructorIDTxtbx.Location = new System.Drawing.Point(46, 91);
-            this.instructorIDTxtbx.Multiline = true;
+            this.instructorIDTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructorIDTxtbx.Location = new System.Drawing.Point(18, 77);
             this.instructorIDTxtbx.Name = "instructorIDTxtbx";
-            this.instructorIDTxtbx.Size = new System.Drawing.Size(238, 28);
+            this.instructorIDTxtbx.Size = new System.Drawing.Size(132, 19);
             this.instructorIDTxtbx.TabIndex = 61;
             this.instructorIDTxtbx.TextChanged += new System.EventHandler(this.instructorIDTxtbx_TextChanged);
             // 
@@ -144,30 +141,30 @@
             // 
             // starttimeTxtbx
             // 
-            this.starttimeTxtbx.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.starttimeTxtbx.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.starttimeTxtbx.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.starttimeTxtbx.Location = new System.Drawing.Point(173, 427);
+            this.starttimeTxtbx.Location = new System.Drawing.Point(111, 289);
             this.starttimeTxtbx.Name = "starttimeTxtbx";
             this.starttimeTxtbx.ShowUpDown = true;
-            this.starttimeTxtbx.Size = new System.Drawing.Size(113, 25);
+            this.starttimeTxtbx.Size = new System.Drawing.Size(113, 27);
             this.starttimeTxtbx.TabIndex = 62;
             this.starttimeTxtbx.ValueChanged += new System.EventHandler(this.starttimeTxtbx_ValueChanged);
             // 
             // endtimeTxtbx
             // 
-            this.endtimeTxtbx.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endtimeTxtbx.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.endtimeTxtbx.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.endtimeTxtbx.Location = new System.Drawing.Point(323, 426);
+            this.endtimeTxtbx.Location = new System.Drawing.Point(243, 287);
             this.endtimeTxtbx.Name = "endtimeTxtbx";
             this.endtimeTxtbx.ShowUpDown = true;
-            this.endtimeTxtbx.Size = new System.Drawing.Size(113, 25);
+            this.endtimeTxtbx.Size = new System.Drawing.Size(113, 27);
             this.endtimeTxtbx.TabIndex = 63;
             // 
             // ScheduleList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources._111;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.ScheduleListPanel__374x422_;
             this.Controls.Add(this.endtimeTxtbx);
             this.Controls.Add(this.starttimeTxtbx);
             this.Controls.Add(this.instructorIDTxtbx);
@@ -179,7 +176,7 @@
             this.Controls.Add(this.courseIDTxtbx);
             this.DoubleBuffered = true;
             this.Name = "ScheduleList";
-            this.Size = new System.Drawing.Size(484, 580);
+            this.Size = new System.Drawing.Size(374, 422);
             this.Load += new System.EventHandler(this.InstructorList_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

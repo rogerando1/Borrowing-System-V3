@@ -1,19 +1,12 @@
 ﻿using Borrowing_System.Data;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using OfficeOpenXml;
-using System.IO;
 using OfficeOpenXml.Style;
-using System.Windows.Media;
 using OfficeOpenXml.Table;
+using System;
+using System.Data;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Borrowing_System
 {
@@ -266,7 +259,7 @@ namespace Borrowing_System
 
         private void searchData_TextChanged(object sender, EventArgs e)
         {
-            if(searchData.Text == "")
+            if (searchData.Text == "")
             {
                 refreshData();
                 logsTable.Columns["studentName"].Visible = true;
@@ -316,7 +309,7 @@ namespace Borrowing_System
                         OfficeOpenXml.ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial; // or OfficeOpenXml.LicenseContext.Commercial
                         using (ExcelPackage package = new ExcelPackage())
                         {
-                           
+
                             ExcelWorksheet ws = package.Workbook.Worksheets.Add("Transaction Logs Page");
 
                             DataTable dt = this.logsTable.DataSource as DataTable;
@@ -366,7 +359,7 @@ namespace Borrowing_System
                             ws.Cells[ws.Dimension.Address].AutoFitColumns();
 
                             ws.PrinterSettings.PaperSize = ePaperSize.Folio;
-                            ws.PrinterSettings.Orientation = eOrientation.Landscape;               
+                            ws.PrinterSettings.Orientation = eOrientation.Landscape;
                             ws.PrinterSettings.FitToPage = true;
 
                             using (var range = ws.Cells[2, 1, dt.Rows.Count + 2, dt.Columns.Count])

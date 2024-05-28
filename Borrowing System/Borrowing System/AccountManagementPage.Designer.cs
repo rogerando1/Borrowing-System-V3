@@ -40,7 +40,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountManagementPage));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -57,10 +56,6 @@
             this.searchBTN = new System.Windows.Forms.Button();
             this.accountmanagementPanel = new System.Windows.Forms.Panel();
             this.instructorlistTxtbx = new System.Windows.Forms.ComboBox();
-            this.employeeList1 = new Borrowing_System.Account_Management.EmployeeList();
-            this.studentList1 = new Borrowing_System.Account_Management.StudentList();
-            this.scheduleList1 = new Borrowing_System.Account_Management.ScheduleList();
-            this.courseList1 = new Borrowing_System.Account_Management.CourseList();
             this.studentData = new System.Windows.Forms.DataGridView();
             this.studentFirstname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentMiddleinitial = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,7 +80,6 @@
             this.courseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coursename = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.removeCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.instructorList1 = new Borrowing_System.Account_Management.InstructorList();
             this.instructorData = new System.Windows.Forms.DataGridView();
             this.instructor_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ins_first_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,6 +91,11 @@
             this.scheduleBTN = new System.Windows.Forms.Button();
             this.courseBTN = new System.Windows.Forms.Button();
             this.instructorBTN = new System.Windows.Forms.Button();
+            this.scheduleList1 = new Borrowing_System.Account_Management.ScheduleList();
+            this.courseList1 = new Borrowing_System.Account_Management.CourseList();
+            this.instructorList1 = new Borrowing_System.Account_Management.InstructorList();
+            this.employeeList1 = new Borrowing_System.Account_Management.EmployeeList();
+            this.studentList1 = new Borrowing_System.Account_Management.StudentList();
             ((System.ComponentModel.ISupportInitialize)(this.employeeData)).BeginInit();
             this.accountmanagementPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentData)).BeginInit();
@@ -108,10 +107,10 @@
             // searchData
             // 
             this.searchData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchData.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.searchData.Location = new System.Drawing.Point(302, 19);
+            this.searchData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchData.Location = new System.Drawing.Point(247, 23);
             this.searchData.Name = "searchData";
-            this.searchData.Size = new System.Drawing.Size(620, 23);
+            this.searchData.Size = new System.Drawing.Size(547, 19);
             this.searchData.TabIndex = 0;
             this.searchData.TextChanged += new System.EventHandler(this.searchData_TextChanged);
             this.searchData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchData_KeyDown);
@@ -157,7 +156,7 @@
             this.employeeData.DefaultCellStyle = dataGridViewCellStyle2;
             this.employeeData.EnableHeadersVisualStyles = false;
             this.employeeData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.employeeData.Location = new System.Drawing.Point(8, 66);
+            this.employeeData.Location = new System.Drawing.Point(8, 62);
             this.employeeData.Name = "employeeData";
             this.employeeData.ReadOnly = true;
             this.employeeData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -179,7 +178,7 @@
             this.employeeData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.employeeData.RowTemplate.Height = 50;
             this.employeeData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.employeeData.Size = new System.Drawing.Size(1034, 514);
+            this.employeeData.Size = new System.Drawing.Size(876, 459);
             this.employeeData.TabIndex = 15;
             this.employeeData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeData_CellClick);
             this.employeeData.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.employeeData_CellMouseEnter);
@@ -253,7 +252,7 @@
             // 
             this.searchBTN.BackColor = System.Drawing.Color.Transparent;
             this.searchBTN.BackgroundImage = global::Borrowing_System.Properties.Resources.search_icon;
-            this.searchBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.searchBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.searchBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.searchBTN.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.searchBTN.FlatAppearance.BorderSize = 0;
@@ -263,9 +262,9 @@
             this.searchBTN.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Bold);
             this.searchBTN.ForeColor = System.Drawing.Color.Transparent;
             this.searchBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.searchBTN.Location = new System.Drawing.Point(938, 14);
+            this.searchBTN.Location = new System.Drawing.Point(800, 18);
             this.searchBTN.Name = "searchBTN";
-            this.searchBTN.Size = new System.Drawing.Size(35, 35);
+            this.searchBTN.Size = new System.Drawing.Size(30, 30);
             this.searchBTN.TabIndex = 22;
             this.searchBTN.UseVisualStyleBackColor = false;
             this.searchBTN.Click += new System.EventHandler(this.searchBTN_Click);
@@ -276,19 +275,19 @@
             this.accountmanagementPanel.Controls.Add(this.instructorlistTxtbx);
             this.accountmanagementPanel.Controls.Add(this.searchData);
             this.accountmanagementPanel.Controls.Add(this.searchBTN);
-            this.accountmanagementPanel.Controls.Add(this.employeeList1);
-            this.accountmanagementPanel.Controls.Add(this.studentList1);
-            this.accountmanagementPanel.Controls.Add(this.scheduleList1);
-            this.accountmanagementPanel.Controls.Add(this.courseList1);
             this.accountmanagementPanel.Controls.Add(this.employeeData);
             this.accountmanagementPanel.Controls.Add(this.studentData);
             this.accountmanagementPanel.Controls.Add(this.scheduleData);
             this.accountmanagementPanel.Controls.Add(this.courseData);
-            this.accountmanagementPanel.Controls.Add(this.instructorList1);
             this.accountmanagementPanel.Controls.Add(this.instructorData);
-            this.accountmanagementPanel.Location = new System.Drawing.Point(0, 70);
+            this.accountmanagementPanel.Controls.Add(this.employeeList1);
+            this.accountmanagementPanel.Controls.Add(this.studentList1);
+            this.accountmanagementPanel.Controls.Add(this.scheduleList1);
+            this.accountmanagementPanel.Controls.Add(this.courseList1);
+            this.accountmanagementPanel.Controls.Add(this.instructorList1);
+            this.accountmanagementPanel.Location = new System.Drawing.Point(0, 52);
             this.accountmanagementPanel.Name = "accountmanagementPanel";
-            this.accountmanagementPanel.Size = new System.Drawing.Size(1533, 581);
+            this.accountmanagementPanel.Size = new System.Drawing.Size(1299, 532);
             this.accountmanagementPanel.TabIndex = 42;
             // 
             // instructorlistTxtbx
@@ -296,50 +295,14 @@
             this.instructorlistTxtbx.BackColor = System.Drawing.SystemColors.Window;
             this.instructorlistTxtbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.instructorlistTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.instructorlistTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructorlistTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.instructorlistTxtbx.FormattingEnabled = true;
-            this.instructorlistTxtbx.Location = new System.Drawing.Point(8, 14);
+            this.instructorlistTxtbx.Location = new System.Drawing.Point(10, 19);
             this.instructorlistTxtbx.Name = "instructorlistTxtbx";
-            this.instructorlistTxtbx.Size = new System.Drawing.Size(277, 32);
+            this.instructorlistTxtbx.Size = new System.Drawing.Size(217, 28);
             this.instructorlistTxtbx.TabIndex = 23;
             this.instructorlistTxtbx.Visible = false;
             this.instructorlistTxtbx.SelectedIndexChanged += new System.EventHandler(this.instructorlistTxtbx_SelectedIndexChanged);
-            // 
-            // employeeList1
-            // 
-            this.employeeList1.BackgroundImage = global::Borrowing_System.Properties.Resources._1_3_;
-            this.employeeList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.employeeList1.Location = new System.Drawing.Point(1053, -8);
-            this.employeeList1.Name = "employeeList1";
-            this.employeeList1.Size = new System.Drawing.Size(484, 588);
-            this.employeeList1.TabIndex = 0;
-            this.employeeList1.Load += new System.EventHandler(this.employeeList1_Load);
-            // 
-            // studentList1
-            // 
-            this.studentList1.BackgroundImage = global::Borrowing_System.Properties.Resources._2_4_;
-            this.studentList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.studentList1.Location = new System.Drawing.Point(1054, -8);
-            this.studentList1.Name = "studentList1";
-            this.studentList1.Size = new System.Drawing.Size(484, 588);
-            this.studentList1.TabIndex = 19;
-            // 
-            // scheduleList1
-            // 
-            this.scheduleList1.BackgroundImage = global::Borrowing_System.Properties.Resources._111;
-            this.scheduleList1.Location = new System.Drawing.Point(1053, -8);
-            this.scheduleList1.Name = "scheduleList1";
-            this.scheduleList1.Size = new System.Drawing.Size(484, 588);
-            this.scheduleList1.TabIndex = 20;
-            // 
-            // courseList1
-            // 
-            this.courseList1.BackgroundImage = global::Borrowing_System.Properties.Resources.First_Name;
-            this.courseList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.courseList1.Location = new System.Drawing.Point(1054, -11);
-            this.courseList1.Name = "courseList1";
-            this.courseList1.Size = new System.Drawing.Size(484, 591);
-            this.courseList1.TabIndex = 21;
             // 
             // studentData
             // 
@@ -381,7 +344,7 @@
             this.studentData.DefaultCellStyle = dataGridViewCellStyle5;
             this.studentData.EnableHeadersVisualStyles = false;
             this.studentData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.studentData.Location = new System.Drawing.Point(8, 66);
+            this.studentData.Location = new System.Drawing.Point(8, 62);
             this.studentData.Name = "studentData";
             this.studentData.ReadOnly = true;
             this.studentData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -403,7 +366,7 @@
             this.studentData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.studentData.RowTemplate.Height = 50;
             this.studentData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.studentData.Size = new System.Drawing.Size(1034, 502);
+            this.studentData.Size = new System.Drawing.Size(876, 459);
             this.studentData.TabIndex = 16;
             this.studentData.Visible = false;
             this.studentData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentData_CellClick);
@@ -511,7 +474,7 @@
             this.scheduleData.DefaultCellStyle = dataGridViewCellStyle8;
             this.scheduleData.EnableHeadersVisualStyles = false;
             this.scheduleData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.scheduleData.Location = new System.Drawing.Point(8, 66);
+            this.scheduleData.Location = new System.Drawing.Point(8, 62);
             this.scheduleData.Name = "scheduleData";
             this.scheduleData.ReadOnly = true;
             this.scheduleData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -533,7 +496,7 @@
             this.scheduleData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.scheduleData.RowTemplate.Height = 50;
             this.scheduleData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.scheduleData.Size = new System.Drawing.Size(1034, 503);
+            this.scheduleData.Size = new System.Drawing.Size(876, 459);
             this.scheduleData.TabIndex = 17;
             this.scheduleData.Visible = false;
             this.scheduleData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.scheduleData_CellClick);
@@ -664,7 +627,7 @@
             this.courseData.DefaultCellStyle = dataGridViewCellStyle11;
             this.courseData.EnableHeadersVisualStyles = false;
             this.courseData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.courseData.Location = new System.Drawing.Point(8, 66);
+            this.courseData.Location = new System.Drawing.Point(8, 62);
             this.courseData.Name = "courseData";
             this.courseData.ReadOnly = true;
             this.courseData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -686,7 +649,7 @@
             this.courseData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.courseData.RowTemplate.Height = 50;
             this.courseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.courseData.Size = new System.Drawing.Size(1034, 502);
+            this.courseData.Size = new System.Drawing.Size(876, 443);
             this.courseData.TabIndex = 18;
             this.courseData.Visible = false;
             this.courseData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseData_CellClick);
@@ -716,15 +679,6 @@
             this.removeCourse.HeaderText = "";
             this.removeCourse.Name = "removeCourse";
             this.removeCourse.ReadOnly = true;
-            // 
-            // instructorList1
-            // 
-            this.instructorList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
-            this.instructorList1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("instructorList1.BackgroundImage")));
-            this.instructorList1.Location = new System.Drawing.Point(1053, -8);
-            this.instructorList1.Name = "instructorList1";
-            this.instructorList1.Size = new System.Drawing.Size(484, 580);
-            this.instructorList1.TabIndex = 24;
             // 
             // instructorData
             // 
@@ -764,7 +718,7 @@
             this.instructorData.DefaultCellStyle = dataGridViewCellStyle14;
             this.instructorData.EnableHeadersVisualStyles = false;
             this.instructorData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.instructorData.Location = new System.Drawing.Point(8, 66);
+            this.instructorData.Location = new System.Drawing.Point(8, 62);
             this.instructorData.Name = "instructorData";
             this.instructorData.ReadOnly = true;
             this.instructorData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -786,7 +740,7 @@
             this.instructorData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.instructorData.RowTemplate.Height = 50;
             this.instructorData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.instructorData.Size = new System.Drawing.Size(1034, 503);
+            this.instructorData.Size = new System.Drawing.Size(876, 443);
             this.instructorData.TabIndex = 25;
             this.instructorData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.instructorData_CellClick);
             this.instructorData.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.instructorData_CellMouseEnter);
@@ -838,10 +792,10 @@
             this.employeeBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.employeeBTN.FlatAppearance.BorderSize = 0;
             this.employeeBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.employeeBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.employeeBTN.Location = new System.Drawing.Point(22, 12);
+            this.employeeBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeBTN.Location = new System.Drawing.Point(46, 6);
             this.employeeBTN.Name = "employeeBTN";
-            this.employeeBTN.Size = new System.Drawing.Size(174, 44);
+            this.employeeBTN.Size = new System.Drawing.Size(150, 40);
             this.employeeBTN.TabIndex = 43;
             this.employeeBTN.Text = "Employee List";
             this.employeeBTN.UseVisualStyleBackColor = false;
@@ -853,10 +807,10 @@
             this.studentBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.studentBTN.FlatAppearance.BorderSize = 0;
             this.studentBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.studentBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.studentBTN.Location = new System.Drawing.Point(219, 12);
+            this.studentBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentBTN.Location = new System.Drawing.Point(372, 6);
             this.studentBTN.Name = "studentBTN";
-            this.studentBTN.Size = new System.Drawing.Size(174, 44);
+            this.studentBTN.Size = new System.Drawing.Size(150, 40);
             this.studentBTN.TabIndex = 44;
             this.studentBTN.Text = "Student List";
             this.studentBTN.UseVisualStyleBackColor = false;
@@ -868,10 +822,10 @@
             this.scheduleBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.scheduleBTN.FlatAppearance.BorderSize = 0;
             this.scheduleBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.scheduleBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.scheduleBTN.Location = new System.Drawing.Point(846, 12);
+            this.scheduleBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scheduleBTN.Location = new System.Drawing.Point(698, 6);
             this.scheduleBTN.Name = "scheduleBTN";
-            this.scheduleBTN.Size = new System.Drawing.Size(174, 44);
+            this.scheduleBTN.Size = new System.Drawing.Size(150, 40);
             this.scheduleBTN.TabIndex = 45;
             this.scheduleBTN.Text = "Schedule List";
             this.scheduleBTN.UseVisualStyleBackColor = false;
@@ -883,10 +837,10 @@
             this.courseBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.courseBTN.FlatAppearance.BorderSize = 0;
             this.courseBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.courseBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.courseBTN.Location = new System.Drawing.Point(634, 12);
+            this.courseBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.courseBTN.Location = new System.Drawing.Point(535, 6);
             this.courseBTN.Name = "courseBTN";
-            this.courseBTN.Size = new System.Drawing.Size(174, 44);
+            this.courseBTN.Size = new System.Drawing.Size(150, 40);
             this.courseBTN.TabIndex = 46;
             this.courseBTN.Text = "Course List";
             this.courseBTN.UseVisualStyleBackColor = false;
@@ -898,22 +852,67 @@
             this.instructorBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.instructorBTN.FlatAppearance.BorderSize = 0;
             this.instructorBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.instructorBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.instructorBTN.Location = new System.Drawing.Point(420, 12);
+            this.instructorBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructorBTN.Location = new System.Drawing.Point(209, 6);
             this.instructorBTN.Name = "instructorBTN";
-            this.instructorBTN.Size = new System.Drawing.Size(174, 44);
+            this.instructorBTN.Size = new System.Drawing.Size(150, 40);
             this.instructorBTN.TabIndex = 47;
             this.instructorBTN.Text = "Instructor List";
             this.instructorBTN.UseVisualStyleBackColor = false;
             this.instructorBTN.Click += new System.EventHandler(this.instructorBTN_Click);
+            // 
+            // scheduleList1
+            // 
+            this.scheduleList1.BackgroundImage = global::Borrowing_System.Properties.Resources.ScheduleListPanel__374x422_;
+            this.scheduleList1.Location = new System.Drawing.Point(907, 64);
+            this.scheduleList1.Name = "scheduleList1";
+            this.scheduleList1.Size = new System.Drawing.Size(374, 422);
+            this.scheduleList1.TabIndex = 20;
+            // 
+            // courseList1
+            // 
+            this.courseList1.BackgroundImage = global::Borrowing_System.Properties.Resources.CourseListPanel__374x422_1;
+            this.courseList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.courseList1.Location = new System.Drawing.Point(907, 64);
+            this.courseList1.Name = "courseList1";
+            this.courseList1.Size = new System.Drawing.Size(374, 422);
+            this.courseList1.TabIndex = 21;
+            // 
+            // instructorList1
+            // 
+            this.instructorList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
+            this.instructorList1.BackgroundImage = global::Borrowing_System.Properties.Resources.InstructorListPanel__374x422_;
+            this.instructorList1.Location = new System.Drawing.Point(907, 64);
+            this.instructorList1.Name = "instructorList1";
+            this.instructorList1.Size = new System.Drawing.Size(374, 422);
+            this.instructorList1.TabIndex = 24;
+            // 
+            // employeeList1
+            // 
+            this.employeeList1.BackgroundImage = global::Borrowing_System.Properties.Resources.EmploeeListPanel__374x422_1;
+            this.employeeList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.employeeList1.Location = new System.Drawing.Point(907, 64);
+            this.employeeList1.Name = "employeeList1";
+            this.employeeList1.Size = new System.Drawing.Size(374, 422);
+            this.employeeList1.TabIndex = 0;
+            this.employeeList1.Load += new System.EventHandler(this.employeeList1_Load);
+            // 
+            // studentList1
+            // 
+            this.studentList1.BackgroundImage = global::Borrowing_System.Properties.Resources.StudentListPanel__374x422_1;
+            this.studentList1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.studentList1.Location = new System.Drawing.Point(907, 64);
+            this.studentList1.Name = "studentList1";
+            this.studentList1.Size = new System.Drawing.Size(374, 422);
+            this.studentList1.TabIndex = 28;
             // 
             // AccountManagementPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Staff_Logs__2_;
-            this.ClientSize = new System.Drawing.Size(1532, 650);
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Accountmanagementpage__1296x582_;
+            this.ClientSize = new System.Drawing.Size(1296, 582);
             this.Controls.Add(this.instructorBTN);
             this.Controls.Add(this.courseBTN);
             this.Controls.Add(this.scheduleBTN);
@@ -948,7 +947,6 @@
         private Account_Management.EmployeeList employeeList1;
         private System.Windows.Forms.DataGridView scheduleData;
         private System.Windows.Forms.DataGridView studentData;
-        private Account_Management.StudentList studentList1;
         private Account_Management.ScheduleList scheduleList1;
         private Account_Management.CourseList courseList1;
         private System.Windows.Forms.ComboBox instructorlistTxtbx;
@@ -991,5 +989,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn instructorLastname;
         private System.Windows.Forms.DataGridViewTextBoxColumn instructorMiddleinitial;
         private System.Windows.Forms.DataGridViewTextBoxColumn removeSchedule;
+        private Account_Management.StudentList studentList1;
     }
 }

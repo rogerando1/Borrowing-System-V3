@@ -46,7 +46,7 @@
             this.MinimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MinimizeButton.FlatAppearance.BorderSize = 0;
             this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinimizeButton.Location = new System.Drawing.Point(1491, 7);
+            this.MinimizeButton.Location = new System.Drawing.Point(1252, 5);
             this.MinimizeButton.Name = "MinimizeButton";
             this.MinimizeButton.Size = new System.Drawing.Size(22, 22);
             this.MinimizeButton.TabIndex = 11;
@@ -61,7 +61,7 @@
             this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Location = new System.Drawing.Point(1527, 6);
+            this.CloseButton.Location = new System.Drawing.Point(1288, 4);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(22, 22);
             this.CloseButton.TabIndex = 10;
@@ -78,9 +78,9 @@
             this.loginBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(208)))), ((int)(((byte)(155)))));
             this.loginBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginBTN.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBTN.Location = new System.Drawing.Point(1141, 519);
+            this.loginBTN.Location = new System.Drawing.Point(964, 482);
             this.loginBTN.Name = "loginBTN";
-            this.loginBTN.Size = new System.Drawing.Size(148, 49);
+            this.loginBTN.Size = new System.Drawing.Size(135, 44);
             this.loginBTN.TabIndex = 12;
             this.loginBTN.Text = "LOGIN";
             this.loginBTN.UseVisualStyleBackColor = false;
@@ -90,11 +90,13 @@
             // 
             this.usernameTxtbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
             this.usernameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usernameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.usernameTxtbx.Location = new System.Drawing.Point(1080, 339);
+            this.usernameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTxtbx.Location = new System.Drawing.Point(942, 327);
+            this.usernameTxtbx.Multiline = true;
             this.usernameTxtbx.Name = "usernameTxtbx";
-            this.usernameTxtbx.Size = new System.Drawing.Size(309, 28);
+            this.usernameTxtbx.Size = new System.Drawing.Size(214, 20);
             this.usernameTxtbx.TabIndex = 13;
+            this.usernameTxtbx.UseSystemPasswordChar = true;
             this.usernameTxtbx.TextChanged += new System.EventHandler(this.usernameTxtbx_TextChanged);
             this.usernameTxtbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usernameTxtbx_KeyDown);
             // 
@@ -102,10 +104,10 @@
             // 
             this.passwordTxtbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
             this.passwordTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.passwordTxtbx.Location = new System.Drawing.Point(1080, 441);
+            this.passwordTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordTxtbx.Location = new System.Drawing.Point(942, 414);
             this.passwordTxtbx.Name = "passwordTxtbx";
-            this.passwordTxtbx.Size = new System.Drawing.Size(309, 28);
+            this.passwordTxtbx.Size = new System.Drawing.Size(214, 19);
             this.passwordTxtbx.TabIndex = 14;
             this.passwordTxtbx.UseSystemPasswordChar = true;
             this.passwordTxtbx.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTxtbx_KeyDown);
@@ -117,9 +119,9 @@
             this.unhideButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.unhideButton.FlatAppearance.BorderSize = 0;
             this.unhideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.unhideButton.Location = new System.Drawing.Point(1337, 438);
+            this.unhideButton.Location = new System.Drawing.Point(1111, 408);
             this.unhideButton.Name = "unhideButton";
-            this.unhideButton.Size = new System.Drawing.Size(46, 34);
+            this.unhideButton.Size = new System.Drawing.Size(40, 30);
             this.unhideButton.TabIndex = 15;
             this.unhideButton.UseVisualStyleBackColor = true;
             this.unhideButton.Click += new System.EventHandler(this.unhideButton_Click);
@@ -131,9 +133,9 @@
             this.hideButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.hideButton.FlatAppearance.BorderSize = 0;
             this.hideButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hideButton.Location = new System.Drawing.Point(1337, 436);
+            this.hideButton.Location = new System.Drawing.Point(1111, 405);
             this.hideButton.Name = "hideButton";
-            this.hideButton.Size = new System.Drawing.Size(51, 39);
+            this.hideButton.Size = new System.Drawing.Size(44, 35);
             this.hideButton.TabIndex = 16;
             this.hideButton.UseVisualStyleBackColor = true;
             this.hideButton.Click += new System.EventHandler(this.hideButton_Click);
@@ -142,8 +144,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Login_Page;
-            this.ClientSize = new System.Drawing.Size(1556, 850);
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Loginpage__1320x770_;
+            this.ClientSize = new System.Drawing.Size(1320, 770);
             this.Controls.Add(this.unhideButton);
             this.Controls.Add(this.hideButton);
             this.Controls.Add(this.passwordTxtbx);

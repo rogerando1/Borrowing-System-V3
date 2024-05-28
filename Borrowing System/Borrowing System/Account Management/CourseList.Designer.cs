@@ -37,31 +37,32 @@
             // coursenameTxtbx
             // 
             this.coursenameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.coursenameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.coursenameTxtbx.Location = new System.Drawing.Point(45, 177);
+            this.coursenameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.coursenameTxtbx.Location = new System.Drawing.Point(18, 150);
             this.coursenameTxtbx.Name = "coursenameTxtbx";
-            this.coursenameTxtbx.Size = new System.Drawing.Size(393, 22);
+            this.coursenameTxtbx.Size = new System.Drawing.Size(337, 19);
             this.coursenameTxtbx.TabIndex = 7;
             // 
             // courseIDTxtbx
             // 
             this.courseIDTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.courseIDTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.courseIDTxtbx.Location = new System.Drawing.Point(45, 92);
+            this.courseIDTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.courseIDTxtbx.Location = new System.Drawing.Point(18, 77);
             this.courseIDTxtbx.Name = "courseIDTxtbx";
-            this.courseIDTxtbx.Size = new System.Drawing.Size(210, 22);
+            this.courseIDTxtbx.Size = new System.Drawing.Size(155, 19);
             this.courseIDTxtbx.TabIndex = 6;
             // 
             // clearBTN
             // 
             this.clearBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.clearBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clearBTN.FlatAppearance.BorderSize = 0;
             this.clearBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
+            this.clearBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.clearBTN.ForeColor = System.Drawing.Color.Black;
-            this.clearBTN.Location = new System.Drawing.Point(159, 359);
+            this.clearBTN.Location = new System.Drawing.Point(189, 303);
             this.clearBTN.Name = "clearBTN";
-            this.clearBTN.Size = new System.Drawing.Size(96, 44);
+            this.clearBTN.Size = new System.Drawing.Size(71, 40);
             this.clearBTN.TabIndex = 12;
             this.clearBTN.Text = "Clear";
             this.clearBTN.UseVisualStyleBackColor = false;
@@ -70,13 +71,14 @@
             // createBTN
             // 
             this.createBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.createBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.createBTN.FlatAppearance.BorderSize = 0;
             this.createBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
+            this.createBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.createBTN.ForeColor = System.Drawing.Color.Black;
-            this.createBTN.Location = new System.Drawing.Point(45, 359);
+            this.createBTN.Location = new System.Drawing.Point(114, 303);
             this.createBTN.Name = "createBTN";
-            this.createBTN.Size = new System.Drawing.Size(96, 44);
+            this.createBTN.Size = new System.Drawing.Size(71, 40);
             this.createBTN.TabIndex = 13;
             this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
@@ -86,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.First_Name;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.CourseListPanel__374x422_1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.Controls.Add(this.createBTN);
             this.Controls.Add(this.clearBTN);
@@ -94,7 +96,7 @@
             this.Controls.Add(this.courseIDTxtbx);
             this.DoubleBuffered = true;
             this.Name = "CourseList";
-            this.Size = new System.Drawing.Size(484, 580);
+            this.Size = new System.Drawing.Size(374, 422);
             this.ResumeLayout(false);
             this.PerformLayout();
 

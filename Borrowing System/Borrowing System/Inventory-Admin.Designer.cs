@@ -28,11 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inventory_Admin));
             this.productnamelist = new System.Windows.Forms.ComboBox();
             this.adminInventoryData = new System.Windows.Forms.DataGridView();
+            this.productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partdescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.defective = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.mySqlCommand2 = new MySql.Data.MySqlClient.MySqlCommand();
             this.searchBTN = new System.Windows.Forms.Button();
@@ -52,12 +58,6 @@
             this.uploadBTN = new System.Windows.Forms.Button();
             this.defectiveTxtbx = new System.Windows.Forms.NumericUpDown();
             this.excelExportBTN = new System.Windows.Forms.Button();
-            this.productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partdescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.defective = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.adminInventoryData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quantityTxtbx)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.defectiveTxtbx)).BeginInit();
@@ -68,11 +68,11 @@
             this.productnamelist.BackColor = System.Drawing.Color.White;
             this.productnamelist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.productnamelist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.productnamelist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.productnamelist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productnamelist.FormattingEnabled = true;
-            this.productnamelist.Location = new System.Drawing.Point(381, 33);
+            this.productnamelist.Location = new System.Drawing.Point(324, 31);
             this.productnamelist.Name = "productnamelist";
-            this.productnamelist.Size = new System.Drawing.Size(284, 26);
+            this.productnamelist.Size = new System.Drawing.Size(238, 26);
             this.productnamelist.TabIndex = 25;
             this.productnamelist.DropDown += new System.EventHandler(this.productnamelist_DropDown);
             this.productnamelist.SelectedIndexChanged += new System.EventHandler(this.productnamelist_SelectedIndexChanged);
@@ -88,14 +88,14 @@
             this.adminInventoryData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.adminInventoryData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.adminInventoryData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.adminInventoryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.adminInventoryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.adminInventoryData.ColumnHeadersHeight = 50;
             this.adminInventoryData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.adminInventoryData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -107,19 +107,19 @@
             this.defective});
             this.adminInventoryData.EnableHeadersVisualStyles = false;
             this.adminInventoryData.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.adminInventoryData.Location = new System.Drawing.Point(378, 100);
+            this.adminInventoryData.Location = new System.Drawing.Point(319, 78);
             this.adminInventoryData.Margin = new System.Windows.Forms.Padding(2);
             this.adminInventoryData.Name = "adminInventoryData";
             this.adminInventoryData.ReadOnly = true;
             this.adminInventoryData.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.adminInventoryData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(18)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.adminInventoryData.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.adminInventoryData.RowHeadersVisible = false;
             this.adminInventoryData.RowHeadersWidth = 50;
             this.adminInventoryData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -132,10 +132,69 @@
             this.adminInventoryData.RowTemplate.ReadOnly = true;
             this.adminInventoryData.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.adminInventoryData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.adminInventoryData.Size = new System.Drawing.Size(1106, 500);
+            this.adminInventoryData.Size = new System.Drawing.Size(966, 493);
             this.adminInventoryData.TabIndex = 26;
             this.adminInventoryData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.adminInventoryData_CellClick);
             this.adminInventoryData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.adminInventoryData_CellContentClick);
+            // 
+            // productname
+            // 
+            this.productname.DataPropertyName = "productname";
+            this.productname.FillWeight = 117.2078F;
+            this.productname.HeaderText = "Product Name";
+            this.productname.MinimumWidth = 6;
+            this.productname.Name = "productname";
+            this.productname.ReadOnly = true;
+            this.productname.Width = 200;
+            // 
+            // partID
+            // 
+            this.partID.DataPropertyName = "partID";
+            this.partID.FillWeight = 54.24955F;
+            this.partID.HeaderText = "Part ID";
+            this.partID.MinimumWidth = 6;
+            this.partID.Name = "partID";
+            this.partID.ReadOnly = true;
+            this.partID.Width = 83;
+            // 
+            // partname
+            // 
+            this.partname.DataPropertyName = "partname";
+            this.partname.FillWeight = 105.6566F;
+            this.partname.HeaderText = "Part Name";
+            this.partname.MinimumWidth = 6;
+            this.partname.Name = "partname";
+            this.partname.ReadOnly = true;
+            this.partname.Width = 170;
+            // 
+            // partdescription
+            // 
+            this.partdescription.DataPropertyName = "partdescription";
+            this.partdescription.FillWeight = 236.8824F;
+            this.partdescription.HeaderText = "Part Description";
+            this.partdescription.MinimumWidth = 6;
+            this.partdescription.Name = "partdescription";
+            this.partdescription.ReadOnly = true;
+            this.partdescription.Width = 338;
+            // 
+            // quantity
+            // 
+            this.quantity.DataPropertyName = "quantity";
+            this.quantity.FillWeight = 43.05165F;
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            this.quantity.Width = 80;
+            // 
+            // defective
+            // 
+            this.defective.DataPropertyName = "defective";
+            this.defective.FillWeight = 42.95186F;
+            this.defective.HeaderText = "Defective";
+            this.defective.MinimumWidth = 6;
+            this.defective.Name = "defective";
+            this.defective.ReadOnly = true;
+            this.defective.Width = 79;
             // 
             // mySqlCommand1
             // 
@@ -163,9 +222,9 @@
             this.searchBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.searchBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchBTN.ForeColor = System.Drawing.Color.White;
-            this.searchBTN.Location = new System.Drawing.Point(1377, 31);
+            this.searchBTN.Location = new System.Drawing.Point(1185, 28);
             this.searchBTN.Name = "searchBTN";
-            this.searchBTN.Size = new System.Drawing.Size(33, 36);
+            this.searchBTN.Size = new System.Drawing.Size(31, 29);
             this.searchBTN.TabIndex = 35;
             this.searchBTN.UseVisualStyleBackColor = false;
             this.searchBTN.Click += new System.EventHandler(this.searchBTN_Click);
@@ -173,10 +232,10 @@
             // searchData
             // 
             this.searchData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchData.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchData.Location = new System.Drawing.Point(711, 35);
+            this.searchData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchData.Location = new System.Drawing.Point(590, 33);
             this.searchData.Name = "searchData";
-            this.searchData.Size = new System.Drawing.Size(660, 26);
+            this.searchData.Size = new System.Drawing.Size(583, 19);
             this.searchData.TabIndex = 34;
             this.searchData.TextChanged += new System.EventHandler(this.searchData_TextChanged);
             this.searchData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchData_KeyDown);
@@ -186,43 +245,44 @@
             this.partIdTxtbx.BackColor = System.Drawing.Color.White;
             this.partIdTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.partIdTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.partIdTxtbx.Location = new System.Drawing.Point(20, 145);
+            this.partIdTxtbx.Location = new System.Drawing.Point(17, 116);
             this.partIdTxtbx.Name = "partIdTxtbx";
             this.partIdTxtbx.ReadOnly = true;
-            this.partIdTxtbx.Size = new System.Drawing.Size(96, 17);
+            this.partIdTxtbx.Size = new System.Drawing.Size(80, 17);
             this.partIdTxtbx.TabIndex = 36;
             // 
             // partnameTxtbx
             // 
             this.partnameTxtbx.BackColor = System.Drawing.Color.White;
             this.partnameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.partnameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.partnameTxtbx.Location = new System.Drawing.Point(19, 226);
+            this.partnameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.partnameTxtbx.Location = new System.Drawing.Point(17, 185);
             this.partnameTxtbx.Name = "partnameTxtbx";
-            this.partnameTxtbx.Size = new System.Drawing.Size(328, 17);
+            this.partnameTxtbx.Size = new System.Drawing.Size(275, 19);
             this.partnameTxtbx.TabIndex = 38;
             // 
             // partdescriptionTxtbx
             // 
             this.partdescriptionTxtbx.BackColor = System.Drawing.Color.White;
             this.partdescriptionTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.partdescriptionTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.partdescriptionTxtbx.Location = new System.Drawing.Point(18, 301);
+            this.partdescriptionTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.partdescriptionTxtbx.Location = new System.Drawing.Point(21, 246);
             this.partdescriptionTxtbx.Multiline = true;
             this.partdescriptionTxtbx.Name = "partdescriptionTxtbx";
-            this.partdescriptionTxtbx.Size = new System.Drawing.Size(328, 95);
+            this.partdescriptionTxtbx.Size = new System.Drawing.Size(270, 80);
             this.partdescriptionTxtbx.TabIndex = 39;
             // 
             // clearBtn
             // 
             this.clearBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
+            this.clearBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clearBtn.FlatAppearance.BorderSize = 0;
             this.clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearBtn.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.clearBtn.Location = new System.Drawing.Point(251, 511);
+            this.clearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.clearBtn.ForeColor = System.Drawing.Color.Black;
+            this.clearBtn.Location = new System.Drawing.Point(206, 451);
             this.clearBtn.Name = "clearBtn";
-            this.clearBtn.Size = new System.Drawing.Size(96, 36);
+            this.clearBtn.Size = new System.Drawing.Size(90, 40);
             this.clearBtn.TabIndex = 47;
             this.clearBtn.Text = "Clear";
             this.clearBtn.UseVisualStyleBackColor = false;
@@ -231,13 +291,14 @@
             // deleteBTN
             // 
             this.deleteBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
+            this.deleteBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteBTN.FlatAppearance.BorderSize = 0;
             this.deleteBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
-            this.deleteBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.deleteBTN.Location = new System.Drawing.Point(20, 564);
+            this.deleteBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.deleteBTN.ForeColor = System.Drawing.Color.Black;
+            this.deleteBTN.Location = new System.Drawing.Point(13, 504);
             this.deleteBTN.Name = "deleteBTN";
-            this.deleteBTN.Size = new System.Drawing.Size(96, 36);
+            this.deleteBTN.Size = new System.Drawing.Size(91, 40);
             this.deleteBTN.TabIndex = 44;
             this.deleteBTN.Text = "Remove";
             this.deleteBTN.UseVisualStyleBackColor = false;
@@ -246,13 +307,14 @@
             // updateBTN
             // 
             this.updateBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
+            this.updateBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.updateBTN.FlatAppearance.BorderSize = 0;
             this.updateBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
-            this.updateBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.updateBTN.Location = new System.Drawing.Point(136, 511);
+            this.updateBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.updateBTN.ForeColor = System.Drawing.Color.Black;
+            this.updateBTN.Location = new System.Drawing.Point(110, 451);
             this.updateBTN.Name = "updateBTN";
-            this.updateBTN.Size = new System.Drawing.Size(96, 36);
+            this.updateBTN.Size = new System.Drawing.Size(90, 40);
             this.updateBTN.TabIndex = 43;
             this.updateBTN.Text = "Update";
             this.updateBTN.UseVisualStyleBackColor = false;
@@ -261,13 +323,14 @@
             // createBTN
             // 
             this.createBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
+            this.createBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.createBTN.FlatAppearance.BorderSize = 0;
             this.createBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.createBTN.Location = new System.Drawing.Point(19, 511);
+            this.createBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.createBTN.ForeColor = System.Drawing.Color.Black;
+            this.createBTN.Location = new System.Drawing.Point(13, 451);
             this.createBTN.Name = "createBTN";
-            this.createBTN.Size = new System.Drawing.Size(96, 36);
+            this.createBTN.Size = new System.Drawing.Size(91, 40);
             this.createBTN.TabIndex = 42;
             this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
@@ -280,9 +343,9 @@
             this.productnameTxtbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.productnameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.productnameTxtbx.FormattingEnabled = true;
-            this.productnameTxtbx.Location = new System.Drawing.Point(151, 141);
+            this.productnameTxtbx.Location = new System.Drawing.Point(125, 113);
             this.productnameTxtbx.Name = "productnameTxtbx";
-            this.productnameTxtbx.Size = new System.Drawing.Size(190, 26);
+            this.productnameTxtbx.Size = new System.Drawing.Size(167, 26);
             this.productnameTxtbx.TabIndex = 48;
             this.productnameTxtbx.DropDown += new System.EventHandler(this.productnameTxtbx_DropDown);
             // 
@@ -290,14 +353,14 @@
             // 
             this.quantityTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.quantityTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityTxtbx.Location = new System.Drawing.Point(25, 454);
+            this.quantityTxtbx.Location = new System.Drawing.Point(21, 377);
             this.quantityTxtbx.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
             this.quantityTxtbx.Name = "quantityTxtbx";
-            this.quantityTxtbx.Size = new System.Drawing.Size(89, 20);
+            this.quantityTxtbx.Size = new System.Drawing.Size(76, 20);
             this.quantityTxtbx.TabIndex = 51;
             // 
             // printDialog1
@@ -317,13 +380,14 @@
             // uploadBTN
             // 
             this.uploadBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
+            this.uploadBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uploadBTN.FlatAppearance.BorderSize = 0;
             this.uploadBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.uploadBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
-            this.uploadBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(61)))), ((int)(((byte)(61)))));
-            this.uploadBTN.Location = new System.Drawing.Point(136, 564);
+            this.uploadBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.uploadBTN.ForeColor = System.Drawing.Color.Black;
+            this.uploadBTN.Location = new System.Drawing.Point(110, 504);
             this.uploadBTN.Name = "uploadBTN";
-            this.uploadBTN.Size = new System.Drawing.Size(210, 36);
+            this.uploadBTN.Size = new System.Drawing.Size(186, 40);
             this.uploadBTN.TabIndex = 54;
             this.uploadBTN.Text = "Upload through CSV";
             this.uploadBTN.UseVisualStyleBackColor = false;
@@ -333,14 +397,14 @@
             // 
             this.defectiveTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.defectiveTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defectiveTxtbx.Location = new System.Drawing.Point(151, 454);
+            this.defectiveTxtbx.Location = new System.Drawing.Point(129, 377);
             this.defectiveTxtbx.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             0});
             this.defectiveTxtbx.Name = "defectiveTxtbx";
-            this.defectiveTxtbx.Size = new System.Drawing.Size(190, 20);
+            this.defectiveTxtbx.Size = new System.Drawing.Size(162, 20);
             this.defectiveTxtbx.TabIndex = 56;
             // 
             // excelExportBTN
@@ -355,78 +419,20 @@
             this.excelExportBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.excelExportBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.excelExportBTN.ForeColor = System.Drawing.Color.White;
-            this.excelExportBTN.Location = new System.Drawing.Point(1445, 28);
+            this.excelExportBTN.Location = new System.Drawing.Point(1245, 24);
             this.excelExportBTN.Name = "excelExportBTN";
             this.excelExportBTN.Size = new System.Drawing.Size(40, 40);
             this.excelExportBTN.TabIndex = 57;
             this.excelExportBTN.UseVisualStyleBackColor = false;
             this.excelExportBTN.Click += new System.EventHandler(this.excelExportBTN_Click);
             // 
-            // productname
-            // 
-            this.productname.DataPropertyName = "productname";
-            this.productname.FillWeight = 117.2078F;
-            this.productname.HeaderText = "Product Name";
-            this.productname.MinimumWidth = 6;
-            this.productname.Name = "productname";
-            this.productname.ReadOnly = true;
-            this.productname.Width = 218;
-            // 
-            // partID
-            // 
-            this.partID.DataPropertyName = "partID";
-            this.partID.FillWeight = 54.24955F;
-            this.partID.HeaderText = "Part ID";
-            this.partID.MinimumWidth = 6;
-            this.partID.Name = "partID";
-            this.partID.ReadOnly = true;
-            // 
-            // partname
-            // 
-            this.partname.DataPropertyName = "partname";
-            this.partname.FillWeight = 105.6566F;
-            this.partname.HeaderText = "Part Name";
-            this.partname.MinimumWidth = 6;
-            this.partname.Name = "partname";
-            this.partname.ReadOnly = true;
-            this.partname.Width = 170;
-            // 
-            // partdescription
-            // 
-            this.partdescription.DataPropertyName = "partdescription";
-            this.partdescription.FillWeight = 236.8824F;
-            this.partdescription.HeaderText = "Part Description";
-            this.partdescription.MinimumWidth = 6;
-            this.partdescription.Name = "partdescription";
-            this.partdescription.ReadOnly = true;
-            this.partdescription.Width = 439;
-            // 
-            // quantity
-            // 
-            this.quantity.DataPropertyName = "quantity";
-            this.quantity.FillWeight = 43.05165F;
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.Width = 80;
-            // 
-            // defective
-            // 
-            this.defective.DataPropertyName = "defective";
-            this.defective.FillWeight = 42.95186F;
-            this.defective.HeaderText = "Defective";
-            this.defective.MinimumWidth = 6;
-            this.defective.Name = "defective";
-            this.defective.ReadOnly = true;
-            this.defective.Width = 79;
-            // 
             // Inventory_Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources._1532__650;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Admininventorypage__1296x582__1296x582_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1532, 650);
+            this.ClientSize = new System.Drawing.Size(1296, 582);
             this.Controls.Add(this.excelExportBTN);
             this.Controls.Add(this.defectiveTxtbx);
             this.Controls.Add(this.uploadBTN);

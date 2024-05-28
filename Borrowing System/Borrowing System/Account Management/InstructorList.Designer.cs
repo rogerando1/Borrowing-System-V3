@@ -36,38 +36,37 @@
             this.updateBTN = new System.Windows.Forms.Button();
             this.clearBTN = new System.Windows.Forms.Button();
             this.createBTN = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // instructorID
             // 
             this.instructorID.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.instructorID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructorID.Location = new System.Drawing.Point(94, 102);
+            this.instructorID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructorID.Location = new System.Drawing.Point(109, 76);
             this.instructorID.Multiline = true;
             this.instructorID.Name = "instructorID";
-            this.instructorID.Size = new System.Drawing.Size(297, 25);
+            this.instructorID.Size = new System.Drawing.Size(155, 25);
             this.instructorID.TabIndex = 1;
             // 
             // firstname
             // 
             this.firstname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.firstname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstname.Location = new System.Drawing.Point(94, 188);
+            this.firstname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstname.Location = new System.Drawing.Point(109, 149);
             this.firstname.Multiline = true;
             this.firstname.Name = "firstname";
-            this.firstname.Size = new System.Drawing.Size(297, 25);
+            this.firstname.Size = new System.Drawing.Size(155, 25);
             this.firstname.TabIndex = 3;
             // 
             // middleinitial
             // 
             this.middleinitial.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.middleinitial.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.middleinitial.Location = new System.Drawing.Point(94, 273);
+            this.middleinitial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.middleinitial.Location = new System.Drawing.Point(109, 221);
             this.middleinitial.MaxLength = 1;
             this.middleinitial.Multiline = true;
             this.middleinitial.Name = "middleinitial";
-            this.middleinitial.Size = new System.Drawing.Size(297, 25);
+            this.middleinitial.Size = new System.Drawing.Size(155, 25);
             this.middleinitial.TabIndex = 5;
             // 
             // label3
@@ -82,23 +81,24 @@
             // lastname
             // 
             this.lastname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lastname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastname.Location = new System.Drawing.Point(94, 359);
+            this.lastname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastname.Location = new System.Drawing.Point(109, 290);
             this.lastname.Multiline = true;
             this.lastname.Name = "lastname";
-            this.lastname.Size = new System.Drawing.Size(297, 25);
+            this.lastname.Size = new System.Drawing.Size(155, 25);
             this.lastname.TabIndex = 7;
             // 
             // updateBTN
             // 
             this.updateBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.updateBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.updateBTN.FlatAppearance.BorderSize = 0;
             this.updateBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.updateBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
+            this.updateBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.updateBTN.ForeColor = System.Drawing.Color.Black;
-            this.updateBTN.Location = new System.Drawing.Point(290, 469);
+            this.updateBTN.Location = new System.Drawing.Point(152, 350);
             this.updateBTN.Name = "updateBTN";
-            this.updateBTN.Size = new System.Drawing.Size(99, 48);
+            this.updateBTN.Size = new System.Drawing.Size(70, 40);
             this.updateBTN.TabIndex = 60;
             this.updateBTN.Text = "Update";
             this.updateBTN.UseVisualStyleBackColor = false;
@@ -107,13 +107,14 @@
             // clearBTN
             // 
             this.clearBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.clearBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clearBTN.FlatAppearance.BorderSize = 0;
             this.clearBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
+            this.clearBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.clearBTN.ForeColor = System.Drawing.Color.Black;
-            this.clearBTN.Location = new System.Drawing.Point(78, 469);
+            this.clearBTN.Location = new System.Drawing.Point(227, 350);
             this.clearBTN.Name = "clearBTN";
-            this.clearBTN.Size = new System.Drawing.Size(100, 48);
+            this.clearBTN.Size = new System.Drawing.Size(70, 40);
             this.clearBTN.TabIndex = 59;
             this.clearBTN.Text = "Clear";
             this.clearBTN.UseVisualStyleBackColor = false;
@@ -122,31 +123,25 @@
             // createBTN
             // 
             this.createBTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(215)))), ((int)(((byte)(174)))));
+            this.createBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.createBTN.FlatAppearance.BorderSize = 0;
             this.createBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.createBTN.Font = new System.Drawing.Font("Lucida Bright", 15.75F, System.Drawing.FontStyle.Bold);
+            this.createBTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.createBTN.ForeColor = System.Drawing.Color.Black;
-            this.createBTN.Location = new System.Drawing.Point(184, 469);
+            this.createBTN.Location = new System.Drawing.Point(77, 350);
             this.createBTN.Name = "createBTN";
-            this.createBTN.Size = new System.Drawing.Size(100, 48);
+            this.createBTN.Size = new System.Drawing.Size(70, 40);
             this.createBTN.TabIndex = 58;
             this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
             this.createBTN.Click += new System.EventHandler(this.createBTN_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(26, 443);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(429, 100);
-            this.panel1.TabIndex = 61;
             // 
             // InstructorList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(199)))), ((int)(((byte)(230)))));
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.instructor1;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.InstructorListPanel__374x422_;
             this.Controls.Add(this.updateBTN);
             this.Controls.Add(this.clearBTN);
             this.Controls.Add(this.createBTN);
@@ -155,10 +150,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.firstname);
             this.Controls.Add(this.instructorID);
-            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Name = "InstructorList";
-            this.Size = new System.Drawing.Size(484, 580);
+            this.Size = new System.Drawing.Size(374, 422);
             this.Load += new System.EventHandler(this.InstructorList_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -174,6 +168,5 @@
         private System.Windows.Forms.Button updateBTN;
         private System.Windows.Forms.Button clearBTN;
         private System.Windows.Forms.Button createBTN;
-        private System.Windows.Forms.Panel panel1;
     }
 }

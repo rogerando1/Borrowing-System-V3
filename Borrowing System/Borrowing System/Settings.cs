@@ -1,14 +1,8 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Borrowing_System.Data;
+using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Borrowing_System.Data;
 
 namespace Borrowing_System
 {
@@ -117,7 +111,7 @@ namespace Borrowing_System
             profileBTN.ForeColor = Color.Black;
             this.aboutPanel.Hide();
             this.accountInfoPanel.Show();
-            
+
         }
 
         private void aboutBTN_Click(object sender, EventArgs e)
@@ -140,7 +134,7 @@ namespace Borrowing_System
                 AdminPage adminpage = (AdminPage)Application.OpenForms["AdminPage"];
                 adminpage.Close();
             }
-            else if(LoginPage.Position == "Staff")
+            else if (LoginPage.Position == "Staff")
             {
                 StaffPage staffpage = (StaffPage)Application.OpenForms["StaffPage"];
                 staffpage.Close();

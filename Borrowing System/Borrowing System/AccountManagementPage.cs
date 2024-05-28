@@ -1,16 +1,9 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Borrowing_System.Data;
+using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Borrowing_System.Data;
-using System.Data.SqlClient;
-using System.IO;
 
 namespace Borrowing_System
 {
@@ -811,16 +804,16 @@ namespace Borrowing_System
                     if (MessageBox.Show("Are you sure you want to delete this record?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-                            MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                            connection.Open();
-                            MySqlCommand cmd = new MySqlCommand("DELETE FROM CourseTime WHERE instructorID = @instructorID AND courseID = @courseID", connection);
-                            cmd.Parameters.AddWithValue("@instructorID", instructorId);
-                            cmd.Parameters.AddWithValue("@courseID", instructorCourseId);
-                            cmd.ExecuteNonQuery();
-                            connection.Close();
-                            MessageBox.Show("Record has been deleted successfully!", "Delete Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            refreshData();
-                            scheduleList1.clearBtn_Click(sender, e);
+                        MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                        connection.Open();
+                        MySqlCommand cmd = new MySqlCommand("DELETE FROM CourseTime WHERE instructorID = @instructorID AND courseID = @courseID", connection);
+                        cmd.Parameters.AddWithValue("@instructorID", instructorId);
+                        cmd.Parameters.AddWithValue("@courseID", instructorCourseId);
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                        MessageBox.Show("Record has been deleted successfully!", "Delete Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        refreshData();
+                        scheduleList1.clearBtn_Click(sender, e);
                     }
                     else
                     {
@@ -877,7 +870,7 @@ namespace Borrowing_System
 
         private void scheduleData_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if(e.RowIndex < 0)
+            if (e.RowIndex < 0)
             {
                 return;
             }

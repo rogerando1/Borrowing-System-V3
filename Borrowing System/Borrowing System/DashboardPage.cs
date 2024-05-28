@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Borrowing_System.Data;
+﻿using Borrowing_System.Data;
 using MySql.Data.MySqlClient;
 using OfficeOpenXml;
-using System.IO;
 using OfficeOpenXml.Style;
-using System.Windows.Media;
 using OfficeOpenXml.Table;
+using System;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Borrowing_System
 {
@@ -111,7 +105,7 @@ namespace Borrowing_System
                         Person AS InstructorPerson ON Instructor.personID = InstructorPerson.personID 
                     WHERE Transactions.status_ IS NULL", conn);
 
-                cmd.Parameters.AddWithValue("@employeeID", LoginPage.EmployeeID);
+            cmd.Parameters.AddWithValue("@employeeID", LoginPage.EmployeeID);
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -227,7 +221,7 @@ namespace Borrowing_System
                         selectedCell = null;
                         dashboardTable.Refresh();
                     }
-                    if(addnote.DialogResult == DialogResult.OK)
+                    if (addnote.DialogResult == DialogResult.OK)
                     {
                         DateTime return_DATE = DateTime.Now;
                         DateTime return_TIME = DateTime.Now;
@@ -313,9 +307,9 @@ namespace Borrowing_System
 
         public void searchData(string search)
         {
-                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                mySqlConnection.Open();
-                MySqlCommand mySqlCommand = new MySqlCommand(@"
+            MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+            mySqlConnection.Open();
+            MySqlCommand mySqlCommand = new MySqlCommand(@"
                 SELECT 
                     Transactions.transactionID, 
                     CONCAT(IFNULL(StudentPerson.firstname, ''), ' ', IFNULL(StudentPerson.middleinitial, ''), ' ', IFNULL(StudentPerson.lastname, '')) AS studentName, 
@@ -349,19 +343,19 @@ namespace Borrowing_System
                     CONCAT(IFNULL(InstructorPerson.firstname, ''), ' ', IFNULL(InstructorPerson.middleinitial, ''), ' ', IFNULL(InstructorPerson.lastname, '')) LIKE @search OR
                     CONCAT(IFNULL(AccountsPerson.firstname, ''), ' ', IFNULL(AccountsPerson.middleinitial, ''), ' ', IFNULL(AccountsPerson.lastname, '')) LIKE @search OR
                     Part.partname LIKE @search)", mySqlConnection);
-                mySqlCommand.Connection = mySqlConnection;
-                mySqlCommand.Parameters.AddWithValue("@search", "%" + search + "%");
-                MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
-                DataTable dataTable = new DataTable();
-                mySqlDataAdapter.Fill(dataTable);
-                dashboardTable.DataSource = dataTable;
-                mySqlConnection.Close();
+            mySqlCommand.Connection = mySqlConnection;
+            mySqlCommand.Parameters.AddWithValue("@search", "%" + search + "%");
+            MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(mySqlCommand);
+            DataTable dataTable = new DataTable();
+            mySqlDataAdapter.Fill(dataTable);
+            dashboardTable.DataSource = dataTable;
+            mySqlConnection.Close();
 
         }
 
         private void searchTxtbx_TextChanged(object sender, EventArgs e)
         {
-            if(searchTxtbx.Text == "")
+            if (searchTxtbx.Text == "")
             {
                 refreshData();
                 dashboardTable.Columns["studentName"].Visible = true;
@@ -508,7 +502,7 @@ namespace Borrowing_System
                 string studentName = studentView.Rows[e.RowIndex].Cells["student_name"].Value.ToString();
                 tempStore = studentName;
                 searchData(studentName);
-                if(dashboardTable.Rows.Count == 0)
+                if (dashboardTable.Rows.Count == 0)
                 {
                     searchData("");
                 }

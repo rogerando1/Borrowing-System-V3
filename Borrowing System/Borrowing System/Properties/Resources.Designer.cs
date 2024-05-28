@@ -253,6 +253,16 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AboutPage__935x582_ {
+            get {
+                object obj = ResourceManager.GetObject("AboutPage (935x582)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap acc_management__1_ {
             get {
                 object obj = ResourceManager.GetObject("acc management (1)", resourceCulture);
@@ -343,6 +353,26 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AccountInfo__935x582_ {
+            get {
+                object obj = ResourceManager.GetObject("AccountInfo (935x582)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Accountmanagementpage__1296x582_ {
+            get {
+                object obj = ResourceManager.GetObject("Accountmanagementpage (1296x582)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_notes {
             get {
                 object obj = ResourceManager.GetObject("add notes", resourceCulture);
@@ -403,6 +433,46 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Admininventorypage__1296x582__1296x582_ {
+            get {
+                object obj = ResourceManager.GetObject("Admininventorypage (1296x582)(1296x582)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Adminpage__1320x770_ {
+            get {
+                object obj = ResourceManager.GetObject("Adminpage (1320x770)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CourseListPanel__374x422_ {
+            get {
+                object obj = ResourceManager.GetObject("CourseListPanel (374x422)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CourseListPanel__374x422_1 {
+            get {
+                object obj = ResourceManager.GetObject("CourseListPanel (374x422)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap courselistUI {
             get {
                 object obj = ResourceManager.GetObject("courselistUI", resourceCulture);
@@ -453,6 +523,16 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dashboardpage__1296x582_ {
+            get {
+                object obj = ResourceManager.GetObject("Dashboardpage (1296x582)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete1 {
             get {
                 object obj = ResourceManager.GetObject("delete1", resourceCulture);
@@ -466,6 +546,36 @@ namespace Borrowing_System.Properties {
         internal static System.Drawing.Bitmap delete2 {
             get {
                 object obj = ResourceManager.GetObject("delete2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EmploeeListPanel__374x422_ {
+            get {
+                object obj = ResourceManager.GetObject("EmploeeListPanel (374x422)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EmploeeListPanel__374x422___1_ {
+            get {
+                object obj = ResourceManager.GetObject("EmploeeListPanel (374x422) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EmploeeListPanel__374x422_1 {
+            get {
+                object obj = ResourceManager.GetObject("EmploeeListPanel (374x422)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -573,6 +683,16 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap InstructorListPanel__374x422_ {
+            get {
+                object obj = ResourceManager.GetObject("InstructorListPanel (374x422)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap instructorsUI {
             get {
                 object obj = ResourceManager.GetObject("instructorsUI", resourceCulture);
@@ -633,6 +753,16 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Loginpage__1320x770_ {
+            get {
+                object obj = ResourceManager.GetObject("Loginpage (1320x770)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo1 {
             get {
                 object obj = ResourceManager.GetObject("Logo1", resourceCulture);
@@ -663,6 +793,16 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NotePanel__374x422_ {
+            get {
+                object obj = ResourceManager.GetObject("NotePanel (374x422)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Profile_Icon {
             get {
                 object obj = ResourceManager.GetObject("Profile Icon", resourceCulture);
@@ -686,6 +826,16 @@ namespace Borrowing_System.Properties {
         internal static System.Drawing.Bitmap return3 {
             get {
                 object obj = ResourceManager.GetObject("return3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ScheduleListPanel__374x422_ {
+            get {
+                object obj = ResourceManager.GetObject("ScheduleListPanel (374x422)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -733,6 +883,16 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SettingsPage__1296x582_ {
+            get {
+                object obj = ResourceManager.GetObject("SettingsPage (1296x582)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Staff_invenotry_Page {
             get {
                 object obj = ResourceManager.GetObject("Staff invenotry Page", resourceCulture);
@@ -773,6 +933,56 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Staffinventorypage__1296x582___1_ {
+            get {
+                object obj = ResourceManager.GetObject("Staffinventorypage (1296x582) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Staffpage__1320x770_ {
+            get {
+                object obj = ResourceManager.GetObject("Staffpage (1320x770)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Studentlist__374x422_ {
+            get {
+                object obj = ResourceManager.GetObject("Studentlist (374x422)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StudentListPanel__374x422_ {
+            get {
+                object obj = ResourceManager.GetObject("StudentListPanel (374x422)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StudentListPanel__374x422_1 {
+            get {
+                object obj = ResourceManager.GetObject("StudentListPanel (374x422)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap transaction_icon {
             get {
                 object obj = ResourceManager.GetObject("transaction icon", resourceCulture);
@@ -796,6 +1006,36 @@ namespace Borrowing_System.Properties {
         internal static System.Drawing.Bitmap Transaction_Page {
             get {
                 object obj = ResourceManager.GetObject("Transaction Page", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Transactionlogpage__1296x582_ {
+            get {
+                object obj = ResourceManager.GetObject("Transactionlogpage (1296x582)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Transactionlogspage__1296x582_ {
+            get {
+                object obj = ResourceManager.GetObject("Transactionlogspage (1296x582)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Transactionpage__1296x582_ {
+            get {
+                object obj = ResourceManager.GetObject("Transactionpage (1296x582)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

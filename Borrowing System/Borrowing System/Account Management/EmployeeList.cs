@@ -1,15 +1,7 @@
 ﻿using Borrowing_System.Data;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Borrowing_System.Data;
 
 namespace Borrowing_System.Account_Management
 {
@@ -130,7 +122,7 @@ namespace Borrowing_System.Account_Management
                     return;
                 }
 
-                if(usernameTxtbx.Text != AccountManagementPage.employeeUsername)
+                if (usernameTxtbx.Text != AccountManagementPage.employeeUsername)
                 {
                     MySqlConnection conn = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
                     conn.Open();

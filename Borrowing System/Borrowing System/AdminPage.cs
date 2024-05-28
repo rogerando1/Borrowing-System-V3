@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Borrowing_System
@@ -24,7 +18,7 @@ namespace Borrowing_System
             poslbl.Text = LoginPage.Position;
             idlbl.Text = LoginPage.EmployeeID;
         }
-        
+
         public void loadform(object Form)
         {
             if (this.adminFormPanel.Controls.Count > 1)
@@ -104,7 +98,7 @@ namespace Borrowing_System
             loadform(new Inventory_Admin());
             adminFormPanel.Visible = true;
             homeBTN.BackColor = Color.FromArgb(233, 215, 174);
-            homeBTN.ForeColor = Color.FromArgb(84, 84, 84);  
+            homeBTN.ForeColor = Color.FromArgb(84, 84, 84);
             dashboardBTN.BackColor = Color.FromArgb(233, 215, 174);
             dashboardBTN.ForeColor = Color.FromArgb(84, 84, 84);
             transactionBTN.BackColor = Color.FromArgb(233, 215, 174);
@@ -178,7 +172,7 @@ namespace Borrowing_System
             settingsBTN.BackColor = Color.FromArgb(252, 168, 115);
             settingsBTN.ForeColor = Color.Black;
         }
-       
+
         private void AdminPage_MouseDown(object sender, MouseEventArgs e)
         {
             dragging = true;

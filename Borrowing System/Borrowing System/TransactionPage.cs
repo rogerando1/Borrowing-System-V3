@@ -1,16 +1,9 @@
 ﻿using Borrowing_System.Data;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Borrowing_System
 {
@@ -161,7 +154,7 @@ namespace Borrowing_System
                 MySqlCommand cmd = new MySqlCommand("SELECT CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) AS personID FROM Accounts " +
                                                                                 "INNER JOIN Person ON Accounts.personID = Person.personID ", connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
-                while(reader.Read())
+                while (reader.Read())
                 {
                     string staffName = reader.GetString("personID");
                     staffCmbx.Items.Add(staffName);
@@ -288,9 +281,9 @@ namespace Borrowing_System
 
         private void submitBTN_Click(object sender, EventArgs e)
         {
-            if(LoginPage.Position == "Admin")
+            if (LoginPage.Position == "Admin")
             {
-                if(staffCmbx.Text == "")
+                if (staffCmbx.Text == "")
                 {
                     MessageBox.Show("Please select a staff/admin first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -477,103 +470,103 @@ namespace Borrowing_System
 
                 //if (currentTime >= startTime && currentTime <= endTime)
                 //{
-                    string instructorName = instructorNameTxtbx.SelectedItem.ToString();
-                    string partName = typeTxtbx.SelectedItem.ToString();
-                    string quantity = quantityTxtbx.Text;
-                    string orderDate = DateTime.Now.ToString("yyyy-MM-dd");
-                    string orderTime = DateTime.Now.ToString("HH:mm:ss");
-                    string status = "Added to Cart";
+                string instructorName = instructorNameTxtbx.SelectedItem.ToString();
+                string partName = typeTxtbx.SelectedItem.ToString();
+                string quantity = quantityTxtbx.Text;
+                string orderDate = DateTime.Now.ToString("yyyy-MM-dd");
+                string orderTime = DateTime.Now.ToString("HH:mm:ss");
+                string status = "Added to Cart";
 
-                    //Check Quantity Amount before proceeding
+                //Check Quantity Amount before proceeding
 
-                    //Check if Quantity is 0 or less
-                    if (quantity == "0" || quantity == "")
-                    {
-                        MessageBox.Show("Please enter a quantity greater than 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                //Check if Quantity is 0 or less
+                if (quantity == "0" || quantity == "")
+                {
+                    MessageBox.Show("Please enter a quantity greater than 0.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                    //Greater Quantity Check
-                    int quantityInt = Int32.Parse(quantity);
-                    connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                    connection.Open();
-                    query = "SELECT Part.quantity " +
-                       "FROM Part " +
-                       "INNER JOIN Product ON Part.productID = Product.productID " +
-                       "WHERE Part.partname = @partName";
-                    cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@partName", partName);
-                    reader = cmd.ExecuteReader();
-                    reader.Read();
-                    int existingQuantity = reader.GetInt32("quantity");
+                //Greater Quantity Check
+                int quantityInt = Int32.Parse(quantity);
+                connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                connection.Open();
+                query = "SELECT Part.quantity " +
+                   "FROM Part " +
+                   "INNER JOIN Product ON Part.productID = Product.productID " +
+                   "WHERE Part.partname = @partName";
+                cmd = new MySqlCommand(query, connection);
+                cmd.Parameters.AddWithValue("@partName", partName);
+                reader = cmd.ExecuteReader();
+                reader.Read();
+                int existingQuantity = reader.GetInt32("quantity");
 
-                    if (quantityInt > existingQuantity)
-                    {
-                        MessageBox.Show($"Not enough {partName} in stock. Please enter a quantity less than or equal to {existingQuantity}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                if (quantityInt > existingQuantity)
+                {
+                    MessageBox.Show($"Not enough {partName} in stock. Please enter a quantity less than or equal to {existingQuantity}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                    //Get Instructor ID through Instructor Name from 'Person' table to 'Instructor' table
-                    MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                    mySqlConnection.Open();
-                    MySqlCommand mySqlCommand = new MySqlCommand("SELECT Instructor.instructorID FROM Person " +
-                                               "INNER JOIN Instructor ON Person.personID = Instructor.personID " +
-                                               "WHERE CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) = @instructorName", mySqlConnection);
-                    mySqlCommand.Parameters.AddWithValue("@instructorName", instructorName);
-                    MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
-                    mySqlDataReader.Read();
-                    string instructorID = mySqlDataReader.GetString("instructorID");
-                    mySqlConnection.Close();
-                    mySqlConnection.Dispose();
+                //Get Instructor ID through Instructor Name from 'Person' table to 'Instructor' table
+                MySqlConnection mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                MySqlCommand mySqlCommand = new MySqlCommand("SELECT Instructor.instructorID FROM Person " +
+                                           "INNER JOIN Instructor ON Person.personID = Instructor.personID " +
+                                           "WHERE CONCAT(IFNULL(Person.firstname, ''), ' ', IFNULL(Person.middleinitial, ''), '. ', IFNULL(Person.lastname, '')) = @instructorName", mySqlConnection);
+                mySqlCommand.Parameters.AddWithValue("@instructorName", instructorName);
+                MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+                mySqlDataReader.Read();
+                string instructorID = mySqlDataReader.GetString("instructorID");
+                mySqlConnection.Close();
+                mySqlConnection.Dispose();
 
-                    //Get Product ID through Type textbox from 'Part' table
-                    mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                    mySqlConnection.Open();
-                    mySqlCommand = new MySqlCommand("SELECT Product.productID FROM Part INNER JOIN Product ON Part.productID = Product.productID WHERE Part.partname = @partName", mySqlConnection);
-                    mySqlCommand.Parameters.AddWithValue("@partName", partName);
-                    mySqlDataReader = mySqlCommand.ExecuteReader();
-                    mySqlDataReader.Read();
-                    int productIDInt = mySqlDataReader.GetInt32("productID");
-                    string productID = productIDInt.ToString();
-                    mySqlConnection.Close();
-                    mySqlConnection.Dispose();
+                //Get Product ID through Type textbox from 'Part' table
+                mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                mySqlCommand = new MySqlCommand("SELECT Product.productID FROM Part INNER JOIN Product ON Part.productID = Product.productID WHERE Part.partname = @partName", mySqlConnection);
+                mySqlCommand.Parameters.AddWithValue("@partName", partName);
+                mySqlDataReader = mySqlCommand.ExecuteReader();
+                mySqlDataReader.Read();
+                int productIDInt = mySqlDataReader.GetInt32("productID");
+                string productID = productIDInt.ToString();
+                mySqlConnection.Close();
+                mySqlConnection.Dispose();
 
-                    //Get the Part ID through the Product ID and Part Name from 'Part' table
-                    mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                    mySqlConnection.Open();
-                    mySqlCommand = new MySqlCommand("SELECT Part.partID FROM Part INNER JOIN Product ON Part.productID = Product.productID WHERE Part.partname = @partName AND Product.productID = @productID", mySqlConnection);
-                    mySqlCommand.Parameters.AddWithValue("@partName", partName);
-                    mySqlCommand.Parameters.AddWithValue("@productID", productID);
-                    mySqlDataReader = mySqlCommand.ExecuteReader();
-                    mySqlDataReader.Read();
-                    int partIDInt = mySqlDataReader.GetInt32("partID");
-                    string partID = partIDInt.ToString();
-                    mySqlConnection.Close();
-                    mySqlConnection.Dispose();
+                //Get the Part ID through the Product ID and Part Name from 'Part' table
+                mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                mySqlCommand = new MySqlCommand("SELECT Part.partID FROM Part INNER JOIN Product ON Part.productID = Product.productID WHERE Part.partname = @partName AND Product.productID = @productID", mySqlConnection);
+                mySqlCommand.Parameters.AddWithValue("@partName", partName);
+                mySqlCommand.Parameters.AddWithValue("@productID", productID);
+                mySqlDataReader = mySqlCommand.ExecuteReader();
+                mySqlDataReader.Read();
+                int partIDInt = mySqlDataReader.GetInt32("partID");
+                string partID = partIDInt.ToString();
+                mySqlConnection.Close();
+                mySqlConnection.Dispose();
 
-                    //Insert the following data into 'Transactions' table: studentID, instructorID, accountID, productID, quantity, orderDate, orderTime, status
-                    mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                    mySqlConnection.Open();
-                    mySqlCommand = new MySqlCommand("INSERT INTO AddCart (studentID, instructorID, accountID, partID, quantity, orderDate, orderTime, status_) " +
-                                                    "VALUES (@studentID, @instructorID, @accountID, @partID, @quantity, @orderDate, @orderTime, @status_)", mySqlConnection);
-                    mySqlCommand.Parameters.AddWithValue("@studentID", studentIDTxtbx.Text);
-                    mySqlCommand.Parameters.AddWithValue("@instructorID", instructorID);
-                    mySqlCommand.Parameters.AddWithValue("@accountID", LoginPage.EmployeeID);
-                    mySqlCommand.Parameters.AddWithValue("@partID", partID);
-                    mySqlCommand.Parameters.AddWithValue("@quantity", quantity);
-                    mySqlCommand.Parameters.AddWithValue("@orderDate", orderDate);
-                    mySqlCommand.Parameters.AddWithValue("@orderTime", orderTime);
-                    mySqlCommand.Parameters.AddWithValue("@status_", status);
-                    mySqlCommand.ExecuteNonQuery();
-                    mySqlConnection.Close();
-                    mySqlConnection.Dispose();
+                //Insert the following data into 'Transactions' table: studentID, instructorID, accountID, productID, quantity, orderDate, orderTime, status
+                mySqlConnection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
+                mySqlConnection.Open();
+                mySqlCommand = new MySqlCommand("INSERT INTO AddCart (studentID, instructorID, accountID, partID, quantity, orderDate, orderTime, status_) " +
+                                                "VALUES (@studentID, @instructorID, @accountID, @partID, @quantity, @orderDate, @orderTime, @status_)", mySqlConnection);
+                mySqlCommand.Parameters.AddWithValue("@studentID", studentIDTxtbx.Text);
+                mySqlCommand.Parameters.AddWithValue("@instructorID", instructorID);
+                mySqlCommand.Parameters.AddWithValue("@accountID", LoginPage.EmployeeID);
+                mySqlCommand.Parameters.AddWithValue("@partID", partID);
+                mySqlCommand.Parameters.AddWithValue("@quantity", quantity);
+                mySqlCommand.Parameters.AddWithValue("@orderDate", orderDate);
+                mySqlCommand.Parameters.AddWithValue("@orderTime", orderTime);
+                mySqlCommand.Parameters.AddWithValue("@status_", status);
+                mySqlCommand.ExecuteNonQuery();
+                mySqlConnection.Close();
+                mySqlConnection.Dispose();
 
-                    refreshData();
-                    equipmentNameTxtbx.SelectedIndex = -1;
-                    typeTxtbx.SelectedIndex = -1;
-                    quantityTxtbx.Value = 0;
-                    availableLabel.Text = "";
-                    staffCmbx.SelectedIndex = -1;
+                refreshData();
+                equipmentNameTxtbx.SelectedIndex = -1;
+                typeTxtbx.SelectedIndex = -1;
+                quantityTxtbx.Value = 0;
+                availableLabel.Text = "";
+                staffCmbx.SelectedIndex = -1;
 
                 //}
                 //else

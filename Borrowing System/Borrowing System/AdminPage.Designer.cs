@@ -56,9 +56,9 @@
             this.navPanel.Controls.Add(this.adminInventoryBTN);
             this.navPanel.Controls.Add(this.dashboardBTN);
             this.navPanel.Controls.Add(this.transactionBTN);
-            this.navPanel.Location = new System.Drawing.Point(8, 124);
+            this.navPanel.Location = new System.Drawing.Point(12, 117);
             this.navPanel.Name = "navPanel";
-            this.navPanel.Size = new System.Drawing.Size(1536, 57);
+            this.navPanel.Size = new System.Drawing.Size(1296, 51);
             this.navPanel.TabIndex = 23;
             // 
             // accountManangementBTN
@@ -66,13 +66,13 @@
             this.accountManangementBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.accountManangementBTN.FlatAppearance.BorderSize = 0;
             this.accountManangementBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.accountManangementBTN.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Bold);
+            this.accountManangementBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
             this.accountManangementBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.accountManangementBTN.Image = global::Borrowing_System.Properties.Resources.account_management_icon;
             this.accountManangementBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.accountManangementBTN.Location = new System.Drawing.Point(1022, 1);
+            this.accountManangementBTN.Location = new System.Drawing.Point(886, 1);
             this.accountManangementBTN.Name = "accountManangementBTN";
-            this.accountManangementBTN.Size = new System.Drawing.Size(301, 55);
+            this.accountManangementBTN.Size = new System.Drawing.Size(249, 49);
             this.accountManangementBTN.TabIndex = 21;
             this.accountManangementBTN.Text = "      Account Management";
             this.accountManangementBTN.UseVisualStyleBackColor = true;
@@ -83,13 +83,13 @@
             this.settingsBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.settingsBTN.FlatAppearance.BorderSize = 0;
             this.settingsBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsBTN.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Bold);
+            this.settingsBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
             this.settingsBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.settingsBTN.Image = global::Borrowing_System.Properties.Resources.settings_icon;
             this.settingsBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingsBTN.Location = new System.Drawing.Point(1367, 1);
+            this.settingsBTN.Location = new System.Drawing.Point(1141, 1);
             this.settingsBTN.Name = "settingsBTN";
-            this.settingsBTN.Size = new System.Drawing.Size(168, 55);
+            this.settingsBTN.Size = new System.Drawing.Size(153, 49);
             this.settingsBTN.TabIndex = 20;
             this.settingsBTN.Text = "      Settings";
             this.settingsBTN.UseVisualStyleBackColor = true;
@@ -101,15 +101,15 @@
             this.homeBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.homeBTN.FlatAppearance.BorderSize = 0;
             this.homeBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.homeBTN.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Bold);
+            this.homeBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
             this.homeBTN.ForeColor = System.Drawing.Color.Black;
             this.homeBTN.Image = global::Borrowing_System.Properties.Resources.home_icon;
             this.homeBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.homeBTN.Location = new System.Drawing.Point(1, 1);
             this.homeBTN.Name = "homeBTN";
-            this.homeBTN.Size = new System.Drawing.Size(168, 55);
+            this.homeBTN.Size = new System.Drawing.Size(130, 49);
             this.homeBTN.TabIndex = 18;
-            this.homeBTN.Text = "      Home";
+            this.homeBTN.Text = "        Home";
             this.homeBTN.UseVisualStyleBackColor = false;
             this.homeBTN.Click += new System.EventHandler(this.homeBTN_Click);
             // 
@@ -118,13 +118,13 @@
             this.logsBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.logsBTN.FlatAppearance.BorderSize = 0;
             this.logsBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logsBTN.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Bold);
+            this.logsBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
             this.logsBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.logsBTN.Image = global::Borrowing_System.Properties.Resources.logs_icon;
             this.logsBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.logsBTN.Location = new System.Drawing.Point(761, 1);
+            this.logsBTN.Location = new System.Drawing.Point(661, 1);
             this.logsBTN.Name = "logsBTN";
-            this.logsBTN.Size = new System.Drawing.Size(255, 55);
+            this.logsBTN.Size = new System.Drawing.Size(219, 49);
             this.logsBTN.TabIndex = 17;
             this.logsBTN.Text = "      Transaction Logs";
             this.logsBTN.UseVisualStyleBackColor = true;
@@ -135,13 +135,13 @@
             this.adminInventoryBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.adminInventoryBTN.FlatAppearance.BorderSize = 0;
             this.adminInventoryBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.adminInventoryBTN.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Bold);
+            this.adminInventoryBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
             this.adminInventoryBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.adminInventoryBTN.Image = global::Borrowing_System.Properties.Resources.inventory_icon;
             this.adminInventoryBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.adminInventoryBTN.Location = new System.Drawing.Point(570, 1);
+            this.adminInventoryBTN.Location = new System.Drawing.Point(490, 1);
             this.adminInventoryBTN.Name = "adminInventoryBTN";
-            this.adminInventoryBTN.Size = new System.Drawing.Size(185, 55);
+            this.adminInventoryBTN.Size = new System.Drawing.Size(165, 49);
             this.adminInventoryBTN.TabIndex = 16;
             this.adminInventoryBTN.Text = "      Inventory";
             this.adminInventoryBTN.UseVisualStyleBackColor = true;
@@ -152,15 +152,15 @@
             this.dashboardBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dashboardBTN.FlatAppearance.BorderSize = 0;
             this.dashboardBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dashboardBTN.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashboardBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
             this.dashboardBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.dashboardBTN.Image = global::Borrowing_System.Properties.Resources.dashboard_icon;
             this.dashboardBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dashboardBTN.Location = new System.Drawing.Point(175, 1);
+            this.dashboardBTN.Location = new System.Drawing.Point(137, 1);
             this.dashboardBTN.Name = "dashboardBTN";
-            this.dashboardBTN.Size = new System.Drawing.Size(187, 55);
+            this.dashboardBTN.Size = new System.Drawing.Size(164, 49);
             this.dashboardBTN.TabIndex = 14;
-            this.dashboardBTN.Text = "      Dashboard";
+            this.dashboardBTN.Text = "        Dashboard";
             this.dashboardBTN.UseVisualStyleBackColor = true;
             this.dashboardBTN.Click += new System.EventHandler(this.dashboardBTN_Click);
             // 
@@ -169,13 +169,13 @@
             this.transactionBTN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.transactionBTN.FlatAppearance.BorderSize = 0;
             this.transactionBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.transactionBTN.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Bold);
+            this.transactionBTN.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold);
             this.transactionBTN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(84)))), ((int)(((byte)(84)))));
             this.transactionBTN.Image = global::Borrowing_System.Properties.Resources.transaction_icon;
             this.transactionBTN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.transactionBTN.Location = new System.Drawing.Point(368, 1);
+            this.transactionBTN.Location = new System.Drawing.Point(307, 1);
             this.transactionBTN.Name = "transactionBTN";
-            this.transactionBTN.Size = new System.Drawing.Size(196, 55);
+            this.transactionBTN.Size = new System.Drawing.Size(177, 49);
             this.transactionBTN.TabIndex = 15;
             this.transactionBTN.Text = "      Transaction";
             this.transactionBTN.UseVisualStyleBackColor = true;
@@ -184,9 +184,9 @@
             // adminFormPanel
             // 
             this.adminFormPanel.BackColor = System.Drawing.Color.Transparent;
-            this.adminFormPanel.Location = new System.Drawing.Point(12, 188);
+            this.adminFormPanel.Location = new System.Drawing.Point(12, 176);
             this.adminFormPanel.Name = "adminFormPanel";
-            this.adminFormPanel.Size = new System.Drawing.Size(1532, 650);
+            this.adminFormPanel.Size = new System.Drawing.Size(1296, 582);
             this.adminFormPanel.TabIndex = 24;
             // 
             // MinimizeButton
@@ -197,7 +197,7 @@
             this.MinimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MinimizeButton.FlatAppearance.BorderSize = 0;
             this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinimizeButton.Location = new System.Drawing.Point(1492, 7);
+            this.MinimizeButton.Location = new System.Drawing.Point(1252, 5);
             this.MinimizeButton.Name = "MinimizeButton";
             this.MinimizeButton.Size = new System.Drawing.Size(22, 22);
             this.MinimizeButton.TabIndex = 26;
@@ -212,7 +212,7 @@
             this.CloseButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseButton.FlatAppearance.BorderSize = 0;
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseButton.Location = new System.Drawing.Point(1527, 6);
+            this.CloseButton.Location = new System.Drawing.Point(1288, 4);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(22, 22);
             this.CloseButton.TabIndex = 25;
@@ -225,7 +225,7 @@
             this.employeeITxt.BackColor = System.Drawing.Color.Transparent;
             this.employeeITxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employeeITxt.ForeColor = System.Drawing.Color.Yellow;
-            this.employeeITxt.Location = new System.Drawing.Point(1381, 80);
+            this.employeeITxt.Location = new System.Drawing.Point(1244, 76);
             this.employeeITxt.Name = "employeeITxt";
             this.employeeITxt.Size = new System.Drawing.Size(96, 18);
             this.employeeITxt.TabIndex = 30;
@@ -237,7 +237,7 @@
             this.poslbl.BackColor = System.Drawing.Color.Transparent;
             this.poslbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.poslbl.ForeColor = System.Drawing.Color.Cyan;
-            this.poslbl.Location = new System.Drawing.Point(1447, 49);
+            this.poslbl.Location = new System.Drawing.Point(1216, 45);
             this.poslbl.Name = "poslbl";
             this.poslbl.Size = new System.Drawing.Size(80, 18);
             this.poslbl.TabIndex = 29;
@@ -249,7 +249,7 @@
             this.positionTxt.BackColor = System.Drawing.Color.Transparent;
             this.positionTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.positionTxt.ForeColor = System.Drawing.Color.Yellow;
-            this.positionTxt.Location = new System.Drawing.Point(1382, 49);
+            this.positionTxt.Location = new System.Drawing.Point(1151, 45);
             this.positionTxt.Name = "positionTxt";
             this.positionTxt.Size = new System.Drawing.Size(66, 18);
             this.positionTxt.TabIndex = 27;
@@ -261,7 +261,7 @@
             this.idlbl.BackColor = System.Drawing.Color.Transparent;
             this.idlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.idlbl.ForeColor = System.Drawing.Color.Cyan;
-            this.idlbl.Location = new System.Drawing.Point(1475, 80);
+            this.idlbl.Location = new System.Drawing.Point(1244, 76);
             this.idlbl.Name = "idlbl";
             this.idlbl.Size = new System.Drawing.Size(33, 18);
             this.idlbl.TabIndex = 28;
@@ -271,8 +271,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Home_Page;
-            this.ClientSize = new System.Drawing.Size(1556, 850);
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Adminpage__1320x770_;
+            this.ClientSize = new System.Drawing.Size(1320, 770);
             this.Controls.Add(this.employeeITxt);
             this.Controls.Add(this.poslbl);
             this.Controls.Add(this.positionTxt);

@@ -1,14 +1,8 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Borrowing_System.Data;
+using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Borrowing_System.Data;
 
 namespace Borrowing_System
 {
@@ -35,7 +29,7 @@ namespace Borrowing_System
         {
             try
             {
-                if(usernameTxtbx.Text == "" || passwordTxtbx.Text == "")
+                if (usernameTxtbx.Text == "" || passwordTxtbx.Text == "")
                 {
                     MessageBox.Show("Please fill in the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -134,12 +128,12 @@ namespace Borrowing_System
                 hideButton.Visible = false;
                 passwordTxtbx.UseSystemPasswordChar = true;
             }
-            
+
         }
 
         private void unhideButton_Click(object sender, EventArgs e)
         {
-            if(passwordTxtbx.UseSystemPasswordChar == true)
+            if (passwordTxtbx.UseSystemPasswordChar == true)
             {
                 unhideButton.Visible = false;
                 hideButton.Visible = true;

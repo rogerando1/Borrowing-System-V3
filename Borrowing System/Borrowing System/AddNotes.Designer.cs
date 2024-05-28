@@ -39,21 +39,22 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::Borrowing_System.Properties.Resources.add_notes;
+            this.panel1.BackgroundImage = global::Borrowing_System.Properties.Resources.NotePanel__374x422_;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.quantityTxt);
             this.panel1.Controls.Add(this.clearBtn);
             this.panel1.Controls.Add(this.notesTxt);
             this.panel1.Controls.Add(this.submitBtn);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(480, 580);
+            this.panel1.Size = new System.Drawing.Size(374, 422);
             this.panel1.TabIndex = 0;
             // 
             // quantityTxt
             // 
             this.quantityTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.quantityTxt.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.quantityTxt.Location = new System.Drawing.Point(36, 179);
+            this.quantityTxt.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantityTxt.Location = new System.Drawing.Point(225, 102);
             this.quantityTxt.Margin = new System.Windows.Forms.Padding(4);
             this.quantityTxt.Maximum = new decimal(new int[] {
             999,
@@ -61,7 +62,7 @@
             0,
             0});
             this.quantityTxt.Name = "quantityTxt";
-            this.quantityTxt.Size = new System.Drawing.Size(209, 31);
+            this.quantityTxt.Size = new System.Drawing.Size(127, 29);
             this.quantityTxt.TabIndex = 14;
             // 
             // clearBtn
@@ -71,11 +72,11 @@
             this.clearBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
             this.clearBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
             this.clearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearBtn.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearBtn.Location = new System.Drawing.Point(252, 484);
+            this.clearBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.clearBtn.Location = new System.Drawing.Point(189, 366);
             this.clearBtn.Margin = new System.Windows.Forms.Padding(4);
             this.clearBtn.Name = "clearBtn";
-            this.clearBtn.Size = new System.Drawing.Size(132, 43);
+            this.clearBtn.Size = new System.Drawing.Size(71, 41);
             this.clearBtn.TabIndex = 13;
             this.clearBtn.Text = "Clear";
             this.clearBtn.UseVisualStyleBackColor = false;
@@ -84,13 +85,13 @@
             // notesTxt
             // 
             this.notesTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.notesTxt.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notesTxt.Location = new System.Drawing.Point(36, 282);
+            this.notesTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notesTxt.Location = new System.Drawing.Point(22, 178);
             this.notesTxt.Margin = new System.Windows.Forms.Padding(4);
             this.notesTxt.MaxLength = 255;
             this.notesTxt.Multiline = true;
             this.notesTxt.Name = "notesTxt";
-            this.notesTxt.Size = new System.Drawing.Size(413, 164);
+            this.notesTxt.Size = new System.Drawing.Size(330, 164);
             this.notesTxt.TabIndex = 11;
             // 
             // submitBtn
@@ -100,11 +101,11 @@
             this.submitBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
             this.submitBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(168)))), ((int)(((byte)(115)))));
             this.submitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.submitBtn.Font = new System.Drawing.Font("Gadugi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitBtn.Location = new System.Drawing.Point(100, 484);
+            this.submitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.submitBtn.Location = new System.Drawing.Point(114, 366);
             this.submitBtn.Margin = new System.Windows.Forms.Padding(4);
             this.submitBtn.Name = "submitBtn";
-            this.submitBtn.Size = new System.Drawing.Size(132, 43);
+            this.submitBtn.Size = new System.Drawing.Size(71, 41);
             this.submitBtn.TabIndex = 12;
             this.submitBtn.Text = "Submit";
             this.submitBtn.UseVisualStyleBackColor = false;
@@ -115,7 +116,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(199)))), ((int)(((byte)(137)))));
-            this.ClientSize = new System.Drawing.Size(480, 580);
+            this.ClientSize = new System.Drawing.Size(374, 422);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

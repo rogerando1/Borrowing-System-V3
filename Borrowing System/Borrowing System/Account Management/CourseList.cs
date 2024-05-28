@@ -1,14 +1,7 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Borrowing_System.Data;
+using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Borrowing_System.Data;
 
 namespace Borrowing_System.Account_Management
 {
@@ -98,7 +91,7 @@ namespace Borrowing_System.Account_Management
             connection.Close();
 
             //Delete the course from the database
-            if(MessageBox.Show("Are you sure you want to delete this course?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show("Are you sure you want to delete this course?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 return;
             }

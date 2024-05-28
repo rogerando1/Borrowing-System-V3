@@ -1,14 +1,6 @@
 ﻿using Borrowing_System.Data;
 using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Borrowing_System.Account_Management
@@ -32,7 +24,7 @@ namespace Borrowing_System.Account_Management
         }
 
         private void courseIDTxtbx_TextChanged(object sender, EventArgs e)
-        {           
+        {
             courseTimer.Stop();
             courseTimer.Start();
         }
@@ -90,7 +82,7 @@ namespace Borrowing_System.Account_Management
             string endTime = DateTime.Parse(endtimeTxtbx.Text).ToString("HH:mm:ss");
             try
             {
-                if(instructornameTxtbx.Text == "" || courseIDTxtbx.Text == "" || coursenameTxtbx.Text == "" || sectionTxtbx.Text == "" || starttimeTxtbx.Text == "" || endtimeTxtbx.Text == "")
+                if (instructornameTxtbx.Text == "" || courseIDTxtbx.Text == "" || coursenameTxtbx.Text == "" || sectionTxtbx.Text == "" || starttimeTxtbx.Text == "" || endtimeTxtbx.Text == "")
                 {
                     MessageBox.Show("Please fill in the required fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -236,7 +228,7 @@ namespace Borrowing_System.Account_Management
             {
                 instructorIDTxtbx.Text = mySqlDataReader.GetString("instructorID");
             }
-            if(instructornameTxtbx.Text == "" || instructorIDTxtbx.Text.Length < 1)
+            if (instructornameTxtbx.Text == "" || instructorIDTxtbx.Text.Length < 1)
             {
                 instructorIDTxtbx.Text = "";
             }

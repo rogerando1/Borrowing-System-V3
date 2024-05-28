@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Borrowing_System.Data;
+﻿using Borrowing_System.Data;
 using MySql.Data.MySqlClient;
+using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using OfficeOpenXml.Table;
-using OfficeOpenXml;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 
 namespace Borrowing_System
@@ -163,15 +156,15 @@ namespace Borrowing_System
             int productID = 0;
 
             MySqlConnection connection = new MySqlConnection($"datasource={DatabaseConfig.ServerName};port=3306;username={DatabaseConfig.UserId};password={DatabaseConfig.Password};database={DatabaseConfig.DatabaseName}");
-                connection.Open();
-                MySqlCommand cmd = new MySqlCommand("SELECT productID FROM Product WHERE productname = @productName", connection);
-                cmd.Parameters.AddWithValue("@productName", productName);
-                MySqlDataReader reader1 = cmd.ExecuteReader();
-                if (reader1.Read())
-                {
-                    productID = reader1.GetInt32("productID");
-                }
-                reader1.Close();
+            connection.Open();
+            MySqlCommand cmd = new MySqlCommand("SELECT productID FROM Product WHERE productname = @productName", connection);
+            cmd.Parameters.AddWithValue("@productName", productName);
+            MySqlDataReader reader1 = cmd.ExecuteReader();
+            if (reader1.Read())
+            {
+                productID = reader1.GetInt32("productID");
+            }
+            reader1.Close();
 
 
 
@@ -400,7 +393,7 @@ namespace Borrowing_System
             partdescriptionTxtbx.Text = "";
             quantityTxtbx.Value = 0;
             defectiveTxtbx.Value = 0;
-        }    
+        }
 
         private void adminInventoryData_CellClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Borrowing_System
@@ -42,7 +36,7 @@ namespace Borrowing_System
             f.Show();
         }
 
-      
+
 
         private void homeBTN_Click(object sender, EventArgs e)
         {
@@ -120,7 +114,7 @@ namespace Borrowing_System
             loadform(new TransactionLogsPage());
             staffFormPanel.Visible = true;
             homeBTN.BackColor = Color.FromArgb(233, 215, 174);
-            homeBTN.ForeColor = Color.FromArgb(84, 84, 84);        
+            homeBTN.ForeColor = Color.FromArgb(84, 84, 84);
             dashboardBTN.BackColor = Color.FromArgb(233, 215, 174);
             dashboardBTN.ForeColor = Color.FromArgb(84, 84, 84);
             transactionBTN.BackColor = Color.FromArgb(233, 215, 174);
@@ -136,7 +130,7 @@ namespace Borrowing_System
         private void settingsBTN_Click(object sender, EventArgs e)
         {
             loadform(new Settings());
-            staffFormPanel.Visible = true;          
+            staffFormPanel.Visible = true;
             homeBTN.BackColor = Color.FromArgb(233, 215, 174);
             homeBTN.ForeColor = Color.FromArgb(84, 84, 84);
             dashboardBTN.BackColor = Color.FromArgb(233, 215, 174);
