@@ -200,6 +200,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,14 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,9 +297,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Login layer 1 %284%29.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\home icon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -318,28 +315,7 @@
     <None Include="Resources\settings icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Dashboard Page.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\search icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Transaction Page.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Staff invenotry Page.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Staff invenotry Page1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Transaction Logs Page.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Settings Page.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Account Info.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo1.png" />
@@ -351,67 +327,7 @@
     <None Include="Resources\about icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\About Page.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\About Page1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\About Page %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Account Info Page.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\account management icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Admin invenotry %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Admin invenotry %281%291.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Admin invenotry %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Admin invenotry %283%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Admin invenotry %284%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\acc management %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\acc management %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\acc_management_background1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\acc_management_employee1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2%281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1%281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1%282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3%281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2%282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Full Page %281%29.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Settings %281%29.png" />
@@ -423,61 +339,10 @@
     <None Include="Resources\return3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\accntmanagment.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\accmangemtnt.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1%283%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2%283%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3%282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3%283%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\2%284%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\4%281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\courselistUI.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\courselistUI1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\instructorUI.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\instructorUI1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\instructorsUI.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\add notes.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\eye2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eye1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\111.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\First Name.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delete1.png" />
@@ -489,22 +354,10 @@
     <None Include="Resources\Excel-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\instructorl.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\instructor1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="borrow.ico" />
     <None Include="Resources\Admininventorypage %281296x582%29%281296x582%29 %282%29.png" />
     <None Include="Resources\Staffinventorypage %281296x582%29 %283%29.png" />
     <None Include="Resources\Staffinventorypage %281296x582%29 %282%29.png" />
-    <None Include="Resources\Staff Logs %282%29.png" />
-    <None Include="Resources\Staff Logs %281%29.png" />
-    <None Include="Resources\1532, 650.png" />
-    <None Include="Resources\Dashboard %281%29.png" />
-    <None Include="Resources\Dashboard.png" />
-    <None Include="Resources\Dashboard_Page.png" />
     <None Include="Resources\Home_Page.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
