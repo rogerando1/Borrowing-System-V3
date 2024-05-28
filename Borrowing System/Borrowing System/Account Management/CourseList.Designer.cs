@@ -41,7 +41,7 @@
             this.coursenameTxtbx.Location = new System.Drawing.Point(18, 150);
             this.coursenameTxtbx.Name = "coursenameTxtbx";
             this.coursenameTxtbx.Size = new System.Drawing.Size(337, 19);
-            this.coursenameTxtbx.TabIndex = 7;
+            this.coursenameTxtbx.TabIndex = 1;
             // 
             // courseIDTxtbx
             // 
@@ -50,7 +50,7 @@
             this.courseIDTxtbx.Location = new System.Drawing.Point(18, 77);
             this.courseIDTxtbx.Name = "courseIDTxtbx";
             this.courseIDTxtbx.Size = new System.Drawing.Size(155, 19);
-            this.courseIDTxtbx.TabIndex = 6;
+            this.courseIDTxtbx.TabIndex = 0;
             // 
             // clearBTN
             // 
@@ -63,7 +63,7 @@
             this.clearBTN.Location = new System.Drawing.Point(189, 303);
             this.clearBTN.Name = "clearBTN";
             this.clearBTN.Size = new System.Drawing.Size(71, 40);
-            this.clearBTN.TabIndex = 12;
+            this.clearBTN.TabIndex = 3;
             this.clearBTN.Text = "Clear";
             this.clearBTN.UseVisualStyleBackColor = false;
             this.clearBTN.Click += new System.EventHandler(this.clearBTN_Click);
@@ -79,7 +79,7 @@
             this.createBTN.Location = new System.Drawing.Point(114, 303);
             this.createBTN.Name = "createBTN";
             this.createBTN.Size = new System.Drawing.Size(71, 40);
-            this.createBTN.TabIndex = 13;
+            this.createBTN.TabIndex = 2;
             this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
             this.createBTN.Click += new System.EventHandler(this.createBTN_Click);

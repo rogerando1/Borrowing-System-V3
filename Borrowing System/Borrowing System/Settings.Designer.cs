@@ -58,7 +58,7 @@
             this.aboutBTN.Location = new System.Drawing.Point(89, 390);
             this.aboutBTN.Name = "aboutBTN";
             this.aboutBTN.Size = new System.Drawing.Size(181, 45);
-            this.aboutBTN.TabIndex = 8;
+            this.aboutBTN.TabIndex = 1;
             this.aboutBTN.Text = "       About";
             this.aboutBTN.UseVisualStyleBackColor = false;
             this.aboutBTN.Click += new System.EventHandler(this.aboutBTN_Click);
@@ -76,7 +76,7 @@
             this.logoutBTN.Location = new System.Drawing.Point(89, 508);
             this.logoutBTN.Name = "logoutBTN";
             this.logoutBTN.Size = new System.Drawing.Size(181, 40);
-            this.logoutBTN.TabIndex = 9;
+            this.logoutBTN.TabIndex = 2;
             this.logoutBTN.Text = "LOG OUT";
             this.logoutBTN.UseVisualStyleBackColor = false;
             this.logoutBTN.Click += new System.EventHandler(this.logoutBTN_Click);
@@ -94,7 +94,7 @@
             this.profileBTN.Location = new System.Drawing.Point(89, 333);
             this.profileBTN.Name = "profileBTN";
             this.profileBTN.Size = new System.Drawing.Size(181, 45);
-            this.profileBTN.TabIndex = 11;
+            this.profileBTN.TabIndex = 0;
             this.profileBTN.Text = "       Profile";
             this.profileBTN.UseVisualStyleBackColor = false;
             this.profileBTN.Click += new System.EventHandler(this.profileBTN_Click);
@@ -117,7 +117,7 @@
             this.accountInfoPanel.Location = new System.Drawing.Point(361, 0);
             this.accountInfoPanel.Name = "accountInfoPanel";
             this.accountInfoPanel.Size = new System.Drawing.Size(935, 582);
-            this.accountInfoPanel.TabIndex = 7;
+            this.accountInfoPanel.TabIndex = 3;
             // 
             // editBTN
             // 
@@ -149,7 +149,7 @@
             this.doneBTN.Location = new System.Drawing.Point(672, 448);
             this.doneBTN.Name = "doneBTN";
             this.doneBTN.Size = new System.Drawing.Size(70, 40);
-            this.doneBTN.TabIndex = 9;
+            this.doneBTN.TabIndex = 7;
             this.doneBTN.Text = "Done";
             this.doneBTN.UseVisualStyleBackColor = false;
             this.doneBTN.Visible = false;
@@ -164,7 +164,7 @@
             this.positionTxtbx.Name = "positionTxtbx";
             this.positionTxtbx.ReadOnly = true;
             this.positionTxtbx.Size = new System.Drawing.Size(191, 19);
-            this.positionTxtbx.TabIndex = 8;
+            this.positionTxtbx.TabIndex = 3;
             // 
             // passwordTxtbx
             // 
@@ -188,7 +188,7 @@
             this.usernameTxtbx.Name = "usernameTxtbx";
             this.usernameTxtbx.ReadOnly = true;
             this.usernameTxtbx.Size = new System.Drawing.Size(191, 20);
-            this.usernameTxtbx.TabIndex = 4;
+            this.usernameTxtbx.TabIndex = 2;
             // 
             // lastnameTxtbx
             // 
@@ -200,7 +200,7 @@
             this.lastnameTxtbx.Name = "lastnameTxtbx";
             this.lastnameTxtbx.ReadOnly = true;
             this.lastnameTxtbx.Size = new System.Drawing.Size(191, 20);
-            this.lastnameTxtbx.TabIndex = 3;
+            this.lastnameTxtbx.TabIndex = 4;
             // 
             // firstnameTxtbx
             // 
@@ -252,7 +252,7 @@
             this.aboutPanel.Location = new System.Drawing.Point(361, 0);
             this.aboutPanel.Name = "aboutPanel";
             this.aboutPanel.Size = new System.Drawing.Size(935, 582);
-            this.aboutPanel.TabIndex = 10;
+            this.aboutPanel.TabIndex = 4;
             // 
             // Settings
             // 

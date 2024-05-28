@@ -109,7 +109,7 @@
             this.uploadBTN.Location = new System.Drawing.Point(77, 349);
             this.uploadBTN.Name = "uploadBTN";
             this.uploadBTN.Size = new System.Drawing.Size(220, 44);
-            this.uploadBTN.TabIndex = 53;
+            this.uploadBTN.TabIndex = 9;
             this.uploadBTN.Text = "Upload through CSV";
             this.uploadBTN.UseVisualStyleBackColor = false;
             this.uploadBTN.Click += new System.EventHandler(this.uploadBTN_Click);
@@ -125,7 +125,7 @@
             this.createBTN.Location = new System.Drawing.Point(152, 303);
             this.createBTN.Name = "createBTN";
             this.createBTN.Size = new System.Drawing.Size(70, 40);
-            this.createBTN.TabIndex = 54;
+            this.createBTN.TabIndex = 7;
             this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
             this.createBTN.Click += new System.EventHandler(this.createBTN_Click);
@@ -141,7 +141,7 @@
             this.clearBTN.Location = new System.Drawing.Point(77, 303);
             this.clearBTN.Name = "clearBTN";
             this.clearBTN.Size = new System.Drawing.Size(70, 40);
-            this.clearBTN.TabIndex = 55;
+            this.clearBTN.TabIndex = 6;
             this.clearBTN.Text = "Clear";
             this.clearBTN.UseVisualStyleBackColor = false;
             this.clearBTN.Click += new System.EventHandler(this.clearBTN_Click);
@@ -157,7 +157,7 @@
             this.updateBTN.Location = new System.Drawing.Point(227, 303);
             this.updateBTN.Name = "updateBTN";
             this.updateBTN.Size = new System.Drawing.Size(70, 40);
-            this.updateBTN.TabIndex = 56;
+            this.updateBTN.TabIndex = 8;
             this.updateBTN.Text = "Update";
             this.updateBTN.UseVisualStyleBackColor = false;
             this.updateBTN.Click += new System.EventHandler(this.updateBTN_Click);

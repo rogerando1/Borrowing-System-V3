@@ -47,7 +47,7 @@
             this.passwordTxtbx.Location = new System.Drawing.Point(203, 149);
             this.passwordTxtbx.Name = "passwordTxtbx";
             this.passwordTxtbx.Size = new System.Drawing.Size(151, 19);
-            this.passwordTxtbx.TabIndex = 49;
+            this.passwordTxtbx.TabIndex = 5;
             // 
             // usernameTxtbx
             // 
@@ -56,7 +56,7 @@
             this.usernameTxtbx.Location = new System.Drawing.Point(203, 77);
             this.usernameTxtbx.Name = "usernameTxtbx";
             this.usernameTxtbx.Size = new System.Drawing.Size(151, 19);
-            this.usernameTxtbx.TabIndex = 48;
+            this.usernameTxtbx.TabIndex = 4;
             // 
             // minitialTxtbx
             // 
@@ -67,7 +67,7 @@
             this.minitialTxtbx.Multiline = true;
             this.minitialTxtbx.Name = "minitialTxtbx";
             this.minitialTxtbx.Size = new System.Drawing.Size(153, 20);
-            this.minitialTxtbx.TabIndex = 46;
+            this.minitialTxtbx.TabIndex = 2;
             // 
             // fnameTxtbx
             // 
@@ -77,7 +77,7 @@
             this.fnameTxtbx.Multiline = true;
             this.fnameTxtbx.Name = "fnameTxtbx";
             this.fnameTxtbx.Size = new System.Drawing.Size(153, 20);
-            this.fnameTxtbx.TabIndex = 45;
+            this.fnameTxtbx.TabIndex = 1;
             // 
             // personIDTxtbx
             // 
@@ -89,7 +89,7 @@
             this.personIDTxtbx.Name = "personIDTxtbx";
             this.personIDTxtbx.ReadOnly = true;
             this.personIDTxtbx.Size = new System.Drawing.Size(153, 20);
-            this.personIDTxtbx.TabIndex = 44;
+            this.personIDTxtbx.TabIndex = 0;
             // 
             // positionCmbx
             // 
@@ -104,7 +104,7 @@
             this.positionCmbx.Location = new System.Drawing.Point(203, 217);
             this.positionCmbx.Name = "positionCmbx";
             this.positionCmbx.Size = new System.Drawing.Size(152, 28);
-            this.positionCmbx.TabIndex = 54;
+            this.positionCmbx.TabIndex = 6;
             // 
             // clearBtn
             // 
@@ -117,7 +117,7 @@
             this.clearBtn.Location = new System.Drawing.Point(77, 349);
             this.clearBtn.Name = "clearBtn";
             this.clearBtn.Size = new System.Drawing.Size(70, 41);
-            this.clearBtn.TabIndex = 53;
+            this.clearBtn.TabIndex = 7;
             this.clearBtn.Text = "Clear";
             this.clearBtn.UseVisualStyleBackColor = false;
             this.clearBtn.Click += new System.EventHandler(this.clearBtn_Click);
@@ -133,7 +133,7 @@
             this.updateBTN.Location = new System.Drawing.Point(227, 349);
             this.updateBTN.Name = "updateBTN";
             this.updateBTN.Size = new System.Drawing.Size(70, 41);
-            this.updateBTN.TabIndex = 51;
+            this.updateBTN.TabIndex = 9;
             this.updateBTN.Text = "Update";
             this.updateBTN.UseVisualStyleBackColor = false;
             this.updateBTN.Click += new System.EventHandler(this.updateBTN_Click);
@@ -149,7 +149,7 @@
             this.createBTN.Location = new System.Drawing.Point(152, 349);
             this.createBTN.Name = "createBTN";
             this.createBTN.Size = new System.Drawing.Size(70, 41);
-            this.createBTN.TabIndex = 50;
+            this.createBTN.TabIndex = 8;
             this.createBTN.Text = "Add";
             this.createBTN.UseVisualStyleBackColor = false;
             this.createBTN.Click += new System.EventHandler(this.createBTN_Click);
@@ -162,7 +162,7 @@
             this.lnameTxtbx.Multiline = true;
             this.lnameTxtbx.Name = "lnameTxtbx";
             this.lnameTxtbx.Size = new System.Drawing.Size(153, 20);
-            this.lnameTxtbx.TabIndex = 47;
+            this.lnameTxtbx.TabIndex = 3;
             // 
             // EmployeeList
             // 
