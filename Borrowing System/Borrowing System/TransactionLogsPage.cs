@@ -177,10 +177,6 @@ namespace Borrowing_System
             logsTable.DataSource = dt;
         }
 
-
-
-
-
         private void searchLogData(string search)
         {
             search = "%" + search + "%";
@@ -249,7 +245,6 @@ namespace Borrowing_System
             }
         }
 
-
         private void searchBTN_Click(object sender, EventArgs e)
         {
             string search = searchData.Text;
@@ -280,8 +275,6 @@ namespace Borrowing_System
             refreshData();
             logsTable.Columns["studentName"].Visible = true;
         }
-
-
 
         private void dateSearch1_ValueChanged(object sender, EventArgs e)
         {

@@ -443,6 +443,16 @@ namespace Borrowing_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Admininventorypage__1296x582__1296x582___2_ {
+            get {
+                object obj = ResourceManager.GetObject("Admininventorypage (1296x582)(1296x582) (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Adminpage__1320x770_ {
             get {
                 object obj = ResourceManager.GetObject("Adminpage (1320x770)", resourceCulture);
@@ -936,6 +946,26 @@ namespace Borrowing_System.Properties {
         internal static System.Drawing.Bitmap Staffinventorypage__1296x582___1_ {
             get {
                 object obj = ResourceManager.GetObject("Staffinventorypage (1296x582) (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Staffinventorypage__1296x582___2_ {
+            get {
+                object obj = ResourceManager.GetObject("Staffinventorypage (1296x582) (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Staffinventorypage__1296x582___3_ {
+            get {
+                object obj = ResourceManager.GetObject("Staffinventorypage (1296x582) (3)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

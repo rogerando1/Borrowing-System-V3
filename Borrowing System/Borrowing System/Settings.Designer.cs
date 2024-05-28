@@ -172,9 +172,10 @@
             this.passwordTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTxtbx.Location = new System.Drawing.Point(716, 348);
+            this.passwordTxtbx.Multiline = true;
             this.passwordTxtbx.Name = "passwordTxtbx";
             this.passwordTxtbx.ReadOnly = true;
-            this.passwordTxtbx.Size = new System.Drawing.Size(191, 19);
+            this.passwordTxtbx.Size = new System.Drawing.Size(191, 20);
             this.passwordTxtbx.TabIndex = 5;
             // 
             // usernameTxtbx
@@ -183,9 +184,10 @@
             this.usernameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usernameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.usernameTxtbx.Location = new System.Drawing.Point(428, 349);
+            this.usernameTxtbx.Multiline = true;
             this.usernameTxtbx.Name = "usernameTxtbx";
             this.usernameTxtbx.ReadOnly = true;
-            this.usernameTxtbx.Size = new System.Drawing.Size(191, 19);
+            this.usernameTxtbx.Size = new System.Drawing.Size(191, 20);
             this.usernameTxtbx.TabIndex = 4;
             // 
             // lastnameTxtbx
@@ -194,9 +196,10 @@
             this.lastnameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lastnameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lastnameTxtbx.Location = new System.Drawing.Point(716, 266);
+            this.lastnameTxtbx.Multiline = true;
             this.lastnameTxtbx.Name = "lastnameTxtbx";
             this.lastnameTxtbx.ReadOnly = true;
-            this.lastnameTxtbx.Size = new System.Drawing.Size(191, 19);
+            this.lastnameTxtbx.Size = new System.Drawing.Size(191, 20);
             this.lastnameTxtbx.TabIndex = 3;
             // 
             // firstnameTxtbx
@@ -205,9 +208,10 @@
             this.firstnameTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.firstnameTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.firstnameTxtbx.Location = new System.Drawing.Point(428, 266);
+            this.firstnameTxtbx.Multiline = true;
             this.firstnameTxtbx.Name = "firstnameTxtbx";
             this.firstnameTxtbx.ReadOnly = true;
-            this.firstnameTxtbx.Size = new System.Drawing.Size(191, 19);
+            this.firstnameTxtbx.Size = new System.Drawing.Size(191, 20);
             this.firstnameTxtbx.TabIndex = 1;
             // 
             // employeeIDTxtbx
@@ -216,9 +220,10 @@
             this.employeeIDTxtbx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.employeeIDTxtbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.employeeIDTxtbx.Location = new System.Drawing.Point(428, 186);
+            this.employeeIDTxtbx.Multiline = true;
             this.employeeIDTxtbx.Name = "employeeIDTxtbx";
             this.employeeIDTxtbx.ReadOnly = true;
-            this.employeeIDTxtbx.Size = new System.Drawing.Size(191, 19);
+            this.employeeIDTxtbx.Size = new System.Drawing.Size(191, 20);
             this.employeeIDTxtbx.TabIndex = 0;
             // 
             // updateBTN
@@ -258,8 +263,8 @@
             this.Controls.Add(this.profileBTN);
             this.Controls.Add(this.logoutBTN);
             this.Controls.Add(this.aboutBTN);
-            this.Controls.Add(this.aboutPanel);
             this.Controls.Add(this.accountInfoPanel);
+            this.Controls.Add(this.aboutPanel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Settings";

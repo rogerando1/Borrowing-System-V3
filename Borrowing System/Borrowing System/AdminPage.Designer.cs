@@ -225,7 +225,7 @@
             this.employeeITxt.BackColor = System.Drawing.Color.Transparent;
             this.employeeITxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employeeITxt.ForeColor = System.Drawing.Color.Yellow;
-            this.employeeITxt.Location = new System.Drawing.Point(1244, 76);
+            this.employeeITxt.Location = new System.Drawing.Point(1150, 76);
             this.employeeITxt.Name = "employeeITxt";
             this.employeeITxt.Size = new System.Drawing.Size(96, 18);
             this.employeeITxt.TabIndex = 30;

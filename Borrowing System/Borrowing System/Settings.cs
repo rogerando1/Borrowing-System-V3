@@ -82,7 +82,6 @@ namespace Borrowing_System
         {
             UpdateInfo();
         }
-
         private void doneBTN_Click(object sender, EventArgs e)
         {
             firstnameTxtbx.ReadOnly = true;
@@ -102,7 +101,7 @@ namespace Borrowing_System
             doneBTN.Visible = true;
             editBTN.Visible = false;
         }
-
+        
         private void profileBTN_Click(object sender, EventArgs e)
         {
             aboutBTN.BackColor = Color.White;

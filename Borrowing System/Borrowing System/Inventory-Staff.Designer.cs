@@ -41,14 +41,14 @@
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.quantityTxtbx = new System.Windows.Forms.TextBox();
             this.staffInventoryData = new System.Windows.Forms.DataGridView();
-            this.productnamelist = new System.Windows.Forms.ComboBox();
-            this.excelExportBTN = new System.Windows.Forms.Button();
             this.productname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partdescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.defective = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productnamelist = new System.Windows.Forms.ComboBox();
+            this.excelExportBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.staffInventoryData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,9 +131,9 @@
             // 
             this.searchData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.searchData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.searchData.Location = new System.Drawing.Point(590, 33);
+            this.searchData.Location = new System.Drawing.Point(653, 33);
             this.searchData.Name = "searchData";
-            this.searchData.Size = new System.Drawing.Size(583, 19);
+            this.searchData.Size = new System.Drawing.Size(520, 19);
             this.searchData.TabIndex = 44;
             this.searchData.TextChanged += new System.EventHandler(this.searchData_TextChanged);
             this.searchData.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchData_KeyDown);
@@ -223,39 +223,6 @@
             this.staffInventoryData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.staffInventoryData_CellClick);
             this.staffInventoryData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.staffInventoryData_CellContentClick);
             // 
-            // productnamelist
-            // 
-            this.productnamelist.BackColor = System.Drawing.Color.White;
-            this.productnamelist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.productnamelist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.productnamelist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.productnamelist.FormattingEnabled = true;
-            this.productnamelist.Location = new System.Drawing.Point(324, 31);
-            this.productnamelist.Name = "productnamelist";
-            this.productnamelist.Size = new System.Drawing.Size(238, 26);
-            this.productnamelist.TabIndex = 42;
-            this.productnamelist.DropDown += new System.EventHandler(this.productnamelist_DropDown);
-            this.productnamelist.SelectedIndexChanged += new System.EventHandler(this.productnamelist_SelectedIndexChanged);
-            // 
-            // excelExportBTN
-            // 
-            this.excelExportBTN.BackColor = System.Drawing.Color.White;
-            this.excelExportBTN.BackgroundImage = global::Borrowing_System.Properties.Resources.Excel_icon;
-            this.excelExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.excelExportBTN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.excelExportBTN.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.excelExportBTN.FlatAppearance.BorderSize = 0;
-            this.excelExportBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.excelExportBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.excelExportBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.excelExportBTN.ForeColor = System.Drawing.Color.White;
-            this.excelExportBTN.Location = new System.Drawing.Point(1245, 24);
-            this.excelExportBTN.Name = "excelExportBTN";
-            this.excelExportBTN.Size = new System.Drawing.Size(40, 40);
-            this.excelExportBTN.TabIndex = 52;
-            this.excelExportBTN.UseVisualStyleBackColor = false;
-            this.excelExportBTN.Click += new System.EventHandler(this.excelExportBTN_Click);
-            // 
             // productname
             // 
             this.productname.DataPropertyName = "productname";
@@ -315,11 +282,44 @@
             this.defective.ReadOnly = true;
             this.defective.Width = 79;
             // 
+            // productnamelist
+            // 
+            this.productnamelist.BackColor = System.Drawing.Color.White;
+            this.productnamelist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.productnamelist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.productnamelist.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.productnamelist.FormattingEnabled = true;
+            this.productnamelist.Location = new System.Drawing.Point(324, 31);
+            this.productnamelist.Name = "productnamelist";
+            this.productnamelist.Size = new System.Drawing.Size(307, 26);
+            this.productnamelist.TabIndex = 42;
+            this.productnamelist.DropDown += new System.EventHandler(this.productnamelist_DropDown);
+            this.productnamelist.SelectedIndexChanged += new System.EventHandler(this.productnamelist_SelectedIndexChanged);
+            // 
+            // excelExportBTN
+            // 
+            this.excelExportBTN.BackColor = System.Drawing.Color.White;
+            this.excelExportBTN.BackgroundImage = global::Borrowing_System.Properties.Resources.Excel_icon;
+            this.excelExportBTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.excelExportBTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.excelExportBTN.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.excelExportBTN.FlatAppearance.BorderSize = 0;
+            this.excelExportBTN.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.excelExportBTN.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.excelExportBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.excelExportBTN.ForeColor = System.Drawing.Color.White;
+            this.excelExportBTN.Location = new System.Drawing.Point(1245, 24);
+            this.excelExportBTN.Name = "excelExportBTN";
+            this.excelExportBTN.Size = new System.Drawing.Size(40, 40);
+            this.excelExportBTN.TabIndex = 52;
+            this.excelExportBTN.UseVisualStyleBackColor = false;
+            this.excelExportBTN.Click += new System.EventHandler(this.excelExportBTN_Click);
+            // 
             // Inventory_Staff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Staffinventorypage__1296x582___1_;
+            this.BackgroundImage = global::Borrowing_System.Properties.Resources.Staffinventorypage__1296x582___3_;
             this.ClientSize = new System.Drawing.Size(1296, 582);
             this.Controls.Add(this.excelExportBTN);
             this.Controls.Add(this.defectiveTxtbx);
